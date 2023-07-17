@@ -1,0 +1,8 @@
+serviceName,CLOUDLET_PES,CLOUDLET_LENGTH, ramUtilizationModel,bwUtilizationModel,FileSize,OutputSize,Confidentiality,Integrity,Availibility
+ObtainClaimService,2,10000,0.2,0.4,2048,2048,0.5,1,1
+HospitalReport,2,10000,0.2,0.4,2048,2048,0.5,1,1
+PoliceReport,2,10000,0.2,0.4,2048,2048,0.5,1,1
+SelectBestExpert,3,10000,0.4,0.1,1024,1024,1,1,1
+BankReimbursment,2,10000,0.2,0.4,2048,2048,0.5,1,1
+CustomerFeedbackCollection,2,10000,0.2,0.4,2048,2048,0.5,1,1
+hello,1,1000,0.2,0.1,512,1024,0.5,0,0.5

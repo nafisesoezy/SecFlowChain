@@ -1,0 +1,2 @@
+serviceTask;ObtainClaimService,0.5,1.5,1.5;SelectBestExpert,1.5,1.5,1 
+userTask;InitialClaimUser;ObtainHospitalReport;ObtainPoliceReport;ReimbursementDecision

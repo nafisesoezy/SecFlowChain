@@ -1,0 +1,4 @@
+dos;low,Late,ReExecute;medium,ReExecute,Insert;high,ReExecute,Insert,ReConfiguration,Redundancy
+probe;low,Skip;medium,ReConfiguration,Skip;high,ReConfiguration,Skip
+u2r;low,ReExecute,Insert;medium,ReExecute,Insert;high,ReExecute,ReConfiguration,Insert,Redundancy
+r2l;low,ReExecute;medium,ReExecute,Insert;high,ReExecute,ReConfiguration,Insert

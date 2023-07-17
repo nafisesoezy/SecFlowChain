@@ -1,0 +1,45 @@
+The KDD dataset is a collection of network intrusion detection system (NIDS) data, and the features in the dataset can be categorized as follows
+
+Basic features
+duration the duration of the connection in seconds.
+protocol_type the protocol used in the connection, such as TCP or UDP.
+service the type of service requested in the connection, such as http or ftp.
+flag the status of the connection, such as FIN or SYN.
+Traffic features
+src_bytes the number of data bytes sent from the source to the destination.
+dst_bytes the number of data bytes sent from the destination to the source.
+land a boolean value indicating whether the connection is fromto the same hostport.
+wrong_fragment the number of wrong fragments (i.e., fragments with a bad checksum) in the connection.
+urgent the number of urgent packets in the connection.
+hot the number of hot indicators in the connection.
+num_failed_logins the number of failed login attempts.
+logged_in a boolean value indicating whether the user is logged in.
+num_compromised the number of compromised conditions.
+root_shell a boolean value indicating whether a root shell was obtained.
+su_attempted a boolean value indicating whether the user attempted to escalate privileges.
+num_root the number of root accesses.
+num_file_creations the number of file creation operations.
+num_shells the number of shell prompts.
+num_access_files the number of operations on access control files.
+num_outbound_cmds the number of outbound commands in an ftp session.
+is_hot_login a boolean value indicating whether the login belongs to the hot list (i.e., a list of users who have been suspected of system penetration).
+is_guest_login a boolean value indicating whether the login is a guest login.
+Connection features
+count the number of connections to the same host as the current connection in the past two seconds.
+srv_count the number of connections to the same service as the current connection in the past two seconds.
+serror_rate the percentage of connections that have SYN errors.
+srv_serror_rate the percentage of connections to the same service that have SYN errors.
+rerror_rate the percentage of connections that have REJ errors.
+srv_rerror_rate the percentage of connections to the same service that have REJ errors.
+same_srv_rate the percentage of connections to the same service.
+diff_srv_rate the percentage of connections to different services.
+srv_diff_host_rate the percentage of connections to different hosts for the same service.
+dst_host_count the number of connections to the same destination host in the past two seconds.
+dst_host_srv_count the number of connections to the same service on the same destination host in the past two seconds.
+dst_host_same_srv_rate the percentage of connections to the same service on the same destination host.
+dst_host_diff_srv_rate the percentage of connections to different services on the same destination host.
+dst_host_same_src_port_rate the percentage of connections from the same source port to the same destination host and port.
+dst_host_srv_diff_host_rate the percentage of connections to different hosts for the same service on the same destination host.
+dst_host_serror_rate the percentage of connections to the same destination host that have SYN errors.
+dst_host_srv_serror_rate the percentage of connections to the same service on the same destination host that have SYN errors.
+dst_host_rerror_rate the percentage of connections to the same destination

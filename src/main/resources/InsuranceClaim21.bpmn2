@@ -1,0 +1,2104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- origin at X=0.0 Y=0.0 -->
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:java="http://www.java.com/javaTypes" xmlns:tns="http://www.jboss.org/drools" xmlns="http://www.jboss.org/drools" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd" id="Definition" exporter="org.eclipse.bpmn2.modeler.core" exporterVersion="1.5.3.Final-v20210519-2007-B1" expressionLanguage="http://www.mvel.org/2.0" targetNamespace="http://www.example.org/MinimalExample" typeLanguage="http://www.java.com/javaTypes">
+  <bpmn2:itemDefinition id="_sItem" isCollection="false" structureRef="String"/>
+  <bpmn2:itemDefinition id="_2_InMessageType" isCollection="false" structureRef="java.lang.String"/>
+  <bpmn2:itemDefinition id="ItemDefinition_10" isCollection="false" structureRef="java.lang.Integer"/>
+  <bpmn2:itemDefinition id="ItemDefinition_11" isCollection="false" structureRef="java.lang.Boolean"/>
+  <bpmn2:message id="_2_InMessage" itemRef="_2_InMessageType"/>
+  <bpmn2:interface id="_2_ServiceInterface" name="org.jbpm.examples.services.Services">
+    <bpmn2:operation id="_2_ServiceOperation" name="ObtainHospitalReport">
+      <bpmn2:inMessageRef>_2_InMessage</bpmn2:inMessageRef>
+    </bpmn2:operation>
+    <bpmn2:operation id="Operation_4" name="GetResult"/>
+    <bpmn2:operation id="Operation_1" name="ObtainHospitalReport"/>
+    <bpmn2:operation id="Operation_2" name="ObtainPoliceReport">
+      <bpmn2:inMessageRef>_2_InMessage</bpmn2:inMessageRef>
+    </bpmn2:operation>
+    <bpmn2:operation id="Operation_3" name="ObtainHospitalReport">
+      <bpmn2:inMessageRef>_2_InMessage</bpmn2:inMessageRef>
+    </bpmn2:operation>
+    <bpmn2:operation id="Operation_6" name="GetResult">
+      <bpmn2:inMessageRef>_2_InMessage</bpmn2:inMessageRef>
+    </bpmn2:operation>
+    <bpmn2:operation id="Operation_5" name="GetResult"/>
+    <bpmn2:operation id="Operation_8" name="Initial">
+      <bpmn2:inMessageRef>_2_InMessage</bpmn2:inMessageRef>
+    </bpmn2:operation>
+    <bpmn2:operation id="Operation_9" name="GetResult">
+      <bpmn2:inMessageRef>_2_InMessage</bpmn2:inMessageRef>
+    </bpmn2:operation>
+    <bpmn2:operation id="Operation_7" name="InitialClaimUser">
+      <bpmn2:inMessageRef>_2_InMessage</bpmn2:inMessageRef>
+    </bpmn2:operation>
+    <bpmn2:operation id="Operation_10" name="InitialClaimUser">
+      <bpmn2:inMessageRef>_2_InMessage</bpmn2:inMessageRef>
+    </bpmn2:operation>
+    <bpmn2:operation id="Operation_11" name="ObtainClaimService">
+      <bpmn2:inMessageRef>_2_InMessage</bpmn2:inMessageRef>
+    </bpmn2:operation>
+    <bpmn2:operation id="Operation_12" name="CustomerFeedbackCollection">
+      <bpmn2:inMessageRef>_2_InMessage</bpmn2:inMessageRef>
+    </bpmn2:operation>
+    <bpmn2:operation id="Operation_13" name="SelectBestExpert">
+      <bpmn2:inMessageRef>_2_InMessage</bpmn2:inMessageRef>
+    </bpmn2:operation>
+  </bpmn2:interface>
+  <bpmn2:process id="insurance21" name="Service Process" isExecutable="true" processType="Private">
+    <bpmn2:property id="s" itemSubjectRef="_sItem" name="s"/>
+    <bpmn2:startEvent id="_1" name="StartProcess">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[StartProcess]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:outgoing>SequenceFlow_6</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:serviceTask id="_2" name="ObtainClaimService" implementation="Other" operationRef="Operation_11">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[ObtainClaimService]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersObtainClaimService(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersObtainClaimService(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_8</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_1">
+        <bpmn2:dataInput id="_2_param" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="_2_result" name="Result"/>
+        <bpmn2:inputSet id="InputSet_1">
+          <bpmn2:dataInputRefs>_2_param</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_1">
+          <bpmn2:dataOutputRefs>_2_result</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_1">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>_2_param</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_1">
+        <bpmn2:sourceRef>_2_result</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_1" name="Hospital Report" operationRef="Operation_3">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Hospital Report]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersObtainHospitalReport(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersObtainPoliceReport(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_8</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_4">
+        <bpmn2:dataInput id="DataInput_1" itemSubjectRef="_sItem" name="Parameter"/>
+        <bpmn2:inputSet id="InputSet_4" name="Input Set 4">
+          <bpmn2:dataInputRefs>DataInput_1</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_4" name="Output Set 4"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_6">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_1</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_4" name="Select Best Expert" implementation="Other" operationRef="Operation_13">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Select Best Expert]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersSelectBestExpert(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersSelectBestExpert(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_75</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_8">
+        <bpmn2:dataInput id="DataInput_31" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="DataOutput_2" name="Result"/>
+        <bpmn2:inputSet id="InputSet_3">
+          <bpmn2:dataInputRefs>DataInput_31</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_8">
+          <bpmn2:dataOutputRefs>DataOutput_2</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_33">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_31</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_3">
+        <bpmn2:sourceRef>DataOutput_2</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_3" name="InitialClaimUser" implementation="Other" operationRef="Operation_10">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[InitialClaimUser]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script>
+          <tns:script>org.jbpm.examples.services.Services.SetOnEntryParameters(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersInitialClaimUser(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersInitialClaimUser(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+        <tns:metaData name="customAsync">
+          <tns:metaValue><![CDATA[true]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_6</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_44</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_2">
+        <bpmn2:dataInput id="DataInput_3" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataInput id="DataInput_5" itemSubjectRef="_sItem" name="input1"/>
+        <bpmn2:dataOutput id="DataOutput_1" name="Result"/>
+        <bpmn2:dataOutput id="DataOutput_4" itemSubjectRef="_sItem" name="output1"/>
+        <bpmn2:inputSet id="InputSet_2">
+          <bpmn2:dataInputRefs>DataInput_3</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>DataInput_5</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_2">
+          <bpmn2:dataOutputRefs>DataOutput_1</bpmn2:dataOutputRefs>
+          <bpmn2:dataOutputRefs>DataOutput_4</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_2">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_3</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_5">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_5</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_2">
+        <bpmn2:sourceRef>DataOutput_1</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_5">
+        <bpmn2:sourceRef>DataOutput_4</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_6" tns:priority="1" sourceRef="_1" targetRef="ServiceTask_3"/>
+    <bpmn2:serviceTask id="ServiceTask_5" name="Bank Reimbursement&#xD;&#xA;" implementation="Other" operationRef="Operation_12">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Bank Reimbursement
+]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersReimbursementDecision(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersReimbursementDecision(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_78</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_79</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_3">
+        <bpmn2:dataInput id="DataInput_4" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="DataOutput_3" name="Result"/>
+        <bpmn2:inputSet id="InputSet_5">
+          <bpmn2:dataInputRefs>DataInput_4</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_3">
+          <bpmn2:dataOutputRefs>DataOutput_3</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_3">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_4</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_4">
+        <bpmn2:sourceRef>DataOutput_3</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_6" name="Customer Feedback collection" implementation="Other" operationRef="Operation_12">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Customer Feedback collection]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersCustomerFeedbackCollection(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersCustomerFeedbackCollection(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_79</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_43</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_5">
+        <bpmn2:dataInput id="DataInput_6" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="DataOutput_5" name="Result"/>
+        <bpmn2:inputSet id="InputSet_6">
+          <bpmn2:dataInputRefs>DataInput_6</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_5">
+          <bpmn2:dataOutputRefs>DataOutput_5</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_4">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_6</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_6">
+        <bpmn2:sourceRef>DataOutput_5</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_8" tns:priority="1" sourceRef="_2" targetRef="ServiceTask_1"/>
+    <bpmn2:serviceTask id="ServiceTask_2" name="ObtainClaimService" implementation="Other" operationRef="Operation_11">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[ObtainClaimService]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersObtainClaimService(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersObtainClaimService(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_44</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_6">
+        <bpmn2:dataInput id="DataInput_2" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="DataOutput_6" name="Result"/>
+        <bpmn2:inputSet id="InputSet_7">
+          <bpmn2:dataInputRefs>DataInput_2</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_6">
+          <bpmn2:dataOutputRefs>DataOutput_6</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_7">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_2</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_7">
+        <bpmn2:sourceRef>DataOutput_6</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" tns:priority="1" sourceRef="ServiceTask_2" targetRef="_2"/>
+    <bpmn2:serviceTask id="ServiceTask_7" name="Hospital Report" operationRef="Operation_3">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Hospital Report]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersObtainHospitalReport(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersObtainPoliceReport(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_7">
+        <bpmn2:dataInput id="DataInput_7" itemSubjectRef="_sItem" name="Parameter"/>
+        <bpmn2:inputSet id="InputSet_8" name="Input Set 4">
+          <bpmn2:dataInputRefs>DataInput_7</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_7" name="Output Set 4"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_8">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_7</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" tns:priority="1" sourceRef="ServiceTask_1" targetRef="ServiceTask_7"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_4" tns:priority="1" sourceRef="ServiceTask_7" targetRef="ServiceTask_4"/>
+    <bpmn2:serviceTask id="ServiceTask_8" name="Bank Reimbursement&#xD;&#xA;" implementation="Other" operationRef="Operation_12">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Bank Reimbursement
+]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersReimbursementDecision(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersReimbursementDecision(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_75</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_78</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_9">
+        <bpmn2:dataInput id="DataInput_8" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="DataOutput_7" name="Result"/>
+        <bpmn2:inputSet id="InputSet_9">
+          <bpmn2:dataInputRefs>DataInput_8</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_9">
+          <bpmn2:dataOutputRefs>DataOutput_7</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_9">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_8</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_8">
+        <bpmn2:sourceRef>DataOutput_7</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_10" name="Bank Reimbursement&#xD;&#xA;" implementation="Other" operationRef="Operation_12">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Bank Reimbursement
+]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersReimbursementDecision(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersReimbursementDecision(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_84</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_86</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_11">
+        <bpmn2:dataInput id="DataInput_10" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="DataOutput_9" name="Result"/>
+        <bpmn2:inputSet id="InputSet_11">
+          <bpmn2:dataInputRefs>DataInput_10</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_11">
+          <bpmn2:dataOutputRefs>DataOutput_9</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_11">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_10</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_10">
+        <bpmn2:sourceRef>DataOutput_9</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_11" name="Hospital Report" operationRef="Operation_3">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Hospital Report]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersObtainHospitalReport(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersObtainPoliceReport(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_32</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_33</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_12">
+        <bpmn2:dataInput id="DataInput_11" itemSubjectRef="_sItem" name="Parameter"/>
+        <bpmn2:inputSet id="InputSet_12" name="Input Set 4">
+          <bpmn2:dataInputRefs>DataInput_11</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_12" name="Output Set 4"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_12">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_11</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_12" name="Hospital Report" operationRef="Operation_3">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Hospital Report]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersObtainHospitalReport(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersObtainPoliceReport(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_37</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_32</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_13">
+        <bpmn2:dataInput id="DataInput_12" itemSubjectRef="_sItem" name="Parameter"/>
+        <bpmn2:inputSet id="InputSet_13" name="Input Set 4">
+          <bpmn2:dataInputRefs>DataInput_12</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_13" name="Output Set 4"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_13">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_12</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_13" name="InitialClaimUser" implementation="Other" operationRef="Operation_10">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[InitialClaimUser]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script>
+          <tns:script>org.jbpm.examples.services.Services.SetOnEntryParameters(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersInitialClaimUser(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersInitialClaimUser(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+        <tns:metaData name="customAsync">
+          <tns:metaValue><![CDATA[true]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_43</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_80</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_14">
+        <bpmn2:dataInput id="DataInput_13" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataInput id="DataInput_14" itemSubjectRef="_sItem" name="input1"/>
+        <bpmn2:dataOutput id="DataOutput_10" name="Result"/>
+        <bpmn2:dataOutput id="DataOutput_11" itemSubjectRef="_sItem" name="output1"/>
+        <bpmn2:inputSet id="InputSet_14">
+          <bpmn2:dataInputRefs>DataInput_13</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>DataInput_14</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_14">
+          <bpmn2:dataOutputRefs>DataOutput_10</bpmn2:dataOutputRefs>
+          <bpmn2:dataOutputRefs>DataOutput_11</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_14">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_13</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_15">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_14</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_11">
+        <bpmn2:sourceRef>DataOutput_10</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_12">
+        <bpmn2:sourceRef>DataOutput_11</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_14" name="Select Best Expert" implementation="Other" operationRef="Operation_13">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Select Best Expert]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersSelectBestExpert(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersSelectBestExpert(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_33</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_83</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_15">
+        <bpmn2:dataInput id="DataInput_15" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="DataOutput_12" name="Result"/>
+        <bpmn2:inputSet id="InputSet_15">
+          <bpmn2:dataInputRefs>DataInput_15</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_15">
+          <bpmn2:dataOutputRefs>DataOutput_12</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_16">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_15</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_13">
+        <bpmn2:sourceRef>DataOutput_12</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_15" name="Bank Reimbursement&#xD;&#xA;" implementation="Other" operationRef="Operation_12">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Bank Reimbursement
+]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersReimbursementDecision(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersReimbursementDecision(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_80</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_82</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_16">
+        <bpmn2:dataInput id="DataInput_16" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="DataOutput_13" name="Result"/>
+        <bpmn2:inputSet id="InputSet_16">
+          <bpmn2:dataInputRefs>DataInput_16</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_16">
+          <bpmn2:dataOutputRefs>DataOutput_13</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_17">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_16</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_14">
+        <bpmn2:sourceRef>DataOutput_13</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_16" name="ObtainClaimService" implementation="Other" operationRef="Operation_11">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[ObtainClaimService]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersObtainClaimService(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersObtainClaimService(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_41</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_37</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_17">
+        <bpmn2:dataInput id="DataInput_17" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="DataOutput_14" name="Result"/>
+        <bpmn2:inputSet id="InputSet_17">
+          <bpmn2:dataInputRefs>DataInput_17</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_17">
+          <bpmn2:dataOutputRefs>DataOutput_14</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_18">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_17</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_15">
+        <bpmn2:sourceRef>DataOutput_14</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_17" name="Bank Reimbursement&#xD;&#xA;" implementation="Other" operationRef="Operation_12">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Bank Reimbursement
+]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersReimbursementDecision(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersReimbursementDecision(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_83</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_84</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_18">
+        <bpmn2:dataInput id="DataInput_18" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="DataOutput_15" name="Result"/>
+        <bpmn2:inputSet id="InputSet_18">
+          <bpmn2:dataInputRefs>DataInput_18</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_18">
+          <bpmn2:dataOutputRefs>DataOutput_15</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_19">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_18</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_16">
+        <bpmn2:sourceRef>DataOutput_15</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_18" name="ObtainClaimService" implementation="Other" operationRef="Operation_11">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[ObtainClaimService]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersObtainClaimService(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersObtainClaimService(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_82</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_41</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_19">
+        <bpmn2:dataInput id="DataInput_19" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="DataOutput_16" name="Result"/>
+        <bpmn2:inputSet id="InputSet_19">
+          <bpmn2:dataInputRefs>DataInput_19</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_19">
+          <bpmn2:dataOutputRefs>DataOutput_16</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_20">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_19</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_17">
+        <bpmn2:sourceRef>DataOutput_16</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_32" tns:priority="1" sourceRef="ServiceTask_12" targetRef="ServiceTask_11"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_33" tns:priority="1" sourceRef="ServiceTask_11" targetRef="ServiceTask_14"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_37" tns:priority="1" sourceRef="ServiceTask_16" targetRef="ServiceTask_12"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_41" tns:priority="1" sourceRef="ServiceTask_18" targetRef="ServiceTask_16"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_43" tns:priority="1" sourceRef="ServiceTask_6" targetRef="ServiceTask_13"/>
+    <bpmn2:serviceTask id="ServiceTask_19" name="Hospital Report" operationRef="Operation_3">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Hospital Report]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersObtainHospitalReport(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersObtainPoliceReport(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_7</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_20">
+        <bpmn2:dataInput id="DataInput_20" itemSubjectRef="_sItem" name="Parameter"/>
+        <bpmn2:inputSet id="InputSet_20" name="Input Set 4">
+          <bpmn2:dataInputRefs>DataInput_20</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_20" name="Output Set 4"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_21">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_20</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_20" name="Bank Reimbursement&#xD;&#xA;" implementation="Other" operationRef="Operation_12">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Bank Reimbursement
+]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersReimbursementDecision(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersReimbursementDecision(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_9</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_13</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_21">
+        <bpmn2:dataInput id="DataInput_21" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="DataOutput_17" name="Result"/>
+        <bpmn2:inputSet id="InputSet_21">
+          <bpmn2:dataInputRefs>DataInput_21</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_21">
+          <bpmn2:dataOutputRefs>DataOutput_17</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_22">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_21</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_18">
+        <bpmn2:sourceRef>DataOutput_17</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_13" name="Exclusive Gateway 1" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_42</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_18</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_45</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:serviceTask id="ServiceTask_21" name="InitialClaimUser" implementation="Other" operationRef="Operation_10">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[InitialClaimUser]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script>
+          <tns:script>org.jbpm.examples.services.Services.SetOnEntryParameters(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersInitialClaimUser(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersInitialClaimUser(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+        <tns:metaData name="customAsync">
+          <tns:metaValue><![CDATA[true]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_86</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_87</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_22">
+        <bpmn2:dataInput id="DataInput_22" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataInput id="DataInput_23" itemSubjectRef="_sItem" name="input1"/>
+        <bpmn2:dataOutput id="DataOutput_18" name="Result"/>
+        <bpmn2:dataOutput id="DataOutput_19" itemSubjectRef="_sItem" name="output1"/>
+        <bpmn2:inputSet id="InputSet_22">
+          <bpmn2:dataInputRefs>DataInput_22</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>DataInput_23</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_22">
+          <bpmn2:dataOutputRefs>DataOutput_18</bpmn2:dataOutputRefs>
+          <bpmn2:dataOutputRefs>DataOutput_19</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_23">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_22</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_24">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_23</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_19">
+        <bpmn2:sourceRef>DataOutput_18</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_20">
+        <bpmn2:sourceRef>DataOutput_19</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_22" name="ObtainClaimService" implementation="Other" operationRef="Operation_11">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[ObtainClaimService]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersObtainClaimService(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersObtainClaimService(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_88</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_47</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_23">
+        <bpmn2:dataInput id="DataInput_24" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="DataOutput_20" name="Result"/>
+        <bpmn2:inputSet id="InputSet_23">
+          <bpmn2:dataInputRefs>DataInput_24</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_23">
+          <bpmn2:dataOutputRefs>DataOutput_20</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_25">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_24</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_21">
+        <bpmn2:sourceRef>DataOutput_20</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_23" name="Bank Reimbursement&#xD;&#xA;" implementation="Other" operationRef="Operation_12">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Bank Reimbursement
+]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersReimbursementDecision(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersReimbursementDecision(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_49</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_50</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_24">
+        <bpmn2:dataInput id="DataInput_25" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="DataOutput_21" name="Result"/>
+        <bpmn2:inputSet id="InputSet_24">
+          <bpmn2:dataInputRefs>DataInput_25</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_24">
+          <bpmn2:dataOutputRefs>DataOutput_21</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_26">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_25</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_22">
+        <bpmn2:sourceRef>DataOutput_21</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_24" name="Hospital Report" operationRef="Operation_3">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Hospital Report]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersObtainHospitalReport(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersObtainPoliceReport(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_51</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_25">
+        <bpmn2:dataInput id="DataInput_26" itemSubjectRef="_sItem" name="Parameter"/>
+        <bpmn2:inputSet id="InputSet_25" name="Input Set 4">
+          <bpmn2:dataInputRefs>DataInput_26</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_25" name="Output Set 4"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_27">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_26</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_25" name="Customer Feedback collection" implementation="Other" operationRef="Operation_12">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Customer Feedback collection]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersCustomerFeedbackCollection(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersCustomerFeedbackCollection(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_91</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_53</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_26">
+        <bpmn2:dataInput id="DataInput_27" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="DataOutput_22" name="Result"/>
+        <bpmn2:inputSet id="InputSet_26">
+          <bpmn2:dataInputRefs>DataInput_27</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_26">
+          <bpmn2:dataOutputRefs>DataOutput_22</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_28">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_27</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_23">
+        <bpmn2:sourceRef>DataOutput_22</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_26" name="ObtainClaimService" implementation="Other" operationRef="Operation_11">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[ObtainClaimService]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersObtainClaimService(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersObtainClaimService(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_47</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_54</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_27">
+        <bpmn2:dataInput id="DataInput_28" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="DataOutput_23" name="Result"/>
+        <bpmn2:inputSet id="InputSet_27">
+          <bpmn2:dataInputRefs>DataInput_28</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_27">
+          <bpmn2:dataOutputRefs>DataOutput_23</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_29">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_28</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_24">
+        <bpmn2:sourceRef>DataOutput_23</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_14" name="Exclusive Gateway 1" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_56</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_9</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_55</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:serviceTask id="ServiceTask_27" name="ObtainClaimService" implementation="Other" operationRef="Operation_11">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[ObtainClaimService]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersObtainClaimService(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersObtainClaimService(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_57</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_58</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_28">
+        <bpmn2:dataInput id="DataInput_29" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="DataOutput_24" name="Result"/>
+        <bpmn2:inputSet id="InputSet_28">
+          <bpmn2:dataInputRefs>DataInput_29</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_28">
+          <bpmn2:dataOutputRefs>DataOutput_24</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_30">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_29</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_25">
+        <bpmn2:sourceRef>DataOutput_24</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_15" name="Exclusive Gateway 2" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_18</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_59</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_57</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:serviceTask id="ServiceTask_28" name="Bank Reimbursement&#xD;&#xA;" implementation="Other" operationRef="Operation_12">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Bank Reimbursement
+]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersReimbursementDecision(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersReimbursementDecision(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_87</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_88</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_29">
+        <bpmn2:dataInput id="DataInput_30" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="DataOutput_25" name="Result"/>
+        <bpmn2:inputSet id="InputSet_29">
+          <bpmn2:dataInputRefs>DataInput_30</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_29">
+          <bpmn2:dataOutputRefs>DataOutput_25</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_31">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_30</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_26">
+        <bpmn2:sourceRef>DataOutput_25</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_29" name="Bank Reimbursement&#xD;&#xA;" implementation="Other" operationRef="Operation_12">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Bank Reimbursement
+]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersReimbursementDecision(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersReimbursementDecision(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_89</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_90</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_30">
+        <bpmn2:dataInput id="DataInput_32" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="DataOutput_26" name="Result"/>
+        <bpmn2:inputSet id="InputSet_30">
+          <bpmn2:dataInputRefs>DataInput_32</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_30">
+          <bpmn2:dataOutputRefs>DataOutput_26</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_32">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_32</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_27">
+        <bpmn2:sourceRef>DataOutput_26</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_30" name="InitialClaimUser" implementation="Other" operationRef="Operation_10">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[InitialClaimUser]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script>
+          <tns:script>org.jbpm.examples.services.Services.SetOnEntryParameters(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersInitialClaimUser(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersInitialClaimUser(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+        <tns:metaData name="customAsync">
+          <tns:metaValue><![CDATA[true]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_53</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_42</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_31">
+        <bpmn2:dataInput id="DataInput_33" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataInput id="DataInput_34" itemSubjectRef="_sItem" name="input1"/>
+        <bpmn2:dataOutput id="DataOutput_27" name="Result"/>
+        <bpmn2:dataOutput id="DataOutput_28" itemSubjectRef="_sItem" name="output1"/>
+        <bpmn2:inputSet id="InputSet_31">
+          <bpmn2:dataInputRefs>DataInput_33</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>DataInput_34</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_31">
+          <bpmn2:dataOutputRefs>DataOutput_27</bpmn2:dataOutputRefs>
+          <bpmn2:dataOutputRefs>DataOutput_28</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_34">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_33</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_35">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_34</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_28">
+        <bpmn2:sourceRef>DataOutput_27</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_29">
+        <bpmn2:sourceRef>DataOutput_28</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_16" name="Exclusive Gateway 1" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_65</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_49</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_64</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:serviceTask id="ServiceTask_31" name="Select Best Expert" implementation="Other" operationRef="Operation_13">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Select Best Expert]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersSelectBestExpert(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersSelectBestExpert(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_68</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_89</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_32">
+        <bpmn2:dataInput id="DataInput_35" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="DataOutput_29" name="Result"/>
+        <bpmn2:inputSet id="InputSet_32">
+          <bpmn2:dataInputRefs>DataInput_35</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_32">
+          <bpmn2:dataOutputRefs>DataOutput_29</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_36">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_35</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_30">
+        <bpmn2:sourceRef>DataOutput_29</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_32" name="Bank Reimbursement&#xD;&#xA;" implementation="Other" operationRef="Operation_12">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Bank Reimbursement
+]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersReimbursementDecision(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersReimbursementDecision(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_90</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_91</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_33">
+        <bpmn2:dataInput id="DataInput_36" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="DataOutput_30" name="Result"/>
+        <bpmn2:inputSet id="InputSet_33">
+          <bpmn2:dataInputRefs>DataInput_36</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_33">
+          <bpmn2:dataOutputRefs>DataOutput_30</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_37">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_36</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_31">
+        <bpmn2:sourceRef>DataOutput_30</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_21" name="Exclusive Gateway 2" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_13</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_55</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_65</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:serviceTask id="ServiceTask_33" name="Hospital Report" operationRef="Operation_3">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Hospital Report]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersObtainHospitalReport(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersObtainPoliceReport(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_74</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_68</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_34">
+        <bpmn2:dataInput id="DataInput_37" itemSubjectRef="_sItem" name="Parameter"/>
+        <bpmn2:inputSet id="InputSet_34" name="Input Set 4">
+          <bpmn2:dataInputRefs>DataInput_37</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_34" name="Output Set 4"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_38">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_37</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_34" name="ObtainClaimService" implementation="Other" operationRef="Operation_11">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[ObtainClaimService]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersObtainClaimService(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersObtainClaimService(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_58</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_51</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_35">
+        <bpmn2:dataInput id="DataInput_38" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="DataOutput_31" name="Result"/>
+        <bpmn2:inputSet id="InputSet_35">
+          <bpmn2:dataInputRefs>DataInput_38</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_35">
+          <bpmn2:dataOutputRefs>DataOutput_31</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_39">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_38</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_32">
+        <bpmn2:sourceRef>DataOutput_31</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_23" name="Exclusive Gateway 2" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_50</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_64</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_77</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:serviceTask id="ServiceTask_35" name="Select Best Expert" implementation="Other" operationRef="Operation_13">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Select Best Expert]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersSelectBestExpert(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersSelectBestExpert(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_7</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_56</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_36">
+        <bpmn2:dataInput id="DataInput_39" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="DataOutput_32" name="Result"/>
+        <bpmn2:inputSet id="InputSet_36">
+          <bpmn2:dataInputRefs>DataInput_39</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_36">
+          <bpmn2:dataOutputRefs>DataOutput_32</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_40">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_39</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_33">
+        <bpmn2:sourceRef>DataOutput_32</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_36" name="Bank Reimbursement&#xD;&#xA;" implementation="Other" operationRef="Operation_12">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Bank Reimbursement
+]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersReimbursementDecision(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersReimbursementDecision(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_45</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_59</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_37">
+        <bpmn2:dataInput id="DataInput_40" itemSubjectRef="_2_InMessageType" name="Parameter"/>
+        <bpmn2:dataOutput id="DataOutput_33" name="Result"/>
+        <bpmn2:inputSet id="InputSet_37">
+          <bpmn2:dataInputRefs>DataInput_40</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_37">
+          <bpmn2:dataOutputRefs>DataOutput_33</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_41">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_40</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_34">
+        <bpmn2:sourceRef>DataOutput_33</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="ServiceTask_37" name="Hospital Report" operationRef="Operation_3">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Hospital Report]]></tns:metaValue>
+        </tns:metaData>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnEntryParametersObtainHospitalReport(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());</tns:script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <tns:script>org.jbpm.examples.services.Services se=new org.jbpm.examples.services.Services();
+se.SetOnExitParametersObtainPoliceReport(kcontext.getProcessInstance().getId(),kcontext.getProcessInstance().getProcessId(),kcontext.getProcessInstance().getProcessName());
+
+</tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_54</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_74</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_38">
+        <bpmn2:dataInput id="DataInput_41" itemSubjectRef="_sItem" name="Parameter"/>
+        <bpmn2:inputSet id="InputSet_38" name="Input Set 4">
+          <bpmn2:dataInputRefs>DataInput_41</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_38" name="Output Set 4"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_42">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_41</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" tns:priority="1" sourceRef="ServiceTask_24" targetRef="ServiceTask_19"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_7" tns:priority="1" sourceRef="ServiceTask_19" targetRef="ServiceTask_35"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_9" tns:priority="1" name="accept" sourceRef="ExclusiveGateway_14" targetRef="ServiceTask_20">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_13">boolean randomBoolean = new java.util.Random().nextBoolean();
+return randomBoolean;</bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="SequenceFlow_13" tns:priority="1" sourceRef="ServiceTask_20" targetRef="ExclusiveGateway_21"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_18" tns:priority="1" name="reject" sourceRef="ExclusiveGateway_13" targetRef="ExclusiveGateway_15">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_14">return true;</bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="SequenceFlow_42" tns:priority="1" sourceRef="ServiceTask_30" targetRef="ExclusiveGateway_13"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_45" tns:priority="1" name="accept" sourceRef="ExclusiveGateway_13" targetRef="ServiceTask_36">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_15">boolean randomBoolean = new java.util.Random().nextBoolean();
+return randomBoolean;</bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="SequenceFlow_47" tns:priority="1" sourceRef="ServiceTask_22" targetRef="ServiceTask_26"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_49" tns:priority="1" name="accept" sourceRef="ExclusiveGateway_16" targetRef="ServiceTask_23">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_16">boolean randomBoolean = new java.util.Random().nextBoolean();
+return randomBoolean;</bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="SequenceFlow_50" tns:priority="1" sourceRef="ServiceTask_23" targetRef="ExclusiveGateway_23"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_51" tns:priority="1" sourceRef="ServiceTask_34" targetRef="ServiceTask_24"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_53" tns:priority="1" sourceRef="ServiceTask_25" targetRef="ServiceTask_30"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_54" tns:priority="1" sourceRef="ServiceTask_26" targetRef="ServiceTask_37"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_55" tns:priority="1" name="reject" sourceRef="ExclusiveGateway_14" targetRef="ExclusiveGateway_21">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_17">return true;</bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="SequenceFlow_56" tns:priority="1" sourceRef="ServiceTask_35" targetRef="ExclusiveGateway_14"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_57" tns:priority="1" sourceRef="ExclusiveGateway_15" targetRef="ServiceTask_27"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_58" tns:priority="1" sourceRef="ServiceTask_27" targetRef="ServiceTask_34"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_59" tns:priority="1" sourceRef="ServiceTask_36" targetRef="ExclusiveGateway_15"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_64" tns:priority="1" name="reject" sourceRef="ExclusiveGateway_16" targetRef="ExclusiveGateway_23">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_20">return true;</bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="SequenceFlow_65" tns:priority="1" sourceRef="ExclusiveGateway_21" targetRef="ExclusiveGateway_16"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_68" tns:priority="1" sourceRef="ServiceTask_33" targetRef="ServiceTask_31"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_74" tns:priority="1" sourceRef="ServiceTask_37" targetRef="ServiceTask_33"/>
+    <bpmn2:endEvent id="EndEvent_1" name="End Event 1">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[End Event 1]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_77</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_77" tns:priority="1" sourceRef="ExclusiveGateway_23" targetRef="EndEvent_1"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_44" tns:priority="1" sourceRef="ServiceTask_3" targetRef="ServiceTask_2"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_75" tns:priority="1" sourceRef="ServiceTask_4" targetRef="ServiceTask_8"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_78" tns:priority="1" sourceRef="ServiceTask_8" targetRef="ServiceTask_5"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_79" tns:priority="1" sourceRef="ServiceTask_5" targetRef="ServiceTask_6"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_80" tns:priority="1" sourceRef="ServiceTask_13" targetRef="ServiceTask_15"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_82" tns:priority="1" sourceRef="ServiceTask_15" targetRef="ServiceTask_18"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_83" tns:priority="1" sourceRef="ServiceTask_14" targetRef="ServiceTask_17"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_84" tns:priority="1" sourceRef="ServiceTask_17" targetRef="ServiceTask_10"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_86" tns:priority="1" sourceRef="ServiceTask_10" targetRef="ServiceTask_21"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_87" tns:priority="1" sourceRef="ServiceTask_21" targetRef="ServiceTask_28"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_88" tns:priority="1" sourceRef="ServiceTask_28" targetRef="ServiceTask_22"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_89" tns:priority="1" sourceRef="ServiceTask_31" targetRef="ServiceTask_29"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_90" tns:priority="1" sourceRef="ServiceTask_29" targetRef="ServiceTask_32"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_91" tns:priority="1" sourceRef="ServiceTask_32" targetRef="ServiceTask_25"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="insurance21">
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_1" bpmnElement="_1">
+        <dc:Bounds height="48.0" width="48.0" x="20.0" y="319.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_1" labelStyle="BPMNLabelStyle_1">
+          <dc:Bounds height="42.0" width="65.0" x="12.0" y="367.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_1" bpmnElement="_2">
+        <dc:Bounds height="48.0" width="140.0" x="100.0" y="230.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_2" labelStyle="BPMNLabelStyle_1">
+          <dc:Bounds height="42.0" width="108.0" x="116.0" y="233.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_2" bpmnElement="ServiceTask_1" isExpanded="true">
+        <dc:Bounds height="50.0" width="150.0" x="360.0" y="184.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_4" labelStyle="BPMNLabelStyle_1">
+          <dc:Bounds height="21.0" width="124.0" x="373.0" y="198.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_5" bpmnElement="ServiceTask_4">
+        <dc:Bounds height="48.0" width="100.0" x="620.0" y="213.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_7" labelStyle="BPMNLabelStyle_1">
+          <dc:Bounds height="42.0" width="97.0" x="621.0" y="216.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_4" bpmnElement="ServiceTask_3">
+        <dc:Bounds height="48.0" width="100.0" x="133.0" y="319.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_9" labelStyle="BPMNLabelStyle_1">
+          <dc:Bounds height="42.0" width="96.0" x="135.0" y="322.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_6" bpmnElement="ServiceTask_5">
+        <dc:Bounds height="48.0" width="100.0" x="870.0" y="141.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_10" labelStyle="BPMNLabelStyle_1">
+          <dc:Bounds height="63.0" width="130.0" x="855.0" y="134.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_7" bpmnElement="ServiceTask_6">
+        <dc:Bounds height="48.0" width="100.0" x="1040.0" y="315.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_13" labelStyle="BPMNLabelStyle_1">
+          <dc:Bounds height="63.0" width="87.0" x="1046.0" y="308.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_3" bpmnElement="ServiceTask_2">
+        <dc:Bounds height="48.0" width="140.0" x="300.0" y="319.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_3">
+          <dc:Bounds height="42.0" width="108.0" x="316.0" y="322.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_8" bpmnElement="ServiceTask_7" isExpanded="true">
+        <dc:Bounds height="50.0" width="150.0" x="471.0" y="110.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_5">
+          <dc:Bounds height="21.0" width="124.0" x="484.0" y="124.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_9" bpmnElement="ServiceTask_8">
+        <dc:Bounds height="48.0" width="100.0" x="660.0" y="345.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_6">
+          <dc:Bounds height="63.0" width="130.0" x="645.0" y="338.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_11" bpmnElement="ServiceTask_10">
+        <dc:Bounds height="48.0" width="100.0" x="1648.0" y="652.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_19">
+          <dc:Bounds height="63.0" width="130.0" x="1633.0" y="645.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_12" bpmnElement="ServiceTask_11" isExpanded="true">
+        <dc:Bounds height="50.0" width="150.0" x="1249.0" y="621.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_22">
+          <dc:Bounds height="21.0" width="124.0" x="1262.0" y="635.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_13" bpmnElement="ServiceTask_12" isExpanded="true">
+        <dc:Bounds height="50.0" width="150.0" x="1138.0" y="695.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_24">
+          <dc:Bounds height="21.0" width="124.0" x="1151.0" y="709.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_14" bpmnElement="ServiceTask_13">
+        <dc:Bounds height="48.0" width="100.0" x="683.0" y="670.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_26">
+          <dc:Bounds height="42.0" width="96.0" x="685.0" y="673.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_15" bpmnElement="ServiceTask_14">
+        <dc:Bounds height="48.0" width="100.0" x="1398.0" y="724.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_27">
+          <dc:Bounds height="42.0" width="97.0" x="1399.0" y="727.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_16" bpmnElement="ServiceTask_15">
+        <dc:Bounds height="48.0" width="100.0" x="1142.0" y="966.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_28">
+          <dc:Bounds height="63.0" width="130.0" x="1127.0" y="959.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_17" bpmnElement="ServiceTask_16">
+        <dc:Bounds height="48.0" width="140.0" x="878.0" y="741.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_29">
+          <dc:Bounds height="42.0" width="108.0" x="894.0" y="744.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_18" bpmnElement="ServiceTask_17">
+        <dc:Bounds height="48.0" width="100.0" x="1438.0" y="856.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_31">
+          <dc:Bounds height="63.0" width="130.0" x="1423.0" y="849.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_19" bpmnElement="ServiceTask_18">
+        <dc:Bounds height="48.0" width="140.0" x="1078.0" y="830.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_32">
+          <dc:Bounds height="42.0" width="108.0" x="1094.0" y="833.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_20" bpmnElement="ServiceTask_19" isExpanded="true">
+        <dc:Bounds height="50.0" width="150.0" x="3044.0" y="1113.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_33">
+          <dc:Bounds height="21.0" width="124.0" x="3057.0" y="1127.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_21" bpmnElement="ServiceTask_20">
+        <dc:Bounds height="48.0" width="100.0" x="3233.0" y="1348.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_34">
+          <dc:Bounds height="63.0" width="130.0" x="3218.0" y="1341.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_13" bpmnElement="ExclusiveGateway_13" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="2862.0" y="1529.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_35">
+          <dc:Bounds height="84.0" width="80.0" x="2847.0" y="1579.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_22" bpmnElement="ServiceTask_21">
+        <dc:Bounds height="48.0" width="100.0" x="1928.0" y="811.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_36">
+          <dc:Bounds height="42.0" width="96.0" x="1930.0" y="814.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_23" bpmnElement="ServiceTask_22">
+        <dc:Bounds height="48.0" width="140.0" x="2095.0" y="811.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_37">
+          <dc:Bounds height="42.0" width="108.0" x="2111.0" y="814.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_24" bpmnElement="ServiceTask_23">
+        <dc:Bounds height="48.0" width="100.0" x="3443.0" y="1144.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_38">
+          <dc:Bounds height="63.0" width="130.0" x="3428.0" y="1137.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_25" bpmnElement="ServiceTask_24" isExpanded="true">
+        <dc:Bounds height="50.0" width="150.0" x="2933.0" y="1187.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_39">
+          <dc:Bounds height="21.0" width="124.0" x="2946.0" y="1201.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_26" bpmnElement="ServiceTask_25">
+        <dc:Bounds height="48.0" width="100.0" x="2835.0" y="807.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_40">
+          <dc:Bounds height="63.0" width="87.0" x="2841.0" y="800.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_27" bpmnElement="ServiceTask_26">
+        <dc:Bounds height="48.0" width="140.0" x="1895.0" y="722.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_41">
+          <dc:Bounds height="42.0" width="108.0" x="1911.0" y="725.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_14" bpmnElement="ExclusiveGateway_14" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="3158.0" y="1419.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_42">
+          <dc:Bounds height="84.0" width="80.0" x="3143.0" y="1469.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_28" bpmnElement="ServiceTask_27">
+        <dc:Bounds height="48.0" width="140.0" x="2873.0" y="1322.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_43">
+          <dc:Bounds height="42.0" width="108.0" x="2889.0" y="1325.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_15" bpmnElement="ExclusiveGateway_15" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="3051.0" y="1546.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_44">
+          <dc:Bounds height="84.0" width="80.0" x="3036.0" y="1596.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_29" bpmnElement="ServiceTask_28">
+        <dc:Bounds height="48.0" width="100.0" x="2159.0" y="947.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_45">
+          <dc:Bounds height="63.0" width="130.0" x="2144.0" y="940.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_30" bpmnElement="ServiceTask_29">
+        <dc:Bounds height="48.0" width="100.0" x="2455.0" y="837.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_46">
+          <dc:Bounds height="63.0" width="130.0" x="2440.0" y="830.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_31" bpmnElement="ServiceTask_30">
+        <dc:Bounds height="48.0" width="100.0" x="2478.0" y="1162.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_47">
+          <dc:Bounds height="42.0" width="96.0" x="2480.0" y="1165.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_16" bpmnElement="ExclusiveGateway_16" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="3368.0" y="1215.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_48">
+          <dc:Bounds height="84.0" width="80.0" x="3353.0" y="1265.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_32" bpmnElement="ServiceTask_31">
+        <dc:Bounds height="48.0" width="100.0" x="2415.0" y="705.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_50">
+          <dc:Bounds height="42.0" width="97.0" x="2416.0" y="708.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_33" bpmnElement="ServiceTask_32">
+        <dc:Bounds height="48.0" width="100.0" x="2665.0" y="633.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_51">
+          <dc:Bounds height="63.0" width="130.0" x="2650.0" y="626.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_21" bpmnElement="ExclusiveGateway_21" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="3347.0" y="1436.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_55">
+          <dc:Bounds height="84.0" width="80.0" x="3332.0" y="1486.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_34" bpmnElement="ServiceTask_33" isExpanded="true">
+        <dc:Bounds height="50.0" width="150.0" x="2266.0" y="602.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_57">
+          <dc:Bounds height="21.0" width="124.0" x="2279.0" y="616.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_35" bpmnElement="ServiceTask_34">
+        <dc:Bounds height="48.0" width="140.0" x="2673.0" y="1233.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_58">
+          <dc:Bounds height="42.0" width="108.0" x="2689.0" y="1236.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_23" bpmnElement="ExclusiveGateway_23" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="3557.0" y="1232.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_59">
+          <dc:Bounds height="84.0" width="80.0" x="3542.0" y="1282.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_36" bpmnElement="ServiceTask_35">
+        <dc:Bounds height="48.0" width="100.0" x="3193.0" y="1216.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_61">
+          <dc:Bounds height="42.0" width="97.0" x="3194.0" y="1219.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_37" bpmnElement="ServiceTask_36">
+        <dc:Bounds height="48.0" width="100.0" x="2937.0" y="1458.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_62">
+          <dc:Bounds height="63.0" width="130.0" x="2922.0" y="1451.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_38" bpmnElement="ServiceTask_37" isExpanded="true">
+        <dc:Bounds height="50.0" width="150.0" x="2155.0" y="676.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_63">
+          <dc:Bounds height="21.0" width="124.0" x="2168.0" y="690.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_2" bpmnElement="EndEvent_1">
+        <dc:Bounds height="36.0" width="36.0" x="3675.0" y="1239.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_64">
+          <dc:Bounds height="42.0" width="61.0" x="3663.0" y="1275.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_6" sourceElement="BPMNShape_StartEvent_1" targetElement="BPMNShape_ServiceTask_4">
+        <di:waypoint xsi:type="dc:Point" x="68.0" y="343.0"/>
+        <di:waypoint xsi:type="dc:Point" x="100.0" y="343.0"/>
+        <di:waypoint xsi:type="dc:Point" x="133.0" y="343.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_16"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="SequenceFlow_8" sourceElement="BPMNShape_ServiceTask_1" targetElement="BPMNShape_ServiceTask_2">
+        <di:waypoint xsi:type="dc:Point" x="170.0" y="230.0"/>
+        <di:waypoint xsi:type="dc:Point" x="170.0" y="209.0"/>
+        <di:waypoint xsi:type="dc:Point" x="360.0" y="209.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_3"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_4" bpmnElement="SequenceFlow_2" sourceElement="BPMNShape_ServiceTask_3" targetElement="BPMNShape_ServiceTask_1">
+        <di:waypoint xsi:type="dc:Point" x="370.0" y="319.0"/>
+        <di:waypoint xsi:type="dc:Point" x="370.0" y="254.0"/>
+        <di:waypoint xsi:type="dc:Point" x="240.0" y="254.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_34"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_5" bpmnElement="SequenceFlow_3" sourceElement="BPMNShape_ServiceTask_2" targetElement="BPMNShape_ServiceTask_8">
+        <di:waypoint xsi:type="dc:Point" x="435.0" y="184.0"/>
+        <di:waypoint xsi:type="dc:Point" x="435.0" y="135.0"/>
+        <di:waypoint xsi:type="dc:Point" x="471.0" y="135.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_35"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_6" bpmnElement="SequenceFlow_4" sourceElement="BPMNShape_ServiceTask_8" targetElement="BPMNShape_ServiceTask_5">
+        <di:waypoint xsi:type="dc:Point" x="621.0" y="135.0"/>
+        <di:waypoint xsi:type="dc:Point" x="670.0" y="135.0"/>
+        <di:waypoint xsi:type="dc:Point" x="670.0" y="213.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_36"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_32" bpmnElement="SequenceFlow_32" sourceElement="BPMNShape_ServiceTask_13" targetElement="BPMNShape_ServiceTask_12">
+        <di:waypoint xsi:type="dc:Point" x="1288.0" y="720.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1324.0" y="720.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1324.0" y="671.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_54"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_33" bpmnElement="SequenceFlow_33" sourceElement="BPMNShape_ServiceTask_12" targetElement="BPMNShape_ServiceTask_15">
+        <di:waypoint xsi:type="dc:Point" x="1349.0" y="671.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1349.0" y="748.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1398.0" y="748.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_55"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_37" bpmnElement="SequenceFlow_37" sourceElement="BPMNShape_ServiceTask_17" targetElement="BPMNShape_ServiceTask_13">
+        <di:waypoint xsi:type="dc:Point" x="948.0" y="741.0"/>
+        <di:waypoint xsi:type="dc:Point" x="948.0" y="720.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1138.0" y="720.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_59"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_41" bpmnElement="SequenceFlow_41" sourceElement="BPMNShape_ServiceTask_19" targetElement="BPMNShape_ServiceTask_17">
+        <di:waypoint xsi:type="dc:Point" x="1148.0" y="830.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1148.0" y="765.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1018.0" y="765.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_63"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_43" bpmnElement="SequenceFlow_43" sourceElement="BPMNShape_ServiceTask_7" targetElement="BPMNShape_ServiceTask_14">
+        <di:waypoint xsi:type="dc:Point" x="1090.0" y="363.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1090.0" y="694.0"/>
+        <di:waypoint xsi:type="dc:Point" x="783.0" y="694.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_64"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="SequenceFlow_1" sourceElement="BPMNShape_ServiceTask_25" targetElement="BPMNShape_ServiceTask_20">
+        <di:waypoint xsi:type="dc:Point" x="3083.0" y="1212.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3094.0" y="1212.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3094.0" y="1163.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_65"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_8" bpmnElement="SequenceFlow_7" sourceElement="BPMNShape_ServiceTask_20" targetElement="BPMNShape_ServiceTask_36">
+        <di:waypoint xsi:type="dc:Point" x="3144.0" y="1163.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3144.0" y="1232.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3193.0" y="1232.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_66"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_9" bpmnElement="SequenceFlow_9" sourceElement="BPMNShape_ExclusiveGateway_14" targetElement="BPMNShape_ServiceTask_21">
+        <di:waypoint xsi:type="dc:Point" x="3183.0" y="1419.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3183.0" y="1372.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3233.0" y="1372.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_67">
+          <dc:Bounds height="21.0" width="53.0" x="3159.0" y="1373.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_13" bpmnElement="SequenceFlow_13" sourceElement="BPMNShape_ServiceTask_21" targetElement="BPMNShape_ExclusiveGateway_21">
+        <di:waypoint xsi:type="dc:Point" x="3333.0" y="1372.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3372.0" y="1372.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3372.0" y="1436.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_68"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_18" bpmnElement="SequenceFlow_18" sourceElement="BPMNShape_ExclusiveGateway_13" targetElement="BPMNShape_ExclusiveGateway_15">
+        <di:waypoint xsi:type="dc:Point" x="2912.0" y="1554.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2981.0" y="1554.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2981.0" y="1571.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3051.0" y="1571.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_69">
+          <dc:Bounds height="21.0" width="44.0" x="2960.0" y="1564.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_42" bpmnElement="SequenceFlow_42" sourceElement="BPMNShape_ServiceTask_31" targetElement="BPMNShape_ExclusiveGateway_13">
+        <di:waypoint xsi:type="dc:Point" x="2528.0" y="1210.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2528.0" y="1554.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2862.0" y="1554.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_70"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_45" bpmnElement="SequenceFlow_45" sourceElement="BPMNShape_ExclusiveGateway_13" targetElement="BPMNShape_ServiceTask_37">
+        <di:waypoint xsi:type="dc:Point" x="2887.0" y="1529.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2887.0" y="1482.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2937.0" y="1482.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_71">
+          <dc:Bounds height="21.0" width="53.0" x="2863.0" y="1483.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_47" bpmnElement="SequenceFlow_47" sourceElement="BPMNShape_ServiceTask_23" targetElement="BPMNShape_ServiceTask_27">
+        <di:waypoint xsi:type="dc:Point" x="2165.0" y="811.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2165.0" y="754.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2035.0" y="754.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_73"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_49" bpmnElement="SequenceFlow_49" sourceElement="BPMNShape_ExclusiveGateway_16" targetElement="BPMNShape_ServiceTask_24">
+        <di:waypoint xsi:type="dc:Point" x="3393.0" y="1215.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3393.0" y="1168.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3443.0" y="1168.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_75">
+          <dc:Bounds height="21.0" width="53.0" x="3369.0" y="1169.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_50" bpmnElement="SequenceFlow_50" sourceElement="BPMNShape_ServiceTask_24" targetElement="BPMNShape_ExclusiveGateway_23">
+        <di:waypoint xsi:type="dc:Point" x="3543.0" y="1168.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3582.0" y="1168.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3582.0" y="1232.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_76"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_51" bpmnElement="SequenceFlow_51" sourceElement="BPMNShape_ServiceTask_35" targetElement="BPMNShape_ServiceTask_25">
+        <di:waypoint xsi:type="dc:Point" x="2813.0" y="1249.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3008.0" y="1249.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3008.0" y="1237.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_77"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_53" bpmnElement="SequenceFlow_53" sourceElement="BPMNShape_ServiceTask_26" targetElement="BPMNShape_ServiceTask_31">
+        <di:waypoint xsi:type="dc:Point" x="2885.0" y="855.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2885.0" y="1186.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2578.0" y="1186.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_79"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_54" bpmnElement="SequenceFlow_54" sourceElement="BPMNShape_ServiceTask_27" targetElement="BPMNShape_ServiceTask_38">
+        <di:waypoint xsi:type="dc:Point" x="2035.0" y="738.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2230.0" y="738.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2230.0" y="726.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_80"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_55" bpmnElement="SequenceFlow_55" sourceElement="BPMNShape_ExclusiveGateway_14" targetElement="BPMNShape_ExclusiveGateway_21">
+        <di:waypoint xsi:type="dc:Point" x="3208.0" y="1444.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3277.0" y="1444.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3277.0" y="1461.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3347.0" y="1461.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_81">
+          <dc:Bounds height="21.0" width="44.0" x="3256.0" y="1454.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_56" bpmnElement="SequenceFlow_56" sourceElement="BPMNShape_ServiceTask_36" targetElement="BPMNShape_ExclusiveGateway_14">
+        <di:waypoint xsi:type="dc:Point" x="3193.0" y="1248.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3148.0" y="1248.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3148.0" y="1444.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3158.0" y="1444.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_82"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_57" bpmnElement="SequenceFlow_57" sourceElement="BPMNShape_ExclusiveGateway_15" targetElement="BPMNShape_ServiceTask_28">
+        <di:waypoint xsi:type="dc:Point" x="3076.0" y="1546.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3076.0" y="1346.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3013.0" y="1346.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_83"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_58" bpmnElement="SequenceFlow_58" sourceElement="BPMNShape_ServiceTask_28" targetElement="BPMNShape_ServiceTask_35">
+        <di:waypoint xsi:type="dc:Point" x="2943.0" y="1322.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2943.0" y="1257.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2813.0" y="1257.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_84"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_59" bpmnElement="SequenceFlow_59" sourceElement="BPMNShape_ServiceTask_37" targetElement="BPMNShape_ExclusiveGateway_15">
+        <di:waypoint xsi:type="dc:Point" x="2987.0" y="1506.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2987.0" y="1606.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3076.0" y="1606.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3076.0" y="1596.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_85"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_64" bpmnElement="SequenceFlow_64" sourceElement="BPMNShape_ExclusiveGateway_16" targetElement="BPMNShape_ExclusiveGateway_23">
+        <di:waypoint xsi:type="dc:Point" x="3418.0" y="1240.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3487.0" y="1240.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3487.0" y="1257.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3557.0" y="1257.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_90">
+          <dc:Bounds height="21.0" width="44.0" x="3466.0" y="1250.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_65" bpmnElement="SequenceFlow_65" sourceElement="BPMNShape_ExclusiveGateway_21" targetElement="BPMNShape_ExclusiveGateway_16">
+        <di:waypoint xsi:type="dc:Point" x="3397.0" y="1461.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3407.0" y="1461.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3407.0" y="1363.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3393.0" y="1363.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3393.0" y="1265.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_91"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_68" bpmnElement="SequenceFlow_68" sourceElement="BPMNShape_ServiceTask_34" targetElement="BPMNShape_ServiceTask_32">
+        <di:waypoint xsi:type="dc:Point" x="2366.0" y="652.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2366.0" y="721.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2415.0" y="721.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_94"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_74" bpmnElement="SequenceFlow_74" sourceElement="BPMNShape_ServiceTask_38" targetElement="BPMNShape_ServiceTask_34">
+        <di:waypoint xsi:type="dc:Point" x="2305.0" y="701.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2316.0" y="701.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2316.0" y="652.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_100"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_77" bpmnElement="SequenceFlow_77" sourceElement="BPMNShape_ExclusiveGateway_23" targetElement="BPMNShape_EndEvent_2">
+        <di:waypoint xsi:type="dc:Point" x="3607.0" y="1257.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3641.0" y="1257.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3675.0" y="1257.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_102"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_44" bpmnElement="SequenceFlow_44" sourceElement="BPMNShape_ServiceTask_4" targetElement="BPMNShape_ServiceTask_3">
+        <di:waypoint xsi:type="dc:Point" x="233.0" y="343.0"/>
+        <di:waypoint xsi:type="dc:Point" x="266.0" y="343.0"/>
+        <di:waypoint xsi:type="dc:Point" x="300.0" y="343.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_75" bpmnElement="SequenceFlow_75" sourceElement="BPMNShape_ServiceTask_5" targetElement="BPMNShape_ServiceTask_9">
+        <di:waypoint xsi:type="dc:Point" x="670.0" y="261.0"/>
+        <di:waypoint xsi:type="dc:Point" x="670.0" y="303.0"/>
+        <di:waypoint xsi:type="dc:Point" x="710.0" y="303.0"/>
+        <di:waypoint xsi:type="dc:Point" x="710.0" y="345.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_78" bpmnElement="SequenceFlow_78" sourceElement="BPMNShape_ServiceTask_9" targetElement="BPMNShape_ServiceTask_6">
+        <di:waypoint xsi:type="dc:Point" x="726.0" y="345.0"/>
+        <di:waypoint xsi:type="dc:Point" x="726.0" y="165.0"/>
+        <di:waypoint xsi:type="dc:Point" x="870.0" y="165.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_79" bpmnElement="SequenceFlow_79" sourceElement="BPMNShape_ServiceTask_6" targetElement="BPMNShape_ServiceTask_7">
+        <di:waypoint xsi:type="dc:Point" x="970.0" y="165.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1090.0" y="165.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1090.0" y="315.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_80" bpmnElement="SequenceFlow_80" sourceElement="BPMNShape_ServiceTask_14" targetElement="BPMNShape_ServiceTask_16">
+        <di:waypoint xsi:type="dc:Point" x="733.0" y="718.0"/>
+        <di:waypoint xsi:type="dc:Point" x="733.0" y="990.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1142.0" y="990.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_82" bpmnElement="SequenceFlow_82" sourceElement="BPMNShape_ServiceTask_16" targetElement="BPMNShape_ServiceTask_19">
+        <di:waypoint xsi:type="dc:Point" x="1192.0" y="966.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1192.0" y="922.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1148.0" y="922.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1148.0" y="878.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_83" bpmnElement="SequenceFlow_83" sourceElement="BPMNShape_ServiceTask_15" targetElement="BPMNShape_ServiceTask_18">
+        <di:waypoint xsi:type="dc:Point" x="1448.0" y="772.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1448.0" y="814.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1488.0" y="814.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1488.0" y="856.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_84" bpmnElement="SequenceFlow_84" sourceElement="BPMNShape_ServiceTask_18" targetElement="BPMNShape_ServiceTask_11">
+        <di:waypoint xsi:type="dc:Point" x="1504.0" y="856.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1504.0" y="676.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1648.0" y="676.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_86" bpmnElement="SequenceFlow_86" sourceElement="BPMNShape_ServiceTask_11" targetElement="BPMNShape_ServiceTask_22">
+        <di:waypoint xsi:type="dc:Point" x="1698.0" y="700.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1698.0" y="835.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1928.0" y="835.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_87" bpmnElement="SequenceFlow_87" sourceElement="BPMNShape_ServiceTask_22" targetElement="BPMNShape_ServiceTask_29">
+        <di:waypoint xsi:type="dc:Point" x="1978.0" y="859.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1978.0" y="971.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2159.0" y="971.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_88" bpmnElement="SequenceFlow_88" sourceElement="BPMNShape_ServiceTask_29" targetElement="BPMNShape_ServiceTask_23">
+        <di:waypoint xsi:type="dc:Point" x="2209.0" y="947.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2209.0" y="903.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2165.0" y="903.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2165.0" y="859.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_89" bpmnElement="SequenceFlow_89" sourceElement="BPMNShape_ServiceTask_32" targetElement="BPMNShape_ServiceTask_30">
+        <di:waypoint xsi:type="dc:Point" x="2465.0" y="753.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2465.0" y="795.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2505.0" y="795.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2505.0" y="837.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_90" bpmnElement="SequenceFlow_90" sourceElement="BPMNShape_ServiceTask_30" targetElement="BPMNShape_ServiceTask_33">
+        <di:waypoint xsi:type="dc:Point" x="2521.0" y="837.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2521.0" y="657.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2665.0" y="657.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_91" bpmnElement="SequenceFlow_91" sourceElement="BPMNShape_ServiceTask_33" targetElement="BPMNShape_ServiceTask_26">
+        <di:waypoint xsi:type="dc:Point" x="2765.0" y="657.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2885.0" y="657.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2885.0" y="807.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+    <bpmndi:BPMNLabelStyle id="BPMNLabelStyle_1">
+      <dc:Font name="arial" size="9.0"/>
+    </bpmndi:BPMNLabelStyle>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

@@ -1,0 +1,2 @@
+serviceTask;ObtainClaimService,0.5,1.5,1.5,Switch,ReExecute,ReConfiguration,Containment,IncreaseMonitoring,Recovery;SelectBestExpert,1.5,1.5,1,ReExecute,ReConfiguration,Containment,IncreaseMonitoring,Recovery 
+userTask;InitialClaimUser;ObtainHospitalReport;ObtainPoliceReport;ReimbursementDecision

@@ -1,0 +1,26 @@
+TenantsTest:
+int numOfTenants=2;
+int numOfTenants=2;
+int numOfHosts=4;
+int numOfServices=3;//num of different services provided by clouds
+int MaxNumOfUsers=50;//MaxNumOfUsers for each tenants
+int maxNumOfHosts=4;//maxNumOfHosts provide the service
+int minNumOfHosts=2;//minNumOfHosts provide the service
+
+
+KernelManagment:
+int numOfRecordsPerService=100;
+
+
+
+
+Services: 
+int serviceTaskAnomalyRate=1;// 0: anomaly, others: normal
+int userTaskAnomalyRate=10;//0: anomaly, others: normal
+
+
+TenantKernel:
+double attackThresh=2;// if attackScore >attackThresh then adapt task
+double priceWeight=1,timeWeight=1,valueWeight=1;//for calculating the adaptation cost, we need these Weights to compute the final cost of adaptation based on priceWeight*price+timeWeight*time+valueWeight*value 
+double timeOfReconfigration=10,timeOfIncreaseMonitoring=100,timeOfEnhancingSecurityMeasures=100,timeOfRestrictingAccess=100;
+double costOfReconfigration=100,costOfIncreaseMonitoring=100,costOfEnhancingSecurityMeasures=100,costOfRestrictingAccess=100;

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- origin at X=0.0 Y=0.0 -->
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:java="http://www.java.com/javaTypes" xmlns:tns="http://www.jboss.org/drools" xmlns="http://www.jboss.org/drools" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd" id="Definition" exporter="org.eclipse.bpmn2.modeler.core" exporterVersion="1.5.4.RC1-v20220528-0836-B1" expressionLanguage="http://www.mvel.org/2.0" targetNamespace="http://www.example.org/MinimalExample" typeLanguage="http://www.java.com/javaTypes">
+  <bpmn2:itemDefinition id="_sItem" isCollection="false" structureRef="String"/>
+  <bpmn2:itemDefinition id="_2_InMessageType" isCollection="false" structureRef="java.lang.String"/>
+  <bpmn2:message id="_2_InMessage" itemRef="_2_InMessageType"/>
+  <bpmn2:interface id="_2_ServiceInterface" name="org.jbpm.kernel.services.ObtainReport">
+    <bpmn2:operation id="_2_ServiceOperation" name="ObtainHospitalReport">
+      <bpmn2:inMessageRef>_2_InMessage</bpmn2:inMessageRef>
+    </bpmn2:operation>
+    <bpmn2:operation id="Operation_1" name="ObtainHospitalReport"/>
+    <bpmn2:operation id="Operation_2" name="ObtainPoliceReport">
+      <bpmn2:inMessageRef>_2_InMessage</bpmn2:inMessageRef>
+    </bpmn2:operation>
+    <bpmn2:operation id="Operation_3" name="ObtainHospitalReport">
+      <bpmn2:inMessageRef>_2_InMessage</bpmn2:inMessageRef>
+    </bpmn2:operation>
+    <bpmn2:operation id="Operation_6" name="Initial">
+      <bpmn2:inMessageRef>_2_InMessage</bpmn2:inMessageRef>
+    </bpmn2:operation>
+  </bpmn2:interface>
+  <bpmn2:process id="ServiceProcess3" name="Service Process" isExecutable="true" processType="Private">
+    <bpmn2:property id="s" itemSubjectRef="_sItem" name="s"/>
+    <bpmn2:startEvent id="_1" name="StartProcess">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[StartProcess]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:outgoing>SequenceFlow_8</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:parallelGateway id="ParallelGateway_1" name="Parallel Gateway 1" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_9</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:serviceTask id="ServiceTask_1" name="Obtain Hospital Report" operationRef="Operation_3">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Obtain Hospital Report]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_4">
+        <bpmn2:dataInput id="DataInput_1" itemSubjectRef="_sItem" name="Parameter"/>
+        <bpmn2:inputSet id="InputSet_4" name="Input Set 4">
+          <bpmn2:dataInputRefs>DataInput_1</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_4" name="Output Set 4"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_21">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_1</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" tns:priority="1" sourceRef="ParallelGateway_1" targetRef="ServiceTask_1"/>
+    <bpmn2:serviceTask id="ServiceTask_2" name="Obtain Police Report" operationRef="Operation_2">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Obtain Police Report]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_5</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_7">
+        <bpmn2:dataInput id="DataInput_2" itemSubjectRef="_sItem" name="Parameter"/>
+        <bpmn2:inputSet id="InputSet_7" name="Input Set 7">
+          <bpmn2:dataInputRefs>DataInput_2</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_7" name="Output Set 7"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_22">
+        <bpmn2:sourceRef>s</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_2</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" tns:priority="1" sourceRef="ParallelGateway_1" targetRef="ServiceTask_2"/>
+    <bpmn2:parallelGateway id="ParallelGateway_2" name="Parallel Gateway 2" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_6</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_4" tns:priority="1" sourceRef="ServiceTask_1" targetRef="ParallelGateway_2"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_5" tns:priority="1" sourceRef="ServiceTask_2" targetRef="ParallelGateway_2"/>
+    <bpmn2:scriptTask id="ScriptTask_1" name="Result" scriptFormat="http://www.java.com/java">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Result]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_6</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_7</bpmn2:outgoing>
+      <bpmn2:script>System.out.println(&quot;Result: &quot;);
+</bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_6" tns:priority="1" sourceRef="ParallelGateway_2" targetRef="ScriptTask_1"/>
+    <bpmn2:endEvent id="EndEvent_1" name="End Event 1">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[End Event 1]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_7</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_7" tns:priority="1" sourceRef="ScriptTask_1" targetRef="EndEvent_1"/>
+    <bpmn2:receiveTask id="ReceiveTask_1" name="initialClaim" messageRef="_2_InMessage" operationRef="Operation_6">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[initialClaim]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_8</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_9</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_11">
+        <bpmn2:dataOutput id="DataOutput_1" itemSubjectRef="_sItem" name="Message"/>
+        <bpmn2:inputSet id="InputSet_11" name="Input Set 11"/>
+        <bpmn2:outputSet id="OutputSet_11" name="Output Set 11">
+          <bpmn2:dataOutputRefs>DataOutput_1</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_3">
+        <bpmn2:sourceRef>DataOutput_1</bpmn2:sourceRef>
+        <bpmn2:targetRef>s</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:receiveTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_8" tns:priority="1" sourceRef="_1" targetRef="ReceiveTask_1"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_9" tns:priority="1" sourceRef="ReceiveTask_1" targetRef="ParallelGateway_1"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="ServiceProcess3">
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_1" bpmnElement="_1">
+        <dc:Bounds height="48.0" width="48.0" x="30.0" y="230.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_1" labelStyle="#//@definitions/@diagrams.0/@labelStyle.0">
+          <dc:Bounds height="42.0" width="65.0" x="22.0" y="278.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_1" bpmnElement="ParallelGateway_1" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="290.0" y="229.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_3">
+          <dc:Bounds height="63.0" width="76.0" x="277.0" y="279.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_2" bpmnElement="ServiceTask_1" isExpanded="true">
+        <dc:Bounds height="50.0" width="150.0" x="360.0" y="184.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_4" labelStyle="#//@definitions/@diagrams.0/@labelStyle.0">
+          <dc:Bounds height="42.0" width="138.0" x="366.0" y="188.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_3" bpmnElement="ServiceTask_2" isExpanded="true">
+        <dc:Bounds height="57.0" width="128.0" x="400.0" y="329.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_5" labelStyle="#//@definitions/@diagrams.0/@labelStyle.0">
+          <dc:Bounds height="42.0" width="122.0" x="403.0" y="336.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_2" bpmnElement="ParallelGateway_2" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="540.0" y="229.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_6">
+          <dc:Bounds height="63.0" width="76.0" x="527.0" y="279.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_1" bpmnElement="ScriptTask_1" isExpanded="true">
+        <dc:Bounds height="50.0" width="110.0" x="645.0" y="224.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_7" labelStyle="#//@definitions/@diagrams.0/@labelStyle.0">
+          <dc:Bounds height="21.0" width="51.0" x="674.0" y="238.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_2" bpmnElement="EndEvent_1">
+        <dc:Bounds height="36.0" width="36.0" x="820.0" y="231.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_8" labelStyle="#//@definitions/@diagrams.0/@labelStyle.0">
+          <dc:Bounds height="42.0" width="61.0" x="808.0" y="267.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ReceiveTask_1" bpmnElement="ReceiveTask_1" isExpanded="true">
+        <dc:Bounds height="50.0" width="110.0" x="120.0" y="229.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_2">
+          <dc:Bounds height="21.0" width="86.0" x="132.0" y="243.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_4" bpmnElement="SequenceFlow_2" sourceElement="BPMNShape_ParallelGateway_1" targetElement="BPMNShape_ServiceTask_2">
+        <di:waypoint xsi:type="dc:Point" x="315.0" y="229.0"/>
+        <di:waypoint xsi:type="dc:Point" x="315.0" y="209.0"/>
+        <di:waypoint xsi:type="dc:Point" x="360.0" y="209.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_11"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_5" bpmnElement="SequenceFlow_3" sourceElement="BPMNShape_ParallelGateway_1" targetElement="BPMNShape_ServiceTask_3">
+        <di:waypoint xsi:type="dc:Point" x="315.0" y="279.0"/>
+        <di:waypoint xsi:type="dc:Point" x="315.0" y="357.0"/>
+        <di:waypoint xsi:type="dc:Point" x="400.0" y="357.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_12"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_6" bpmnElement="SequenceFlow_4" sourceElement="BPMNShape_ServiceTask_2" targetElement="BPMNShape_ParallelGateway_2">
+        <di:waypoint xsi:type="dc:Point" x="510.0" y="209.0"/>
+        <di:waypoint xsi:type="dc:Point" x="565.0" y="209.0"/>
+        <di:waypoint xsi:type="dc:Point" x="565.0" y="229.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_13"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_7" bpmnElement="SequenceFlow_5" sourceElement="BPMNShape_ServiceTask_3" targetElement="BPMNShape_ParallelGateway_2">
+        <di:waypoint xsi:type="dc:Point" x="528.0" y="357.0"/>
+        <di:waypoint xsi:type="dc:Point" x="565.0" y="357.0"/>
+        <di:waypoint xsi:type="dc:Point" x="565.0" y="279.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_14"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_8" bpmnElement="SequenceFlow_6" sourceElement="BPMNShape_ParallelGateway_2" targetElement="BPMNShape_ScriptTask_1">
+        <di:waypoint xsi:type="dc:Point" x="590.0" y="254.0"/>
+        <di:waypoint xsi:type="dc:Point" x="617.0" y="254.0"/>
+        <di:waypoint xsi:type="dc:Point" x="617.0" y="249.0"/>
+        <di:waypoint xsi:type="dc:Point" x="645.0" y="249.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_15"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_9" bpmnElement="SequenceFlow_7" sourceElement="BPMNShape_ScriptTask_1" targetElement="BPMNShape_EndEvent_2">
+        <di:waypoint xsi:type="dc:Point" x="755.0" y="249.0"/>
+        <di:waypoint xsi:type="dc:Point" x="787.0" y="249.0"/>
+        <di:waypoint xsi:type="dc:Point" x="820.0" y="249.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_16"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_8" sourceElement="BPMNShape_StartEvent_1" targetElement="BPMNShape_ReceiveTask_1">
+        <di:waypoint xsi:type="dc:Point" x="78.0" y="254.0"/>
+        <di:waypoint xsi:type="dc:Point" x="99.0" y="254.0"/>
+        <di:waypoint xsi:type="dc:Point" x="120.0" y="254.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_9"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_10" bpmnElement="SequenceFlow_9" sourceElement="BPMNShape_ReceiveTask_1" targetElement="BPMNShape_ParallelGateway_1">
+        <di:waypoint xsi:type="dc:Point" x="230.0" y="254.0"/>
+        <di:waypoint xsi:type="dc:Point" x="260.0" y="254.0"/>
+        <di:waypoint xsi:type="dc:Point" x="290.0" y="254.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_10"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+    <bpmndi:BPMNLabelStyle>
+      <dc:Font name="arial" size="9.0"/>
+    </bpmndi:BPMNLabelStyle>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

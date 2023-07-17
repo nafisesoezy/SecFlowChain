@@ -1,0 +1,983 @@
+Small 0 ***************************************************************
+PoliceReport	r2l	ReExecute	17.6162788419986	38.0	6.801797104996492	1.5222
+SelectBestExpert	probe	ReConfiguration	21.273309069044053	48.0	5.97877267261013	1.591
+BankReimbursment	dos	ReExecute	10.664262193441482	24.0	3.1886554836037013	1.056
+End Small 0 numberOfDetectedattacks:9 ***************************************************************
+Small 1 ***************************************************************
+ObtainClaimService	dos	Late	7.8402109165727385	16.5	3.6745272914318456	1.1479999999999997
+PoliceReport	dos	ReExecute	16.50358004740177	38.0	3.9605501185044147	1.4032
+SelectBestExpert	probe	ReConfiguration	14.481924188600608	32.0	5.000310471501522	1.591
+BankReimbursment	r2l	ReExecute	10.616662193441481	24.0	3.1886554836037013	1.294
+End Small 1 numberOfDetectedattacks:8 ***************************************************************
+Small 2 ***************************************************************
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+End Small 2 numberOfDetectedattacks:8 ***************************************************************
+Small 3 ***************************************************************
+SelectBestExpert	r2l	ReExecute	10.490924188600609	22.0	5.000310471501522	1.5459999999999998
+End Small 3 numberOfDetectedattacks:11 ***************************************************************
+Small 4 ***************************************************************
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+CustomerFeedbackCollection	dos	ReExecute	13.453959685865804	29.0	5.767699214664506	2.2656
+ObtainClaimService	r2l	ReExecute	15.476912679588242	36.0	3.377781698970604	1.371
+PoliceReport	dos	ReConfiguration	19.28125044631253	45.0	3.72792611578133	1.0495999999999999
+End Small 4 numberOfDetectedattacks:6 ***************************************************************
+Small 5 ***************************************************************
+End Small 5 numberOfDetectedattacks:7 ***************************************************************
+Small 6 ***************************************************************
+BankReimbursment	u2r	ReExecute	14.688232259258285	33.0	4.52058064814571	1.6
+End Small 6 numberOfDetectedattacks:4 ***************************************************************
+Small 7 ***************************************************************
+PoliceReport	dos	Late	8.934460047401766	19.0	3.9605501185044147	1.2487999999999997
+PoliceReport	dos	ReExecute	15.210530446312532	35.0	3.72792611578133	1.4032
+End Small 7 numberOfDetectedattacks:11 ***************************************************************
+Small 8 ***************************************************************
+PoliceReport	dos	ReExecute	17.6400788419986	38.0	6.801797104996492	1.4032
+SelectBestExpert	dos	ReExecute	10.53852418860061	22.0	5.000310471501522	1.3079999999999998
+SelectBestExpert	r2l	ReExecute	10.490924188600609	22.0	5.000310471501522	1.5459999999999998
+ObtainClaimService	dos	ReExecute	13.133803992745342	28.0	5.460509981863356	1.252
+PoliceReport	dos	ReConfiguration	17.90791895767882	42.0	3.2945973941970523	1.0495999999999999
+SelectBestExpert	probe	ReConfiguration	14.481924188600608	32.0	5.000310471501522	1.591
+End Small 8 numberOfDetectedattacks:10 ***************************************************************
+Small 9 ***************************************************************
+PoliceReport	u2r	ReExecute	15.143890446312533	35.0	3.72792611578133	1.7364
+SelectBestExpert	dos	ReExecute	10.283867153863083	21.0	5.363667884657707	1.3079999999999998
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+End Small 9 numberOfDetectedattacks:10 ***************************************************************
+Final: averageTime 109.95 averageCost 10.152547290560172 averageMitigationScore 3.65974 ***************************************************************
+large 0 ***************************************************************
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+CustomerFeedbackCollection	dos	ReExecute	18.88313010741306	39.0	9.34062526853264	2.2656
+ObtainClaimService	dos	Late	7.8402109165727385	16.5	3.6745272914318456	1.1479999999999997
+ObtainClaimService	dos	ReExecute	15.500712679588242	36.0	3.377781698970604	1.252
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+ObtainClaimService	dos	Late	7.8402109165727385	16.5	3.6745272914318456	1.1479999999999997
+PoliceReport	r2l	ReConfiguration	17.89091895767882	42.0	3.2945973941970523	1.1346
+ObtainClaimService	r2l	ReExecute	14.395610916572739	33.0	3.6745272914318456	1.371
+PoliceReport	dos	ReConfiguration	19.28125044631253	45.0	3.72792611578133	1.0495999999999999
+PoliceReport	dos	ReExecute	13.837198957678822	32.0	3.2945973941970523	1.4032
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+SelectBestExpert	dos	ReExecute	15.127556498695787	33.0	5.472891246739465	1.3079999999999998
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+PoliceReport	dos	ReConfiguration	20.075114783637712	44.0	6.712586959094274	1.0495999999999999
+SelectBestExpert	dos	ReConfiguration	14.60252418860061	32.0	5.000310471501522	0.988
+SelectBestExpert	r2l	ReExecute	17.282309069044054	38.0	5.97877267261013	1.5459999999999998
+SelectBestExpert	dos	ReExecute	16.315876602855933	38.0	3.443691507139835	1.3079999999999998
+ObtainClaimService	dos	Late	7.8402109165727385	16.5	3.6745272914318456	1.1479999999999997
+ObtainClaimService	dos	Late	7.8402109165727385	16.5	3.6745272914318456	1.1479999999999997
+ObtainClaimService	dos	ReExecute	15.500712679588242	36.0	3.377781698970604	1.252
+ObtainClaimService	r2l	ReExecute	15.140277733196998	33.0	5.536194332992491	1.371
+ObtainClaimService	u2r	ReExecute	15.841926878328934	35.0	5.443317195822335	1.677
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+End large 0 numberOfDetectedattacks:86 ***************************************************************
+large 1 ***************************************************************
+ObtainClaimService	dos	ReExecute	13.133803992745342	28.0	5.460509981863356	1.252
+ObtainClaimService	probe	ReConfiguration	19.111677733196995	43.0	5.536194332992491	1.5139999999999998
+SelectBestExpert	dos	ReExecute	10.53852418860061	22.0	5.000310471501522	1.3079999999999998
+BankReimbursment	dos	ReExecute	14.797032259258286	33.0	4.52058064814571	1.056
+ObtainClaimService	dos	ReExecute	16.066180043880653	34.0	6.7914501097016275	1.252
+ObtainClaimService	probe	ReConfiguration	20.86605250066072	46.0	6.922131251651799	1.5139999999999998
+PoliceReport	dos	Late	9.23527478363771	17.0	6.712586959094274	1.2487999999999997
+PoliceReport	dos	ReExecute	15.210530446312532	35.0	3.72792611578133	1.4032
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+ObtainClaimService	u2r	ReExecute	16.83345250066072	36.0	6.922131251651799	1.677
+SelectBestExpert	r2l	ReExecute	10.490924188600609	22.0	5.000310471501522	1.5459999999999998
+SelectBestExpert	u2r	ReExecute	15.049356498695786	33.0	5.472891246739465	1.6989999999999998
+SelectBestExpert	dos	ReExecute	15.343158684125216	33.0	6.011896710313034	1.3079999999999998
+CustomerFeedbackCollection	dos	ReExecute	18.88313010741306	39.0	9.34062526853264	2.2656
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+SelectBestExpert	r2l	ReExecute	17.282309069044054	38.0	5.97877267261013	1.5459999999999998
+PoliceReport	dos	ReConfiguration	17.90791895767882	42.0	3.2945973941970523	1.0495999999999999
+ObtainClaimService	r2l	ReExecute	16.89465250066072	36.0	6.922131251651799	1.371
+ObtainClaimService	probe	ReConfiguration	17.081403992745344	38.0	5.460509981863356	1.5139999999999998
+End large 1 numberOfDetectedattacks:67 ***************************************************************
+large 2 ***************************************************************
+ObtainClaimService	dos	ReExecute	15.926926878328933	35.0	5.443317195822335	1.252
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+ObtainClaimService	dos	ReExecute	16.066180043880653	34.0	6.7914501097016275	1.252
+ObtainClaimService	dos	ReExecute	15.926926878328933	35.0	5.443317195822335	1.252
+ObtainClaimService	u2r	ReExecute	16.83345250066072	36.0	6.922131251651799	1.677
+SelectBestExpert	dos	ReExecute	10.283867153863083	21.0	5.363667884657707	1.3079999999999998
+ObtainClaimService	r2l	ReExecute	13.110003992745343	28.0	5.460509981863356	1.371
+ObtainClaimService	dos	Redundancy	17.417292723468897	34.0	10.169231808672231	1.252
+SelectBestExpert	probe	ReConfiguration	14.481924188600608	32.0	5.000310471501522	1.591
+BankReimbursment	r2l	ReExecute	17.333294195466877	38.0	5.980235488667194	1.294
+ObtainClaimService	dos	ReExecute	14.419410916572739	33.0	3.6745272914318456	1.252
+SelectBestExpert	dos	ReExecute	17.329909069044053	38.0	5.97877267261013	1.3079999999999998
+ObtainClaimService	dos	ReExecute	16.066180043880653	34.0	6.7914501097016275	1.252
+SelectBestExpert	probe	ReConfiguration	18.555575010928084	41.0	6.184437527320204	1.591
+PoliceReport	r2l	ReConfiguration	17.89091895767882	42.0	3.2945973941970523	1.1346
+ObtainClaimService	u2r	ReExecute	15.415712679588243	36.0	3.377781698970604	1.677
+PoliceReport	dos	Late	9.23527478363771	17.0	6.712586959094274	1.2487999999999997
+PoliceReport	dos	ReConfiguration	17.90791895767882	42.0	3.2945973941970523	1.0495999999999999
+SelectBestExpert	dos	ReExecute	11.450095600938852	25.0	4.2792390023471265	1.3079999999999998
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+PoliceReport	dos	ReExecute	16.004394783637714	34.0	6.712586959094274	1.4032
+ObtainClaimService	dos	ReExecute	13.133803992745342	28.0	5.460509981863356	1.252
+PoliceReport	dos	ReConfiguration	19.28125044631253	45.0	3.72792611578133	1.0495999999999999
+End large 2 numberOfDetectedattacks:73 ***************************************************************
+large 3 ***************************************************************
+PoliceReport	r2l	ReConfiguration	17.89091895767882	42.0	3.2945973941970523	1.1346
+SelectBestExpert	r2l	ReExecute	10.490924188600609	22.0	5.000310471501522	1.5459999999999998
+ObtainClaimService	dos	Late	7.554603992745344	14.0	5.460509981863356	1.1479999999999997
+BankReimbursment	r2l	ReExecute	17.333294195466877	38.0	5.980235488667194	1.294
+CustomerFeedbackCollection	dos	ReExecute	17.040589057717796	43.0	0.7342726442944889	2.2656
+ObtainClaimService	r2l	ReExecute	13.110003992745343	28.0	5.460509981863356	1.371
+SelectBestExpert	r2l	ReExecute	15.295558684125215	33.0	6.011896710313034	1.5459999999999998
+ObtainClaimService	dos	Late	9.286980043880652	17.0	6.7914501097016275	1.1479999999999997
+PoliceReport	r2l	ReExecute	13.813398957678823	32.0	3.2945973941970523	1.5222
+SelectBestExpert	dos	ReExecute	16.315876602855933	38.0	3.443691507139835	1.3079999999999998
+BankReimbursment	dos	ReExecute	14.797032259258286	33.0	4.52058064814571	1.056
+CustomerFeedbackCollection	probe	Skip	-0.29604	0.0	0.0	1.4802
+PoliceReport	dos	ReExecute	13.837198957678822	32.0	3.2945973941970523	1.4032
+ObtainClaimService	dos	ReExecute	15.500712679588242	36.0	3.377781698970604	1.252
+ObtainClaimService	dos	ReExecute	15.164077733196997	33.0	5.536194332992491	1.252
+ObtainClaimService	dos	ReExecute	14.419410916572739	33.0	3.6745272914318456	1.252
+CustomerFeedbackCollection	dos	ReExecute	21.095427628319662	44.0	9.87136907079915	2.2656
+PoliceReport	dos	ReExecute	16.50358004740177	38.0	3.9605501185044147	1.4032
+ObtainClaimService	dos	ReExecute	15.926926878328933	35.0	5.443317195822335	1.252
+PoliceReport	dos	ReExecute	16.50358004740177	38.0	3.9605501185044147	1.4032
+SelectBestExpert	dos	ReExecute	10.53852418860061	22.0	5.000310471501522	1.3079999999999998
+BankReimbursment	dos	ReExecute	14.797032259258286	33.0	4.52058064814571	1.056
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+ObtainClaimService	dos	ReExecute	16.91845250066072	36.0	6.922131251651799	1.252
+End large 3 numberOfDetectedattacks:79 ***************************************************************
+large 4 ***************************************************************
+SelectBestExpert	dos	ReConfiguration	14.60252418860061	32.0	5.000310471501522	0.988
+PoliceReport	dos	Late	8.241410446312532	17.5	3.72792611578133	1.2487999999999997
+PoliceReport	dos	ReExecute	12.178885983317082	26.0	5.148814958292702	1.4032
+SelectBestExpert	dos	ReConfiguration	14.60252418860061	32.0	5.000310471501522	0.988
+ObtainClaimService	dos	ReExecute	15.164077733196997	33.0	5.536194332992491	1.252
+ObtainClaimService	dos	Late	7.8402109165727385	16.5	3.6745272914318456	1.1479999999999997
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+BankReimbursment	dos	ReExecute	10.664262193441482	24.0	3.1886554836037013	1.056
+ObtainClaimService	probe	ReConfiguration	20.86605250066072	46.0	6.922131251651799	1.5139999999999998
+BankReimbursment	dos	ReExecute	17.380894195466876	38.0	5.980235488667194	1.056
+ObtainClaimService	dos	Late	7.8402109165727385	16.5	3.6745272914318456	1.1479999999999997
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+SelectBestExpert	r2l	ReExecute	17.282309069044054	38.0	5.97877267261013	1.5459999999999998
+ObtainClaimService	r2l	ReExecute	15.140277733196998	33.0	5.536194332992491	1.371
+ObtainClaimService	dos	Late	7.8402109165727385	16.5	3.6745272914318456	1.1479999999999997
+BankReimbursment	r2l	ReExecute	17.333294195466877	38.0	5.980235488667194	1.294
+ObtainClaimService	dos	ReExecute	15.164077733196997	33.0	5.536194332992491	1.252
+PoliceReport	dos	ReConfiguration	19.28125044631253	45.0	3.72792611578133	1.0495999999999999
+PoliceReport	dos	ReConfiguration	20.075114783637712	44.0	6.712586959094274	1.0495999999999999
+SelectBestExpert	u2r	ReExecute	15.049356498695786	33.0	5.472891246739465	1.6989999999999998
+ObtainClaimService	dos	ReExecute	13.133803992745342	28.0	5.460509981863356	1.252
+PoliceReport	dos	Late	8.241410446312532	17.5	3.72792611578133	1.2487999999999997
+ObtainClaimService	dos	ReExecute	16.91845250066072	36.0	6.922131251651799	1.252
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+BankReimbursment	u2r	ReExecute	14.688232259258285	33.0	4.52058064814571	1.6
+End large 4 numberOfDetectedattacks:74 ***************************************************************
+large 5 ***************************************************************
+ObtainClaimService	dos	ReExecute	15.500712679588242	36.0	3.377781698970604	1.252
+ObtainClaimService	dos	ReExecute	15.164077733196997	33.0	5.536194332992491	1.252
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+SelectBestExpert	dos	ReExecute	10.283867153863083	21.0	5.363667884657707	1.3079999999999998
+ObtainClaimService	dos	ReExecute	13.133803992745342	28.0	5.460509981863356	1.252
+ObtainClaimService	dos	Late	7.8402109165727385	16.5	3.6745272914318456	1.1479999999999997
+SelectBestExpert	dos	ReConfiguration	14.60252418860061	32.0	5.000310471501522	0.988
+ObtainClaimService	dos	ReExecute	16.91845250066072	36.0	6.922131251651799	1.252
+ObtainClaimService	u2r	ReExecute	15.981180043880652	34.0	6.7914501097016275	1.677
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+BankReimbursment	dos	ReExecute	10.664262193441482	24.0	3.1886554836037013	1.056
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+SelectBestExpert	r2l	ReExecute	15.295558684125215	33.0	6.011896710313034	1.5459999999999998
+BankReimbursment	dos	ReExecute	17.380894195466876	38.0	5.980235488667194	1.056
+SelectBestExpert	dos	ReExecute	16.315876602855933	38.0	3.443691507139835	1.3079999999999998
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+ObtainClaimService	r2l	ReExecute	16.89465250066072	36.0	6.922131251651799	1.371
+SelectBestExpert	dos	ReExecute	15.343158684125216	33.0	6.011896710313034	1.3079999999999998
+BankReimbursment	dos	ReExecute	10.664262193441482	24.0	3.1886554836037013	1.056
+ObtainClaimService	dos	ReExecute	13.133803992745342	28.0	5.460509981863356	1.252
+PoliceReport	dos	ReExecute	17.6400788419986	38.0	6.801797104996492	1.4032
+SelectBestExpert	probe	ReConfiguration	14.481924188600608	32.0	5.000310471501522	1.591
+PoliceReport	r2l	ReExecute	12.155085983317083	26.0	5.148814958292702	1.5222
+SelectBestExpert	dos	ReExecute	15.343158684125216	33.0	6.011896710313034	1.3079999999999998
+BankReimbursment	r2l	ReExecute	14.749432259258285	33.0	4.52058064814571	1.294
+ObtainClaimService	r2l	ReExecute	16.89465250066072	36.0	6.922131251651799	1.371
+SelectBestExpert	dos	ReExecute	15.343158684125216	33.0	6.011896710313034	1.3079999999999998
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+SelectBestExpert	probe	ReConfiguration	14.481924188600608	32.0	5.000310471501522	1.591
+End large 5 numberOfDetectedattacks:82 ***************************************************************
+large 6 ***************************************************************
+ObtainClaimService	probe	ReConfiguration	19.111677733196995	43.0	5.536194332992491	1.5139999999999998
+ObtainClaimService	probe	ReConfiguration	17.081403992745344	38.0	5.460509981863356	1.5139999999999998
+BankReimbursment	u2r	ReExecute	10.555462193441482	24.0	3.1886554836037013	1.6
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+ObtainClaimService	dos	Late	7.8402109165727385	16.5	3.6745272914318456	1.1479999999999997
+PoliceReport	r2l	ReConfiguration	17.89091895767882	42.0	3.2945973941970523	1.1346
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+ObtainClaimService	dos	ReExecute	15.164077733196997	33.0	5.536194332992491	1.252
+ObtainClaimService	r2l	ReExecute	15.903126878328933	35.0	5.443317195822335	1.371
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+SelectBestExpert	dos	ReExecute	16.315876602855933	38.0	3.443691507139835	1.3079999999999998
+SelectBestExpert	dos	ReExecute	14.612175010928082	31.0	6.184437527320204	1.3079999999999998
+ObtainClaimService	r2l	ReExecute	15.476912679588242	36.0	3.377781698970604	1.371
+PoliceReport	dos	ReExecute	16.004394783637714	34.0	6.712586959094274	1.4032
+SelectBestExpert	dos	ReConfiguration	14.60252418860061	32.0	5.000310471501522	0.988
+SelectBestExpert	probe	ReConfiguration	14.481924188600608	32.0	5.000310471501522	1.591
+BankReimbursment	dos	ReExecute	10.664262193441482	24.0	3.1886554836037013	1.056
+SelectBestExpert	probe	ReConfiguration	14.481924188600608	32.0	5.000310471501522	1.591
+SelectBestExpert	r2l	ReExecute	16.268276602855934	38.0	3.443691507139835	1.5459999999999998
+End large 6 numberOfDetectedattacks:73 ***************************************************************
+large 7 ***************************************************************
+ObtainClaimService	r2l	ReExecute	15.476912679588242	36.0	3.377781698970604	1.371
+ObtainClaimService	dos	ReExecute	15.500712679588242	36.0	3.377781698970604	1.252
+BankReimbursment	r2l	ReExecute	14.749432259258285	33.0	4.52058064814571	1.294
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+SelectBestExpert	probe	ReConfiguration	21.273309069044053	48.0	5.97877267261013	1.591
+PoliceReport	r2l	ReConfiguration	17.89091895767882	42.0	3.2945973941970523	1.1346
+SelectBestExpert	dos	ReExecute	17.329909069044053	38.0	5.97877267261013	1.3079999999999998
+ObtainClaimService	dos	ReExecute	15.164077733196997	33.0	5.536194332992491	1.252
+SelectBestExpert	dos	ReConfiguration	14.60252418860061	32.0	5.000310471501522	0.988
+BankReimbursment	probe	ReConfiguration	21.28929419546688	48.0	5.980235488667194	1.5139999999999998
+ObtainClaimService	dos	ReExecute	15.164077733196997	33.0	5.536194332992491	1.252
+BankReimbursment	dos	ReExecute	17.380894195466876	38.0	5.980235488667194	1.056
+PoliceReport	dos	ReExecute	15.210530446312532	35.0	3.72792611578133	1.4032
+ObtainClaimService	dos	ReExecute	14.419410916572739	33.0	3.6745272914318456	1.252
+ObtainClaimService	dos	ReExecute	16.066180043880653	34.0	6.7914501097016275	1.252
+BankReimbursment	u2r	ReExecute	14.688232259258285	33.0	4.52058064814571	1.6
+PoliceReport	dos	ReExecute	16.50358004740177	38.0	3.9605501185044147	1.4032
+SelectBestExpert	dos	ReExecute	10.53852418860061	22.0	5.000310471501522	1.3079999999999998
+ObtainClaimService	dos	ReExecute	15.500712679588242	36.0	3.377781698970604	1.252
+ObtainClaimService	u2r	ReExecute	15.841926878328934	35.0	5.443317195822335	1.677
+PoliceReport	dos	Late	8.241410446312532	17.5	3.72792611578133	1.2487999999999997
+PoliceReport	r2l	ReExecute	16.479780047401768	38.0	3.9605501185044147	1.5222
+End large 7 numberOfDetectedattacks:88 ***************************************************************
+large 8 ***************************************************************
+SelectBestExpert	dos	ReExecute	17.329909069044053	38.0	5.97877267261013	1.3079999999999998
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+ObtainClaimService	dos	ReExecute	16.066180043880653	34.0	6.7914501097016275	1.252
+BankReimbursment	r2l	ReExecute	10.616662193441481	24.0	3.1886554836037013	1.294
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+SelectBestExpert	dos	ReExecute	15.127556498695787	33.0	5.472891246739465	1.3079999999999998
+BankReimbursment	dos	ReExecute	14.797032259258286	33.0	4.52058064814571	1.056
+ObtainClaimService	r2l	ReExecute	16.89465250066072	36.0	6.922131251651799	1.371
+ObtainClaimService	dos	ReExecute	15.500712679588242	36.0	3.377781698970604	1.252
+SelectBestExpert	dos	ReExecute	15.343158684125216	33.0	6.011896710313034	1.3079999999999998
+ObtainClaimService	dos	ReExecute	15.164077733196997	33.0	5.536194332992491	1.252
+PoliceReport	dos	Late	8.241410446312532	17.5	3.72792611578133	1.2487999999999997
+SelectBestExpert	dos	ReExecute	10.283867153863083	21.0	5.363667884657707	1.3079999999999998
+ObtainClaimService	dos	ReExecute	14.419410916572739	33.0	3.6745272914318456	1.252
+PoliceReport	dos	ReConfiguration	17.90791895767882	42.0	3.2945973941970523	1.0495999999999999
+BankReimbursment	dos	ReExecute	17.380894195466876	38.0	5.980235488667194	1.056
+ObtainClaimService	dos	ReExecute	15.500712679588242	36.0	3.377781698970604	1.252
+ObtainClaimService	dos	Late	9.286980043880652	17.0	6.7914501097016275	1.1479999999999997
+BankReimbursment	r2l	ReExecute	17.333294195466877	38.0	5.980235488667194	1.294
+BankReimbursment	r2l	ReExecute	17.333294195466877	38.0	5.980235488667194	1.294
+ObtainClaimService	dos	ReExecute	15.164077733196997	33.0	5.536194332992491	1.252
+ObtainClaimService	dos	ReExecute	16.91845250066072	36.0	6.922131251651799	1.252
+PoliceReport	r2l	ReExecute	15.186730446312533	35.0	3.72792611578133	1.5222
+SelectBestExpert	probe	ReConfiguration	21.273309069044053	48.0	5.97877267261013	1.591
+End large 8 numberOfDetectedattacks:70 ***************************************************************
+large 9 ***************************************************************
+ObtainClaimService	dos	ReExecute	15.926926878328933	35.0	5.443317195822335	1.252
+ObtainClaimService	probe	ReConfiguration	19.111677733196995	43.0	5.536194332992491	1.5139999999999998
+ObtainClaimService	dos	Late	7.8402109165727385	16.5	3.6745272914318456	1.1479999999999997
+PoliceReport	r2l	ReExecute	12.155085983317083	26.0	5.148814958292702	1.5222
+PoliceReport	r2l	ReExecute	15.980594783637713	34.0	6.712586959094274	1.5222
+BankReimbursment	r2l	ReExecute	14.749432259258285	33.0	4.52058064814571	1.294
+ObtainClaimService	dos	ReExecute	15.164077733196997	33.0	5.536194332992491	1.252
+PoliceReport	r2l	ReExecute	15.980594783637713	34.0	6.712586959094274	1.5222
+PoliceReport	probe	Skip	-0.26568	0.0	0.0	1.3284
+SelectBestExpert	r2l	ReExecute	14.564575010928081	31.0	6.184437527320204	1.5459999999999998
+SelectBestExpert	probe	ReConfiguration	18.555575010928084	41.0	6.184437527320204	1.591
+ObtainClaimService	probe	ReConfiguration	19.111677733196995	43.0	5.536194332992491	1.5139999999999998
+End large 9 numberOfDetectedattacks:66 ***************************************************************
+Final: averageTime 1017.4 averageCost 98.94811629632775 averageMitigationScore 29.591160000000002 ***************************************************************
+Small 0 ***************************************************************
+PoliceReport	dos	Late	6.7044200901726665	18.5	4.680600300575556	1.2487999999999997
+PoliceReport	dos	Late	6.7044200901726665	18.5	4.680600300575556	1.2487999999999997
+PoliceReport	r2l	ReExecute	8.612935462625565	23.0	6.724584875418551	1.5222
+PoliceReport	r2l	ReExecute	8.612935462625565	23.0	6.724584875418551	1.5222
+End Small 0 numberOfDetectedattacks:8 ***************************************************************
+Final: averageTime 123.0 averageCost 22.81037035198821 averageMitigationScore 5.541999999999999 ***************************************************************
+Small 0 ***************************************************************
+BankReimbursment	r2l	ReExecute	9.178196981382804	25.0	6.456656604609349	1.294
+End Small 0 numberOfDetectedattacks:4 ***************************************************************
+Final: averageTime 45.0 averageCost 6.456656604609349 averageMitigationScore 1.294 ***************************************************************
+Small 0 ***************************************************************
+End Small 0 numberOfDetectedattacks:6 ***************************************************************
+Final: averageTime 30.0 averageCost 0.0 averageMitigationScore 0.0 ***************************************************************
+Small 0 ***************************************************************
+End Small 0 numberOfDetectedattacks:8 ***************************************************************
+Final: averageTime 40.0 averageCost 0.0 averageMitigationScore 0.0 ***************************************************************
+Final: averageTime NaN averageCost NaN averageMitigationScore NaN ***************************************************************
+meduim 0 ***************************************************************
+End meduim 0 numberOfDetectedattacks:19 ***************************************************************
+meduim 1 ***************************************************************
+End meduim 1 numberOfDetectedattacks:17 ***************************************************************
+meduim 2 ***************************************************************
+End meduim 2 numberOfDetectedattacks:23 ***************************************************************
+meduim 3 ***************************************************************
+End meduim 3 numberOfDetectedattacks:21 ***************************************************************
+meduim 4 ***************************************************************
+End meduim 4 numberOfDetectedattacks:31 ***************************************************************
+meduim 5 ***************************************************************
+End meduim 5 numberOfDetectedattacks:18 ***************************************************************
+meduim 6 ***************************************************************
+End meduim 6 numberOfDetectedattacks:23 ***************************************************************
+meduim 7 ***************************************************************
+End meduim 7 numberOfDetectedattacks:25 ***************************************************************
+meduim 8 ***************************************************************
+End meduim 8 numberOfDetectedattacks:24 ***************************************************************
+meduim 9 ***************************************************************
+End meduim 9 numberOfDetectedattacks:27 ***************************************************************
+meduim 10 ***************************************************************
+End meduim 10 numberOfDetectedattacks:26 ***************************************************************
+meduim 11 ***************************************************************
+End meduim 11 numberOfDetectedattacks:21 ***************************************************************
+meduim 12 ***************************************************************
+End meduim 12 numberOfDetectedattacks:20 ***************************************************************
+meduim 13 ***************************************************************
+End meduim 13 numberOfDetectedattacks:28 ***************************************************************
+meduim 14 ***************************************************************
+End meduim 14 numberOfDetectedattacks:27 ***************************************************************
+meduim 15 ***************************************************************
+End meduim 15 numberOfDetectedattacks:30 ***************************************************************
+meduim 16 ***************************************************************
+End meduim 16 numberOfDetectedattacks:24 ***************************************************************
+meduim 17 ***************************************************************
+End meduim 17 numberOfDetectedattacks:19 ***************************************************************
+meduim 18 ***************************************************************
+End meduim 18 numberOfDetectedattacks:23 ***************************************************************
+meduim 19 ***************************************************************
+End meduim 19 numberOfDetectedattacks:20 ***************************************************************
+meduim 20 ***************************************************************
+End meduim 20 numberOfDetectedattacks:21 ***************************************************************
+meduim 21 ***************************************************************
+End meduim 21 numberOfDetectedattacks:27 ***************************************************************
+meduim 22 ***************************************************************
+End meduim 22 numberOfDetectedattacks:30 ***************************************************************
+meduim 23 ***************************************************************
+End meduim 23 numberOfDetectedattacks:23 ***************************************************************
+meduim 24 ***************************************************************
+End meduim 24 numberOfDetectedattacks:25 ***************************************************************
+meduim 25 ***************************************************************
+End meduim 25 numberOfDetectedattacks:20 ***************************************************************
+meduim 26 ***************************************************************
+End meduim 26 numberOfDetectedattacks:20 ***************************************************************
+meduim 27 ***************************************************************
+End meduim 27 numberOfDetectedattacks:25 ***************************************************************
+meduim 28 ***************************************************************
+End meduim 28 numberOfDetectedattacks:22 ***************************************************************
+meduim 29 ***************************************************************
+End meduim 29 numberOfDetectedattacks:22 ***************************************************************
+meduim 30 ***************************************************************
+End meduim 30 numberOfDetectedattacks:33 ***************************************************************
+meduim 31 ***************************************************************
+End meduim 31 numberOfDetectedattacks:22 ***************************************************************
+meduim 32 ***************************************************************
+End meduim 32 numberOfDetectedattacks:20 ***************************************************************
+meduim 33 ***************************************************************
+End meduim 33 numberOfDetectedattacks:25 ***************************************************************
+meduim 34 ***************************************************************
+End meduim 34 numberOfDetectedattacks:24 ***************************************************************
+meduim 35 ***************************************************************
+End meduim 35 numberOfDetectedattacks:26 ***************************************************************
+meduim 36 ***************************************************************
+End meduim 36 numberOfDetectedattacks:18 ***************************************************************
+meduim 37 ***************************************************************
+End meduim 37 numberOfDetectedattacks:25 ***************************************************************
+meduim 38 ***************************************************************
+End meduim 38 numberOfDetectedattacks:25 ***************************************************************
+meduim 39 ***************************************************************
+End meduim 39 numberOfDetectedattacks:27 ***************************************************************
+meduim 40 ***************************************************************
+End meduim 40 numberOfDetectedattacks:19 ***************************************************************
+meduim 41 ***************************************************************
+End meduim 41 numberOfDetectedattacks:18 ***************************************************************
+meduim 42 ***************************************************************
+End meduim 42 numberOfDetectedattacks:23 ***************************************************************
+meduim 43 ***************************************************************
+End meduim 43 numberOfDetectedattacks:29 ***************************************************************
+meduim 44 ***************************************************************
+End meduim 44 numberOfDetectedattacks:26 ***************************************************************
+meduim 45 ***************************************************************
+End meduim 45 numberOfDetectedattacks:28 ***************************************************************
+meduim 46 ***************************************************************
+End meduim 46 numberOfDetectedattacks:26 ***************************************************************
+meduim 47 ***************************************************************
+End meduim 47 numberOfDetectedattacks:24 ***************************************************************
+meduim 48 ***************************************************************
+End meduim 48 numberOfDetectedattacks:24 ***************************************************************
+meduim 49 ***************************************************************
+End meduim 49 numberOfDetectedattacks:25 ***************************************************************
+meduim 50 ***************************************************************
+End meduim 0 numberOfDetectedattacks:26 ***************************************************************
+End large 0 numberOfDetectedattacks:48 ***************************************************************
+End meduim 0 numberOfDetectedattacks:25 ***************************************************************
+End large 0 numberOfDetectedattacks:47 ***************************************************************
+End meduim 0 numberOfDetectedattacks:21 ***************************************************************
+End meduim 1 numberOfDetectedattacks:22 ***************************************************************
+End meduim 2 numberOfDetectedattacks:18 ***************************************************************
+End meduim 3 numberOfDetectedattacks:25 ***************************************************************
+End meduim 4 numberOfDetectedattacks:21 ***************************************************************
+End meduim 5 numberOfDetectedattacks:12 ***************************************************************
+End meduim 6 numberOfDetectedattacks:19 ***************************************************************
+End meduim 7 numberOfDetectedattacks:29 ***************************************************************
+End meduim 8 numberOfDetectedattacks:29 ***************************************************************
+End meduim 9 numberOfDetectedattacks:27 ***************************************************************
+End large 0 numberOfDetectedattacks:48 ***************************************************************
+End large 1 numberOfDetectedattacks:45 ***************************************************************
+End large 2 numberOfDetectedattacks:59 ***************************************************************
+End large 3 numberOfDetectedattacks:47 ***************************************************************
+End large 4 numberOfDetectedattacks:62 ***************************************************************
+End large 5 numberOfDetectedattacks:46 ***************************************************************
+End large 6 numberOfDetectedattacks:40 ***************************************************************
+End large 7 numberOfDetectedattacks:46 ***************************************************************
+End large 8 numberOfDetectedattacks:41 ***************************************************************
+End large 9 numberOfDetectedattacks:49 ***************************************************************
+End meduim 0 numberOfDetectedattacks:13 ***************************************************************
+End meduim 1 numberOfDetectedattacks:9 ***************************************************************
+End meduim 2 numberOfDetectedattacks:7 ***************************************************************
+End meduim 3 numberOfDetectedattacks:9 ***************************************************************
+End meduim 4 numberOfDetectedattacks:7 ***************************************************************
+End meduim 5 numberOfDetectedattacks:10 ***************************************************************
+End meduim 6 numberOfDetectedattacks:6 ***************************************************************
+End meduim 7 numberOfDetectedattacks:6 ***************************************************************
+End meduim 8 numberOfDetectedattacks:14 ***************************************************************
+End meduim 9 numberOfDetectedattacks:6 ***************************************************************
+End meduim 10 numberOfDetectedattacks:8 ***************************************************************
+End meduim 11 numberOfDetectedattacks:9 ***************************************************************
+End meduim 12 numberOfDetectedattacks:4 ***************************************************************
+End meduim 13 numberOfDetectedattacks:12 ***************************************************************
+End meduim 14 numberOfDetectedattacks:7 ***************************************************************
+End meduim 15 numberOfDetectedattacks:11 ***************************************************************
+End meduim 16 numberOfDetectedattacks:9 ***************************************************************
+End meduim 17 numberOfDetectedattacks:12 ***************************************************************
+End meduim 18 numberOfDetectedattacks:9 ***************************************************************
+End meduim 19 numberOfDetectedattacks:4 ***************************************************************
+End meduim 20 numberOfDetectedattacks:9 ***************************************************************
+End meduim 21 numberOfDetectedattacks:6 ***************************************************************
+End meduim 22 numberOfDetectedattacks:6 ***************************************************************
+End meduim 23 numberOfDetectedattacks:8 ***************************************************************
+End meduim 24 numberOfDetectedattacks:10 ***************************************************************
+End meduim 25 numberOfDetectedattacks:10 ***************************************************************
+End meduim 26 numberOfDetectedattacks:10 ***************************************************************
+End meduim 27 numberOfDetectedattacks:12 ***************************************************************
+End meduim 28 numberOfDetectedattacks:6 ***************************************************************
+End meduim 29 numberOfDetectedattacks:7 ***************************************************************
+End meduim 30 numberOfDetectedattacks:8 ***************************************************************
+End meduim 31 numberOfDetectedattacks:7 ***************************************************************
+End meduim 32 numberOfDetectedattacks:9 ***************************************************************
+End meduim 33 numberOfDetectedattacks:8 ***************************************************************
+End meduim 34 numberOfDetectedattacks:6 ***************************************************************
+End meduim 35 numberOfDetectedattacks:8 ***************************************************************
+End meduim 36 numberOfDetectedattacks:9 ***************************************************************
+End meduim 37 numberOfDetectedattacks:8 ***************************************************************
+End meduim 38 numberOfDetectedattacks:8 ***************************************************************
+End meduim 39 numberOfDetectedattacks:7 ***************************************************************
+End meduim 40 numberOfDetectedattacks:12 ***************************************************************
+End meduim 41 numberOfDetectedattacks:4 ***************************************************************
+End meduim 42 numberOfDetectedattacks:7 ***************************************************************
+End meduim 43 numberOfDetectedattacks:4 ***************************************************************
+End meduim 44 numberOfDetectedattacks:13 ***************************************************************
+End meduim 45 numberOfDetectedattacks:7 ***************************************************************
+End meduim 46 numberOfDetectedattacks:11 ***************************************************************
+End meduim 47 numberOfDetectedattacks:5 ***************************************************************
+End meduim 48 numberOfDetectedattacks:12 ***************************************************************
+End meduim 49 numberOfDetectedattacks:7 ***************************************************************
+End meduim 50 numberOfDetectedattacks:11 ***************************************************************
+End meduim 51 numberOfDetectedattacks:10 ***************************************************************
+End meduim 52 numberOfDetectedattacks:8 ***************************************************************
+End meduim 53 numberOfDetectedattacks:7 ***************************************************************
+End meduim 54 numberOfDetectedattacks:9 ***************************************************************
+End meduim 55 numberOfDetectedattacks:9 ***************************************************************
+End meduim 56 numberOfDetectedattacks:10 ***************************************************************
+End meduim 57 numberOfDetectedattacks:7 ***************************************************************
+End meduim 58 numberOfDetectedattacks:9 ***************************************************************
+End meduim 59 numberOfDetectedattacks:10 ***************************************************************
+End meduim 60 numberOfDetectedattacks:2 ***************************************************************
+End meduim 61 numberOfDetectedattacks:9 ***************************************************************
+End meduim 62 numberOfDetectedattacks:9 ***************************************************************
+End meduim 63 numberOfDetectedattacks:6 ***************************************************************
+End meduim 64 numberOfDetectedattacks:6 ***************************************************************
+End meduim 65 numberOfDetectedattacks:5 ***************************************************************
+End meduim 66 numberOfDetectedattacks:10 ***************************************************************
+End meduim 67 numberOfDetectedattacks:5 ***************************************************************
+End meduim 68 numberOfDetectedattacks:7 ***************************************************************
+End meduim 69 numberOfDetectedattacks:11 ***************************************************************
+End meduim 70 numberOfDetectedattacks:10 ***************************************************************
+End meduim 71 numberOfDetectedattacks:8 ***************************************************************
+End meduim 72 numberOfDetectedattacks:9 ***************************************************************
+End meduim 73 numberOfDetectedattacks:11 ***************************************************************
+End meduim 74 numberOfDetectedattacks:12 ***************************************************************
+End meduim 75 numberOfDetectedattacks:9 ***************************************************************
+End meduim 76 numberOfDetectedattacks:10 ***************************************************************
+End meduim 77 numberOfDetectedattacks:9 ***************************************************************
+End meduim 78 numberOfDetectedattacks:9 ***************************************************************
+End meduim 79 numberOfDetectedattacks:6 ***************************************************************
+End meduim 80 numberOfDetectedattacks:8 ***************************************************************
+End meduim 81 numberOfDetectedattacks:6 ***************************************************************
+End meduim 82 numberOfDetectedattacks:7 ***************************************************************
+End meduim 83 numberOfDetectedattacks:7 ***************************************************************
+End meduim 84 numberOfDetectedattacks:10 ***************************************************************
+End meduim 85 numberOfDetectedattacks:9 ***************************************************************
+End meduim 86 numberOfDetectedattacks:9 ***************************************************************
+End meduim 87 numberOfDetectedattacks:7 ***************************************************************
+End meduim 88 numberOfDetectedattacks:8 ***************************************************************
+End meduim 89 numberOfDetectedattacks:5 ***************************************************************
+End meduim 90 numberOfDetectedattacks:11 ***************************************************************
+End meduim 91 numberOfDetectedattacks:8 ***************************************************************
+End meduim 92 numberOfDetectedattacks:13 ***************************************************************
+End meduim 93 numberOfDetectedattacks:9 ***************************************************************
+End meduim 94 numberOfDetectedattacks:6 ***************************************************************
+End meduim 95 numberOfDetectedattacks:7 ***************************************************************
+End meduim 96 numberOfDetectedattacks:10 ***************************************************************
+End meduim 97 numberOfDetectedattacks:9 ***************************************************************
+End meduim 98 numberOfDetectedattacks:2 ***************************************************************
+End meduim 99 numberOfDetectedattacks:7 ***************************************************************
+End large 0 numberOfDetectedattacks:18 ***************************************************************
+End large 1 numberOfDetectedattacks:15 ***************************************************************
+End large 2 numberOfDetectedattacks:15 ***************************************************************
+End large 3 numberOfDetectedattacks:19 ***************************************************************
+End large 4 numberOfDetectedattacks:8 ***************************************************************
+End large 5 numberOfDetectedattacks:12 ***************************************************************
+End large 6 numberOfDetectedattacks:18 ***************************************************************
+End large 7 numberOfDetectedattacks:15 ***************************************************************
+End large 8 numberOfDetectedattacks:22 ***************************************************************
+End large 9 numberOfDetectedattacks:23 ***************************************************************
+End meduim 0 numberOfDetectedattacks:1 ***************************************************************
+End meduim 1 numberOfDetectedattacks:3 ***************************************************************
+End meduim 2 numberOfDetectedattacks:2 ***************************************************************
+End meduim 3 numberOfDetectedattacks:3 ***************************************************************
+End meduim 4 numberOfDetectedattacks:2 ***************************************************************
+End meduim 5 numberOfDetectedattacks:5 ***************************************************************
+End meduim 6 numberOfDetectedattacks:6 ***************************************************************
+End meduim 7 numberOfDetectedattacks:0 ***************************************************************
+End meduim 8 numberOfDetectedattacks:3 ***************************************************************
+End meduim 9 numberOfDetectedattacks:6 ***************************************************************
+End meduim 10 numberOfDetectedattacks:2 ***************************************************************
+End meduim 11 numberOfDetectedattacks:3 ***************************************************************
+End meduim 12 numberOfDetectedattacks:4 ***************************************************************
+End meduim 13 numberOfDetectedattacks:1 ***************************************************************
+End meduim 14 numberOfDetectedattacks:3 ***************************************************************
+End meduim 15 numberOfDetectedattacks:3 ***************************************************************
+End meduim 16 numberOfDetectedattacks:1 ***************************************************************
+End meduim 17 numberOfDetectedattacks:1 ***************************************************************
+End meduim 18 numberOfDetectedattacks:1 ***************************************************************
+End meduim 19 numberOfDetectedattacks:5 ***************************************************************
+End meduim 20 numberOfDetectedattacks:1 ***************************************************************
+End meduim 21 numberOfDetectedattacks:5 ***************************************************************
+End meduim 22 numberOfDetectedattacks:3 ***************************************************************
+End meduim 23 numberOfDetectedattacks:4 ***************************************************************
+End meduim 24 numberOfDetectedattacks:3 ***************************************************************
+End meduim 25 numberOfDetectedattacks:2 ***************************************************************
+End meduim 26 numberOfDetectedattacks:2 ***************************************************************
+End meduim 27 numberOfDetectedattacks:1 ***************************************************************
+End meduim 28 numberOfDetectedattacks:4 ***************************************************************
+End meduim 29 numberOfDetectedattacks:5 ***************************************************************
+End meduim 30 numberOfDetectedattacks:1 ***************************************************************
+End meduim 31 numberOfDetectedattacks:5 ***************************************************************
+End meduim 32 numberOfDetectedattacks:3 ***************************************************************
+End meduim 33 numberOfDetectedattacks:3 ***************************************************************
+End meduim 34 numberOfDetectedattacks:6 ***************************************************************
+End meduim 35 numberOfDetectedattacks:2 ***************************************************************
+End meduim 36 numberOfDetectedattacks:3 ***************************************************************
+End meduim 37 numberOfDetectedattacks:1 ***************************************************************
+End meduim 38 numberOfDetectedattacks:4 ***************************************************************
+End meduim 39 numberOfDetectedattacks:1 ***************************************************************
+End meduim 40 numberOfDetectedattacks:4 ***************************************************************
+End meduim 41 numberOfDetectedattacks:1 ***************************************************************
+End meduim 42 numberOfDetectedattacks:5 ***************************************************************
+End meduim 43 numberOfDetectedattacks:0 ***************************************************************
+End meduim 44 numberOfDetectedattacks:6 ***************************************************************
+End meduim 45 numberOfDetectedattacks:2 ***************************************************************
+End meduim 46 numberOfDetectedattacks:1 ***************************************************************
+End meduim 47 numberOfDetectedattacks:4 ***************************************************************
+End meduim 48 numberOfDetectedattacks:2 ***************************************************************
+End meduim 49 numberOfDetectedattacks:3 ***************************************************************
+End meduim 50 numberOfDetectedattacks:3 ***************************************************************
+End meduim 51 numberOfDetectedattacks:4 ***************************************************************
+End meduim 52 numberOfDetectedattacks:2 ***************************************************************
+End meduim 53 numberOfDetectedattacks:2 ***************************************************************
+End meduim 54 numberOfDetectedattacks:2 ***************************************************************
+End meduim 55 numberOfDetectedattacks:5 ***************************************************************
+End meduim 56 numberOfDetectedattacks:2 ***************************************************************
+End meduim 57 numberOfDetectedattacks:6 ***************************************************************
+End meduim 58 numberOfDetectedattacks:3 ***************************************************************
+End meduim 59 numberOfDetectedattacks:3 ***************************************************************
+End meduim 60 numberOfDetectedattacks:1 ***************************************************************
+End meduim 61 numberOfDetectedattacks:2 ***************************************************************
+End meduim 62 numberOfDetectedattacks:7 ***************************************************************
+End meduim 63 numberOfDetectedattacks:6 ***************************************************************
+End meduim 64 numberOfDetectedattacks:4 ***************************************************************
+End meduim 65 numberOfDetectedattacks:6 ***************************************************************
+End meduim 66 numberOfDetectedattacks:1 ***************************************************************
+End meduim 67 numberOfDetectedattacks:1 ***************************************************************
+End meduim 68 numberOfDetectedattacks:3 ***************************************************************
+End meduim 69 numberOfDetectedattacks:4 ***************************************************************
+End meduim 70 numberOfDetectedattacks:2 ***************************************************************
+End meduim 71 numberOfDetectedattacks:1 ***************************************************************
+End meduim 72 numberOfDetectedattacks:5 ***************************************************************
+End meduim 73 numberOfDetectedattacks:1 ***************************************************************
+End meduim 74 numberOfDetectedattacks:4 ***************************************************************
+End meduim 75 numberOfDetectedattacks:3 ***************************************************************
+End meduim 76 numberOfDetectedattacks:0 ***************************************************************
+End meduim 77 numberOfDetectedattacks:4 ***************************************************************
+End meduim 78 numberOfDetectedattacks:3 ***************************************************************
+End meduim 79 numberOfDetectedattacks:2 ***************************************************************
+End meduim 80 numberOfDetectedattacks:5 ***************************************************************
+End meduim 81 numberOfDetectedattacks:2 ***************************************************************
+End meduim 82 numberOfDetectedattacks:2 ***************************************************************
+End meduim 83 numberOfDetectedattacks:0 ***************************************************************
+End meduim 84 numberOfDetectedattacks:3 ***************************************************************
+End meduim 85 numberOfDetectedattacks:6 ***************************************************************
+End meduim 86 numberOfDetectedattacks:2 ***************************************************************
+End meduim 87 numberOfDetectedattacks:2 ***************************************************************
+End meduim 88 numberOfDetectedattacks:4 ***************************************************************
+End meduim 89 numberOfDetectedattacks:3 ***************************************************************
+End meduim 90 numberOfDetectedattacks:2 ***************************************************************
+End meduim 91 numberOfDetectedattacks:3 ***************************************************************
+End meduim 92 numberOfDetectedattacks:2 ***************************************************************
+End meduim 93 numberOfDetectedattacks:1 ***************************************************************
+End meduim 94 numberOfDetectedattacks:1 ***************************************************************
+End meduim 95 numberOfDetectedattacks:0 ***************************************************************
+End meduim 96 numberOfDetectedattacks:2 ***************************************************************
+End meduim 97 numberOfDetectedattacks:3 ***************************************************************
+End meduim 98 numberOfDetectedattacks:1 ***************************************************************
+End meduim 99 numberOfDetectedattacks:2 ***************************************************************
+End large 0 numberOfDetectedattacks:5 ***************************************************************
+End large 1 numberOfDetectedattacks:5 ***************************************************************
+End large 2 numberOfDetectedattacks:7 ***************************************************************
+End large 3 numberOfDetectedattacks:7 ***************************************************************
+End large 4 numberOfDetectedattacks:3 ***************************************************************
+End large 5 numberOfDetectedattacks:5 ***************************************************************
+End large 6 numberOfDetectedattacks:7 ***************************************************************
+End large 7 numberOfDetectedattacks:4 ***************************************************************
+End large 8 numberOfDetectedattacks:2 ***************************************************************
+End large 9 numberOfDetectedattacks:4 ***************************************************************
+End meduim 0 numberOfDetectedattacks:1 ***************************************************************
+End meduim 1 numberOfDetectedattacks:7 ***************************************************************
+End meduim 2 numberOfDetectedattacks:3 ***************************************************************
+End meduim 3 numberOfDetectedattacks:0 ***************************************************************
+End meduim 4 numberOfDetectedattacks:2 ***************************************************************
+End meduim 5 numberOfDetectedattacks:1 ***************************************************************
+End meduim 6 numberOfDetectedattacks:0 ***************************************************************
+End meduim 7 numberOfDetectedattacks:2 ***************************************************************
+End meduim 8 numberOfDetectedattacks:1 ***************************************************************
+End meduim 9 numberOfDetectedattacks:5 ***************************************************************
+End meduim 10 numberOfDetectedattacks:4 ***************************************************************
+End meduim 11 numberOfDetectedattacks:3 ***************************************************************
+End meduim 12 numberOfDetectedattacks:3 ***************************************************************
+End meduim 13 numberOfDetectedattacks:0 ***************************************************************
+End meduim 14 numberOfDetectedattacks:1 ***************************************************************
+End meduim 15 numberOfDetectedattacks:2 ***************************************************************
+End meduim 16 numberOfDetectedattacks:2 ***************************************************************
+End meduim 17 numberOfDetectedattacks:4 ***************************************************************
+End meduim 18 numberOfDetectedattacks:2 ***************************************************************
+End meduim 19 numberOfDetectedattacks:4 ***************************************************************
+End meduim 20 numberOfDetectedattacks:3 ***************************************************************
+End meduim 21 numberOfDetectedattacks:2 ***************************************************************
+End meduim 22 numberOfDetectedattacks:2 ***************************************************************
+End meduim 23 numberOfDetectedattacks:3 ***************************************************************
+End meduim 24 numberOfDetectedattacks:2 ***************************************************************
+End meduim 25 numberOfDetectedattacks:3 ***************************************************************
+End meduim 26 numberOfDetectedattacks:4 ***************************************************************
+End meduim 27 numberOfDetectedattacks:4 ***************************************************************
+End meduim 28 numberOfDetectedattacks:2 ***************************************************************
+End meduim 29 numberOfDetectedattacks:3 ***************************************************************
+End meduim 30 numberOfDetectedattacks:1 ***************************************************************
+End meduim 31 numberOfDetectedattacks:0 ***************************************************************
+End meduim 32 numberOfDetectedattacks:5 ***************************************************************
+End meduim 33 numberOfDetectedattacks:5 ***************************************************************
+End meduim 34 numberOfDetectedattacks:6 ***************************************************************
+End meduim 35 numberOfDetectedattacks:3 ***************************************************************
+End meduim 36 numberOfDetectedattacks:2 ***************************************************************
+End meduim 37 numberOfDetectedattacks:4 ***************************************************************
+End meduim 38 numberOfDetectedattacks:2 ***************************************************************
+End meduim 39 numberOfDetectedattacks:0 ***************************************************************
+End meduim 40 numberOfDetectedattacks:3 ***************************************************************
+End meduim 41 numberOfDetectedattacks:1 ***************************************************************
+End meduim 42 numberOfDetectedattacks:1 ***************************************************************
+End meduim 43 numberOfDetectedattacks:1 ***************************************************************
+End meduim 44 numberOfDetectedattacks:1 ***************************************************************
+End meduim 45 numberOfDetectedattacks:2 ***************************************************************
+End meduim 46 numberOfDetectedattacks:4 ***************************************************************
+End meduim 47 numberOfDetectedattacks:3 ***************************************************************
+End meduim 48 numberOfDetectedattacks:1 ***************************************************************
+End meduim 49 numberOfDetectedattacks:6 ***************************************************************
+End meduim 50 numberOfDetectedattacks:2 ***************************************************************
+End meduim 51 numberOfDetectedattacks:3 ***************************************************************
+End meduim 52 numberOfDetectedattacks:3 ***************************************************************
+End meduim 53 numberOfDetectedattacks:1 ***************************************************************
+End meduim 54 numberOfDetectedattacks:0 ***************************************************************
+End meduim 55 numberOfDetectedattacks:3 ***************************************************************
+End meduim 56 numberOfDetectedattacks:0 ***************************************************************
+End meduim 57 numberOfDetectedattacks:1 ***************************************************************
+End meduim 58 numberOfDetectedattacks:3 ***************************************************************
+End meduim 59 numberOfDetectedattacks:1 ***************************************************************
+End meduim 60 numberOfDetectedattacks:6 ***************************************************************
+End meduim 61 numberOfDetectedattacks:2 ***************************************************************
+End meduim 62 numberOfDetectedattacks:1 ***************************************************************
+End meduim 63 numberOfDetectedattacks:6 ***************************************************************
+End meduim 64 numberOfDetectedattacks:2 ***************************************************************
+End meduim 65 numberOfDetectedattacks:1 ***************************************************************
+End meduim 66 numberOfDetectedattacks:3 ***************************************************************
+End meduim 67 numberOfDetectedattacks:4 ***************************************************************
+End meduim 68 numberOfDetectedattacks:1 ***************************************************************
+End meduim 69 numberOfDetectedattacks:3 ***************************************************************
+End meduim 70 numberOfDetectedattacks:2 ***************************************************************
+End meduim 71 numberOfDetectedattacks:1 ***************************************************************
+End meduim 72 numberOfDetectedattacks:3 ***************************************************************
+End meduim 73 numberOfDetectedattacks:3 ***************************************************************
+End meduim 74 numberOfDetectedattacks:2 ***************************************************************
+End meduim 75 numberOfDetectedattacks:2 ***************************************************************
+End meduim 76 numberOfDetectedattacks:3 ***************************************************************
+End meduim 77 numberOfDetectedattacks:3 ***************************************************************
+End meduim 78 numberOfDetectedattacks:3 ***************************************************************
+End meduim 79 numberOfDetectedattacks:3 ***************************************************************
+End meduim 80 numberOfDetectedattacks:2 ***************************************************************
+End meduim 81 numberOfDetectedattacks:2 ***************************************************************
+End meduim 82 numberOfDetectedattacks:1 ***************************************************************
+End meduim 83 numberOfDetectedattacks:3 ***************************************************************
+End meduim 84 numberOfDetectedattacks:3 ***************************************************************
+End meduim 85 numberOfDetectedattacks:3 ***************************************************************
+End meduim 86 numberOfDetectedattacks:4 ***************************************************************
+End meduim 87 numberOfDetectedattacks:0 ***************************************************************
+End meduim 88 numberOfDetectedattacks:2 ***************************************************************
+End meduim 89 numberOfDetectedattacks:2 ***************************************************************
+End meduim 90 numberOfDetectedattacks:3 ***************************************************************
+End meduim 91 numberOfDetectedattacks:2 ***************************************************************
+End meduim 92 numberOfDetectedattacks:5 ***************************************************************
+End meduim 93 numberOfDetectedattacks:1 ***************************************************************
+End meduim 94 numberOfDetectedattacks:2 ***************************************************************
+End meduim 95 numberOfDetectedattacks:4 ***************************************************************
+End meduim 96 numberOfDetectedattacks:5 ***************************************************************
+End meduim 97 numberOfDetectedattacks:1 ***************************************************************
+End meduim 98 numberOfDetectedattacks:2 ***************************************************************
+End meduim 99 numberOfDetectedattacks:2 ***************************************************************
+End large 0 numberOfDetectedattacks:6 ***************************************************************
+End large 1 numberOfDetectedattacks:6 ***************************************************************
+End large 2 numberOfDetectedattacks:3 ***************************************************************
+End large 3 numberOfDetectedattacks:2 ***************************************************************
+End large 4 numberOfDetectedattacks:9 ***************************************************************
+End large 5 numberOfDetectedattacks:4 ***************************************************************
+End large 6 numberOfDetectedattacks:4 ***************************************************************
+End large 7 numberOfDetectedattacks:6 ***************************************************************
+End large 8 numberOfDetectedattacks:4 ***************************************************************
+End large 9 numberOfDetectedattacks:3 ***************************************************************
+End meduim 0 numberOfDetectedattacks:8 ***************************************************************
+End meduim 1 numberOfDetectedattacks:10 ***************************************************************
+End meduim 2 numberOfDetectedattacks:3 ***************************************************************
+End meduim 3 numberOfDetectedattacks:8 ***************************************************************
+End meduim 4 numberOfDetectedattacks:11 ***************************************************************
+End meduim 5 numberOfDetectedattacks:7 ***************************************************************
+End meduim 6 numberOfDetectedattacks:5 ***************************************************************
+End meduim 7 numberOfDetectedattacks:11 ***************************************************************
+End meduim 8 numberOfDetectedattacks:8 ***************************************************************
+End meduim 9 numberOfDetectedattacks:9 ***************************************************************
+End meduim 10 numberOfDetectedattacks:10 ***************************************************************
+End meduim 11 numberOfDetectedattacks:8 ***************************************************************
+End meduim 12 numberOfDetectedattacks:6 ***************************************************************
+End meduim 13 numberOfDetectedattacks:10 ***************************************************************
+End meduim 14 numberOfDetectedattacks:12 ***************************************************************
+End meduim 15 numberOfDetectedattacks:6 ***************************************************************
+End meduim 16 numberOfDetectedattacks:7 ***************************************************************
+End meduim 17 numberOfDetectedattacks:6 ***************************************************************
+End meduim 18 numberOfDetectedattacks:10 ***************************************************************
+End meduim 19 numberOfDetectedattacks:9 ***************************************************************
+End meduim 20 numberOfDetectedattacks:8 ***************************************************************
+End meduim 21 numberOfDetectedattacks:8 ***************************************************************
+End meduim 22 numberOfDetectedattacks:6 ***************************************************************
+End meduim 23 numberOfDetectedattacks:8 ***************************************************************
+End meduim 24 numberOfDetectedattacks:15 ***************************************************************
+End meduim 25 numberOfDetectedattacks:7 ***************************************************************
+End meduim 26 numberOfDetectedattacks:5 ***************************************************************
+End meduim 27 numberOfDetectedattacks:12 ***************************************************************
+End meduim 28 numberOfDetectedattacks:6 ***************************************************************
+End meduim 29 numberOfDetectedattacks:4 ***************************************************************
+End meduim 30 numberOfDetectedattacks:9 ***************************************************************
+End meduim 31 numberOfDetectedattacks:9 ***************************************************************
+End meduim 32 numberOfDetectedattacks:9 ***************************************************************
+End meduim 33 numberOfDetectedattacks:9 ***************************************************************
+End meduim 34 numberOfDetectedattacks:11 ***************************************************************
+End meduim 35 numberOfDetectedattacks:11 ***************************************************************
+End meduim 36 numberOfDetectedattacks:9 ***************************************************************
+End meduim 37 numberOfDetectedattacks:12 ***************************************************************
+End meduim 38 numberOfDetectedattacks:4 ***************************************************************
+End meduim 39 numberOfDetectedattacks:7 ***************************************************************
+End meduim 40 numberOfDetectedattacks:6 ***************************************************************
+End meduim 41 numberOfDetectedattacks:7 ***************************************************************
+End meduim 42 numberOfDetectedattacks:5 ***************************************************************
+End meduim 43 numberOfDetectedattacks:7 ***************************************************************
+End meduim 44 numberOfDetectedattacks:4 ***************************************************************
+End meduim 45 numberOfDetectedattacks:4 ***************************************************************
+End meduim 46 numberOfDetectedattacks:9 ***************************************************************
+End meduim 47 numberOfDetectedattacks:5 ***************************************************************
+End meduim 48 numberOfDetectedattacks:8 ***************************************************************
+End meduim 49 numberOfDetectedattacks:10 ***************************************************************
+End meduim 50 numberOfDetectedattacks:7 ***************************************************************
+End meduim 51 numberOfDetectedattacks:12 ***************************************************************
+End meduim 52 numberOfDetectedattacks:12 ***************************************************************
+End meduim 53 numberOfDetectedattacks:6 ***************************************************************
+End meduim 54 numberOfDetectedattacks:8 ***************************************************************
+End meduim 55 numberOfDetectedattacks:5 ***************************************************************
+End meduim 56 numberOfDetectedattacks:11 ***************************************************************
+End meduim 57 numberOfDetectedattacks:12 ***************************************************************
+End meduim 58 numberOfDetectedattacks:10 ***************************************************************
+End meduim 59 numberOfDetectedattacks:13 ***************************************************************
+End meduim 60 numberOfDetectedattacks:9 ***************************************************************
+End meduim 61 numberOfDetectedattacks:11 ***************************************************************
+End meduim 62 numberOfDetectedattacks:9 ***************************************************************
+End meduim 63 numberOfDetectedattacks:3 ***************************************************************
+End meduim 64 numberOfDetectedattacks:6 ***************************************************************
+End meduim 65 numberOfDetectedattacks:11 ***************************************************************
+End meduim 66 numberOfDetectedattacks:9 ***************************************************************
+End meduim 67 numberOfDetectedattacks:5 ***************************************************************
+End meduim 68 numberOfDetectedattacks:10 ***************************************************************
+End meduim 69 numberOfDetectedattacks:9 ***************************************************************
+End meduim 70 numberOfDetectedattacks:9 ***************************************************************
+End meduim 71 numberOfDetectedattacks:7 ***************************************************************
+End meduim 72 numberOfDetectedattacks:6 ***************************************************************
+End meduim 73 numberOfDetectedattacks:10 ***************************************************************
+End meduim 74 numberOfDetectedattacks:10 ***************************************************************
+End meduim 75 numberOfDetectedattacks:13 ***************************************************************
+End meduim 76 numberOfDetectedattacks:12 ***************************************************************
+End meduim 77 numberOfDetectedattacks:7 ***************************************************************
+End meduim 78 numberOfDetectedattacks:7 ***************************************************************
+End meduim 79 numberOfDetectedattacks:10 ***************************************************************
+End meduim 80 numberOfDetectedattacks:10 ***************************************************************
+End meduim 81 numberOfDetectedattacks:8 ***************************************************************
+End meduim 82 numberOfDetectedattacks:7 ***************************************************************
+End meduim 83 numberOfDetectedattacks:8 ***************************************************************
+End meduim 84 numberOfDetectedattacks:11 ***************************************************************
+End meduim 85 numberOfDetectedattacks:5 ***************************************************************
+End meduim 86 numberOfDetectedattacks:10 ***************************************************************
+End meduim 87 numberOfDetectedattacks:5 ***************************************************************
+End meduim 88 numberOfDetectedattacks:8 ***************************************************************
+End meduim 89 numberOfDetectedattacks:9 ***************************************************************
+End meduim 90 numberOfDetectedattacks:8 ***************************************************************
+End meduim 91 numberOfDetectedattacks:4 ***************************************************************
+End meduim 92 numberOfDetectedattacks:7 ***************************************************************
+End meduim 93 numberOfDetectedattacks:10 ***************************************************************
+End meduim 94 numberOfDetectedattacks:9 ***************************************************************
+End meduim 95 numberOfDetectedattacks:8 ***************************************************************
+End meduim 96 numberOfDetectedattacks:6 ***************************************************************
+End meduim 97 numberOfDetectedattacks:7 ***************************************************************
+End meduim 98 numberOfDetectedattacks:11 ***************************************************************
+End meduim 99 numberOfDetectedattacks:9 ***************************************************************
+End large 0 numberOfDetectedattacks:10 ***************************************************************
+End large 1 numberOfDetectedattacks:19 ***************************************************************
+End large 2 numberOfDetectedattacks:10 ***************************************************************
+End large 3 numberOfDetectedattacks:16 ***************************************************************
+End large 4 numberOfDetectedattacks:14 ***************************************************************
+End large 5 numberOfDetectedattacks:13 ***************************************************************
+End large 6 numberOfDetectedattacks:14 ***************************************************************
+End large 7 numberOfDetectedattacks:17 ***************************************************************
+End large 8 numberOfDetectedattacks:11 ***************************************************************
+End large 9 numberOfDetectedattacks:12 ***************************************************************
+End meduim 0 numberOfDetectedattacks:12 ***************************************************************
+End meduim 1 numberOfDetectedattacks:15 ***************************************************************
+End meduim 2 numberOfDetectedattacks:14 ***************************************************************
+End meduim 3 numberOfDetectedattacks:13 ***************************************************************
+End meduim 4 numberOfDetectedattacks:18 ***************************************************************
+End meduim 5 numberOfDetectedattacks:18 ***************************************************************
+End meduim 6 numberOfDetectedattacks:13 ***************************************************************
+End meduim 7 numberOfDetectedattacks:18 ***************************************************************
+End meduim 8 numberOfDetectedattacks:14 ***************************************************************
+End meduim 9 numberOfDetectedattacks:14 ***************************************************************
+End meduim 10 numberOfDetectedattacks:12 ***************************************************************
+End meduim 11 numberOfDetectedattacks:15 ***************************************************************
+End meduim 12 numberOfDetectedattacks:13 ***************************************************************
+End meduim 13 numberOfDetectedattacks:14 ***************************************************************
+End meduim 14 numberOfDetectedattacks:17 ***************************************************************
+End meduim 15 numberOfDetectedattacks:13 ***************************************************************
+End meduim 16 numberOfDetectedattacks:11 ***************************************************************
+End meduim 17 numberOfDetectedattacks:16 ***************************************************************
+End meduim 18 numberOfDetectedattacks:12 ***************************************************************
+End meduim 19 numberOfDetectedattacks:12 ***************************************************************
+End meduim 20 numberOfDetectedattacks:12 ***************************************************************
+End meduim 21 numberOfDetectedattacks:14 ***************************************************************
+End meduim 22 numberOfDetectedattacks:17 ***************************************************************
+End meduim 23 numberOfDetectedattacks:7 ***************************************************************
+End meduim 24 numberOfDetectedattacks:14 ***************************************************************
+End meduim 25 numberOfDetectedattacks:14 ***************************************************************
+End meduim 26 numberOfDetectedattacks:12 ***************************************************************
+End meduim 27 numberOfDetectedattacks:12 ***************************************************************
+End meduim 28 numberOfDetectedattacks:15 ***************************************************************
+End meduim 29 numberOfDetectedattacks:11 ***************************************************************
+End meduim 30 numberOfDetectedattacks:15 ***************************************************************
+End meduim 31 numberOfDetectedattacks:14 ***************************************************************
+End meduim 32 numberOfDetectedattacks:13 ***************************************************************
+End meduim 33 numberOfDetectedattacks:12 ***************************************************************
+End meduim 34 numberOfDetectedattacks:14 ***************************************************************
+End meduim 35 numberOfDetectedattacks:16 ***************************************************************
+End meduim 36 numberOfDetectedattacks:15 ***************************************************************
+End meduim 37 numberOfDetectedattacks:11 ***************************************************************
+End meduim 38 numberOfDetectedattacks:8 ***************************************************************
+End meduim 39 numberOfDetectedattacks:11 ***************************************************************
+End meduim 40 numberOfDetectedattacks:11 ***************************************************************
+End meduim 41 numberOfDetectedattacks:16 ***************************************************************
+End meduim 42 numberOfDetectedattacks:13 ***************************************************************
+End meduim 43 numberOfDetectedattacks:13 ***************************************************************
+End meduim 44 numberOfDetectedattacks:15 ***************************************************************
+End meduim 45 numberOfDetectedattacks:12 ***************************************************************
+End meduim 46 numberOfDetectedattacks:16 ***************************************************************
+End meduim 47 numberOfDetectedattacks:10 ***************************************************************
+End meduim 48 numberOfDetectedattacks:13 ***************************************************************
+End meduim 49 numberOfDetectedattacks:12 ***************************************************************
+End meduim 50 numberOfDetectedattacks:14 ***************************************************************
+End meduim 51 numberOfDetectedattacks:15 ***************************************************************
+End meduim 52 numberOfDetectedattacks:7 ***************************************************************
+End meduim 53 numberOfDetectedattacks:9 ***************************************************************
+End meduim 54 numberOfDetectedattacks:12 ***************************************************************
+End meduim 55 numberOfDetectedattacks:12 ***************************************************************
+End meduim 56 numberOfDetectedattacks:15 ***************************************************************
+End meduim 57 numberOfDetectedattacks:11 ***************************************************************
+End meduim 58 numberOfDetectedattacks:13 ***************************************************************
+End meduim 59 numberOfDetectedattacks:15 ***************************************************************
+End meduim 60 numberOfDetectedattacks:13 ***************************************************************
+End meduim 61 numberOfDetectedattacks:11 ***************************************************************
+End meduim 62 numberOfDetectedattacks:16 ***************************************************************
+End meduim 63 numberOfDetectedattacks:10 ***************************************************************
+End meduim 64 numberOfDetectedattacks:15 ***************************************************************
+End meduim 65 numberOfDetectedattacks:15 ***************************************************************
+End meduim 66 numberOfDetectedattacks:7 ***************************************************************
+End meduim 67 numberOfDetectedattacks:18 ***************************************************************
+End meduim 68 numberOfDetectedattacks:9 ***************************************************************
+End meduim 69 numberOfDetectedattacks:13 ***************************************************************
+End meduim 70 numberOfDetectedattacks:12 ***************************************************************
+End meduim 71 numberOfDetectedattacks:11 ***************************************************************
+End meduim 72 numberOfDetectedattacks:11 ***************************************************************
+End meduim 73 numberOfDetectedattacks:14 ***************************************************************
+End meduim 74 numberOfDetectedattacks:16 ***************************************************************
+End meduim 75 numberOfDetectedattacks:12 ***************************************************************
+End meduim 76 numberOfDetectedattacks:14 ***************************************************************
+End meduim 77 numberOfDetectedattacks:7 ***************************************************************
+End meduim 78 numberOfDetectedattacks:12 ***************************************************************
+End meduim 79 numberOfDetectedattacks:15 ***************************************************************
+End meduim 80 numberOfDetectedattacks:13 ***************************************************************
+End meduim 81 numberOfDetectedattacks:16 ***************************************************************
+End meduim 82 numberOfDetectedattacks:16 ***************************************************************
+End meduim 83 numberOfDetectedattacks:16 ***************************************************************
+End meduim 84 numberOfDetectedattacks:17 ***************************************************************
+End meduim 85 numberOfDetectedattacks:15 ***************************************************************
+End meduim 86 numberOfDetectedattacks:17 ***************************************************************
+End meduim 87 numberOfDetectedattacks:14 ***************************************************************
+End meduim 88 numberOfDetectedattacks:11 ***************************************************************
+End meduim 89 numberOfDetectedattacks:14 ***************************************************************
+End meduim 90 numberOfDetectedattacks:11 ***************************************************************
+End meduim 91 numberOfDetectedattacks:14 ***************************************************************
+End meduim 92 numberOfDetectedattacks:10 ***************************************************************
+End meduim 93 numberOfDetectedattacks:11 ***************************************************************
+End meduim 94 numberOfDetectedattacks:14 ***************************************************************
+End meduim 95 numberOfDetectedattacks:9 ***************************************************************
+End meduim 96 numberOfDetectedattacks:17 ***************************************************************
+End meduim 97 numberOfDetectedattacks:13 ***************************************************************
+End meduim 98 numberOfDetectedattacks:11 ***************************************************************
+End meduim 99 numberOfDetectedattacks:15 ***************************************************************
+End large 0 numberOfDetectedattacks:21 ***************************************************************
+End large 1 numberOfDetectedattacks:23 ***************************************************************
+End large 2 numberOfDetectedattacks:26 ***************************************************************
+End large 3 numberOfDetectedattacks:26 ***************************************************************
+End large 4 numberOfDetectedattacks:29 ***************************************************************
+End large 5 numberOfDetectedattacks:25 ***************************************************************
+End large 6 numberOfDetectedattacks:26 ***************************************************************
+End large 7 numberOfDetectedattacks:24 ***************************************************************
+End large 8 numberOfDetectedattacks:18 ***************************************************************
+End large 9 numberOfDetectedattacks:24 ***************************************************************
