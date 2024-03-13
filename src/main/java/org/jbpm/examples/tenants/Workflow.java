@@ -42,7 +42,21 @@ public class Workflow {
 	Map<String, ArrayList<Double>> userCost = new HashMap<String, ArrayList<Double>>();
 	ArrayList<ArrayList<String>> parallelTasksList = new ArrayList<ArrayList<String>>();
 	Map<String, Map<String, ArrayList<String>>> serviceTasksLegalAdaptationCost=new HashMap<String, Map<String, ArrayList<String>>>();
+	Map<String, ArrayList<String>> DataFlowClosureSet = new HashMap<String, ArrayList<String>>();
+	Map<String, ArrayList<String>> ControlFlowClosureSet = new HashMap<String, ArrayList<String>>();
+	Map<String, ArrayList<String>> Successors = new HashMap<String, ArrayList<String>>();
+	Map<String, ArrayList<String>> Predecessors = new HashMap<String, ArrayList<String>>();
 	
+	double[][] ConfidentialityMatrix;
+	double[][] IntegrityMatrix;
+	double[][] AvailabilityMatrix;
+	Map<String, Double> DefaultPrice= new HashMap<String, Double>();
+	Map<String, Double> DefaultValue = new HashMap<String, Double>();
+	Map<String, Double> DefaultTime = new HashMap<String, Double>();
+	double priceWeight,timeWeight,valueWeight,securityWeight;
+
+	
+
 	//Map<Service, ServiceTask> scheduledServices = new HashMap<Service, ServiceTask>();
 
 
@@ -50,16 +64,41 @@ public class Workflow {
 	
 	private ArrayList<String> userTasks = new ArrayList<String>();
 	Map<String, ArrayList<Double>> serviceTasks = new HashMap<String, ArrayList<Double>>();
-
+	ArrayList<String> serviceTasksOrder=new ArrayList<String>();
 
 	public Workflow(int id) {
 		setId(id);
 	}
 	
+	
+	public double getConfidentialityMatrix(int i,int j) {
+		return ConfidentialityMatrix[i][j];
+	}
+	
+	public double getIntegrityMatrix(int i,int j) {
+		return IntegrityMatrix[i][j];
+	}
+	
+	public double getAvailabilityMatrix(int i,int j) {
+		return AvailabilityMatrix[i][j];
+	}
 
 	
+	public double getDefaultPrice(String task) {
+		return DefaultPrice.get(task);
+	}
+	
+	public double getDefaultValue(String task) {
+		return DefaultValue.get(task);
+	}
+	
+	public double getDefaultTime(String task) {
+		return DefaultTime.get(task);
+	}
+	
+	
 	//main
-	public Workflow(String name,ArrayList<String> userTasks,Map<String, ArrayList<Double>> serviceTasks,ArrayList<User> users,TenantKernel tenant,KernelManagment KM,Map<String, ArrayList<String>> LegalAdaptation,Map<String, Map<String, ArrayList<String>>> TasksLegalAdaptationCost,Map<String, ArrayList<Double>> costs,Map<String, ArrayList<Double>> userCost,ArrayList<ArrayList<String>> parallelTasks) {
+	public Workflow(String name,ArrayList<String> userTasks,ArrayList<String> sTasksOrder,Map<String, ArrayList<Double>> serviceTasks,ArrayList<User> users,TenantKernel tenant,KernelManagment KM,Map<String, ArrayList<String>> LegalAdaptation,Map<String, Map<String, ArrayList<String>>> TasksLegalAdaptationCost,Map<String, ArrayList<Double>> costs,Map<String, ArrayList<Double>> userCost,ArrayList<ArrayList<String>> parallelTasks,Map<String, ArrayList<String>> dataFlowClosureSet,Map<String, ArrayList<String>> controlFlowClosureSet,Map<String, ArrayList<String>> successors,Map<String, ArrayList<String>> predecessors,double pWeight,double tWeight,double vWeight,double sWeight) {
 		setId();
 		this.name=name;
 		this.userTasks=userTasks;
@@ -68,6 +107,11 @@ public class Workflow {
 		assignRandomThresholds();
 		this.tenant=tenant;
 		this.tenantAddress=tenant.getId()+"/";
+		
+		this.priceWeight=pWeight;
+		this.timeWeight=tWeight;
+		this.valueWeight=vWeight;
+		this.securityWeight=sWeight;
 		
 		this.KM=KM;
 		//assign legalUsers to userTasks
@@ -88,7 +132,17 @@ public class Workflow {
 		
 		//define parallel tasks
 		this.parallelTasksList =parallelTasks;
+		this.serviceTasksOrder=sTasksOrder;
+		//for(int i=0;i<serviceTasksOrder.size();i++) {
+		//	System.out.println("serviceTasksOrder "+serviceTasksOrder.get(i));
+		//}
+		this.DataFlowClosureSet = dataFlowClosureSet;
+		this.ControlFlowClosureSet =controlFlowClosureSet;
 		
+		this.Successors=successors;
+		this.Predecessors=predecessors;
+		
+	
 		
 		System.out.println("Legal Services for Tasks");
 
@@ -135,6 +189,22 @@ public class Workflow {
 			System.out.println();
 		}
 		
+		ComputeSecurityDependencyMatrix();
+
+		for(String s:serviceTasksOrder) {	
+			DefaultPrice.put(s,getDefaultServiceforTasks().get(s).getCost());
+			DefaultTime.put(s,getDefaultServiceforTasks().get(s).getART());
+			DefaultValue.put(s,serviceCost.get(s).get(2));
+		}
+		/*
+		for(String s:serviceTasksOrder) {
+			System.out.println("task "+s);
+			System.out.println("	-Time "+DefaultTime.get(s));
+			System.out.println("	-Price "+DefaultPrice.get(s));
+			System.out.println("	-Value "+DefaultValue.get(s));
+		}
+		 */
+		
 	}
 	
 	
@@ -159,6 +229,74 @@ public class Workflow {
 		return tenant;
 	}
 	
+	public ArrayList<String> getServiceTasks() {
+		return serviceTasksOrder;
+	}
+	
+	
+	public String getLastTask() {
+		return serviceTasksOrder.get(serviceTasksOrder.size() - 1);
+	}
+	
+	public int getTaskIndexInWorkflow(String task) {
+		for (int i = 0; i < serviceTasksOrder.size(); i++) {
+            if (serviceTasksOrder.get(i).equals(task)) {
+                return i; // Return the index if the element is found
+            }
+        }
+		return -1;
+	}
+	
+	public Map<String, ArrayList<String>> getLegalAdaptations() {
+		return serviceTasksLegalAdaptation;
+	}
+	
+	public Map<String, ArrayList<String>> getDataFlowClosureSet(){
+		return DataFlowClosureSet;
+	}
+	
+	public Map<String, ArrayList<String>> getControlFlowClosureSet(){
+		return ControlFlowClosureSet;
+	}
+	
+	public  ArrayList<String> getSuccessors(String task){
+		return Successors.get(task);
+	}
+	
+	public  ArrayList<String> getPredecessors(String task){
+		return Predecessors.get(task);
+	}
+	
+	
+	public ArrayList<String> getSubsequentTasks(String violatedTask){
+		ArrayList<String> subsequentTasks = new ArrayList<String>();
+		
+		boolean check=false;
+		for (int i = 0; i < getServiceTasks().size(); i++) {
+            String task=getServiceTasks().get(i);
+            if(check)
+            	subsequentTasks.add(task);
+            if(task.equals(violatedTask)) 
+            	check=true;  
+         }
+		/*
+		System.out.println("SubsequentTasks:");
+		for(String s:subsequentTasks) {
+			System.out.println(s+", ");
+		}
+		*/
+		return subsequentTasks;
+	}
+	
+	public boolean CheckSecurityDependency(int i,int j) {
+		if(ConfidentialityMatrix[i][j]!=0)
+			return true;
+		if(IntegrityMatrix[i][j]!=0)
+			return true;
+		if(AvailabilityMatrix[i][j]!=0)
+			return true;
+		return false;	
+	} 
 	
 	public ArrayList<String> getLegalAdaptationforServiceTask(String task) {
 		return serviceTasksLegalAdaptation.get(task);
@@ -350,6 +488,9 @@ public class Workflow {
 		return parallelTasks;
 	}
 	
+
+	
+	
 	public void assignRandomThresholds() {
 		for(String s:this.userTasks) {
 			ArrayList<Integer> threshes = new ArrayList<Integer>();
@@ -407,6 +548,25 @@ public class Workflow {
 	
 	public Map<String, ArrayList<Service>> getLegalServiceforTasks(){
 		return this.LegalServicesforTasks;
+	}
+	
+	public Map<String, Service> getDefaultServiceforTasks(){
+		Map<String, Service> DefaultServiceforTasks=new HashMap<String, Service>();
+		for(String task:serviceTasksOrder) {
+			double mintotalCost=Double.MAX_VALUE;
+			Service ServiceDefault=null;
+			for(Service s: LegalServicesforTasks.get(task)) {			
+				double cost=this.priceWeight*s. getCost()+this.timeWeight*s.getART();// time and cost have positive and value has negetive relationship with final cost 
+				if(cost<mintotalCost) {
+					mintotalCost=cost;
+					ServiceDefault=s;
+				}
+			}
+			//System.out.println("DefaultServiceforTasks  "+task);
+			//ServiceDefault.print();
+			DefaultServiceforTasks.put(task,ServiceDefault);
+		}
+		return DefaultServiceforTasks;
 	}
 	
 	public String getTenantAddress() {
@@ -518,8 +678,134 @@ public class Workflow {
 		return services.get(s);
 	}
 	
-	
-	
+	public void ComputeSecurityDependencyMatrix() {
+		System.out.print("SecurityDependencyMatrix: ");
+		int size = serviceTasksOrder.size();
+
+		// Initialize the ConfidentialityMatrix, IntegrityMatrix, and AvailabilityMatrix
+		ConfidentialityMatrix = new double[size][size];
+		IntegrityMatrix = new double[size][size];
+		AvailabilityMatrix = new double[size][size];
+
+		/*
+		for (int k = 0; k < size; k++) {
+		    for (int t = 0; t < size; t++) {
+		        ConfidentialityMatrix[k][t] = 1.0;
+		        IntegrityMatrix[k][t] = 1.0;
+		        AvailabilityMatrix[k][t] = 1.0;
+		    }
+		}
+		 */
+		for(int index1=0;index1<size;index1++) {
+			String i=serviceTasksOrder.get(index1);
+			//System.out.print("ServiceTask [i]: "+i+"  ");
+			for(int index2=0;index2<size;index2++) {
+				String j=serviceTasksOrder.get(index2);
+				//System.out.print("ServiceTask [j]: "+j+"  ");
+				if (!i.equals(j)) {
+                    double C_ij = 0, I_ij = 0, A_ij = 0;
+
+                    // Check conditions for DFCS and compute C_ij, I_ij, A_ij accordingly
+                    // Compute C_ij
+                    if (DataFlowClosureSet.get(i).contains(j)) {  
+                    	ArrayList<String> dataFlow=DataFlowClosureSet.get(i);
+                    	C_ij =  serviceTasks.get(i).get(0);
+                        for (int index3=0;index3<dataFlow.size();index3++) {
+                        	String t_k=dataFlow.get(index3);
+                            C_ij *= serviceTasks.get(t_k).get(0);
+                        	//System.out.println("t_k :"+ t_k+" c_j :"+ serviceTasks.get(j).get(0)+" C_ij:"+C_ij);
+                            if(t_k.equals(j)) {
+                            	//System.out.println("break");
+                            	break;
+                            }
+                        }            
+                    }
+                    //System.out.println("step1:"+C_ij);
+                    
+                    if (DataFlowClosureSet.get(j).contains(i)) {  
+                    	ArrayList<String> dataFlow=DataFlowClosureSet.get(j);
+                    	C_ij =serviceTasks.get(i).get(0);
+                        for (int index3=0;index3<dataFlow.size();index3++) {
+                        	String t_k=dataFlow.get(index3);
+                        	C_ij *= serviceTasks.get(t_k).get(0);
+                        	//System.out.println("t_k :"+ t_k+" c_t_k :"+ serviceTasks.get(t_k).get(0)+" C_ij:"+C_ij);
+                            if(t_k.equals(j)) {
+                            	//System.out.println("break");
+                            	break;
+                            }
+                        }            
+                    }
+                    //System.out.println("step2:"+C_ij);
+                    ConfidentialityMatrix[index1][index2]=C_ij;
+                    
+                    // Compute I_ij
+                    if (DataFlowClosureSet.get(i).contains(j)) {  
+                    	ArrayList<String> dataFlow=DataFlowClosureSet.get(i);
+                    	I_ij = serviceTasks.get(i).get(1);
+                        for (int index3=0;index3<dataFlow.size();index3++) {
+                        	String t_k=dataFlow.get(index3);
+                        	I_ij *= serviceTasks.get(t_k).get(1);
+                        	//System.out.println("t_k :"+ t_k+" I_j :"+ serviceTasks.get(j).get(1)+" I_ij:"+I_ij);
+                            if(t_k.equals(j)) {
+                            	//System.out.println("break");
+                            	break;
+                            }
+                        }            
+                    }
+                    //System.out.println("step3:"+I_ij);
+
+                    if (ControlFlowClosureSet.get(i).contains(j)) {  
+                    	ArrayList<String> ControlFlow=ControlFlowClosureSet.get(i);
+                    	I_ij =serviceTasks.get(i).get(1);
+                        for (int index3=0;index3<ControlFlow.size();index3++) {
+                        	String t_k=ControlFlow.get(index3);
+                        	I_ij *= serviceTasks.get(t_k).get(1);
+                        	//System.out.println("t_k :"+ t_k+" I_j :"+ serviceTasks.get(j).get(1)+" I_ij:"+I_ij);
+                            if(t_k.equals(j)) {
+                            	//System.out.println("break");
+                            	break;
+                            }
+                        }            
+                    }
+                    //System.out.println("step4:"+I_ij);               
+                    IntegrityMatrix[index1][index2]=I_ij;
+                    
+                    // Compute A_ij
+                    if (DataFlowClosureSet.get(i).contains(j)) {  
+                    	ArrayList<String> dataFlow=DataFlowClosureSet.get(i);
+                    	A_ij = serviceTasks.get(i).get(2);
+                        for (int index3=0;index3<dataFlow.size();index3++) {
+                        	String t_k=dataFlow.get(index3);
+                        	A_ij *= serviceTasks.get(t_k).get(2);
+                        	//System.out.println("t_k :"+ t_k+" I_j :"+ serviceTasks.get(j).get(2)+" A_ij:"+A_ij);
+                            if(t_k.equals(j)) {
+                            	//System.out.println("break");
+                            	break;
+                            }
+                        }            
+                    }
+                    //System.out.println("step5:"+A_ij);
+                    AvailabilityMatrix[index1][index2]=A_ij;
+
+                }
+				else {
+					ConfidentialityMatrix[index1][index2]=1; 
+					IntegrityMatrix[index1][index2]=1;
+					AvailabilityMatrix[index1][index2]=1;
+				}
+			}
+		}
+		
+		System.out.println("Matrix:");
+		for (int i = 0; i < size; i++) {
+		    for (int j = 0; j < size; j++) {
+		        System.out.print(ConfidentialityMatrix[i][j] + ",");
+		        System.out.print(IntegrityMatrix[i][j] + ",");
+		        System.out.print(AvailabilityMatrix[i][j] + " ");
+		    }
+		    System.out.println();
+		}
+	}
 
 	
 	public void print(){

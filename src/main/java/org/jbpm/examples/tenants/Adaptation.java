@@ -24,6 +24,7 @@ import java.util.*;
 public class Adaptation {
 	
 	private String name;
+	private String task;
 	private ArrayList<Double> securityImpact = new ArrayList<Double>();//securityImpact[0]:confidentiality securityImpact[1]:Integrity securityImpact[2]:availability
 	private double price;
 	private double time;
@@ -37,6 +38,13 @@ public class Adaptation {
 	
 	private double totalCost;
 
+	public Adaptation(String name, String t) {
+		setName(name);
+		setTask(t);
+		setSecurityImpact();
+	}
+	
+	
 	public Adaptation(String name, double t,double p,double v) {
 		setName(name);
 		time=t;
@@ -44,6 +52,7 @@ public class Adaptation {
 		value=v;
 		setSecurityImpact();
 	}
+	
 	public void setSecurityImpact() {
 		//Edoc:
 		if(name.equals("Late")) {
@@ -83,8 +92,24 @@ public class Adaptation {
 		return name;
 	}
 
+	
+	public String getTask() {
+		return task;
+	}
+	
 	public void setName(String n) {
 		this.name = n;
+	}
+	
+	public void setTask(String t) {
+		this.task = t;
+	}
+	
+	public void setPriceTimeValue(double t,double p,double v) {
+		time=t;
+		price=p;
+		value=v;
+		setSecurityImpact();
 	}
 	
 	public double getPrice() {
@@ -96,6 +121,9 @@ public class Adaptation {
 	public double getValue() {
 		return value;
 	}
+	
+	
+	
 	public double getTotalCost() {
 		return totalCost;
 	}
@@ -140,12 +168,38 @@ public class Adaptation {
 		return mitigationScore;
 	}
 	
+	//compute Mitigation Score for the chain(based on MS_{aa_{t_i},vt,a_k} = (1 - obj_{t_i} \cdot obj_{a_k}) \cdot obj_{MI_{aa}}\cdot obj_{SDM[vt][t_i]}
+	public double calculateMitigationScoreInChain(ServiceTask s,Attack attack,ServiceTask vt,Workflow w) {
+		//System.out.println("calculateMitigationScoreInChain");
+		mitigationScore=0;
+		for(int i=0;i<3;i++) {
+			double dependency=0;
+			
+			if(i==0)
+				dependency=w.getConfidentialityMatrix(w.getTaskIndexInWorkflow(s.getTaskId()),w.getTaskIndexInWorkflow(vt.getTaskId()));
+			if(i==1)
+				dependency=w.getIntegrityMatrix(w.getTaskIndexInWorkflow(s.getTaskId()),w.getTaskIndexInWorkflow(vt.getTaskId()));
+			if(i==2)
+				dependency=w.getAvailabilityMatrix(w.getTaskIndexInWorkflow(s.getTaskId()),w.getTaskIndexInWorkflow(vt.getTaskId()));
+			
+			mitigationScore+=(1-s.getSecurityObjectiveRequirements().get(i)*attack.getSecurityImpact().get(i))*this.getSecurityImpact().get(i)*dependency;
+			//System.out.println("		-s.getSecurityObjectiveRequirements().get(i): "+s.getSecurityObjectiveRequirements().get(i)+" attack.getSecurityImpact().get(i): "+attack.getSecurityImpact().get(i)+" option.getSecurityImpact().get(i): "+option.getSecurityImpact().get(i)+" mitigationScore: "+mitigationScore);
+		}
+		//System.out.println("calculateMitigationScoreInChain "+mitigationScore);
+		return mitigationScore;
+	}
+	
 	public double getMitigationScore() {
 		return mitigationScore;
 	}
 	
 	public void print() {
-		System.out.print("Adapation Action: "+this.getName()+" time "+time+" price "+price+" value "+value+" totalCost "+totalCost);
+		System.out.println("Adapation: "+this.getName()+" time "+time+" price "+price+" value "+value+" mitigationScore "+mitigationScore+" totalCost "+totalCost);
+
+	}
+	
+	public void smallPrint() {
+		System.out.println("	-Adapation: "+this.getName()+" in "+task);
 
 	}
 

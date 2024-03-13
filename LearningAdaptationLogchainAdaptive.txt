@@ -1,0 +1,1220 @@
+small 0 ***************************************************************
+End small 0 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: RLTime 196.0 RLPrice 25.89230582635114 RLValue 0.0chainScore95.0numOFtask 6 ***************************************************************
+small 1 ***************************************************************
+End small 1 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,probe,low,0.22193159999999998,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 114.0 RLPrice 23.894508956445986 RLValue 0.0chainScore66.4802numOFtask 4 ***************************************************************
+small 2 ***************************************************************
+End small 2 numberOfDetectedattacks:1 ***************************************************************
+BankReimbursment,r2l,low,0.08489920000000001,(ReExecute,SelectBestExpert)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 169.0 RLPrice 30.621804587930768 RLValue 30.0chainScore71.37numOFtask 5 ***************************************************************
+small 3 ***************************************************************
+End small 3 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,probe,low,0.21322839999999998,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 106.0 RLPrice 23.791594004418055 RLValue 0.0chainScore66.4802numOFtask 4 ***************************************************************
+small 4 ***************************************************************
+End small 4 numberOfDetectedattacks:1 ***************************************************************
+SelectBestExpert,probe,low,1.283841485668147,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 136.0 RLPrice 22.1450955653698 RLValue 0.0chainScore65.0numOFtask 5 ***************************************************************
+small 5 ***************************************************************
+End small 5 numberOfDetectedattacks:2 ***************************************************************
+SelectBestExpert,dos,low,2.855222805362802,(Late,CustomerFeedbackCollection)
+CustomerFeedbackCollection,dos,medium,30.768498487798826,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 119.0 RLPrice 17.980866895546907 RLValue 5.0chainScore37.2656numOFtask 3 ***************************************************************
+small 6 ***************************************************************
+End small 6 numberOfDetectedattacks:2 ***************************************************************
+SelectBestExpert,u2r,low,1.3891040000000003,(ReExecute,SelectBestExpert)(Insert,BankReimbursment)(Insert,CustomerFeedbackCollection)
+BankReimbursment,probe,low,3.4460799999999994,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 168.0 RLPrice 25.722108842009202 RLValue 30.0chainScore41.699numOFtask 4 ***************************************************************
+small 7 ***************************************************************
+End small 7 numberOfDetectedattacks:3 ***************************************************************
+SelectBestExpert,u2r,low,1.3891040000000003,(ReExecute,BankReimbursment)(Insert,CustomerFeedbackCollection)
+BankReimbursment,dos,low,0.754415271672249,(ReExecute,CustomerFeedbackCollection)
+CustomerFeedbackCollection,r2l,low,0.02187987520000001,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 123.0 RLPrice 20.76392385717256 RLValue 5.0chainScore37.2894numOFtask 3 ***************************************************************
+small 8 ***************************************************************
+End small 8 numberOfDetectedattacks:1 ***************************************************************
+PoliceReport,probe,low,1.224432,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 103.0 RLPrice 19.806271913342897 RLValue 0.0chainScore60.0numOFtask 4 ***************************************************************
+small 9 ***************************************************************
+End small 9 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,dos,high,603.6426677028571,(Insert,SelectBestExpert)(ReExecute,BankReimbursment)
+CustomerFeedbackCollection,u2r,low,0.009707910400000007,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 125.0 RLPrice 20.483018762129475 RLValue 5.0chainScore57.32numOFtask 3 ***************************************************************
+small 10 ***************************************************************
+End small 10 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,r2l,low,0.07619072,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+BankReimbursment,r2l,low,0.08489920000000001,(ReExecute,SelectBestExpert)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 168.0 RLPrice 26.63839636286623 RLValue 30.0chainScore61.37numOFtask 4 ***************************************************************
+small 11 ***************************************************************
+End small 11 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,r2l,low,5.958142116471304,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+CustomerFeedbackCollection,r2l,low,0.5907566304000003,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 123.0 RLPrice 16.727934116463473 RLValue 5.0chainScore57.2894numOFtask 3 ***************************************************************
+small 12 ***************************************************************
+End small 12 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,probe,medium,19.312285966674953,(ReConfiguration,BankReimbursment)(Skip,CustomerFeedbackCollection)
+SelectBestExpert,u2r,low,0.13891040000000002,(ReExecute,SelectBestExpert)(Insert,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 144.0 RLPrice 16.966227642626944 RLValue 30.0chainScore31.698999999999998numOFtask 3 ***************************************************************
+small 13 ***************************************************************
+End small 13 numberOfDetectedattacks:3 ***************************************************************
+PoliceReport,r2l,low,0.07619072,(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,u2r,low,0.7640072000000001,(Insert,BankReimbursment)
+CustomerFeedbackCollection,probe,low,0.6008307062314541,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 57.0 RLPrice 8.876926241506567 RLValue 0.0chainScore26.4802numOFtask 2 ***************************************************************
+small 14 ***************************************************************
+End small 14 numberOfDetectedattacks:3 ***************************************************************
+PoliceReport,r2l,low,1.29524224,(ReExecute,BankReimbursment)
+SelectBestExpert,u2r,low,1.1112832000000001,(Insert,PoliceReport)(ReExecute,BankReimbursment)(Insert,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+BankReimbursment,probe,low,0.8223599999999999,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 151.0 RLPrice 32.68916423492348 RLValue 25.0chainScore30.6582numOFtask 3 ***************************************************************
+small 15 ***************************************************************
+End small 15 numberOfDetectedattacks:4 ***************************************************************
+PoliceReport,u2r,low,0.20061192,(Insert,SelectBestExpert)(Insert,BankReimbursment)
+SelectBestExpert,dos,low,6.192142405351172,(Late,BankReimbursment)(Late,CustomerFeedbackCollection)
+BankReimbursment,dos,medium,27.91336505187321,(ReExecute,SelectBestExpert)(Insert,CustomerFeedbackCollection)
+CustomerFeedbackCollection,probe,low,0.5068252233657858,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 97.0 RLPrice 14.862415740856605 RLValue 30.0chainScore27.6122numOFtask 2 ***************************************************************
+small 16 ***************************************************************
+End small 16 numberOfDetectedattacks:1 ***************************************************************
+HospitalReport,probe,low,2.6343009561324977,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 158.0 RLPrice 29.514648497068784 RLValue 0.0chainScore80.0numOFtask 5 ***************************************************************
+small 17 ***************************************************************
+End small 17 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,u2r,low,0.06687064000000001,(ReExecute,BankReimbursment)(Insert,CustomerFeedbackCollection)
+CustomerFeedbackCollection,u2r,low,0.009707910400000007,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 127.0 RLPrice 16.504914938367346 RLValue 5.0chainScore52.32numOFtask 3 ***************************************************************
+small 18 ***************************************************************
+End small 18 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,r2l,low,0.07619072,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)
+BankReimbursment,r2l,low,0.5366201315657471,(ReExecute,PoliceReport)(ReExecute,BankReimbursment)(ReExecute,HospitalReport)(ReExecute,SelectBestExpert)(ReExecute,SelectBestExpert)
+
+for this workflow execution: RLTime 237.0 RLPrice 34.566852085310636 RLValue 80.0chainScore59.9041numOFtask 4 ***************************************************************
+small 19 ***************************************************************
+End small 19 numberOfDetectedattacks:3 ***************************************************************
+HospitalReport,dos,low,1.3756119995702776,(ReExecute,SelectBestExpert)(ReExecute,CustomerFeedbackCollection)
+BankReimbursment,u2r,low,0.5858432000000001,(Insert,CustomerFeedbackCollection)
+CustomerFeedbackCollection,u2r,low,0.3931976917733587,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 141.0 RLPrice 23.444611449294936 RLValue 5.0chainScore52.32numOFtask 3 ***************************************************************
+small 20 ***************************************************************
+End small 20 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,dos,low,1.358145891029717,(ReExecute,SelectBestExpert)(Late,BankReimbursment)(Late,CustomerFeedbackCollection)
+SelectBestExpert,r2l,low,2.258688,(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 155.0 RLPrice 17.56496731454036 RLValue 0.0chainScore50.0numOFtask 4 ***************************************************************
+small 21 ***************************************************************
+End small 21 numberOfDetectedattacks:3 ***************************************************************
+HospitalReport,r2l,low,0.07619072,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,probe,low,2.606040249384006,(Skip,CustomerFeedbackCollection)
+CustomerFeedbackCollection,r2l,low,0.7471202696431142,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 99.0 RLPrice 15.120116490487868 RLValue 5.0chainScore22.2894numOFtask 2 ***************************************************************
+small 22 ***************************************************************
+End small 22 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,probe,low,2.851438362812065,(Skip,CustomerFeedbackCollection)
+SelectBestExpert,r2l,low,0.0752896,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 94.0 RLPrice 15.701122195405194 RLValue 0.0chainScore25.0numOFtask 3 ***************************************************************
+small 23 ***************************************************************
+End small 23 numberOfDetectedattacks:3 ***************************************************************
+HospitalReport,dos,low,3.1936585955555556,(ReExecute,SelectBestExpert)(Late,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,dos,low,3.0492594397449526,(Late,CustomerFeedbackCollection)
+CustomerFeedbackCollection,u2r,low,0.029123731200000027,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 99.0 RLPrice 15.581007221497938 RLValue 5.0chainScore22.32numOFtask 2 ***************************************************************
+small 24 ***************************************************************
+End small 24 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,dos,high,245.70297939943296,(Redundancy,SelectBestExpert)(Insert,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+HospitalReport,probe,low,0.8729746666666665,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 90.0 RLPrice 16.572568793372653 RLValue 0.0chainScore45.0numOFtask 3 ***************************************************************
+small 25 ***************************************************************
+End small 25 numberOfDetectedattacks:3 ***************************************************************
+PoliceReport,dos,low,1.6826421362752302,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)
+HospitalReport,r2l,low,4.566741302184129,(ReExecute,SelectBestExpert)
+CustomerFeedbackCollection,probe,low,0.2662044,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 109.0 RLPrice 15.471877604740135 RLValue 0.0chainScore66.4802numOFtask 3 ***************************************************************
+small 26 ***************************************************************
+End small 26 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,u2r,low,0.9361889600000002,(ReExecute,BankReimbursment)(Insert,CustomerFeedbackCollection)
+HospitalReport,u2r,low,0.40122384,(Insert,SelectBestExpert)(ReExecute,BankReimbursment)(Insert,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 103.0 RLPrice 7.866303361950406 RLValue 0.0chainScore45.0numOFtask 3 ***************************************************************
+small 27 ***************************************************************
+End small 27 numberOfDetectedattacks:4 ***************************************************************
+HospitalReport,u2r,low,0.13374128000000002,(ReExecute,SelectBestExpert)(Insert,BankReimbursment)(Insert,CustomerFeedbackCollection)
+PoliceReport,r2l,low,0.07619072,(ReExecute,BankReimbursment)
+BankReimbursment,probe,low,2.8169826349892007,(Skip,CustomerFeedbackCollection)
+CustomerFeedbackCollection,u2r,low,0.28152940160000023,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 97.0 RLPrice 14.27486203187028 RLValue 5.0chainScore42.32numOFtask 2 ***************************************************************
+small 28 ***************************************************************
+End small 28 numberOfDetectedattacks:3 ***************************************************************
+HospitalReport,probe,low,1.1081701219776252,(Skip,CustomerFeedbackCollection)
+PoliceReport,r2l,low,1.37143296,(ReExecute,PoliceReport)(ReExecute,BankReimbursment)
+SelectBestExpert,r2l,low,1.2046336,(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 136.0 RLPrice 22.55831371046046 RLValue 10.0chainScore41.5222numOFtask 3 ***************************************************************
+small 29 ***************************************************************
+End small 29 numberOfDetectedattacks:4 ***************************************************************
+PoliceReport,probe,medium,22.531000294454113,(Skip,PoliceReport)
+HospitalReport,dos,medium,43.12498589783603,(Insert,SelectBestExpert)(ReExecute,BankReimbursment)(Insert,CustomerFeedbackCollection)
+SelectBestExpert,u2r,low,0.06945520000000001,(ReExecute,SelectBestExpert)
+CustomerFeedbackCollection,dos,low,0.7810085967043121,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 108.0 RLPrice 17.25058542006251 RLValue 31.666666666666668chainScore15.0098numOFtask 1 ***************************************************************
+small 30 ***************************************************************
+End small 30 numberOfDetectedattacks:4 ***************************************************************
+HospitalReport,probe,low,1.7070114721078247,(Skip,CustomerFeedbackCollection)
+PoliceReport,probe,low,0.8665248600038762,(Skip,CustomerFeedbackCollection)
+SelectBestExpert,probe,low,0.79438814479638,(Skip,CustomerFeedbackCollection)
+BankReimbursment,dos,low,1.9321659696719926,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 87.0 RLPrice 7.064857575077789 RLValue 0.0chainScore15.0numOFtask 2 ***************************************************************
+small 31 ***************************************************************
+End small 31 numberOfDetectedattacks:5 ***************************************************************
+HospitalReport,dos,low,0.7984146488888889,(ReExecute,BankReimbursment)(Late,CustomerFeedbackCollection)
+PoliceReport,u2r,low,0.06687064000000001,(Insert,SelectBestExpert)(Insert,BankReimbursment)(Insert,CustomerFeedbackCollection)
+SelectBestExpert,probe,low,1.283841485668147,(Skip,CustomerFeedbackCollection)
+BankReimbursment,probe,low,0.43445010390541017,(Skip,CustomerFeedbackCollection)
+CustomerFeedbackCollection,probe,low,0.0913836,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 46.0 RLPrice 4.18337849099684 RLValue 0.0chainScore11.4802numOFtask 1 ***************************************************************
+small 32 ***************************************************************
+End small 32 numberOfDetectedattacks:1 ***************************************************************
+ObtainClaimService,u2r,low,1.2501936,(ReExecute,HospitalReport)(Insert,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 158.0 RLPrice 26.959980480611996 RLValue 0.0chainScore85.0numOFtask 5 ***************************************************************
+small 33 ***************************************************************
+End small 33 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,probe,low,0.8223599999999999,(Skip,PoliceReport)
+CustomerFeedbackCollection,r2l,low,0.02187987520000001,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 159.0 RLPrice 22.060831024904097 RLValue 5.0chainScore82.2894numOFtask 4 ***************************************************************
+small 34 ***************************************************************
+End small 34 numberOfDetectedattacks:1 ***************************************************************
+ObtainClaimService,dos,low,6.77034681607348,(Late,PoliceReport)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 145.0 RLPrice 14.28218601618884 RLValue 0.0chainScore60.0numOFtask 4 ***************************************************************
+small 35 ***************************************************************
+End small 35 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,1.6669248000000003,(ReExecute,PoliceReport)(ReExecute,BankReimbursment)
+CustomerFeedbackCollection,r2l,low,0.012846899200000006,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 152.0 RLPrice 14.364843662168521 RLValue 5.0chainScore57.2894numOFtask 3 ***************************************************************
+small 36 ***************************************************************
+End small 36 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,r2l,low,0.1765568313150967,(ReExecute,BankReimbursment)
+SelectBestExpert,u2r,low,0.48618640000000013,(Insert,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 94.0 RLPrice 16.3046377705629 RLValue 0.0chainScore30.0numOFtask 3 ***************************************************************
+small 37 ***************************************************************
+End small 37 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,r2l,low,2.6483524697264507,(ReExecute,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,HospitalReport)
+SelectBestExpert,u2r,low,0.4167312000000001,(Insert,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+CustomerFeedbackCollection,u2r,low,0.06795537280000007,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 112.0 RLPrice 10.026283910971701 RLValue 5.0chainScore27.32numOFtask 2 ***************************************************************
+small 38 ***************************************************************
+End small 38 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,dos,low,4.379245005222172,(ReExecute,HospitalReport)
+SelectBestExpert,u2r,low,1.2501936,(Insert,BankReimbursment)(Insert,CustomerFeedbackCollection)
+BankReimbursment,probe,low,1.221016546861228,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 118.0 RLPrice 10.845795993557392 RLValue 0.0chainScore30.0numOFtask 3 ***************************************************************
+small 39 ***************************************************************
+End small 39 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,r2l,low,1.7381616,(ReExecute,BankReimbursment)(ReExecute,HospitalReport)
+SelectBestExpert,dos,medium,17.62856641421074,(ReExecute,BankReimbursment)(Insert,CustomerFeedbackCollection)
+CustomerFeedbackCollection,dos,medium,18.992982359080326,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 109.0 RLPrice 14.002637069344532 RLValue 5.0chainScore27.2656numOFtask 2 ***************************************************************
+small 40 ***************************************************************
+End small 40 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,1.5974696000000002,(Insert,SelectBestExpert)(Insert,PoliceReport)(Insert,CustomerFeedbackCollection)
+PoliceReport,r2l,medium,11.50479872,(Insert,SelectBestExpert)(Insert,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 94.0 RLPrice 13.559168531591656 RLValue 0.0chainScore50.0numOFtask 3 ***************************************************************
+small 41 ***************************************************************
+End small 41 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,probe,low,0.07133383606738775,(Skip,PoliceReport)
+PoliceReport,u2r,low,0.06687064000000001,(ReExecute,SelectBestExpert)(ReExecute,CustomerFeedbackCollection)
+CustomerFeedbackCollection,probe,low,0.7186356571428572,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 95.0 RLPrice 15.535571183766304 RLValue 0.0chainScore71.4802numOFtask 3 ***************************************************************
+small 42 ***************************************************************
+End small 42 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,0.27782080000000003,(ReExecute,SelectBestExpert)(Insert,BankReimbursment)(Insert,HospitalReport)(Insert,CustomerFeedbackCollection)
+PoliceReport,u2r,low,0.40122384,(Insert,SelectBestExpert)(Insert,BankReimbursment)
+
+for this workflow execution: RLTime 95.0 RLPrice 15.342728852859116 RLValue 0.0chainScore50.0numOFtask 3 ***************************************************************
+small 43 ***************************************************************
+End small 43 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,dos,low,4.640006922448981,(ReExecute,SelectBestExpert)(Late,BankReimbursment)(ReExecute,HospitalReport)
+PoliceReport,r2l,medium,12.186858197025616,(ReExecute,SelectBestExpert)(ReExecute,CustomerFeedbackCollection)
+BankReimbursment,probe,low,2.338488611671805,(Skip,CustomerFeedbackCollection)
+CustomerFeedbackCollection,dos,low,0.45124733360000036,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 89.5 RLPrice 14.81296897111385 RLValue 1.6666666666666667chainScore46.9824numOFtask 2 ***************************************************************
+small 44 ***************************************************************
+End small 44 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,u2r,low,0.3472760000000001,(ReExecute,PoliceReport)(ReExecute,BankReimbursment)(ReExecute,HospitalReport)(Insert,CustomerFeedbackCollection)
+PoliceReport,probe,low,0.16505235428645262,(Skip,CustomerFeedbackCollection)
+SelectBestExpert,dos,low,6.192142405351172,(Late,BankReimbursment)(Late,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 106.0 RLPrice 15.49032357613575 RLValue 0.0chainScore45.0numOFtask 3 ***************************************************************
+small 45 ***************************************************************
+End small 45 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,r2l,low,2.1186819757811604,(ReExecute,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+PoliceReport,dos,medium,21.74178294645554,(Insert,SelectBestExpert)(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,dos,low,6.192142405351172,(ReExecute,SelectBestExpert)(Late,BankReimbursment)
+CustomerFeedbackCollection,dos,medium,18.992982359080326,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 113.0 RLPrice 19.743537490278648 RLValue 35.0chainScore18.5736numOFtask 1 ***************************************************************
+small 46 ***************************************************************
+End small 46 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,u2r,low,0.06945520000000001,(ReExecute,ObtainClaimService)(Insert,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+PoliceReport,u2r,low,0.4680944800000001,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,probe,low,2.9299029219143566,(Skip,CustomerFeedbackCollection)
+BankReimbursment,u2r,low,1.1716864000000002,(ReExecute,SelectBestExpert)
+
+for this workflow execution: RLTime 121.0 RLPrice 19.355556501780026 RLValue 40.0chainScore23.2numOFtask 2 ***************************************************************
+small 47 ***************************************************************
+End small 47 numberOfDetectedattacks:5 ***************************************************************
+ObtainClaimService,dos,low,7.664222731385006,(ReExecute,HospitalReport)
+PoliceReport,r2l,low,0.22915931217197325,(ReExecute,SelectBestExpert)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,r2l,low,1.9575296000000002,(ReExecute,SelectBestExpert)
+BankReimbursment,probe,low,5.322013772841274,(Skip,CustomerFeedbackCollection)
+CustomerFeedbackCollection,u2r,low,0.009707910400000007,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 107.0 RLPrice 12.26774615896285 RLValue 35.0chainScore18.866numOFtask 1 ***************************************************************
+small 48 ***************************************************************
+End small 48 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,0.06945520000000001,(Insert,PoliceReport)(Insert,HospitalReport)
+HospitalReport,dos,low,2.06174451442181,(ReExecute,SelectBestExpert)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 108.0 RLPrice 10.302673774148992 RLValue 0.0chainScore45.0numOFtask 3 ***************************************************************
+small 49 ***************************************************************
+End small 49 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,dos,low,6.77034681607348,(ReExecute,SelectBestExpert)(Late,PoliceReport)(ReExecute,HospitalReport)
+HospitalReport,r2l,low,2.2857216,(ReExecute,SelectBestExpert)
+CustomerFeedbackCollection,r2l,low,0.3854069760000001,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 154.0 RLPrice 15.860220335760513 RLValue 5.0chainScore67.2894numOFtask 3 ***************************************************************
+small 50 ***************************************************************
+End small 50 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,dos,low,6.77034681607348,(Late,PoliceReport)(ReExecute,BankReimbursment)(ReExecute,HospitalReport)
+HospitalReport,probe,low,2.0393449467864544,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 105.0 RLPrice 15.593916596100918 RLValue 0.0chainScore45.0numOFtask 3 ***************************************************************
+small 51 ***************************************************************
+End small 51 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,dos,medium,10.805108973846743,(Insert,PoliceReport)(Insert,ObtainClaimService)(Insert,HospitalReport)
+HospitalReport,u2r,low,0.5705599024120731,(Insert,CustomerFeedbackCollection)
+BankReimbursment,u2r,low,1.6110688000000002,(ReExecute,CustomerFeedbackCollection)
+CustomerFeedbackCollection,u2r,low,0.1941582080000002,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 140.0 RLPrice 17.625374037107093 RLValue 15.0chainScore42.64numOFtask 2 ***************************************************************
+small 52 ***************************************************************
+End small 52 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,u2r,low,0.9029176000000001,(ReExecute,SelectBestExpert)(Insert,PoliceReport)(ReExecute,HospitalReport)(Insert,CustomerFeedbackCollection)
+HospitalReport,u2r,low,0.5349651200000001,(ReExecute,SelectBestExpert)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,r2l,low,0.0752896,(ReExecute,BankReimbursment)
+
+for this workflow execution: RLTime 109.0 RLPrice 13.139332471644206 RLValue 0.0chainScore40.0numOFtask 3 ***************************************************************
+small 53 ***************************************************************
+End small 53 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,dos,low,7.664222731385006,(ReExecute,PoliceReport)(ReExecute,BankReimbursment)(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+HospitalReport,r2l,low,0.07619072,(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,probe,low,3.616545652206376,(Skip,CustomerFeedbackCollection)
+CustomerFeedbackCollection,probe,low,0.04227268571428571,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 47.0 RLPrice 4.417828250007122 RLValue 0.0chainScore11.4802numOFtask 1 ***************************************************************
+small 54 ***************************************************************
+End small 54 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,u2r,low,1.041828,(Insert,SelectBestExpert)(ReExecute,BankReimbursment)(Insert,CustomerFeedbackCollection)
+HospitalReport,u2r,low,0.73557704,(ReExecute,SelectBestExpert)(Insert,BankReimbursment)
+SelectBestExpert,u2r,low,1.4585592000000003,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)
+BankReimbursment,r2l,low,3.3814819593952485,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 118.0 RLPrice 11.850806382559025 RLValue 30.0chainScore16.698999999999998numOFtask 2 ***************************************************************
+small 55 ***************************************************************
+End small 55 numberOfDetectedattacks:5 ***************************************************************
+ObtainClaimService,r2l,low,0.0827696,(ReExecute,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,CustomerFeedbackCollection)
+HospitalReport,u2r,low,1.4042834400000002,(Insert,SelectBestExpert)(Insert,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,r2l,low,0.0752896,(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+BankReimbursment,dos,low,1.9321659696719926,(ReExecute,SelectBestExpert)(ReExecute,CustomerFeedbackCollection)
+CustomerFeedbackCollection,r2l,low,0.051387596800000025,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 122.0 RLPrice 11.975687499389378 RLValue 35.0chainScore13.4214numOFtask 1 ***************************************************************
+small 56 ***************************************************************
+End small 56 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,dos,low,4.640006922448981,(ReExecute,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,HospitalReport)
+PoliceReport,probe,low,3.2411665370043417,(Skip,CustomerFeedbackCollection)
+HospitalReport,probe,low,5.52746571920629,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 83.0 RLPrice 14.444098833656934 RLValue 0.0chainScore35.0numOFtask 2 ***************************************************************
+small 57 ***************************************************************
+End small 57 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,probe,low,1.9188399999999997,(Skip,CustomerFeedbackCollection)
+PoliceReport,r2l,low,5.416381420900273,(ReExecute,BankReimbursment)
+HospitalReport,r2l,low,0.10834692616447116,(ReExecute,SelectBestExpert)
+CustomerFeedbackCollection,probe,low,0.21322839999999998,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 88.0 RLPrice 10.401411483233423 RLValue 0.0chainScore56.480199999999996numOFtask 2 ***************************************************************
+small 58 ***************************************************************
+End small 58 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,dos,low,4.379245005222172,(ReExecute,SelectBestExpert)(Late,PoliceReport)(Late,CustomerFeedbackCollection)
+PoliceReport,u2r,low,0.06687064000000001,(Insert,BankReimbursment)(Insert,CustomerFeedbackCollection)
+HospitalReport,r2l,low,1.29524224,(ReExecute,SelectBestExpert)
+
+for this workflow execution: RLTime 69.0 RLPrice 7.709770839123192 RLValue 0.0chainScore35.0numOFtask 2 ***************************************************************
+small 59 ***************************************************************
+End small 59 numberOfDetectedattacks:5 ***************************************************************
+ObtainClaimService,probe,low,2.3001897331639136,(Skip,PoliceReport)
+PoliceReport,u2r,low,0.06687064000000001,(Insert,SelectBestExpert)(Insert,CustomerFeedbackCollection)
+HospitalReport,r2l,low,0.10834692616447116,(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+BankReimbursment,dos,low,1.9321659696719926,(ReExecute,SelectBestExpert)
+CustomerFeedbackCollection,probe,low,0.0043516,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 73.0 RLPrice 9.85556943352049 RLValue 30.0chainScore32.6122numOFtask 1 ***************************************************************
+small 60 ***************************************************************
+End small 60 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,dos,low,7.664222731385006,(Late,PoliceReport)(Late,BankReimbursment)
+HospitalReport,r2l,low,0.91428864,(ReExecute,BankReimbursment)
+PoliceReport,u2r,low,0.3343532,(ReExecute,SelectBestExpert)(Insert,BankReimbursment)(Insert,CustomerFeedbackCollection)
+SelectBestExpert,r2l,low,1.2046336,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 77.0 RLPrice 9.569794583709763 RLValue 30.0chainScore6.545999999999999numOFtask 1 ***************************************************************
+small 61 ***************************************************************
+End small 61 numberOfDetectedattacks:5 ***************************************************************
+ObtainClaimService,dos,low,3.9867219880508187,(Late,PoliceReport)(Late,BankReimbursment)
+PoliceReport,dos,high,201.11149225471377,(Insert,SelectBestExpert)(ReConfiguration,CustomerFeedbackCollection)
+HospitalReport,r2l,low,1.8953404324372896,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,probe,low,0.6421799999999999,(Skip,CustomerFeedbackCollection)
+CustomerFeedbackCollection,probe,low,4.840452576377952,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 25.0 RLPrice 0.0 RLValue 0.0chainScore1.4802numOFtask 0 ***************************************************************
+small 62 ***************************************************************
+End small 62 numberOfDetectedattacks:5 ***************************************************************
+ObtainClaimService,dos,low,7.664222731385006,(ReExecute,SelectBestExpert)(Late,BankReimbursment)(Late,CustomerFeedbackCollection)
+PoliceReport,dos,low,0.7520385581910976,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)(Late,CustomerFeedbackCollection)
+HospitalReport,r2l,low,1.21905152,(ReExecute,SelectBestExpert)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,dos,low,3.1519187345088167,(ReExecute,CustomerFeedbackCollection)
+BankReimbursment,dos,medium,27.91336505187321,(Insert,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 67.0 RLPrice 1.193824484473156 RLValue 0.0chainScore5.0numOFtask 1 ***************************************************************
+small 63 ***************************************************************
+End small 63 numberOfDetectedattacks:5 ***************************************************************
+ObtainClaimService,probe,low,0.15663999999999997,(Skip,PoliceReport)
+HospitalReport,probe,low,1.7070114721078247,(Skip,CustomerFeedbackCollection)
+PoliceReport,r2l,low,0.22915931217197325,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)
+SelectBestExpert,r2l,low,1.2799232000000003,(ReExecute,BankReimbursment)
+CustomerFeedbackCollection,u2r,low,0.4868161898146346,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 55.0 RLPrice 6.259451490050105 RLValue 5.0chainScore2.32numOFtask 0 ***************************************************************
+small 64 ***************************************************************
+End small 64 numberOfDetectedattacks:1 ***************************************************************
+ObtainClaimService,u2r,low,0.06945520000000001,(Insert,SelectBestExpert)(Insert,PoliceReport)(Insert,BankReimbursment)(Insert,HospitalReport)
+
+for this workflow execution: RLTime 139.0 RLPrice 17.313834472419988 RLValue 0.0chainScore60.0numOFtask 4 ***************************************************************
+small 65 ***************************************************************
+End small 65 numberOfDetectedattacks:1 ***************************************************************
+SelectBestExpert,u2r,low,0.4167312000000001,(ReExecute,BankReimbursment)(Insert,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 146.0 RLPrice 23.168493971357236 RLValue 0.0chainScore65.0numOFtask 5 ***************************************************************
+small 66 ***************************************************************
+End small 66 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,0.27782080000000003,(Insert,SelectBestExpert)(Insert,PoliceReport)(ReExecute,HospitalReport)
+PoliceReport,u2r,low,1.0030595999999998,(ReExecute,SelectBestExpert)(Insert,BankReimbursment)
+
+for this workflow execution: RLTime 112.0 RLPrice 19.539853427993954 RLValue 0.0chainScore50.0numOFtask 3 ***************************************************************
+small 67 ***************************************************************
+End small 67 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,2.1531112,(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+CustomerFeedbackCollection,r2l,low,0.012846899200000006,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 142.0 RLPrice 21.261055984946886 RLValue 5.0chainScore57.2894numOFtask 3 ***************************************************************
+small 68 ***************************************************************
+End small 68 numberOfDetectedattacks:4 ***************************************************************
+HospitalReport,dos,medium,50.89764398410027,(Insert,SelectBestExpert)(ReExecute,BankReimbursment)
+PoliceReport,u2r,low,0.40122384,(ReExecute,SelectBestExpert)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,r2l,low,0.3011584,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+CustomerFeedbackCollection,r2l,low,0.1334388417537295,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 132.0 RLPrice 19.11153863530248 RLValue 35.0chainScore38.8354numOFtask 2 ***************************************************************
+small 69 ***************************************************************
+End small 69 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,0.13891040000000002,(Insert,SelectBestExpert)(Insert,PoliceReport)(Insert,HospitalReport)(Insert,CustomerFeedbackCollection)
+PoliceReport,probe,high,1013.5235879999998,(ReConfiguration,BankReimbursment)
+
+for this workflow execution: RLTime 104.0 RLPrice 15.491672530789762 RLValue 0.0chainScore50.0numOFtask 3 ***************************************************************
+small 70 ***************************************************************
+End small 70 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,0.06945520000000001,(Insert,SelectBestExpert)(ReExecute,PoliceReport)(Insert,BankReimbursment)(ReExecute,HospitalReport)(Insert,CustomerFeedbackCollection)
+SelectBestExpert,dos,medium,16.75484002632281,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)(Insert,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 148.0 RLPrice 23.912392180580326 RLValue 30.0chainScore56.308numOFtask 4 ***************************************************************
+small 71 ***************************************************************
+End small 71 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,r2l,low,0.2395662016073479,(ReExecute,BankReimbursment)(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+HospitalReport,probe,medium,13.575083994225908,(ReConfiguration,BankReimbursment)(ReConfiguration,CustomerFeedbackCollection)
+PoliceReport,dos,high,603.6426677028571,(Redundancy,SelectBestExpert)(ReConfiguration,BankReimbursment)
+SelectBestExpert,r2l,low,0.0752896,(ReExecute,BankReimbursment)
+
+for this workflow execution: RLTime 89.0 RLPrice 13.707490585933925 RLValue 0.0chainScore30.0numOFtask 2 ***************************************************************
+small 72 ***************************************************************
+End small 72 numberOfDetectedattacks:1 ***************************************************************
+SelectBestExpert,dos,high,115.3569088,(Redundancy,SelectBestExpert)(Insert,BankReimbursment)
+
+for this workflow execution: RLTime 138.0 RLPrice 32.55464331522718 RLValue 60.0chainScore41.28numOFtask 4 ***************************************************************
+small 73 ***************************************************************
+End small 73 numberOfDetectedattacks:3 ***************************************************************
+HospitalReport,u2r,low,0.09509331706867886,(Insert,BankReimbursment)
+SelectBestExpert,u2r,low,0.13891040000000002,(ReExecute,SelectBestExpert)(ReExecute,CustomerFeedbackCollection)
+CustomerFeedbackCollection,dos,low,0.45124733360000036,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 114.0 RLPrice 14.210730894179722 RLValue 31.666666666666668chainScore23.681399999999996numOFtask 2 ***************************************************************
+small 74 ***************************************************************
+End small 74 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,r2l,low,0.012846899200000006,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 144.0 RLPrice 26.306583233817765 RLValue 5.0chainScore67.2894numOFtask 4 ***************************************************************
+small 75 ***************************************************************
+End small 75 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,probe,low,1.3890713730018607,(Skip,CustomerFeedbackCollection)
+SelectBestExpert,u2r,low,0.06945520000000001,(ReExecute,BankReimbursment)
+
+for this workflow execution: RLTime 113.0 RLPrice 11.48256940598701 RLValue 0.0chainScore30.0numOFtask 3 ***************************************************************
+small 76 ***************************************************************
+End small 76 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,r2l,low,0.012846899200000006,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 188.0 RLPrice 25.94878523320741 RLValue 5.0chainScore92.2894numOFtask 5 ***************************************************************
+small 77 ***************************************************************
+End small 77 numberOfDetectedattacks:3 ***************************************************************
+HospitalReport,u2r,low,0.38037326827471546,(ReExecute,SelectBestExpert)(Insert,BankReimbursment)(Insert,CustomerFeedbackCollection)
+SelectBestExpert,u2r,low,1.1112832000000001,(ReExecute,SelectBestExpert)(Insert,BankReimbursment)
+CustomerFeedbackCollection,u2r,low,0.009707910400000007,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 124.0 RLPrice 16.856869757531292 RLValue 35.0chainScore24.019numOFtask 2 ***************************************************************
+small 78 ***************************************************************
+End small 78 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,probe,low,4.956551359593392,(Skip,CustomerFeedbackCollection)
+PoliceReport,probe,high,501.64298799999983,(ReConfiguration,BankReimbursment)
+
+for this workflow execution: RLTime 153.0 RLPrice 19.079589143563226 RLValue 0.0chainScore75.0numOFtask 4 ***************************************************************
+small 79 ***************************************************************
+End small 79 numberOfDetectedattacks:3 ***************************************************************
+HospitalReport,u2r,low,0.5349651200000001,(Insert,SelectBestExpert)
+PoliceReport,dos,low,6.64062106484954,(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,probe,low,5.31253568544102,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 120.0 RLPrice 12.485799572944707 RLValue 0.0chainScore40.0numOFtask 3 ***************************************************************
+small 80 ***************************************************************
+End small 80 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: RLTime 151.0 RLPrice 29.159130875565804 RLValue 0.0chainScore95.0numOFtask 6 ***************************************************************
+small 81 ***************************************************************
+End small 81 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,r2l,low,0.07619072,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)
+BankReimbursment,dos,low,5.607910578860623,(Late,PoliceReport)(Late,BankReimbursment)(ReExecute,CustomerFeedbackCollection)(ReExecute,SelectBestExpert)
+
+for this workflow execution: RLTime 186.5 RLPrice 37.29721865485678 RLValue 41.66666666666667chainScore62.8166numOFtask 4 ***************************************************************
+small 82 ***************************************************************
+End small 82 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,dos,medium,10.176700681977625,(Insert,BankReimbursment)(Insert,CustomerFeedbackCollection)
+CustomerFeedbackCollection,dos,high,702.740347285972,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 129.0 RLPrice 18.048110928040145 RLValue 5.0chainScore52.2656numOFtask 3 ***************************************************************
+small 83 ***************************************************************
+End small 83 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: RLTime 188.0 RLPrice 29.04056090683258 RLValue 0.0chainScore95.0numOFtask 6 ***************************************************************
+small 84 ***************************************************************
+End small 84 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: RLTime 182.0 RLPrice 28.95326266902844 RLValue 0.0chainScore95.0numOFtask 6 ***************************************************************
+small 85 ***************************************************************
+End small 85 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,r2l,low,0.15416279040000005,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 167.0 RLPrice 26.871304125264913 RLValue 5.0chainScore67.2894numOFtask 4 ***************************************************************
+small 86 ***************************************************************
+End small 86 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,r2l,low,0.4217496816398794,(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+HospitalReport,probe,low,1.745949333333333,(Skip,CustomerFeedbackCollection)
+PoliceReport,probe,low,4.497945398291741,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 106.0 RLPrice 13.975849141139003 RLValue 0.0chainScore60.0numOFtask 3 ***************************************************************
+small 87 ***************************************************************
+End small 87 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,probe,low,6.74641712833545,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+HospitalReport,probe,low,1.7480099543883898,(Skip,CustomerFeedbackCollection)
+SelectBestExpert,u2r,low,0.06945520000000001,(Insert,BankReimbursment)(Insert,CustomerFeedbackCollection)
+CustomerFeedbackCollection,dos,low,0.7810085967043121,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 92.5 RLPrice 13.801847480053809 RLValue 1.6666666666666667chainScore36.9824numOFtask 2 ***************************************************************
+small 88 ***************************************************************
+End small 88 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: RLTime 175.0 RLPrice 20.207942923615906 RLValue 0.0chainScore70.0numOFtask 5 ***************************************************************
+small 89 ***************************************************************
+End small 89 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,dos,low,3.00815423276439,(ReExecute,SelectBestExpert)(Late,CustomerFeedbackCollection)
+HospitalReport,dos,medium,43.12498589783603,(ReExecute,SelectBestExpert)(Insert,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 145.0 RLPrice 19.37073755676795 RLValue 0.0chainScore70.0numOFtask 4 ***************************************************************
+small 90 ***************************************************************
+End small 90 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,u2r,low,1.4585592000000003,(ReExecute,BankReimbursment)(ReExecute,HospitalReport)(Insert,CustomerFeedbackCollection)
+HospitalReport,r2l,low,0.07619072,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)
+PoliceReport,r2l,low,0.45136511840835614,(ReExecute,SelectBestExpert)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 115.0 RLPrice 17.550628449501332 RLValue 0.0chainScore60.0numOFtask 3 ***************************************************************
+small 91 ***************************************************************
+End small 91 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,r2l,low,0.0827696,(ReExecute,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+PoliceReport,r2l,low,0.30476288,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+HospitalReport,probe,low,2.0369408888888882,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 112.0 RLPrice 15.926166127374469 RLValue 0.0chainScore60.0numOFtask 3 ***************************************************************
+small 92 ***************************************************************
+End small 92 numberOfDetectedattacks:4 ***************************************************************
+HospitalReport,r2l,low,0.09312199111111111,(ReExecute,CustomerFeedbackCollection)
+PoliceReport,r2l,low,1.21905152,(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,r2l,low,3.3963519687982453,(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+BankReimbursment,dos,low,1.9321659696719926,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 84.0 RLPrice 13.559634339554913 RLValue 0.0chainScore15.0numOFtask 2 ***************************************************************
+small 93 ***************************************************************
+End small 93 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: RLTime 124.0 RLPrice 24.159153607955556 RLValue 0.0chainScore70.0numOFtask 5 ***************************************************************
+small 94 ***************************************************************
+End small 94 numberOfDetectedattacks:3 ***************************************************************
+PoliceReport,probe,low,1.7908498684531056,(Skip,CustomerFeedbackCollection)
+SelectBestExpert,dos,high,130.45139146515947,(Redundancy,SelectBestExpert)(ReConfiguration,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+CustomerFeedbackCollection,r2l,low,0.2183972864000001,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 134.0 RLPrice 30.878067464304017 RLValue 65.0chainScore28.5694numOFtask 2 ***************************************************************
+small 95 ***************************************************************
+End small 95 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,dos,low,1.531541362460422,(Late,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+PoliceReport,probe,low,3.0700283459196096,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 160.0 RLPrice 18.556008073684918 RLValue 0.0chainScore70.0numOFtask 4 ***************************************************************
+small 96 ***************************************************************
+End small 96 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: RLTime 153.0 RLPrice 29.26064400623064 RLValue 0.0chainScore70.0numOFtask 5 ***************************************************************
+small 97 ***************************************************************
+End small 97 numberOfDetectedattacks:1 ***************************************************************
+HospitalReport,dos,low,2.06174451442181,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 123.0 RLPrice 17.05303786909124 RLValue 0.0chainScore55.0numOFtask 4 ***************************************************************
+small 98 ***************************************************************
+End small 98 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,probe,low,0.0174064,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 152.0 RLPrice 28.263965747518327 RLValue 0.0chainScore91.4802numOFtask 5 ***************************************************************
+small 99 ***************************************************************
+End small 99 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,0.5556416000000001,(Insert,SelectBestExpert)(ReExecute,PoliceReport)(Insert,CustomerFeedbackCollection)
+BankReimbursment,dos,low,2.9962231530047267,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 139.0 RLPrice 18.11305191244996 RLValue 0.0chainScore60.0numOFtask 4 ***************************************************************
+for 100s workflow execution average: RLTime 109.815 RLPrice 17.987363336243604 RLValue 9.483333333333333RLScore47.436101RLFinalCost30.75209890087309numOFtask 0 ***************************************************************
+for 100s workflow execution Normalized: RLTime 109.815 RLPrice 17.987363336243604 RLValue 9.483333333333333RLScore47.436101RLFinalCost30.75209890087309numOFtask 0 ***************************************************************
+small 100 ***************************************************************
+End small 100 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,dos,high,147.50871355788027,(ReExecute,SelectBestExpert)(ReConfiguration,PoliceReport)(ReConfiguration,BankReimbursment)(Insert,CustomerFeedbackCollection)
+PoliceReport,u2r,low,0.06687064000000001,(Insert,BankReimbursment)(Insert,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 139.0 RLPrice 20.64977281116261 RLValue 0.0chainScore75.0numOFtask 4 ***************************************************************
+small 101 ***************************************************************
+End small 101 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,dos,low,0.7984146488888889,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)(Late,CustomerFeedbackCollection)
+PoliceReport,dos,high,201.11149225471377,(Insert,SelectBestExpert)(ReConfiguration,BankReimbursment)(ReConfiguration,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 90.0 RLPrice 14.585047693265397 RLValue 0.0chainScore45.0numOFtask 3 ***************************************************************
+small 102 ***************************************************************
+End small 102 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,r2l,low,0.1765568313150967,(ReExecute,BankReimbursment)(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+HospitalReport,r2l,low,1.82857728,(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,probe,low,2.233748785186291,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 70.0 RLPrice 10.437510138539261 RLValue 0.0chainScore15.0numOFtask 2 ***************************************************************
+small 103 ***************************************************************
+End small 103 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,r2l,low,2.1186819757811604,(ReExecute,PoliceReport)(ReExecute,BankReimbursment)(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+PoliceReport,u2r,low,0.26748256000000004,(Insert,SelectBestExpert)(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+CustomerFeedbackCollection,u2r,low,0.009707910400000007,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 116.0 RLPrice 16.521599887313638 RLValue 5.0chainScore47.32numOFtask 2 ***************************************************************
+small 104 ***************************************************************
+End small 104 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,r2l,low,0.1765568313150967,(ReExecute,PoliceReport)(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,u2r,medium,11.29804586666667,(Insert,CustomerFeedbackCollection)
+CustomerFeedbackCollection,dos,medium,11.497043507200008,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 146.0 RLPrice 20.392463223005674 RLValue 5.0chainScore52.2656numOFtask 3 ***************************************************************
+small 105 ***************************************************************
+End small 105 numberOfDetectedattacks:1 ***************************************************************
+HospitalReport,dos,medium,10.176700681977625,(Insert,SelectBestExpert)(ReExecute,BankReimbursment)(Insert,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 124.0 RLPrice 26.323132933005287 RLValue 0.0chainScore55.0numOFtask 4 ***************************************************************
+small 106 ***************************************************************
+End small 106 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,r2l,low,2.675774728146761,(ReExecute,BankReimbursment)
+PoliceReport,r2l,low,0.22915931217197325,(ReExecute,BankReimbursment)
+
+for this workflow execution: RLTime 104.0 RLPrice 16.24710662846541 RLValue 0.0chainScore45.0numOFtask 3 ***************************************************************
+small 107 ***************************************************************
+End small 107 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,r2l,low,2.8747944192881745,(ReExecute,PoliceReport)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,r2l,low,0.0752896,(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+CustomerFeedbackCollection,dos,high,702.740347285972,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 100.0 RLPrice 15.235255059896886 RLValue 5.0chainScore27.2656numOFtask 2 ***************************************************************
+small 108 ***************************************************************
+End small 108 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,r2l,low,0.0827696,(ReExecute,PoliceReport)(ReExecute,BankReimbursment)
+CustomerFeedbackCollection,dos,low,0.7810085967043121,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 157.0 RLPrice 25.624364506463856 RLValue 1.6666666666666667chainScore81.9824numOFtask 4 ***************************************************************
+small 109 ***************************************************************
+End small 109 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,u2r,low,0.06687064000000001,(Insert,SelectBestExpert)(ReExecute,BankReimbursment)
+SelectBestExpert,probe,low,2.233748785186291,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 97.0 RLPrice 13.504247261524 RLValue 0.0chainScore30.0numOFtask 3 ***************************************************************
+small 110 ***************************************************************
+End small 110 numberOfDetectedattacks:1 ***************************************************************
+HospitalReport,dos,medium,76.28454703360697,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 156.0 RLPrice 26.93960172893076 RLValue 0.0chainScore80.0numOFtask 5 ***************************************************************
+small 111 ***************************************************************
+End small 111 numberOfDetectedattacks:1 ***************************************************************
+PoliceReport,dos,low,6.72681065572095,(ReExecute,SelectBestExpert)(Late,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 120.0 RLPrice 22.460227294363282 RLValue 0.0chainScore60.0numOFtask 4 ***************************************************************
+small 112 ***************************************************************
+End small 112 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,dos,low,1.531541362460422,(ReExecute,CustomerFeedbackCollection)
+PoliceReport,dos,low,6.64062106484954,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)
+
+for this workflow execution: RLTime 100.0 RLPrice 16.883607306173097 RLValue 0.0chainScore45.0numOFtask 3 ***************************************************************
+small 113 ***************************************************************
+End small 113 numberOfDetectedattacks:4 ***************************************************************
+HospitalReport,dos,medium,10.176700681977625,(Insert,SelectBestExpert)(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+PoliceReport,dos,low,2.3435870024254393,(ReExecute,SelectBestExpert)(ReExecute,CustomerFeedbackCollection)
+BankReimbursment,dos,low,1.9321659696719926,(Late,CustomerFeedbackCollection)
+CustomerFeedbackCollection,probe,low,8.297918702362203,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 80.0 RLPrice 10.626179203280678 RLValue 0.0chainScore41.480199999999996numOFtask 2 ***************************************************************
+small 114 ***************************************************************
+End small 114 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,dos,medium,28.897318078059545,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 167.0 RLPrice 19.427197282641988 RLValue 5.0chainScore67.2656numOFtask 4 ***************************************************************
+small 115 ***************************************************************
+End small 115 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,r2l,low,0.07619072,(ReExecute,SelectBestExpert)
+HospitalReport,u2r,low,1.60489536,(Insert,SelectBestExpert)(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 107.0 RLPrice 15.981113294254007 RLValue 0.0chainScore45.0numOFtask 3 ***************************************************************
+small 116 ***************************************************************
+End small 116 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,probe,low,0.8729746666666665,(Skip,CustomerFeedbackCollection)
+BankReimbursment,r2l,low,0.6791936000000001,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 142.0 RLPrice 21.20927123609753 RLValue 0.0chainScore55.0numOFtask 4 ***************************************************************
+small 117 ***************************************************************
+End small 117 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,1.1112832000000001,(Insert,SelectBestExpert)(Insert,PoliceReport)(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,r2l,low,0.0752896,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 110.0 RLPrice 18.96097213671306 RLValue 0.0chainScore30.0numOFtask 3 ***************************************************************
+small 118 ***************************************************************
+End small 118 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,u2r,low,0.029123731200000027,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 163.0 RLPrice 22.254405347634112 RLValue 5.0chainScore67.32numOFtask 4 ***************************************************************
+small 119 ***************************************************************
+End small 119 numberOfDetectedattacks:3 ***************************************************************
+HospitalReport,u2r,low,1.3374128,(ReExecute,BankReimbursment)
+SelectBestExpert,probe,low,2.7655937340401695,(Skip,CustomerFeedbackCollection)
+BankReimbursment,u2r,low,0.07323040000000001,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 105.0 RLPrice 16.07229891289638 RLValue 0.0chainScore25.0numOFtask 3 ***************************************************************
+small 120 ***************************************************************
+End small 120 numberOfDetectedattacks:1 ***************************************************************
+HospitalReport,r2l,low,0.11149061367278174,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 141.0 RLPrice 14.360990310110711 RLValue 0.0chainScore55.0numOFtask 4 ***************************************************************
+small 121 ***************************************************************
+End small 121 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: RLTime 179.0 RLPrice 28.122847080247748 RLValue 0.0chainScore95.0numOFtask 6 ***************************************************************
+small 122 ***************************************************************
+End small 122 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: RLTime 154.0 RLPrice 24.874912011961463 RLValue 0.0chainScore70.0numOFtask 5 ***************************************************************
+small 123 ***************************************************************
+End small 123 numberOfDetectedattacks:1 ***************************************************************
+PoliceReport,u2r,low,1.8723779200000004,(Insert,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 158.0 RLPrice 25.221601502580505 RLValue 0.0chainScore85.0numOFtask 5 ***************************************************************
+small 124 ***************************************************************
+End small 124 numberOfDetectedattacks:1 ***************************************************************
+HospitalReport,u2r,low,0.06687064000000001,(ReExecute,SelectBestExpert)(Insert,BankReimbursment)(Insert,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 138.0 RLPrice 23.186268993679825 RLValue 0.0chainScore80.0numOFtask 5 ***************************************************************
+small 125 ***************************************************************
+End small 125 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,u2r,low,0.06945520000000001,(Insert,HospitalReport)
+SelectBestExpert,dos,high,105.64324379842367,(Redundancy,SelectBestExpert)(ReExecute,CustomerFeedbackCollection)
+CustomerFeedbackCollection,dos,medium,68.59608039442129,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 180.0 RLPrice 35.06017877265196 RLValue 65.0chainScore53.5456numOFtask 3 ***************************************************************
+small 126 ***************************************************************
+End small 126 numberOfDetectedattacks:4 ***************************************************************
+HospitalReport,dos,medium,29.54134200888889,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)
+PoliceReport,dos,high,448.17974655999996,(ReExecute,BankReimbursment)(ReConfiguration,CustomerFeedbackCollection)
+SelectBestExpert,probe,low,8.58602535117057,(Skip,CustomerFeedbackCollection)
+CustomerFeedbackCollection,probe,low,0.0174064,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 70.0 RLPrice 8.649880563782398 RLValue 0.0chainScore36.480199999999996numOFtask 2 ***************************************************************
+small 127 ***************************************************************
+End small 127 numberOfDetectedattacks:4 ***************************************************************
+PoliceReport,u2r,low,0.9361889600000002,(Insert,BankReimbursment)(Insert,CustomerFeedbackCollection)
+HospitalReport,u2r,low,0.06687064000000001,(Insert,SelectBestExpert)(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,u2r,low,1.5280144000000002,(ReExecute,CustomerFeedbackCollection)
+CustomerFeedbackCollection,u2r,low,0.019415820800000014,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 108.0 RLPrice 17.618924052927994 RLValue 5.0chainScore37.32numOFtask 2 ***************************************************************
+small 128 ***************************************************************
+End small 128 numberOfDetectedattacks:1 ***************************************************************
+SelectBestExpert,r2l,low,1.2799232000000003,(ReExecute,SelectBestExpert)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 163.0 RLPrice 22.016149416294255 RLValue 30.0chainScore41.546numOFtask 4 ***************************************************************
+small 129 ***************************************************************
+End small 129 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,u2r,low,1.4585592000000003,(Insert,SelectBestExpert)(Insert,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+PoliceReport,u2r,low,1.671766,(ReExecute,SelectBestExpert)(Insert,BankReimbursment)(Insert,CustomerFeedbackCollection)
+SelectBestExpert,u2r,low,0.9029176000000001,(Insert,BankReimbursment)(Insert,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 84.0 RLPrice 6.48079772703103 RLValue 0.0chainScore20.0numOFtask 2 ***************************************************************
+small 130 ***************************************************************
+End small 130 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: RLTime 211.0 RLPrice 34.52147239269064 RLValue 0.0chainScore95.0numOFtask 6 ***************************************************************
+small 131 ***************************************************************
+End small 131 numberOfDetectedattacks:1 ***************************************************************
+ObtainClaimService,probe,low,0.15663999999999997,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 160.0 RLPrice 23.823760108325175 RLValue 0.0chainScore85.0numOFtask 5 ***************************************************************
+small 132 ***************************************************************
+End small 132 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,r2l,low,2.671389215610819,(ReExecute,SelectBestExpert)
+CustomerFeedbackCollection,u2r,low,0.10678701440000009,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 133.0 RLPrice 20.127877060289563 RLValue 5.0chainScore57.32numOFtask 3 ***************************************************************
+small 133 ***************************************************************
+End small 133 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: RLTime 157.0 RLPrice 30.664168288409584 RLValue 0.0chainScore70.0numOFtask 5 ***************************************************************
+small 134 ***************************************************************
+End small 134 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,r2l,low,1.400850505580839,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 182.0 RLPrice 33.62840750977801 RLValue 5.0chainScore92.2894numOFtask 5 ***************************************************************
+small 135 ***************************************************************
+End small 135 numberOfDetectedattacks:1 ***************************************************************
+BankReimbursment,u2r,low,1.9039904000000003,(ReExecute,BankReimbursment)(ReExecute,HospitalReport)(Insert,CustomerFeedbackCollection)(ReExecute,SelectBestExpert)
+
+for this workflow execution: RLTime 238.0 RLPrice 43.31585948759122 RLValue 70.0chainScore74.5954numOFtask 5 ***************************************************************
+small 136 ***************************************************************
+End small 136 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,dos,low,0.9581200835209825,(ReExecute,SelectBestExpert)(Late,PoliceReport)(ReExecute,BankReimbursment)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+BankReimbursment,dos,low,5.607910578860623,(ReExecute,SelectBestExpert)(Late,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 157.0 RLPrice 28.388870352805185 RLValue 30.0chainScore61.132numOFtask 4 ***************************************************************
+small 137 ***************************************************************
+End small 137 numberOfDetectedattacks:1 ***************************************************************
+PoliceReport,u2r,low,1.47115408,(Insert,SelectBestExpert)(Insert,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 170.0 RLPrice 21.537939782470062 RLValue 0.0chainScore85.0numOFtask 5 ***************************************************************
+small 138 ***************************************************************
+End small 138 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,dos,low,0.45124733360000036,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 147.5 RLPrice 28.47827087814116 RLValue 1.6666666666666667chainScore91.9824numOFtask 5 ***************************************************************
+small 139 ***************************************************************
+End small 139 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,probe,low,1.9188399999999997,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+CustomerFeedbackCollection,r2l,low,0.012846899200000006,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 161.0 RLPrice 29.072484756306245 RLValue 5.0chainScore82.2894numOFtask 4 ***************************************************************
+small 140 ***************************************************************
+End small 140 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,u2r,low,1.13680088,(Insert,SelectBestExpert)(Insert,BankReimbursment)
+BankReimbursment,dos,low,0.9562609007540886,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 128.0 RLPrice 23.815884128297924 RLValue 0.0chainScore55.0numOFtask 4 ***************************************************************
+small 141 ***************************************************************
+End small 141 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,0.06945520000000001,(ReExecute,PoliceReport)(Insert,BankReimbursment)(ReExecute,HospitalReport)
+SelectBestExpert,probe,low,3.909138777931259,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 132.0 RLPrice 17.520036921735354 RLValue 0.0chainScore55.0numOFtask 4 ***************************************************************
+small 142 ***************************************************************
+End small 142 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,u2r,low,0.06687064000000001,(ReExecute,SelectBestExpert)(Insert,CustomerFeedbackCollection)
+BankReimbursment,dos,low,7.7286638786879704,(ReExecute,SelectBestExpert)(Late,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 164.0 RLPrice 25.05532744711926 RLValue 30.0chainScore61.132numOFtask 4 ***************************************************************
+small 143 ***************************************************************
+End small 143 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,dos,low,0.5319459824630399,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 152.0 RLPrice 24.124137686352345 RLValue 1.6666666666666667chainScore66.9824numOFtask 4 ***************************************************************
+small 144 ***************************************************************
+End small 144 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: RLTime 158.0 RLPrice 25.431664456583697 RLValue 0.0chainScore70.0numOFtask 5 ***************************************************************
+small 145 ***************************************************************
+End small 145 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,r2l,low,0.07619072,(ReExecute,SelectBestExpert)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,dos,high,115.3569088,(Redundancy,SelectBestExpert)(ReConfiguration,BankReimbursment)(Insert,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 138.0 RLPrice 27.265694933402468 RLValue 60.0chainScore26.28numOFtask 3 ***************************************************************
+small 146 ***************************************************************
+End small 146 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,dos,medium,10.915202931921671,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 189.0 RLPrice 29.24287598631555 RLValue 5.0chainScore92.2656numOFtask 5 ***************************************************************
+small 147 ***************************************************************
+End small 147 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,dos,low,8.758490010444344,(ReExecute,ObtainClaimService)(ReExecute,BankReimbursment)(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+HospitalReport,r2l,low,0.07619072,(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 163.0 RLPrice 27.591461130103113 RLValue 25.0chainScore72.77420000000001numOFtask 4 ***************************************************************
+small 148 ***************************************************************
+End small 148 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,dos,low,4.379245005222172,(Late,PoliceReport)(ReExecute,BankReimbursment)(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,probe,low,6.19795829968119,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 115.0 RLPrice 18.55526728276183 RLValue 0.0chainScore30.0numOFtask 3 ***************************************************************
+small 149 ***************************************************************
+End small 149 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,r2l,low,0.45136511840835614,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+CustomerFeedbackCollection,probe,low,0.3271189400593472,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 89.0 RLPrice 16.854405570157386 RLValue 0.0chainScore56.480199999999996numOFtask 3 ***************************************************************
+small 150 ***************************************************************
+End small 150 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,r2l,low,0.07883497788011874,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 192.0 RLPrice 29.701339526086386 RLValue 5.0chainScore92.2894numOFtask 5 ***************************************************************
+small 151 ***************************************************************
+End small 151 numberOfDetectedattacks:1 ***************************************************************
+SelectBestExpert,dos,medium,33.3732137025641,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 129.0 RLPrice 18.246728959656686 RLValue 0.0chainScore40.0numOFtask 4 ***************************************************************
+small 152 ***************************************************************
+End small 152 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: RLTime 212.0 RLPrice 35.24472494983974 RLValue 0.0chainScore95.0numOFtask 6 ***************************************************************
+small 153 ***************************************************************
+End small 153 numberOfDetectedattacks:1 ***************************************************************
+ObtainClaimService,u2r,low,2.083656,(Insert,SelectBestExpert)(Insert,PoliceReport)(ReExecute,BankReimbursment)(Insert,HospitalReport)
+
+for this workflow execution: RLTime 122.0 RLPrice 20.804258081770282 RLValue 0.0chainScore60.0numOFtask 4 ***************************************************************
+small 154 ***************************************************************
+End small 154 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,r2l,low,5.571383454227406,(ReExecute,BankReimbursment)
+HospitalReport,probe,low,3.4140229442156493,(Skip,CustomerFeedbackCollection)
+SelectBestExpert,dos,low,2.855222805362802,(ReExecute,CustomerFeedbackCollection)
+CustomerFeedbackCollection,dos,low,0.3107309056000003,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 70.0 RLPrice 11.546116243680729 RLValue 1.6666666666666667chainScore11.9824numOFtask 1 ***************************************************************
+small 155 ***************************************************************
+End small 155 numberOfDetectedattacks:1 ***************************************************************
+ObtainClaimService,r2l,low,0.2910082378653113,(ReExecute,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 133.0 RLPrice 21.80126173736522 RLValue 0.0chainScore60.0numOFtask 4 ***************************************************************
+small 156 ***************************************************************
+End small 156 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,r2l,low,0.1765568313150967,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+HospitalReport,u2r,low,0.6687064,(ReExecute,BankReimbursment)(Insert,CustomerFeedbackCollection)
+CustomerFeedbackCollection,r2l,low,0.35007800320000015,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 129.0 RLPrice 10.999301160926871 RLValue 5.0chainScore42.2894numOFtask 2 ***************************************************************
+small 157 ***************************************************************
+End small 157 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,probe,low,1.070765804577997,(Skip,CustomerFeedbackCollection)
+SelectBestExpert,dos,low,3.1519187345088167,(Late,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 119.0 RLPrice 18.20257607797707 RLValue 0.0chainScore50.0numOFtask 4 ***************************************************************
+small 158 ***************************************************************
+End small 158 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,dos,medium,50.489100923393316,(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,dos,high,115.3569088,(Redundancy,SelectBestExpert)(ReConfiguration,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 126.0 RLPrice 27.378088111265406 RLValue 60.0chainScore26.28numOFtask 3 ***************************************************************
+small 159 ***************************************************************
+End small 159 numberOfDetectedattacks:3 ***************************************************************
+HospitalReport,r2l,low,4.529182234052689,(ReExecute,SelectBestExpert)
+PoliceReport,u2r,low,0.40122384,(ReExecute,SelectBestExpert)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,dos,medium,32.430578133333334,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 108.0 RLPrice 18.14721682159196 RLValue 0.0chainScore40.0numOFtask 3 ***************************************************************
+small 160 ***************************************************************
+End small 160 numberOfDetectedattacks:2 ***************************************************************
+BankReimbursment,dos,low,0.754415271672249,(Late,CustomerFeedbackCollection)
+CustomerFeedbackCollection,u2r,low,0.009707910400000007,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 176.0 RLPrice 23.002469789163182 RLValue 5.0chainScore67.32numOFtask 4 ***************************************************************
+small 161 ***************************************************************
+End small 161 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,probe,low,8.543561866037393,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+PoliceReport,probe,low,0.714252,(Skip,CustomerFeedbackCollection)
+SelectBestExpert,probe,low,8.58602535117057,(Skip,CustomerFeedbackCollection)
+BankReimbursment,dos,low,5.607910578860623,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 69.0 RLPrice 8.586226347812008 RLValue 0.0chainScore20.0numOFtask 2 ***************************************************************
+small 162 ***************************************************************
+End small 162 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,dos,low,2.3435870024254393,(ReExecute,SelectBestExpert)(Late,PoliceReport)(Late,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,r2l,low,6.507378215384615,(ReExecute,BankReimbursment)
+
+for this workflow execution: RLTime 123.0 RLPrice 24.069958123559545 RLValue 3.3333333333333335chainScore31.2488numOFtask 3 ***************************************************************
+small 163 ***************************************************************
+End small 163 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,u2r,low,0.9029176000000001,(ReExecute,PoliceReport)(Insert,BankReimbursment)(Insert,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+HospitalReport,dos,medium,76.28454703360697,(ReExecute,SelectBestExpert)(Insert,BankReimbursment)(Insert,CustomerFeedbackCollection)
+PoliceReport,dos,low,6.64062106484954,(Late,CustomerFeedbackCollection)
+CustomerFeedbackCollection,probe,medium,11.294389344881889,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 82.0 RLPrice 9.257383395237515 RLValue 0.0chainScore56.480199999999996numOFtask 2 ***************************************************************
+small 164 ***************************************************************
+End small 164 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,u2r,low,0.26748256000000004,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)
+SelectBestExpert,u2r,low,0.1358841904357067,(ReExecute,SelectBestExpert)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 141.0 RLPrice 18.40553282444521 RLValue 30.0chainScore31.698999999999998numOFtask 3 ***************************************************************
+small 165 ***************************************************************
+End small 165 numberOfDetectedattacks:1 ***************************************************************
+PoliceReport,u2r,low,0.40122384,(ReExecute,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 156.0 RLPrice 27.303901118030417 RLValue 10.0chainScore61.7364numOFtask 4 ***************************************************************
+small 166 ***************************************************************
+End small 166 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,dos,low,6.72681065572095,(ReExecute,SelectBestExpert)(Late,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,u2r,low,4.942895066666668,(Insert,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 130.0 RLPrice 22.20556832564006 RLValue 0.0chainScore55.0numOFtask 4 ***************************************************************
+small 167 ***************************************************************
+End small 167 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: RLTime 139.0 RLPrice 25.248750277539123 RLValue 0.0chainScore70.0numOFtask 5 ***************************************************************
+small 168 ***************************************************************
+End small 168 numberOfDetectedattacks:1 ***************************************************************
+PoliceReport,dos,low,6.64062106484954,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 122.0 RLPrice 18.630785562370463 RLValue 0.0chainScore60.0numOFtask 4 ***************************************************************
+small 169 ***************************************************************
+End small 169 numberOfDetectedattacks:3 ***************************************************************
+HospitalReport,dos,medium,10.097820184678664,(Insert,CustomerFeedbackCollection)
+SelectBestExpert,dos,low,2.855222805362802,(ReExecute,SelectBestExpert)(Late,BankReimbursment)(Late,CustomerFeedbackCollection)
+CustomerFeedbackCollection,dos,low,1.853948118768143,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 115.0 RLPrice 23.683681559685034 RLValue 31.666666666666668chainScore23.290399999999998numOFtask 2 ***************************************************************
+small 170 ***************************************************************
+End small 170 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: RLTime 160.0 RLPrice 19.4230322812474 RLValue 0.0chainScore70.0numOFtask 5 ***************************************************************
+small 171 ***************************************************************
+End small 171 numberOfDetectedattacks:1 ***************************************************************
+HospitalReport,u2r,low,2.9478928291290445,(Insert,SelectBestExpert)
+
+for this workflow execution: RLTime 97.0 RLPrice 18.207568372110757 RLValue 0.0chainScore55.0numOFtask 4 ***************************************************************
+small 172 ***************************************************************
+End small 172 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,dos,medium,35.45044309027635,(Insert,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,CustomerFeedbackCollection)
+HospitalReport,u2r,low,0.5705599024120731,(ReExecute,SelectBestExpert)(Insert,CustomerFeedbackCollection)
+SelectBestExpert,r2l,low,6.902613838891544,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 75.0 RLPrice 9.308547686869098 RLValue 0.0chainScore15.0numOFtask 2 ***************************************************************
+small 173 ***************************************************************
+End small 173 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,probe,low,9.850138536045824,(Skip,CustomerFeedbackCollection)
+BankReimbursment,probe,low,0.15663999999999997,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 141.0 RLPrice 18.231412208121384 RLValue 0.0chainScore60.0numOFtask 4 ***************************************************************
+small 174 ***************************************************************
+End small 174 numberOfDetectedattacks:1 ***************************************************************
+ObtainClaimService,probe,low,4.819514301420063,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 167.0 RLPrice 22.99055054930294 RLValue 0.0chainScore85.0numOFtask 5 ***************************************************************
+small 175 ***************************************************************
+End small 175 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: RLTime 169.0 RLPrice 31.472211947312477 RLValue 0.0chainScore95.0numOFtask 6 ***************************************************************
+small 176 ***************************************************************
+End small 176 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,r2l,low,3.783107092249047,(ReExecute,HospitalReport)
+SelectBestExpert,r2l,low,0.0752896,(ReExecute,BankReimbursment)
+CustomerFeedbackCollection,u2r,low,0.20386611840000018,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 152.0 RLPrice 13.85314986763198 RLValue 5.0chainScore52.32numOFtask 3 ***************************************************************
+small 177 ***************************************************************
+End small 177 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,1.041828,(ReExecute,PoliceReport)(Insert,BankReimbursment)(ReExecute,HospitalReport)(Insert,CustomerFeedbackCollection)
+PoliceReport,dos,low,0.7520385581910976,(ReExecute,SelectBestExpert)
+
+for this workflow execution: RLTime 99.0 RLPrice 16.494879000441014 RLValue 0.0chainScore50.0numOFtask 3 ***************************************************************
+small 178 ***************************************************************
+End small 178 numberOfDetectedattacks:1 ***************************************************************
+HospitalReport,u2r,low,1.47115408,(ReExecute,SelectBestExpert)
+
+for this workflow execution: RLTime 128.0 RLPrice 12.04696825046294 RLValue 0.0chainScore55.0numOFtask 4 ***************************************************************
+small 179 ***************************************************************
+End small 179 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,r2l,low,0.07619072,(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,u2r,low,1.3891040000000003,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)
+
+for this workflow execution: RLTime 113.0 RLPrice 17.390292100749175 RLValue 30.0chainScore26.698999999999998numOFtask 3 ***************************************************************
+small 180 ***************************************************************
+End small 180 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: RLTime 182.0 RLPrice 30.88636552826574 RLValue 0.0chainScore95.0numOFtask 6 ***************************************************************
+small 181 ***************************************************************
+End small 181 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,dos,medium,10.176700681977625,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+PoliceReport,u2r,low,1.0030595999999998,(Insert,SelectBestExpert)(Insert,BankReimbursment)
+
+for this workflow execution: RLTime 140.0 RLPrice 20.127400173906707 RLValue 0.0chainScore70.0numOFtask 4 ***************************************************************
+small 182 ***************************************************************
+End small 182 numberOfDetectedattacks:1 ***************************************************************
+HospitalReport,r2l,low,0.07619072,(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 129.0 RLPrice 18.035570019517678 RLValue 0.0chainScore55.0numOFtask 4 ***************************************************************
+small 183 ***************************************************************
+End small 183 numberOfDetectedattacks:1 ***************************************************************
+SelectBestExpert,probe,low,3.909138777931259,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 109.0 RLPrice 20.52821545392007 RLValue 0.0chainScore40.0numOFtask 4 ***************************************************************
+small 184 ***************************************************************
+End small 184 numberOfDetectedattacks:1 ***************************************************************
+PoliceReport,u2r,low,0.73557704,(Insert,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 136.0 RLPrice 16.02067644415002 RLValue 0.0chainScore60.0numOFtask 4 ***************************************************************
+small 185 ***************************************************************
+End small 185 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,dos,low,8.24697805768724,(ReExecute,BankReimbursment)
+CustomerFeedbackCollection,probe,low,0.9205600995827539,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 94.0 RLPrice 13.44084474152793 RLValue 0.0chainScore51.480199999999996numOFtask 3 ***************************************************************
+small 186 ***************************************************************
+End small 186 numberOfDetectedattacks:1 ***************************************************************
+SelectBestExpert,dos,low,0.9019787487179488,(Late,BankReimbursment)(Late,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 139.0 RLPrice 15.16016278421161 RLValue 0.0chainScore40.0numOFtask 4 ***************************************************************
+small 187 ***************************************************************
+End small 187 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: RLTime 174.0 RLPrice 31.76414006442053 RLValue 0.0chainScore95.0numOFtask 6 ***************************************************************
+small 188 ***************************************************************
+End small 188 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: RLTime 181.0 RLPrice 30.397138763573345 RLValue 0.0chainScore95.0numOFtask 6 ***************************************************************
+small 189 ***************************************************************
+End small 189 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: RLTime 185.0 RLPrice 28.51175820565399 RLValue 0.0chainScore95.0numOFtask 6 ***************************************************************
+small 190 ***************************************************************
+End small 190 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: RLTime 178.0 RLPrice 27.66346734488988 RLValue 0.0chainScore95.0numOFtask 6 ***************************************************************
+small 191 ***************************************************************
+End small 191 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,probe,low,9.680905152755903,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 154.0 RLPrice 22.80087569217415 RLValue 0.0chainScore91.4802numOFtask 5 ***************************************************************
+small 192 ***************************************************************
+End small 192 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,0.06945520000000001,(Insert,PoliceReport)(ReExecute,BankReimbursment)(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,dos,low,0.9019787487179488,(Late,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 130.0 RLPrice 20.205308415825254 RLValue 0.0chainScore55.0numOFtask 4 ***************************************************************
+small 193 ***************************************************************
+End small 193 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,r2l,low,1.9809587200000003,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)(ReExecute,CustomerFeedbackCollection)
+CustomerFeedbackCollection,r2l,low,0.012846899200000006,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 137.0 RLPrice 16.800887705938212 RLValue 5.0chainScore57.2894numOFtask 3 ***************************************************************
+small 194 ***************************************************************
+End small 194 numberOfDetectedattacks:3 ***************************************************************
+PoliceReport,probe,low,0.1448549784712621,(Skip,CustomerFeedbackCollection)
+HospitalReport,dos,medium,56.66703041103561,(ReExecute,BankReimbursment)(Insert,CustomerFeedbackCollection)
+BankReimbursment,dos,high,110.86025666117489,(Redundancy,SelectBestExpert)(ReConfiguration,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 141.0 RLPrice 26.36761641988649 RLValue 60.0chainScore46.082numOFtask 3 ***************************************************************
+small 195 ***************************************************************
+End small 195 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,probe,low,0.71203055,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 154.0 RLPrice 22.2667146572011 RLValue 0.0chainScore91.4802numOFtask 5 ***************************************************************
+small 196 ***************************************************************
+End small 196 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,u2r,low,1.9018663413735772,(ReExecute,BankReimbursment)(Insert,CustomerFeedbackCollection)
+SelectBestExpert,dos,high,115.3569088,(Redundancy,SelectBestExpert)(ReExecute,BankReimbursment)(Insert,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 154.0 RLPrice 31.88402901687626 RLValue 60.0chainScore51.28numOFtask 4 ***************************************************************
+small 197 ***************************************************************
+End small 197 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,dos,low,7.664222731385006,(ReExecute,SelectBestExpert)(Late,PoliceReport)(ReExecute,BankReimbursment)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+PoliceReport,probe,high,501.64298799999983,(Skip,CustomerFeedbackCollection)
+CustomerFeedbackCollection,u2r,low,0.009707910400000007,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 145.0 RLPrice 21.527820481635523 RLValue 5.0chainScore72.32numOFtask 3 ***************************************************************
+small 198 ***************************************************************
+End small 198 numberOfDetectedattacks:4 ***************************************************************
+HospitalReport,probe,low,2.851438362812065,(Skip,CustomerFeedbackCollection)
+PoliceReport,dos,low,1.6826421362752302,(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,dos,high,115.3569088,(Redundancy,SelectBestExpert)(ReConfiguration,BankReimbursment)
+CustomerFeedbackCollection,dos,low,0.7810085967043121,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: RLTime 115.5 RLPrice 26.54848655379154 RLValue 61.666666666666664chainScore38.2624numOFtask 2 ***************************************************************
+small 199 ***************************************************************
+End small 199 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: RLTime 173.0 RLPrice 29.993738041801592 RLValue 0.0chainScore95.0numOFtask 6 ***************************************************************
+for 100s workflow execution average: RLTime 129.22 RLPrice 21.67759488243589 RLValue 7.433333333333334RLScore58.92623599999998RLFinalCost37.14665486473077numOFtask 0 ***************************************************************
+for 100s workflow execution Normalized: RLTime 129.22 RLPrice 21.67759488243589 RLValue 7.433333333333334RLScore58.92623599999998RLFinalCost37.14665486473077numOFtask 0 ***************************************************************
+Final: averageNormalizedTime 5.691309523809524 averageNormalizedCost 16.612558518677034 averageNormalizedValue 5.075000000000001 averageNormalizedMitigationScore 35.92836677476015 averageNormalizedFinalCost -229.35668749359505 ***************************************************************
+Final: averageNormalizedTime 119.5175 averageNormalizedCost 19.832479109339747 averageNormalizedValue 8.458333333333336 averageNormalizedMitigationScore 53.18116849999997 averageNormalizedFinalCost 33.94937688280194 numOFTasks0 ***************************************************************

@@ -23,6 +23,11 @@ import javax.swing.JOptionPane;
 import java.io.*;
 import java.text.DecimalFormat;
 import java.util.*;
+import java.lang.Math;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Random;
 
 
 
@@ -33,7 +38,14 @@ public class MultiCloudEnvironment {
 	
 	int numOfProviders;//number of provisers in multi cloud environment
 	static List<ProviderPlus> providers = new ArrayList<ProviderPlus>();
+	
+	//anomaly parameters
 	int serviceTaskAnomalyRate=10;// for each "serviceTaskAnomalyRate" service task one is anomaly
+	static ArrayList<Map<String, Boolean>> anomalyPattern = new ArrayList<>();
+	int numOfExecutions=1000;
+	static int currentExecutionNumber=0;
+	//Workflow workflow;
+	
 	TenantKernel currentTenant;
 	static ArrayList<UserTask> userTasks = new ArrayList<UserTask>();//onExituserTask' propertises
 	static ArrayList<ServiceTask> serviceTasks = new ArrayList<ServiceTask>();//onExitServiceTask' propertises
@@ -56,7 +68,57 @@ public class MultiCloudEnvironment {
 			System.out.println("The simulation has been terminated due to an unexpected error");
 		}
 		
+		
+		
 	}
+	
+
+	public void setWorkflow(Workflow w) {
+		//workflow=w;
+		//CreateAnomalyPattern();
+	}
+	public void CreateAnomalyPattern(Workflow workflow) {
+		//System.out.println("**************CreateAnomalyPattern***********");
+		anomalyPattern = new ArrayList<>();
+		int size=workflow.getServiceTasks().size();	
+		//int size=10;		
+
+		boolean[] currentOption = new boolean[size];
+        generateOptionsRecursive(currentOption, 0,workflow);
+        //printOptions();
+		//System.out.println("size of anomalyPattern"+anomalyPattern.size());
+	}
+	
+	public  void generateOptionsRecursive(boolean[] currentOption, int currentIndex,Workflow workflow) {
+        if (currentIndex == currentOption.length) {
+            // Add current option to the list
+            anomalyPattern.add(convertToMap(currentOption,workflow));
+            return;
+        }
+
+        // Generate option with current node participating (true)
+        currentOption[currentIndex] = true;
+        generateOptionsRecursive(currentOption, currentIndex + 1, workflow);
+
+        // Generate option with current node not participating (false)
+        currentOption[currentIndex] = false;
+        generateOptionsRecursive(currentOption, currentIndex + 1, workflow);
+    }
+
+    public  Map<String, Boolean> convertToMap(boolean[] option,Workflow workflow) {
+        Map<String, Boolean> map = new HashMap<>();
+        for (int i = 0; i < option.length; i++) {
+            map.put(workflow.getServiceTasks().get(i), option[i]);
+        }
+        return map;
+    }
+
+    public  void printOptions() {
+        for (Map<String, Boolean> option : anomalyPattern) {
+            System.out.println(option);
+        }
+    }
+	
 	
 	public void ExecuteServiceTask(long ProcessInstance_Id,String ProcessInstance_ProcessName,String ProcessInstance_ProcessId,String serviceTask) {
 		//getProviders().get(0).executeService(serviceTask);
@@ -71,9 +133,9 @@ public class MultiCloudEnvironment {
 	
 	
 	
-	public void AssigningServiceToTask(long ProcessInstance_Id,String ProcessInstance_ProcessName,String ProcessInstance_ProcessId,Workflow workflow,String serviceTask,int taskNumber) throws IOException{//Scheduling and assigning the service task with this serviceType to a provider
+	public void AssigningServiceToTask(long ProcessInstance_Id,String ProcessInstance_ProcessName,String ProcessInstance_ProcessId,Workflow workflow,String serviceTask,int taskNumber,int count) throws IOException{//Scheduling and assigning the service task with this serviceType to a provider
 		//we can add service need(ram,bw,input,output here) but now we read it in provicerPlus based on ServiceSpecification.txt
-		CreateServiceTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,workflow,serviceTask,taskNumber);
+		CreateServiceTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,workflow,serviceTask,taskNumber,count);
 		
 	}
 	
@@ -83,29 +145,63 @@ public class MultiCloudEnvironment {
 		providers.get(0).executeService(serviceTask,backup);		
 	}
 	
-public void CreateServiceTask (long ProcessInstance_Id,String ProcessInstance_ProcessName,String ProcessInstance_ProcessId,Workflow workflow,String serviceTask,int taskNumber) throws IOException{
-		
+	public void CreateServiceTask (long ProcessInstance_Id,String ProcessInstance_ProcessName,String ProcessInstance_ProcessId,Workflow workflow,String serviceTask,int taskNumber,int count) throws IOException{
+		System.out.println("count..."+count);
+
 		//Scheduling the Service
 		ArrayList<Service> services = workflow.getLegalServiceforTasks().get(serviceTask);
 		Random rand = new Random();
 		Service s=services.get(rand.nextInt(services.size()));
 		Service backupService = services.get(rand.nextInt(services.size()));
 		
-		
-		//execute the Service
-		int anomaly=rand.nextInt(serviceTaskAnomalyRate);
-		//int anomaly=rand.nextInt(2);//for test
-		
-		if(anomaly<3) {
-			System.out.println("starting execution of serviceTask in multicloud!");//with anomaly
-			//add1:providers.get(0).executeService(serviceTask,s);
-			CreateAnomalServiceTaskFromSpecificAttackPossibility(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,workflow,serviceTask,s,backupService,taskNumber);				
-			//CreateAnomalServiceTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,workflow,serviceTask,s,backupService);				
+		//2-RL approach to train the model
+		CreateAnomalyPattern(workflow);
+		//System.out.println("anomalyPattern creating..."+anomalyPattern.size());
+		if(count<anomalyPattern.size()) {
+			//System.out.println("anomalyPattern creating...");
+			boolean checkAnomaly=true;
+			Map<String, Boolean> taskanomaly=anomalyPattern.get(count);
+			for (Map.Entry<String, Boolean> entry : taskanomaly.entrySet()) {
+				String key = entry.getKey();
+				Boolean value = entry.getValue();
+				//System.out.println("Key: " + key + ", Value: " + value+" "+serviceTask);
+				if(key.equals(serviceTask))
+					checkAnomaly=value;
+	        }
+			System.out.println("checkAnomaly..."+checkAnomaly);
+			
+			//boolean valueForTask=taskanomaly.get("key");
+			
+			if(!checkAnomaly) {
+				System.out.println("starting execution of serviceTask in multicloud!");//with anomaly
+				//add1:providers.get(0).executeService(serviceTask,s);
+				CreateAnomalServiceTaskFromSpecificAttackPossibility(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,workflow,serviceTask,s,backupService,taskNumber);				
+				//CreateAnomalServiceTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,workflow,serviceTask,s,backupService);				
+			}
+			else {
+				System.out.println("starting execution of serviceTask in multicloud!");//without anomaly
+				//add2:providers.get(0).executeService(serviceTask,s);
+				CreateNormalServiceTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,workflow,serviceTask,s,backupService,taskNumber);
+			}
 		}
+		
 		else {
-			System.out.println("starting execution of serviceTask in multicloud!");//without anomaly
-			//add2:providers.get(0).executeService(serviceTask,s);
-			CreateNormalServiceTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,workflow,serviceTask,s,backupService,taskNumber);
+			//2-random approach
+			//execute the Service
+			int anomaly=rand.nextInt(serviceTaskAnomalyRate);
+			//int anomaly=rand.nextInt(2);//for test
+			
+			if(anomaly<3) {
+				System.out.println("starting execution of serviceTask in multicloud!");//with anomaly
+				//add1:providers.get(0).executeService(serviceTask,s);
+				CreateAnomalServiceTaskFromSpecificAttackPossibility(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,workflow,serviceTask,s,backupService,taskNumber);				
+				//CreateAnomalServiceTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,workflow,serviceTask,s,backupService);				
+			}
+			else {
+				System.out.println("starting execution of serviceTask in multicloud!");//without anomaly
+				//add2:providers.get(0).executeService(serviceTask,s);
+				CreateNormalServiceTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,workflow,serviceTask,s,backupService,taskNumber);
+			}
 		}
 	}
 

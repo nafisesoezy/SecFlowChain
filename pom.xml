@@ -157,6 +157,14 @@
    		<groupId>org.cloudsimplus</groupId>
    		<artifactId>cloudsim-plus</artifactId>
 	 </dependency>
+	<!-- https://mvnrepository.com/artifact/org.deeplearning4j/rl4j -->
+	<dependency>
+	    <groupId>org.deeplearning4j</groupId>
+	    <artifactId>rl4j</artifactId>
+	    <type>pom</type>
+	</dependency>
+
+	 
   
 
     <!-- Nafas: add R dependency-->

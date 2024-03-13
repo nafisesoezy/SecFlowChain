@@ -1,0 +1,349 @@
+public  ArrayList<ArrayList<Adaptation>> FinalGenerateCombinations(Map<String, ArrayList<String>> AdaptationChains){
+		System.out.println("GenerateCombinations");
+		ArrayList<ArrayList<Adaptation>>  AdaptationSecurityChainSet=null;
+		int sizeOfCombination=AdaptationChains.size();
+		
+		System.out.println("sizeOfCombination: "+sizeOfCombination);
+
+		if(sizeOfCombination<=2)
+			AdaptationSecurityChainSet=generateCombinationsFixedSize2(AdaptationChains);
+		
+		if(sizeOfCombination>=3)
+			AdaptationSecurityChainSet=generateCombinationsFixedSize3(AdaptationChains);
+		
+		 int i=0;
+		 for (ArrayList<Adaptation> innerList : AdaptationSecurityChainSet) {
+			 System.out.println("chain "+i);
+			 i++;
+	            for (Adaptation adaptation : innerList) {
+	            	adaptation.smallPrint();
+	            }
+	        }
+		
+		return AdaptationSecurityChainSet;
+	}
+	
+	
+	public  ArrayList<ArrayList<Adaptation>> generateCombinationsFixedSize2(Map<String, ArrayList<String>> AdaptationChains){
+		System.out.println("generateCombinationsFixedSize2");
+		ArrayList<ArrayList<Adaptation>>  AdaptationSecurityChainSet=new ArrayList<>();		
+    	ArrayList<String> traces = new ArrayList<String>();
+
+		 for (Map.Entry<String, ArrayList<String>> entry1 : AdaptationChains.entrySet()) {
+	            String task1 = entry1.getKey();
+	            traces.add(task1);
+	            ArrayList<String> actions1 = entry1.getValue();
+
+	            System.out.println("task1: "+task1);
+
+	            for (String action1 : actions1) {
+	                System.out.println("	action1: "+action1);
+	                ArrayList<Adaptation> ac1 = new ArrayList<Adaptation>();
+	            	Adaptation a1=new Adaptation(action1,task1);
+	            	ac1.add(a1);
+	            	AdaptationSecurityChainSet.add(ac1);
+	                for (Map.Entry<String, ArrayList<String>> entry2 : AdaptationChains.entrySet()) {
+	                	String task2 = entry2.getKey();
+	    	            ArrayList<String> actions2 = entry2.getValue();
+	    	            //if(!task1.equals(task2)) {
+	    	            if(!traces.contains(task2)) {
+	    	            System.out.println("		task2: "+task2);
+	    	            for (String action2 : actions2) {
+	    	            	ArrayList<Adaptation> ac2 = new ArrayList<Adaptation>();
+	    	            	ArrayList<Adaptation> ac3 = new ArrayList<Adaptation>();
+	    	                System.out.println("			action2: "+action2);    	                	
+    	                	Adaptation a2=new Adaptation(action2,task2);
+    	                	ac2.add(a1);
+    	                	ac2.add(a2);
+    	                	ac3.add(a2);
+	    	            	AdaptationSecurityChainSet.add(ac2);
+	    	            	AdaptationSecurityChainSet.add(ac3);
+    	                }
+    	             }
+	             }
+	                
+	        }
+	        System.out.println();
+	     }
+		 
+		return AdaptationSecurityChainSet;
+	}
+
+	
+	
+	public  ArrayList<ArrayList<Adaptation>> generateCombinationsFixedSize3(Map<String, ArrayList<String>> AdaptationChains){
+		System.out.println("generateCombinationsFixedSize3");
+		ArrayList<ArrayList<Adaptation>>  AdaptationSecurityChainSet=new ArrayList<>();		
+    	ArrayList<String> traces = new ArrayList<String>();
+
+		 for (Map.Entry<String, ArrayList<String>> entry1 : AdaptationChains.entrySet()) {
+	            String task1 = entry1.getKey();
+	            ArrayList<String> actions1 = entry1.getValue();
+	            if(!traces.contains(task1)) {
+	            	traces.add(task1);
+	            	System.out.println("task1: "+task1);
+	            	
+		            for (String action1 : actions1) {
+		                System.out.println("	action1: "+action1);
+		                ArrayList<Adaptation> ac1 = new ArrayList<Adaptation>();
+		            	Adaptation a1=new Adaptation(action1,task1);
+		            	ac1.add(a1);
+		            	AdaptationSecurityChainSet.add(ac1);
+		                for (Map.Entry<String, ArrayList<String>> entry2 : AdaptationChains.entrySet()) {
+		                	String task2 = entry2.getKey();
+		    	            ArrayList<String> actions2 = entry2.getValue();
+		    	            //if(!task1.equals(task2)) {
+		    	            if(!traces.contains(task2)) {
+		    	            	traces.add(task2);
+			    	            System.out.println("		task2: "+task2);
+			    	            
+			    	            for (String action2 : actions2) {
+			    	            	ArrayList<Adaptation> ac2 = new ArrayList<Adaptation>();
+			    	            	ArrayList<Adaptation> ac3 = new ArrayList<Adaptation>();
+			    	                System.out.println("			action2: "+action2);    	                	
+		    	                	Adaptation a2=new Adaptation(action2,task2);
+		    	                	ac2.add(a1);
+		    	                	ac2.add(a2);
+		    	                	ac3.add(a2);
+			    	            	AdaptationSecurityChainSet.add(ac2);
+			    	            	AdaptationSecurityChainSet.add(ac3);
+		    	            	  for (Map.Entry<String, ArrayList<String>> entry3 : AdaptationChains.entrySet()) {
+		    		                	String task3 = entry3.getKey();
+		    		    	            ArrayList<String> actions3 = entry3.getValue();
+		    		    	            //if(!task1.equals(task2)) {
+		    		    	            if(!traces.contains(task3)) {
+		    		    	            	traces.add(task3);
+			    		    	            System.out.println("		task3: "+task3);
+			    		    	            
+			    		    	            for (String action3 : actions3) {
+			    		    	            	ArrayList<Adaptation> ac4 = new ArrayList<Adaptation>();
+			    		    	            	ArrayList<Adaptation> ac5 = new ArrayList<Adaptation>();
+			    		    	            	ArrayList<Adaptation> ac6 = new ArrayList<Adaptation>();
+			    		    	            	ArrayList<Adaptation> ac7 = new ArrayList<Adaptation>();
+		
+			    		    	                System.out.println("			action3: "+action3);    	                	
+			    	    	                	Adaptation a3=new Adaptation(action3,task3);
+			    	    	                	ac4.add(a1);
+			    	    	                	ac4.add(a2);
+			    	    	                	ac4.add(a3);
+			    	    	                	ac5.add(a1);
+			    	    	                	ac5.add(a3);
+			    	    	                	ac6.add(a2);
+			    	    	                	ac6.add(a3);
+			    	    	                	ac7.add(a3);
+			    		    	            	AdaptationSecurityChainSet.add(ac4);
+			    		    	            	AdaptationSecurityChainSet.add(ac5);
+			    		    	            	AdaptationSecurityChainSet.add(ac6);
+			    		    	            	AdaptationSecurityChainSet.add(ac7);
+			    	    	                }
+		    		    	            }
+		    	            	  	}
+			    	            }
+		    	            }
+		                }
+		                
+		            }
+	            }
+	       System.out.println();
+	     }
+		 
+		return AdaptationSecurityChainSet;
+	}
+	
+	
+	public  ArrayList<ArrayList<Adaptation>> generateCombinationsFixedSize4(Map<String, ArrayList<String>> AdaptationChains){
+		System.out.println("generateCombinationsFixedSize3");
+		ArrayList<ArrayList<Adaptation>>  AdaptationSecurityChainSet=new ArrayList<>();		
+    	ArrayList<String> traces = new ArrayList<String>();
+
+		 for (Map.Entry<String, ArrayList<String>> entry1 : AdaptationChains.entrySet()) {
+	            String task1 = entry1.getKey();
+	            ArrayList<String> actions1 = entry1.getValue();
+	            if(!traces.contains(task1)) {
+	            	traces.add(task1);
+	            	System.out.println("task1: "+task1);
+	            	
+		            for (String action1 : actions1) {
+		                System.out.println("	action1: "+action1);
+		                ArrayList<Adaptation> ac1 = new ArrayList<Adaptation>();
+		            	Adaptation a1=new Adaptation(action1,task1);
+		            	ac1.add(a1);
+		            	AdaptationSecurityChainSet.add(ac1);
+		                for (Map.Entry<String, ArrayList<String>> entry2 : AdaptationChains.entrySet()) {
+		                	String task2 = entry2.getKey();
+		    	            ArrayList<String> actions2 = entry2.getValue();
+		    	            //if(!task1.equals(task2)) {
+		    	            if(!traces.contains(task2)) {
+		    	            	traces.add(task2);
+			    	            System.out.println("		task2: "+task2);
+			    	            
+			    	            for (String action2 : actions2) {
+			    	            	ArrayList<Adaptation> ac2 = new ArrayList<Adaptation>();
+			    	            	ArrayList<Adaptation> ac3 = new ArrayList<Adaptation>();
+			    	                System.out.println("			action2: "+action2);    	                	
+		    	                	Adaptation a2=new Adaptation(action2,task2);
+		    	                	ac2.add(a1);
+		    	                	ac2.add(a2);
+		    	                	ac3.add(a2);
+			    	            	AdaptationSecurityChainSet.add(ac2);
+			    	            	AdaptationSecurityChainSet.add(ac3);
+		    	            	  for (Map.Entry<String, ArrayList<String>> entry3 : AdaptationChains.entrySet()) {
+		    		                	String task3 = entry3.getKey();
+		    		    	            ArrayList<String> actions3 = entry3.getValue();
+		    		    	            //if(!task1.equals(task2)) {
+		    		    	            if(!traces.contains(task3)) {
+		    		    	            	traces.add(task3);
+			    		    	            System.out.println("		task3: "+task3);
+			    		    	            
+			    		    	            for (String action3 : actions3) {
+			    		    	            	ArrayList<Adaptation> ac4 = new ArrayList<Adaptation>();
+			    		    	            	ArrayList<Adaptation> ac5 = new ArrayList<Adaptation>();
+			    		    	            	ArrayList<Adaptation> ac6 = new ArrayList<Adaptation>();
+			    		    	            	ArrayList<Adaptation> ac7 = new ArrayList<Adaptation>();
+		
+			    		    	                System.out.println("			action3: "+action3);    	                	
+			    	    	                	Adaptation a3=new Adaptation(action3,task3);
+			    	    	                	ac4.add(a1);
+			    	    	                	ac4.add(a2);
+			    	    	                	ac4.add(a3);
+			    	    	                	ac5.add(a1);
+			    	    	                	ac5.add(a3);
+			    	    	                	ac6.add(a2);
+			    	    	                	ac6.add(a3);
+			    	    	                	ac7.add(a3);
+			    		    	            	AdaptationSecurityChainSet.add(ac4);
+			    		    	            	AdaptationSecurityChainSet.add(ac5);
+			    		    	            	AdaptationSecurityChainSet.add(ac6);
+			    		    	            	AdaptationSecurityChainSet.add(ac7);
+			    		    	            	  for (Map.Entry<String, ArrayList<String>> entry4 : AdaptationChains.entrySet()) {
+			  		    		                	String task4 = entry4.getKey();
+			  		    		    	            ArrayList<String> actions4 = entry4.getValue();
+			  		    		    	            //if(!task1.equals(task2)) {
+			  		    		    	            if(!traces.contains(task4)) {
+			  		    		    	            	traces.add(task4);
+			  			    		    	            System.out.println("		task4: "+task4);
+			  			    		    	            
+			  			    		    	            for (String action4 : actions4) {
+			  			    		    	            	ArrayList<Adaptation> ac8 = new ArrayList<Adaptation>();
+			  			    		    	            	ArrayList<Adaptation> ac9 = new ArrayList<Adaptation>();
+			  			    		    	            	ArrayList<Adaptation> ac10 = new ArrayList<Adaptation>();
+			  			    		    	            	ArrayList<Adaptation> ac11 = new ArrayList<Adaptation>();
+				  			    		    	          	ArrayList<Adaptation> ac12 = new ArrayList<Adaptation>();
+			  			    		    	            	ArrayList<Adaptation> ac13 = new ArrayList<Adaptation>();
+			  			    		    	            	ArrayList<Adaptation> ac14 = new ArrayList<Adaptation>();
+			  			    		    	            	ArrayList<Adaptation> ac15 = new ArrayList<Adaptation>();
+			  		
+			  			    		    	                System.out.println("			action4: "+action4);    	                	
+			  			    	    	                	Adaptation a4=new Adaptation(action4,task4);
+			  			    	    	                	ac8.add(a1);
+			  			    	    	                	ac8.add(a2);
+			  			    	    	                	ac8.add(a3);
+			  			    	    	                	ac8.add(a4);
+			  			    	    	                	
+			  			    	    	                	ac9.add(a1);
+			  			    	    	                	ac9.add(a2);
+			  			    	    	                	ac9.add(a4);
+			  			    	    	                	
+			  			    	    	                	ac10.add(a1);
+			  			    	    	                	ac10.add(a3);
+			  			    	    	                	ac10.add(a4);
+			  			    	    	                	
+			  			    	    	                	ac11.add(a2);
+			  			    	    	                	ac11.add(a3);
+			  			    	    	                	ac11.add(a4);
+			  			    	    	                	
+			  			    	    	                	
+			  			    	    	                	ac12.add(a1);
+			  			    	    	                	ac12.add(a4);
+			  			    	    	                	
+			  			    	    	                	ac13.add(a2);
+			  			    	    	                	ac13.add(a4);
+			  			    	    	                	
+			  			    	    	                	ac14.add(a3);
+			  			    	    	                	ac14.add(a4);
+			  			    	    	                	
+			  			    	    	                	ac15.add(a4);
+			  			    	    	                	
+			  			    		    	            	AdaptationSecurityChainSet.add(ac8);
+			  			    		    	            	AdaptationSecurityChainSet.add(ac9);
+			  			    		    	            	AdaptationSecurityChainSet.add(ac10);
+			  			    		    	            	AdaptationSecurityChainSet.add(ac11);
+				  			    		    	          	AdaptationSecurityChainSet.add(ac12);
+			  			    		    	            	AdaptationSecurityChainSet.add(ac13);
+			  			    		    	            	AdaptationSecurityChainSet.add(ac14);
+			  			    		    	            	AdaptationSecurityChainSet.add(ac15);
+			  			    	    	                }
+			  		    		    	            }
+			  		    	            	  	}
+			    	    	                }
+		    		    	            }
+		    	            	  	}
+			    	            }
+		    	            }
+		                }
+		                
+		            }
+	            }
+	       System.out.println();
+	     }
+		 
+		return AdaptationSecurityChainSet;
+	}
+	
+	
+	
+	public  ArrayList<ArrayList<Adaptation>> GenerateCombinations(Map<String, ArrayList<String>> AdaptationChains){
+		System.out.println("GenerateCombinations");
+		ArrayList<ArrayList<Adaptation>>  AdaptationSecurityChainSet=new ArrayList<>();		
+    	ArrayList<String> traces = new ArrayList<String>();
+
+		 for (Map.Entry<String, ArrayList<String>> entry1 : AdaptationChains.entrySet()) {
+	            String task1 = entry1.getKey();
+	            traces.add(task1);
+	            ArrayList<String> actions1 = entry1.getValue();
+
+	            System.out.println("task1: "+task1);
+
+	            for (String action1 : actions1) {
+	                System.out.println("	action1: "+action1);
+	                ArrayList<Adaptation> ac1 = new ArrayList<Adaptation>();
+	            	Adaptation a1=new Adaptation(action1,task1);
+	            	ac1.add(a1);
+	            	AdaptationSecurityChainSet.add(ac1);
+	                for (Map.Entry<String, ArrayList<String>> entry2 : AdaptationChains.entrySet()) {
+	                	String task2 = entry2.getKey();
+	    	            ArrayList<String> actions2 = entry2.getValue();
+	    	            //if(!task1.equals(task2)) {
+	    	            if(!traces.contains(task2)) {
+	    	            System.out.println("		task2: "+task2);
+	    	            for (String action2 : actions2) {
+	    	            	ArrayList<Adaptation> ac2 = new ArrayList<Adaptation>();
+	    	            	ArrayList<Adaptation> ac3 = new ArrayList<Adaptation>();
+	    	                System.out.println("			action2: "+action2);    	                	
+    	                	Adaptation a2=new Adaptation(action2,task2);
+    	                	ac2.add(a1);
+    	                	ac2.add(a2);
+    	                	ac3.add(a2);
+	    	            	AdaptationSecurityChainSet.add(ac2);
+	    	            	AdaptationSecurityChainSet.add(ac3);
+    	                }
+    	             }
+	             }
+	                
+	        }
+	        System.out.println();
+	     }
+		 
+		 int i=0;
+		 for (ArrayList<Adaptation> innerList : AdaptationSecurityChainSet) {
+			 System.out.println("chain "+i);
+			 i++;
+	            for (Adaptation adaptation : innerList) {
+	            	adaptation.smallPrint();
+	            }
+	        }
+		 
+		return AdaptationSecurityChainSet;
+
+	}
+	

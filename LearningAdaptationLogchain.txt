@@ -1,0 +1,1216 @@
+small 0 ***************************************************************
+End small 0 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: LowestcostTime 196.0 LowestcostPrice 25.89230582635114 LowestcostValue 95.0LowestcostScore0.0numOFtask 6 ***************************************************************
+small 1 ***************************************************************
+End small 1 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,probe,low,0.22193159999999998,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 114.0 LowestcostPrice 23.894508956445986 LowestcostValue 65.0LowestcostScore1.4802numOFtask 4 ***************************************************************
+small 2 ***************************************************************
+End small 2 numberOfDetectedattacks:1 ***************************************************************
+BankReimbursment,r2l,low,0.08489920000000001,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 240.0 LowestcostPrice 41.3289101129585 LowestcostValue 140.0LowestcostScore3.9222numOFtask 5 ***************************************************************
+small 3 ***************************************************************
+End small 3 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,probe,low,0.21322839999999998,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 106.0 LowestcostPrice 23.791594004418055 LowestcostValue 65.0LowestcostScore1.4802numOFtask 4 ***************************************************************
+small 4 ***************************************************************
+End small 4 numberOfDetectedattacks:1 ***************************************************************
+SelectBestExpert,probe,low,1.283841485668147,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 156.0 LowestcostPrice 22.1450955653698 LowestcostValue 65.0LowestcostScore0.7748999999999999numOFtask 5 ***************************************************************
+small 5 ***************************************************************
+End small 5 numberOfDetectedattacks:2 ***************************************************************
+SelectBestExpert,dos,low,2.855222805362802,(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+CustomerFeedbackCollection,dos,medium,30.768498487798826,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 152.0 LowestcostPrice 22.650463238187058 LowestcostValue 55.0LowestcostScore3.4048numOFtask 3 ***************************************************************
+small 6 ***************************************************************
+End small 6 numberOfDetectedattacks:2 ***************************************************************
+SelectBestExpert,u2r,low,1.3891040000000003,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)
+BankReimbursment,probe,low,3.4460799999999994,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)(ReExecute,SelectBestExpert)
+
+for this workflow execution: LowestcostTime 243.0 LowestcostPrice 37.363089776207055 LowestcostValue 115.0LowestcostScore5.7593numOFtask 4 ***************************************************************
+small 7 ***************************************************************
+End small 7 numberOfDetectedattacks:3 ***************************************************************
+SelectBestExpert,u2r,low,1.3891040000000003,(ReExecute,HospitalReport)
+BankReimbursment,dos,low,0.754415271672249,(ReExecute,PoliceReport)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)(ReExecute,SelectBestExpert)(ReExecute,SelectBestExpert)
+CustomerFeedbackCollection,r2l,low,0.02187987520000001,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 212.0 LowestcostPrice 41.74309383323596 LowestcostValue 110.0LowestcostScore6.955400000000001numOFtask 3 ***************************************************************
+small 8 ***************************************************************
+End small 8 numberOfDetectedattacks:1 ***************************************************************
+PoliceReport,probe,low,1.224432,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 123.0 LowestcostPrice 19.806271913342897 LowestcostValue 60.0LowestcostScore1.3284numOFtask 4 ***************************************************************
+small 9 ***************************************************************
+End small 9 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,dos,high,603.6426677028571,(Redundancy,SelectBestExpert)(ReExecute,PoliceReport)
+CustomerFeedbackCollection,u2r,low,0.009707910400000007,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 157.0 LowestcostPrice 25.097593742932368 LowestcostValue 70.0LowestcostScore3.7232numOFtask 3 ***************************************************************
+small 10 ***************************************************************
+End small 10 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,r2l,low,0.07619072,(ReExecute,PoliceReport)
+BankReimbursment,r2l,low,0.08489920000000001,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 267.0 LowestcostPrice 41.760225158840896 LowestcostValue 140.0LowestcostScore5.4444numOFtask 4 ***************************************************************
+small 11 ***************************************************************
+End small 11 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,r2l,low,5.958142116471304,(ReExecute,PoliceReport)
+CustomerFeedbackCollection,r2l,low,0.5907566304000003,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 150.0 LowestcostPrice 21.145762366470596 LowestcostValue 70.0LowestcostScore3.8116000000000003numOFtask 3 ***************************************************************
+small 12 ***************************************************************
+End small 12 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,probe,medium,19.312285966674953,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+SelectBestExpert,u2r,low,0.13891040000000002,(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 168.0 LowestcostPrice 16.600232174496274 LowestcostValue 45.0LowestcostScore2.8007999999999997numOFtask 3 ***************************************************************
+small 13 ***************************************************************
+End small 13 numberOfDetectedattacks:3 ***************************************************************
+PoliceReport,r2l,low,0.07619072,(ReExecute,BankReimbursment)
+SelectBestExpert,u2r,low,0.7640072000000001,(ReExecute,HospitalReport)
+CustomerFeedbackCollection,probe,low,0.6008307062314541,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 85.0 LowestcostPrice 14.16389948406444 LowestcostValue 40.0LowestcostScore2.9526numOFtask 2 ***************************************************************
+small 14 ***************************************************************
+End small 14 numberOfDetectedattacks:3 ***************************************************************
+PoliceReport,r2l,low,1.29524224,(ReExecute,PoliceReport)
+SelectBestExpert,u2r,low,1.1112832000000001,(ReExecute,HospitalReport)
+BankReimbursment,probe,low,0.8223599999999999,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 144.0 LowestcostPrice 20.65015913642651 LowestcostValue 55.0LowestcostScore2.9946numOFtask 3 ***************************************************************
+small 15 ***************************************************************
+End small 15 numberOfDetectedattacks:4 ***************************************************************
+PoliceReport,u2r,low,0.20061192,(ReExecute,PoliceReport)
+SelectBestExpert,dos,low,6.192142405351172,(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+BankReimbursment,dos,medium,27.91336505187321,(Insert,SelectBestExpert)(ReExecute,HospitalReport)
+CustomerFeedbackCollection,probe,low,0.5068252233657858,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 174.5 LowestcostPrice 35.37248723810588 LowestcostValue 80.0LowestcostScore5.771numOFtask 2 ***************************************************************
+small 16 ***************************************************************
+End small 16 numberOfDetectedattacks:1 ***************************************************************
+HospitalReport,probe,low,2.6343009561324977,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 158.0 LowestcostPrice 29.514648497068784 LowestcostValue 80.0LowestcostScore0.0numOFtask 5 ***************************************************************
+small 17 ***************************************************************
+End small 17 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,u2r,low,0.06687064000000001,(ReExecute,HospitalReport)
+CustomerFeedbackCollection,u2r,low,0.009707910400000007,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 155.0 LowestcostPrice 22.181326387519654 LowestcostValue 70.0LowestcostScore4.0564numOFtask 3 ***************************************************************
+small 18 ***************************************************************
+End small 18 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,r2l,low,0.07619072,(ReExecute,BankReimbursment)(ReExecute,HospitalReport)
+BankReimbursment,r2l,low,0.5366201315657471,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 227.0 LowestcostPrice 32.07356650979343 LowestcostValue 115.0LowestcostScore4.1504numOFtask 4 ***************************************************************
+small 19 ***************************************************************
+End small 19 numberOfDetectedattacks:3 ***************************************************************
+HospitalReport,dos,low,1.3756119995702776,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+BankReimbursment,u2r,low,0.5858432000000001,(ReExecute,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,HospitalReport)
+CustomerFeedbackCollection,u2r,low,0.3931976917733587,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 241.0 LowestcostPrice 44.6437443476095 LowestcostValue 125.0LowestcostScore7.9147numOFtask 3 ***************************************************************
+small 20 ***************************************************************
+End small 20 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,dos,low,1.358145891029717,(ReExecute,BankReimbursment)(ReExecute,HospitalReport)
+SelectBestExpert,r2l,low,2.258688,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 254.0 LowestcostPrice 33.43392869376566 LowestcostValue 110.0LowestcostScore4.2074numOFtask 4 ***************************************************************
+small 21 ***************************************************************
+End small 21 numberOfDetectedattacks:3 ***************************************************************
+HospitalReport,r2l,low,0.07619072,(ReExecute,HospitalReport)
+SelectBestExpert,probe,low,2.606040249384006,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+CustomerFeedbackCollection,r2l,low,0.7471202696431142,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 150.0 LowestcostPrice 19.172212798417252 LowestcostValue 40.0LowestcostScore4.5865numOFtask 2 ***************************************************************
+small 22 ***************************************************************
+End small 22 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,probe,low,2.851438362812065,(Skip,CustomerFeedbackCollection)
+SelectBestExpert,r2l,low,0.0752896,(ReExecute,BankReimbursment)(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 128.0 LowestcostPrice 20.796876789742218 LowestcostValue 40.0LowestcostScore1.2582numOFtask 3 ***************************************************************
+small 23 ***************************************************************
+End small 23 numberOfDetectedattacks:3 ***************************************************************
+HospitalReport,dos,low,3.1936585955555556,(ReExecute,BankReimbursment)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+SelectBestExpert,dos,low,3.0492594397449526,(ReExecute,PoliceReport)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+CustomerFeedbackCollection,u2r,low,0.029123731200000027,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 167.0 LowestcostPrice 31.70312985481835 LowestcostValue 65.0LowestcostScore5.7848numOFtask 2 ***************************************************************
+small 24 ***************************************************************
+End small 24 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,dos,high,245.70297939943296,(Redundancy,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,BankReimbursment)
+HospitalReport,probe,low,0.8729746666666665,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 118.0 LowestcostPrice 19.766802531002654 LowestcostValue 55.0LowestcostScore1.4032numOFtask 3 ***************************************************************
+small 25 ***************************************************************
+End small 25 numberOfDetectedattacks:3 ***************************************************************
+PoliceReport,dos,low,1.6826421362752302,(Late,CustomerFeedbackCollection)
+HospitalReport,r2l,low,4.566741302184129,(ReExecute,HospitalReport)
+CustomerFeedbackCollection,probe,low,0.2662044,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 140.0 LowestcostPrice 19.52397391266952 LowestcostValue 80.0LowestcostScore3.0023999999999997numOFtask 3 ***************************************************************
+small 26 ***************************************************************
+End small 26 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,u2r,low,0.9361889600000002,(ReExecute,PoliceReport)
+HospitalReport,u2r,low,0.40122384,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 165.0 LowestcostPrice 16.507544140228102 LowestcostValue 70.0LowestcostScore3.4728numOFtask 3 ***************************************************************
+small 27 ***************************************************************
+End small 27 numberOfDetectedattacks:4 ***************************************************************
+HospitalReport,u2r,low,0.13374128000000002,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)
+PoliceReport,r2l,low,0.07619072,(ReExecute,PoliceReport)
+BankReimbursment,probe,low,2.8169826349892007,(Skip,CustomerFeedbackCollection)
+CustomerFeedbackCollection,u2r,low,0.28152940160000023,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 160.0 LowestcostPrice 24.913264691837053 LowestcostValue 70.0LowestcostScore5.5786numOFtask 2 ***************************************************************
+small 28 ***************************************************************
+End small 28 numberOfDetectedattacks:3 ***************************************************************
+HospitalReport,probe,low,1.1081701219776252,(Skip,CustomerFeedbackCollection)
+PoliceReport,r2l,low,1.37143296,(ReExecute,SelectBestExpert)
+SelectBestExpert,r2l,low,1.2046336,(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 132.0 LowestcostPrice 23.230711972215445 LowestcostValue 55.0LowestcostScore1.2582numOFtask 3 ***************************************************************
+small 29 ***************************************************************
+End small 29 numberOfDetectedattacks:4 ***************************************************************
+PoliceReport,probe,medium,22.531000294454113,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+HospitalReport,dos,medium,43.12498589783603,(ReExecute,HospitalReport)
+SelectBestExpert,u2r,low,0.06945520000000001,(ReExecute,HospitalReport)
+CustomerFeedbackCollection,dos,low,0.7810085967043121,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 145.0 LowestcostPrice 20.435750165259346 LowestcostValue 41.666666666666664LowestcostScore6.186400000000001numOFtask 1 ***************************************************************
+small 30 ***************************************************************
+End small 30 numberOfDetectedattacks:4 ***************************************************************
+HospitalReport,probe,low,1.7070114721078247,(Skip,CustomerFeedbackCollection)
+PoliceReport,probe,low,0.8665248600038762,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+SelectBestExpert,probe,low,0.79438814479638,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+BankReimbursment,dos,low,1.9321659696719926,(ReExecute,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 198.0 LowestcostPrice 21.79438224224916 LowestcostValue 70.0LowestcostScore5.2969numOFtask 2 ***************************************************************
+small 31 ***************************************************************
+End small 31 numberOfDetectedattacks:5 ***************************************************************
+HospitalReport,dos,low,0.7984146488888889,(ReExecute,BankReimbursment)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+PoliceReport,u2r,low,0.06687064000000001,(ReExecute,PoliceReport)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,probe,low,1.283841485668147,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+BankReimbursment,probe,low,0.43445010390541017,(Skip,CustomerFeedbackCollection)
+CustomerFeedbackCollection,probe,low,0.0913836,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 125.0 LowestcostPrice 13.711156009799748 LowestcostValue 35.0LowestcostScore5.394699999999999numOFtask 1 ***************************************************************
+small 32 ***************************************************************
+End small 32 numberOfDetectedattacks:1 ***************************************************************
+ObtainClaimService,u2r,low,1.2501936,(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 180.0 LowestcostPrice 31.0485853009489 LowestcostValue 95.0LowestcostScore1.677numOFtask 5 ***************************************************************
+small 33 ***************************************************************
+End small 33 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,probe,low,0.8223599999999999,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+CustomerFeedbackCollection,r2l,low,0.02187987520000001,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 159.0 LowestcostPrice 22.060831024904097 LowestcostValue 85.0LowestcostScore2.2894numOFtask 4 ***************************************************************
+small 34 ***************************************************************
+End small 34 numberOfDetectedattacks:1 ***************************************************************
+ObtainClaimService,dos,low,6.77034681607348,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 145.0 LowestcostPrice 14.28218601618884 LowestcostValue 60.0LowestcostScore0.0numOFtask 4 ***************************************************************
+small 35 ***************************************************************
+End small 35 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,1.6669248000000003,(ReExecute,SelectBestExpert)(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)
+CustomerFeedbackCollection,r2l,low,0.012846899200000006,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 174.0 LowestcostPrice 18.453448482505426 LowestcostValue 70.0LowestcostScore3.9664numOFtask 3 ***************************************************************
+small 36 ***************************************************************
+End small 36 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,r2l,low,0.1765568313150967,(ReExecute,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,HospitalReport)
+SelectBestExpert,u2r,low,0.48618640000000013,(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 128.0 LowestcostPrice 21.400392364899922 LowestcostValue 45.0LowestcostScore1.4724numOFtask 3 ***************************************************************
+small 37 ***************************************************************
+End small 37 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,r2l,low,2.6483524697264507,(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)
+SelectBestExpert,u2r,low,0.4167312000000001,(ReExecute,HospitalReport)
+CustomerFeedbackCollection,u2r,low,0.06795537280000007,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 175.0 LowestcostPrice 21.6185182908916 LowestcostValue 55.0LowestcostScore5.163399999999999numOFtask 2 ***************************************************************
+small 38 ***************************************************************
+End small 38 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,dos,low,4.379245005222172,(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+SelectBestExpert,u2r,low,1.2501936,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)
+BankReimbursment,probe,low,1.221016546861228,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 185.0 LowestcostPrice 21.848835707908513 LowestcostValue 75.0LowestcostScore3.1713999999999998numOFtask 3 ***************************************************************
+small 39 ***************************************************************
+End small 39 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,r2l,low,1.7381616,(ReExecute,HospitalReport)
+SelectBestExpert,dos,medium,17.62856641421074,(ReExecute,HospitalReport)
+CustomerFeedbackCollection,dos,medium,18.992982359080326,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 143.0 LowestcostPrice 19.098391663681554 LowestcostValue 45.0LowestcostScore3.4048numOFtask 2 ***************************************************************
+small 40 ***************************************************************
+End small 40 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,1.5974696000000002,(Insert,ObtainClaimService)(ReExecute,HospitalReport)
+PoliceReport,r2l,medium,11.50479872,(ReExecute,PoliceReport)
+
+for this workflow execution: LowestcostTime 182.0 LowestcostPrice 24.61129696879933 LowestcostValue 70.0LowestcostScore1.9442numOFtask 3 ***************************************************************
+small 41 ***************************************************************
+End small 41 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,probe,low,0.07133383606738775,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+PoliceReport,u2r,low,0.06687064000000001,(ReExecute,PoliceReport)(ReExecute,CustomerFeedbackCollection)
+CustomerFeedbackCollection,probe,low,0.7186356571428572,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 126.0 LowestcostPrice 20.27502728139955 LowestcostValue 80.0LowestcostScore3.2165999999999997numOFtask 3 ***************************************************************
+small 42 ***************************************************************
+End small 42 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,0.27782080000000003,(ReExecute,PoliceReport)(Insert,ObtainClaimService)(ReExecute,HospitalReport)
+PoliceReport,u2r,low,0.40122384,(ReExecute,PoliceReport)
+
+for this workflow execution: LowestcostTime 184.0 LowestcostPrice 25.030911963221786 LowestcostValue 70.0LowestcostScore2.1584numOFtask 3 ***************************************************************
+small 43 ***************************************************************
+End small 43 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,dos,low,4.640006922448981,(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+PoliceReport,r2l,medium,12.186858197025616,(ReExecute,BankReimbursment)
+BankReimbursment,probe,low,2.338488611671805,(Skip,CustomerFeedbackCollection)
+CustomerFeedbackCollection,dos,low,0.45124733360000036,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 89.5 LowestcostPrice 14.81296897111385 LowestcostValue 46.666666666666664LowestcostScore1.9823999999999997numOFtask 2 ***************************************************************
+small 44 ***************************************************************
+End small 44 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,u2r,low,0.3472760000000001,(ReExecute,PoliceReport)(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)
+PoliceReport,probe,low,0.16505235428645262,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+SelectBestExpert,dos,low,6.192142405351172,(ReExecute,PoliceReport)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 196.0 LowestcostPrice 32.81607108952963 LowestcostValue 80.0LowestcostScore5.067numOFtask 3 ***************************************************************
+small 45 ***************************************************************
+End small 45 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,r2l,low,2.1186819757811604,(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)
+PoliceReport,dos,medium,21.74178294645554,(ReExecute,PoliceReport)
+SelectBestExpert,dos,low,6.192142405351172,(ReExecute,SelectBestExpert)(Late,PoliceReport)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+CustomerFeedbackCollection,dos,medium,18.992982359080326,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 202.0 LowestcostPrice 37.96436595661796 LowestcostValue 88.33333333333333LowestcostScore8.247599999999998numOFtask 1 ***************************************************************
+small 46 ***************************************************************
+End small 46 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,u2r,low,0.06945520000000001,(Insert,ObtainClaimService)(ReExecute,HospitalReport)
+PoliceReport,u2r,low,0.4680944800000001,(ReExecute,BankReimbursment)
+SelectBestExpert,probe,low,2.9299029219143566,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+BankReimbursment,u2r,low,1.1716864000000002,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 196.0 LowestcostPrice 20.6477291159346 LowestcostValue 75.0LowestcostScore4.1922999999999995numOFtask 2 ***************************************************************
+small 47 ***************************************************************
+End small 47 numberOfDetectedattacks:5 ***************************************************************
+ObtainClaimService,dos,low,7.664222731385006,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+PoliceReport,r2l,low,0.22915931217197325,(ReExecute,BankReimbursment)
+SelectBestExpert,r2l,low,1.9575296000000002,(ReExecute,BankReimbursment)(ReExecute,HospitalReport)
+BankReimbursment,probe,low,5.322013772841274,(Skip,CustomerFeedbackCollection)
+CustomerFeedbackCollection,u2r,low,0.009707910400000007,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 108.0 LowestcostPrice 14.244376307861067 LowestcostValue 35.0LowestcostScore3.5782numOFtask 1 ***************************************************************
+small 48 ***************************************************************
+End small 48 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,0.06945520000000001,(ReExecute,PoliceReport)(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)
+HospitalReport,dos,low,2.06174451442181,(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 169.0 LowestcostPrice 18.618647565176648 LowestcostValue 70.0LowestcostScore3.0802numOFtask 3 ***************************************************************
+small 49 ***************************************************************
+End small 49 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,dos,low,6.77034681607348,(ReExecute,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+HospitalReport,r2l,low,2.2857216,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)
+CustomerFeedbackCollection,r2l,low,0.3854069760000001,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 187.0 LowestcostPrice 20.529816678400667 LowestcostValue 85.0LowestcostScore3.8116000000000003numOFtask 3 ***************************************************************
+small 50 ***************************************************************
+End small 50 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,dos,low,6.77034681607348,(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+HospitalReport,probe,low,2.0393449467864544,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 105.0 LowestcostPrice 15.593916596100918 LowestcostValue 45.0LowestcostScore0.0numOFtask 3 ***************************************************************
+small 51 ***************************************************************
+End small 51 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,dos,medium,10.805108973846743,(ReExecute,HospitalReport)
+HospitalReport,u2r,low,0.5705599024120731,(ReExecute,HospitalReport)
+BankReimbursment,u2r,low,1.6110688000000002,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)
+CustomerFeedbackCollection,u2r,low,0.1941582080000002,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 184.0 LowestcostPrice 28.468387294360447 LowestcostValue 105.0LowestcostScore7.0518numOFtask 2 ***************************************************************
+small 52 ***************************************************************
+End small 52 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,u2r,low,0.9029176000000001,(ReExecute,PoliceReport)(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)
+HospitalReport,u2r,low,0.5349651200000001,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)
+SelectBestExpert,r2l,low,0.0752896,(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 197.0 LowestcostPrice 29.45471447694119 LowestcostValue 80.0LowestcostScore4.6716numOFtask 3 ***************************************************************
+small 53 ***************************************************************
+End small 53 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,dos,low,7.664222731385006,(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+HospitalReport,r2l,low,0.07619072,(ReExecute,HospitalReport)
+SelectBestExpert,probe,low,3.616545652206376,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+CustomerFeedbackCollection,probe,low,0.04227268571428571,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 122.0 LowestcostPrice 12.337119004318858 LowestcostValue 35.0LowestcostScore5.0293numOFtask 1 ***************************************************************
+small 54 ***************************************************************
+End small 54 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,u2r,low,1.041828,(ReExecute,PoliceReport)(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+HospitalReport,u2r,low,0.73557704,(ReExecute,HospitalReport)
+SelectBestExpert,u2r,low,1.4585592000000003,(ReExecute,BankReimbursment)(ReExecute,HospitalReport)
+BankReimbursment,r2l,low,3.3814819593952485,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 280.0 LowestcostPrice 34.14177076313929 LowestcostValue 125.0LowestcostScore8.808numOFtask 2 ***************************************************************
+small 55 ***************************************************************
+End small 55 numberOfDetectedattacks:5 ***************************************************************
+ObtainClaimService,r2l,low,0.0827696,(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)
+HospitalReport,u2r,low,1.4042834400000002,(ReExecute,HospitalReport)
+SelectBestExpert,r2l,low,0.0752896,(ReExecute,HospitalReport)
+BankReimbursment,dos,low,1.9321659696719926,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+CustomerFeedbackCollection,r2l,low,0.051387596800000025,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 247.0 LowestcostPrice 33.950649716204175 LowestcostValue 100.0LowestcostScore8.926200000000001numOFtask 1 ***************************************************************
+small 56 ***************************************************************
+End small 56 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,dos,low,4.640006922448981,(ReExecute,BankReimbursment)(ReExecute,HospitalReport)
+PoliceReport,probe,low,3.2411665370043417,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+HospitalReport,probe,low,5.52746571920629,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 103.0 LowestcostPrice 14.444098833656934 LowestcostValue 35.0LowestcostScore1.3284numOFtask 2 ***************************************************************
+small 57 ***************************************************************
+End small 57 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,probe,low,1.9188399999999997,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+PoliceReport,r2l,low,5.416381420900273,(ReExecute,PoliceReport)
+HospitalReport,r2l,low,0.10834692616447116,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)
+CustomerFeedbackCollection,probe,low,0.21322839999999998,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 150.0 LowestcostPrice 18.691399815200445 LowestcostValue 80.0LowestcostScore4.5245999999999995numOFtask 2 ***************************************************************
+small 58 ***************************************************************
+End small 58 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,dos,low,4.379245005222172,(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+PoliceReport,u2r,low,0.06687064000000001,(ReExecute,PoliceReport)
+HospitalReport,r2l,low,1.29524224,(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 157.0 LowestcostPrice 18.93491635386542 LowestcostValue 70.0LowestcostScore4.5106numOFtask 2 ***************************************************************
+small 59 ***************************************************************
+End small 59 numberOfDetectedattacks:5 ***************************************************************
+ObtainClaimService,probe,low,2.3001897331639136,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+PoliceReport,u2r,low,0.06687064000000001,(ReExecute,BankReimbursment)
+HospitalReport,r2l,low,0.10834692616447116,(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+BankReimbursment,dos,low,1.9321659696719926,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+CustomerFeedbackCollection,probe,low,0.0043516,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 134.0 LowestcostPrice 20.20157722531295 LowestcostValue 90.0LowestcostScore5.2736numOFtask 1 ***************************************************************
+small 60 ***************************************************************
+End small 60 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,dos,low,7.664222731385006,(ReExecute,PoliceReport)(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+HospitalReport,r2l,low,0.91428864,(ReExecute,HospitalReport)
+PoliceReport,u2r,low,0.3343532,(ReExecute,PoliceReport)
+SelectBestExpert,r2l,low,1.2046336,(ReExecute,BankReimbursment)(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 179.0 LowestcostPrice 24.572060289923932 LowestcostValue 55.0LowestcostScore5.768800000000001numOFtask 1 ***************************************************************
+small 61 ***************************************************************
+End small 61 numberOfDetectedattacks:5 ***************************************************************
+ObtainClaimService,dos,low,3.9867219880508187,(ReExecute,PoliceReport)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+PoliceReport,dos,high,201.11149225471377,(Redundancy,SelectBestExpert)
+HospitalReport,r2l,low,1.8953404324372896,(ReExecute,HospitalReport)
+SelectBestExpert,probe,low,0.6421799999999999,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+CustomerFeedbackCollection,probe,low,4.840452576377952,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 78.0 LowestcostPrice 4.669596342640153 LowestcostValue 15.0LowestcostScore3.7773numOFtask 0 ***************************************************************
+small 62 ***************************************************************
+End small 62 numberOfDetectedattacks:5 ***************************************************************
+ObtainClaimService,dos,low,7.664222731385006,(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+PoliceReport,dos,low,0.7520385581910976,(ReExecute,PoliceReport)(Late,CustomerFeedbackCollection)
+HospitalReport,r2l,low,1.21905152,(ReExecute,HospitalReport)
+SelectBestExpert,dos,low,3.1519187345088167,(ReExecute,HospitalReport)
+BankReimbursment,dos,medium,27.91336505187321,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 265.0 LowestcostPrice 33.454132888622524 LowestcostValue 100.0LowestcostScore7.5878numOFtask 1 ***************************************************************
+small 63 ***************************************************************
+End small 63 numberOfDetectedattacks:5 ***************************************************************
+ObtainClaimService,probe,low,0.15663999999999997,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+HospitalReport,probe,low,1.7070114721078247,(Skip,CustomerFeedbackCollection)
+PoliceReport,r2l,low,0.22915931217197325,(ReExecute,PoliceReport)
+SelectBestExpert,r2l,low,1.2799232000000003,(ReExecute,HospitalReport)
+CustomerFeedbackCollection,u2r,low,0.4868161898146346,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 110.0 LowestcostPrice 15.9642529826151 LowestcostValue 30.0LowestcostScore5.1004000000000005numOFtask 0 ***************************************************************
+small 64 ***************************************************************
+End small 64 numberOfDetectedattacks:1 ***************************************************************
+ObtainClaimService,u2r,low,0.06945520000000001,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 139.0 LowestcostPrice 17.313834472419988 LowestcostValue 60.0LowestcostScore0.0numOFtask 4 ***************************************************************
+small 65 ***************************************************************
+End small 65 numberOfDetectedattacks:1 ***************************************************************
+SelectBestExpert,u2r,low,0.4167312000000001,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 214.0 LowestcostPrice 33.24809486161551 LowestcostValue 110.0LowestcostScore3.1713999999999998numOFtask 5 ***************************************************************
+small 66 ***************************************************************
+End small 66 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,0.27782080000000003,(Insert,ObtainClaimService)(ReExecute,HospitalReport)
+PoliceReport,u2r,low,1.0030595999999998,(ReExecute,BankReimbursment)
+
+for this workflow execution: LowestcostTime 172.0 LowestcostPrice 26.303604654021242 LowestcostValue 60.0LowestcostScore0.42200000000000004numOFtask 3 ***************************************************************
+small 67 ***************************************************************
+End small 67 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,2.1531112,(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)
+CustomerFeedbackCollection,r2l,low,0.012846899200000006,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 169.0 LowestcostPrice 24.62237141941896 LowestcostValue 70.0LowestcostScore3.9664numOFtask 3 ***************************************************************
+small 68 ***************************************************************
+End small 68 numberOfDetectedattacks:4 ***************************************************************
+HospitalReport,dos,medium,50.89764398410027,(ReExecute,HospitalReport)
+PoliceReport,u2r,low,0.40122384,(ReExecute,BankReimbursment)
+SelectBestExpert,r2l,low,0.3011584,(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+CustomerFeedbackCollection,r2l,low,0.1334388417537295,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 175.0 LowestcostPrice 21.288004946011185 LowestcostValue 70.0LowestcostScore4.9508numOFtask 2 ***************************************************************
+small 69 ***************************************************************
+End small 69 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,0.13891040000000002,(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)
+PoliceReport,probe,high,1013.5235879999998,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 154.0 LowestcostPrice 19.755550013888033 LowestcostValue 60.0LowestcostScore3.0054numOFtask 3 ***************************************************************
+small 70 ***************************************************************
+End small 70 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,0.06945520000000001,(ReExecute,SelectBestExpert)(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)
+SelectBestExpert,dos,medium,16.75484002632281,(ReExecute,BankReimbursment)(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 190.0 LowestcostPrice 30.44520449216631 LowestcostValue 80.0LowestcostScore2.8162000000000003numOFtask 4 ***************************************************************
+small 71 ***************************************************************
+End small 71 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,r2l,low,0.2395662016073479,(ReExecute,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,HospitalReport)
+HospitalReport,probe,medium,13.575083994225908,(ReConfiguration,HospitalReport)(Skip,CustomerFeedbackCollection)
+PoliceReport,dos,high,603.6426677028571,(Redundancy,SelectBestExpert)
+SelectBestExpert,r2l,low,0.0752896,(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 161.0 LowestcostPrice 23.59156660144061 LowestcostValue 65.0LowestcostScore2.8184numOFtask 2 ***************************************************************
+small 72 ***************************************************************
+End small 72 numberOfDetectedattacks:1 ***************************************************************
+SelectBestExpert,dos,high,115.3569088,(Redundancy,SelectBestExpert)(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 166.0 LowestcostPrice 37.84161655778505 LowestcostValue 115.0LowestcostScore2.4192numOFtask 4 ***************************************************************
+small 73 ***************************************************************
+End small 73 numberOfDetectedattacks:3 ***************************************************************
+HospitalReport,u2r,low,0.09509331706867886,(ReExecute,HospitalReport)
+SelectBestExpert,u2r,low,0.13891040000000002,(ReExecute,HospitalReport)
+CustomerFeedbackCollection,dos,low,0.45124733360000036,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 154.0 LowestcostPrice 16.8930762167987 LowestcostValue 51.666666666666664LowestcostScore5.1912numOFtask 2 ***************************************************************
+small 74 ***************************************************************
+End small 74 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,r2l,low,0.012846899200000006,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 144.0 LowestcostPrice 26.306583233817765 LowestcostValue 70.0LowestcostScore2.2894numOFtask 4 ***************************************************************
+small 75 ***************************************************************
+End small 75 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,probe,low,1.3890713730018607,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+SelectBestExpert,u2r,low,0.06945520000000001,(ReExecute,PoliceReport)(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 164.0 LowestcostPrice 21.898436952772563 LowestcostValue 55.0LowestcostScore3.9969numOFtask 3 ***************************************************************
+small 76 ***************************************************************
+End small 76 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,r2l,low,0.012846899200000006,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 188.0 LowestcostPrice 25.94878523320741 LowestcostValue 95.0LowestcostScore2.2894numOFtask 5 ***************************************************************
+small 77 ***************************************************************
+End small 77 numberOfDetectedattacks:3 ***************************************************************
+HospitalReport,u2r,low,0.38037326827471546,(ReExecute,HospitalReport)
+SelectBestExpert,u2r,low,1.1112832000000001,(ReExecute,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+CustomerFeedbackCollection,u2r,low,0.009707910400000007,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 188.0 LowestcostPrice 32.299341800583925 LowestcostValue 95.0LowestcostScore8.4239numOFtask 2 ***************************************************************
+small 78 ***************************************************************
+End small 78 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,probe,low,4.956551359593392,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+PoliceReport,probe,high,501.64298799999983,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 173.0 LowestcostPrice 19.079589143563226 LowestcostValue 75.0LowestcostScore1.3284numOFtask 4 ***************************************************************
+small 79 ***************************************************************
+End small 79 numberOfDetectedattacks:3 ***************************************************************
+HospitalReport,u2r,low,0.5349651200000001,(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+PoliceReport,dos,low,6.64062106484954,(Late,CustomerFeedbackCollection)
+SelectBestExpert,probe,low,5.31253568544102,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 174.0 LowestcostPrice 17.581554167281727 LowestcostValue 55.0LowestcostScore2.5113numOFtask 3 ***************************************************************
+small 80 ***************************************************************
+End small 80 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: LowestcostTime 151.0 LowestcostPrice 29.159130875565804 LowestcostValue 95.0LowestcostScore0.0numOFtask 6 ***************************************************************
+small 81 ***************************************************************
+End small 81 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,r2l,low,0.07619072,(ReExecute,PoliceReport)
+BankReimbursment,dos,low,5.607910578860623,(ReExecute,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 207.0 LowestcostPrice 41.71731956303015 LowestcostValue 125.0LowestcostScore4.7158numOFtask 4 ***************************************************************
+small 82 ***************************************************************
+End small 82 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,dos,medium,10.176700681977625,(ReExecute,HospitalReport)
+CustomerFeedbackCollection,dos,high,702.740347285972,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 157.0 LowestcostPrice 22.6060862478798 LowestcostValue 70.0LowestcostScore3.6688numOFtask 3 ***************************************************************
+small 83 ***************************************************************
+End small 83 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: LowestcostTime 188.0 LowestcostPrice 29.04056090683258 LowestcostValue 95.0LowestcostScore0.0numOFtask 6 ***************************************************************
+small 84 ***************************************************************
+End small 84 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: LowestcostTime 182.0 LowestcostPrice 28.95326266902844 LowestcostValue 95.0LowestcostScore0.0numOFtask 6 ***************************************************************
+small 85 ***************************************************************
+End small 85 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,r2l,low,0.15416279040000005,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 167.0 LowestcostPrice 26.871304125264913 LowestcostValue 70.0LowestcostScore2.2894numOFtask 4 ***************************************************************
+small 86 ***************************************************************
+End small 86 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,r2l,low,0.4217496816398794,(ReExecute,HospitalReport)
+HospitalReport,probe,low,1.745949333333333,(Skip,CustomerFeedbackCollection)
+PoliceReport,probe,low,4.497945398291741,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 126.0 LowestcostPrice 13.975849141139003 LowestcostValue 60.0LowestcostScore1.3284numOFtask 3 ***************************************************************
+small 87 ***************************************************************
+End small 87 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,probe,low,6.74641712833545,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+HospitalReport,probe,low,1.7480099543883898,(Skip,CustomerFeedbackCollection)
+SelectBestExpert,u2r,low,0.06945520000000001,(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+CustomerFeedbackCollection,dos,low,0.7810085967043121,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 123.5 LowestcostPrice 17.85394378798319 LowestcostValue 51.666666666666664LowestcostScore3.4547999999999996numOFtask 2 ***************************************************************
+small 88 ***************************************************************
+End small 88 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: LowestcostTime 175.0 LowestcostPrice 20.207942923615906 LowestcostValue 70.0LowestcostScore0.0numOFtask 5 ***************************************************************
+small 89 ***************************************************************
+End small 89 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,dos,low,3.00815423276439,(Late,PoliceReport)(Late,CustomerFeedbackCollection)
+HospitalReport,dos,medium,43.12498589783603,(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 198.0 LowestcostPrice 28.949453840813664 LowestcostValue 88.33333333333334LowestcostScore2.6519999999999997numOFtask 4 ***************************************************************
+small 90 ***************************************************************
+End small 90 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,u2r,low,1.4585592000000003,(ReExecute,HospitalReport)
+HospitalReport,r2l,low,0.07619072,(ReExecute,HospitalReport)
+PoliceReport,r2l,low,0.45136511840835614,(ReExecute,PoliceReport)
+
+for this workflow execution: LowestcostTime 173.0 LowestcostPrice 29.330441323131883 LowestcostValue 85.0LowestcostScore3.0444numOFtask 3 ***************************************************************
+small 91 ***************************************************************
+End small 91 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,r2l,low,0.0827696,(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)
+PoliceReport,r2l,low,0.30476288,(ReExecute,SelectBestExpert)
+HospitalReport,probe,low,2.0369408888888882,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 142.0 LowestcostPrice 20.19004361047274 LowestcostValue 70.0LowestcostScore1.371numOFtask 3 ***************************************************************
+small 92 ***************************************************************
+End small 92 numberOfDetectedattacks:4 ***************************************************************
+HospitalReport,r2l,low,0.09312199111111111,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)(ReExecute,HospitalReport)
+PoliceReport,r2l,low,1.21905152,(ReExecute,SelectBestExpert)
+SelectBestExpert,r2l,low,3.3963519687982453,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)
+BankReimbursment,dos,low,1.9321659696719926,(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)(ReExecute,SelectBestExpert)
+
+for this workflow execution: LowestcostTime 234.0 LowestcostPrice 41.49062823066176 LowestcostValue 120.0LowestcostScore6.5976numOFtask 2 ***************************************************************
+small 93 ***************************************************************
+End small 93 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: LowestcostTime 124.0 LowestcostPrice 24.159153607955556 LowestcostValue 70.0LowestcostScore0.0numOFtask 5 ***************************************************************
+small 94 ***************************************************************
+End small 94 numberOfDetectedattacks:3 ***************************************************************
+PoliceReport,probe,low,1.7908498684531056,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+SelectBestExpert,dos,high,130.45139146515947,(Redundancy,SelectBestExpert)(ReConfiguration,HospitalReport)
+CustomerFeedbackCollection,r2l,low,0.2183972864000001,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 189.0 LowestcostPrice 36.55447891345632 LowestcostValue 110.0LowestcostScore5.7494numOFtask 2 ***************************************************************
+small 95 ***************************************************************
+End small 95 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,dos,low,1.531541362460422,(ReExecute,HospitalReport)
+PoliceReport,probe,low,3.0700283459196096,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 208.0 LowestcostPrice 24.232419522837226 LowestcostValue 85.0LowestcostScore2.7316000000000003numOFtask 4 ***************************************************************
+small 96 ***************************************************************
+End small 96 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: LowestcostTime 153.0 LowestcostPrice 29.26064400623064 LowestcostValue 70.0LowestcostScore0.0numOFtask 5 ***************************************************************
+small 97 ***************************************************************
+End small 97 numberOfDetectedattacks:1 ***************************************************************
+HospitalReport,dos,low,2.06174451442181,(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 151.0 LowestcostPrice 22.340011111649115 LowestcostValue 70.0LowestcostScore1.4032numOFtask 4 ***************************************************************
+small 98 ***************************************************************
+End small 98 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,probe,low,0.0174064,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 152.0 LowestcostPrice 28.263965747518327 LowestcostValue 90.0LowestcostScore1.4802numOFtask 5 ***************************************************************
+small 99 ***************************************************************
+End small 99 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,0.5556416000000001,(ReExecute,HospitalReport)
+BankReimbursment,dos,low,2.9962231530047267,(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)(ReExecute,SelectBestExpert)
+
+for this workflow execution: LowestcostTime 188.0 LowestcostPrice 30.3346897014631 LowestcostValue 105.0LowestcostScore2.2712000000000003numOFtask 4 ***************************************************************
+small 100 ***************************************************************
+End small 100 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,dos,high,147.50871355788027,(Redundancy,SelectBestExpert)(ReExecute,ObtainClaimService)(ReConfiguration,HospitalReport)
+PoliceReport,u2r,low,0.06687064000000001,(ReExecute,PoliceReport)
+
+for this workflow execution: LowestcostTime 197.0 LowestcostPrice 30.607757774819895 LowestcostValue 95.0LowestcostScore2.9884numOFtask 4 ***************************************************************
+small 101 ***************************************************************
+End small 101 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,dos,low,0.7984146488888889,(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+PoliceReport,dos,high,201.11149225471377,(Redundancy,SelectBestExpert)
+
+for this workflow execution: LowestcostTime 123.0 LowestcostPrice 19.25464403590555 LowestcostValue 60.0LowestcostScore1.4032numOFtask 3 ***************************************************************
+small 102 ***************************************************************
+End small 102 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,r2l,low,0.1765568313150967,(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)
+HospitalReport,r2l,low,1.82857728,(ReExecute,HospitalReport)
+SelectBestExpert,probe,low,2.233748785186291,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 139.0 LowestcostPrice 19.409210050705767 LowestcostValue 40.0LowestcostScore3.6681numOFtask 2 ***************************************************************
+small 103 ***************************************************************
+End small 103 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,r2l,low,2.1186819757811604,(ReExecute,HospitalReport)
+PoliceReport,u2r,low,0.26748256000000004,(ReExecute,PoliceReport)
+CustomerFeedbackCollection,u2r,low,0.009707910400000007,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 143.0 LowestcostPrice 20.93942813732076 LowestcostValue 60.0LowestcostScore4.0564numOFtask 2 ***************************************************************
+small 104 ***************************************************************
+End small 104 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,r2l,low,0.1765568313150967,(ReExecute,HospitalReport)
+SelectBestExpert,u2r,medium,11.29804586666667,(ReExecute,HospitalReport)
+CustomerFeedbackCollection,dos,medium,11.497043507200008,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 180.0 LowestcostPrice 25.488217817342694 LowestcostValue 70.0LowestcostScore3.738numOFtask 3 ***************************************************************
+small 105 ***************************************************************
+End small 105 numberOfDetectedattacks:1 ***************************************************************
+HospitalReport,dos,medium,10.176700681977625,(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 152.0 LowestcostPrice 30.881108252844946 LowestcostValue 70.0LowestcostScore1.4032numOFtask 4 ***************************************************************
+small 106 ***************************************************************
+End small 106 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,r2l,low,2.675774728146761,(ReExecute,HospitalReport)
+PoliceReport,r2l,low,0.22915931217197325,(ReExecute,PoliceReport)
+
+for this workflow execution: LowestcostTime 159.0 LowestcostPrice 25.4532562996422 LowestcostValue 70.0LowestcostScore3.0444numOFtask 3 ***************************************************************
+small 107 ***************************************************************
+End small 107 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,r2l,low,2.8747944192881745,(ReExecute,HospitalReport)
+SelectBestExpert,r2l,low,0.0752896,(ReExecute,HospitalReport)
+CustomerFeedbackCollection,dos,high,702.740347285972,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 134.0 LowestcostPrice 20.331009654233906 LowestcostValue 45.0LowestcostScore3.5238numOFtask 2 ***************************************************************
+small 108 ***************************************************************
+End small 108 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,r2l,low,0.0827696,(ReExecute,ObtainClaimService)(ReExecute,BankReimbursment)(ReExecute,HospitalReport)
+CustomerFeedbackCollection,dos,low,0.7810085967043121,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 187.0 LowestcostPrice 32.5470025437436 LowestcostValue 91.66666666666667LowestcostScore3.3533999999999997numOFtask 4 ***************************************************************
+small 109 ***************************************************************
+End small 109 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,u2r,low,0.06687064000000001,(ReExecute,PoliceReport)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,probe,low,2.233748785186291,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 149.0 LowestcostPrice 18.118822242326893 LowestcostValue 40.0LowestcostScore2.5113numOFtask 3 ***************************************************************
+small 110 ***************************************************************
+End small 110 numberOfDetectedattacks:1 ***************************************************************
+HospitalReport,dos,medium,76.28454703360697,(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 190.0 LowestcostPrice 32.035356323267784 LowestcostValue 95.0LowestcostScore1.4032numOFtask 5 ***************************************************************
+small 111 ***************************************************************
+End small 111 numberOfDetectedattacks:1 ***************************************************************
+PoliceReport,dos,low,6.72681065572095,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 120.0 LowestcostPrice 22.460227294363282 LowestcostValue 60.0LowestcostScore0.0numOFtask 4 ***************************************************************
+small 112 ***************************************************************
+End small 112 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,dos,low,1.531541362460422,(ReExecute,BankReimbursment)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+PoliceReport,dos,low,6.64062106484954,(Late,PoliceReport)(Late,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 148.0 LowestcostPrice 25.217414911283434 LowestcostValue 63.33333333333333LowestcostScore2.6519999999999997numOFtask 3 ***************************************************************
+small 113 ***************************************************************
+End small 113 numberOfDetectedattacks:4 ***************************************************************
+HospitalReport,dos,medium,10.176700681977625,(ReExecute,HospitalReport)
+PoliceReport,dos,low,2.3435870024254393,(Late,CustomerFeedbackCollection)
+BankReimbursment,dos,low,1.9321659696719926,(ReExecute,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+CustomerFeedbackCollection,probe,low,8.297918702362203,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 176.0 LowestcostPrice 28.074494208072934 LowestcostValue 110.0LowestcostScore6.077numOFtask 2 ***************************************************************
+small 114 ***************************************************************
+End small 114 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,dos,medium,28.897318078059545,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 167.0 LowestcostPrice 19.427197282641988 LowestcostValue 70.0LowestcostScore2.2656numOFtask 4 ***************************************************************
+small 115 ***************************************************************
+End small 115 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,r2l,low,0.07619072,(ReExecute,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,BankReimbursment)
+HospitalReport,u2r,low,1.60489536,(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 165.0 LowestcostPrice 27.760926167884563 LowestcostValue 70.0LowestcostScore3.2586numOFtask 3 ***************************************************************
+small 116 ***************************************************************
+End small 116 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,probe,low,0.8729746666666665,(Skip,CustomerFeedbackCollection)
+BankReimbursment,r2l,low,0.6791936000000001,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 207.0 LowestcostPrice 30.640525561072046 LowestcostValue 100.0LowestcostScore2.6282numOFtask 4 ***************************************************************
+small 117 ***************************************************************
+End small 117 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,1.1112832000000001,(ReExecute,SelectBestExpert)(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)
+SelectBestExpert,r2l,low,0.0752896,(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 172.0 LowestcostPrice 28.751065236838706 LowestcostValue 55.0LowestcostScore2.9352numOFtask 3 ***************************************************************
+small 118 ***************************************************************
+End small 118 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,u2r,low,0.029123731200000027,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 163.0 LowestcostPrice 22.254405347634112 LowestcostValue 70.0LowestcostScore2.32numOFtask 4 ***************************************************************
+small 119 ***************************************************************
+End small 119 numberOfDetectedattacks:3 ***************************************************************
+HospitalReport,u2r,low,1.3374128,(ReExecute,HospitalReport)
+SelectBestExpert,probe,low,2.7655937340401695,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+BankReimbursment,u2r,low,0.07323040000000001,(ReExecute,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 215.0 LowestcostPrice 35.32382743535503 LowestcostValue 95.0LowestcostScore6.7028numOFtask 3 ***************************************************************
+small 120 ***************************************************************
+End small 120 numberOfDetectedattacks:1 ***************************************************************
+HospitalReport,r2l,low,0.11149061367278174,(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 172.0 LowestcostPrice 18.413086618040097 LowestcostValue 70.0LowestcostScore1.5222numOFtask 4 ***************************************************************
+small 121 ***************************************************************
+End small 121 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: LowestcostTime 179.0 LowestcostPrice 28.122847080247748 LowestcostValue 95.0LowestcostScore0.0numOFtask 6 ***************************************************************
+small 122 ***************************************************************
+End small 122 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: LowestcostTime 154.0 LowestcostPrice 24.874912011961463 LowestcostValue 70.0LowestcostScore0.0numOFtask 5 ***************************************************************
+small 123 ***************************************************************
+End small 123 numberOfDetectedattacks:1 ***************************************************************
+PoliceReport,u2r,low,1.8723779200000004,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 158.0 LowestcostPrice 25.221601502580505 LowestcostValue 85.0LowestcostScore0.0numOFtask 5 ***************************************************************
+small 124 ***************************************************************
+End small 124 numberOfDetectedattacks:1 ***************************************************************
+HospitalReport,u2r,low,0.06687064000000001,(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 166.0 LowestcostPrice 28.86268044283213 LowestcostValue 95.0LowestcostScore1.7364numOFtask 5 ***************************************************************
+small 125 ***************************************************************
+End small 125 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,u2r,low,0.06945520000000001,(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)
+SelectBestExpert,dos,high,105.64324379842367,(Redundancy,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,HospitalReport)
+CustomerFeedbackCollection,dos,medium,68.59608039442129,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 237.0 LowestcostPrice 48.11236728916172 LowestcostValue 150.0LowestcostScore7.284199999999999numOFtask 3 ***************************************************************
+small 126 ***************************************************************
+End small 126 numberOfDetectedattacks:4 ***************************************************************
+HospitalReport,dos,medium,29.54134200888889,(ReExecute,HospitalReport)
+PoliceReport,dos,high,448.17974655999996,(Redundancy,SelectBestExpert)(ReConfiguration,BankReimbursment)
+SelectBestExpert,probe,low,8.58602535117057,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+CustomerFeedbackCollection,probe,low,0.0174064,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 121.0 LowestcostPrice 12.701976871711782 LowestcostValue 50.0LowestcostScore3.6582999999999997numOFtask 2 ***************************************************************
+small 127 ***************************************************************
+End small 127 numberOfDetectedattacks:4 ***************************************************************
+PoliceReport,u2r,low,0.9361889600000002,(ReExecute,PoliceReport)
+HospitalReport,u2r,low,0.06687064000000001,(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,u2r,low,1.5280144000000002,(ReExecute,BankReimbursment)(ReExecute,HospitalReport)
+CustomerFeedbackCollection,u2r,low,0.019415820800000014,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 200.0 LowestcostPrice 32.32070544307552 LowestcostValue 80.0LowestcostScore7.2652numOFtask 2 ***************************************************************
+small 128 ***************************************************************
+End small 128 numberOfDetectedattacks:1 ***************************************************************
+SelectBestExpert,r2l,low,1.2799232000000003,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 199.0 LowestcostPrice 28.236723826253904 LowestcostValue 85.0LowestcostScore2.8042numOFtask 4 ***************************************************************
+small 129 ***************************************************************
+End small 129 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,u2r,low,1.4585592000000003,(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)
+PoliceReport,u2r,low,1.671766,(ReExecute,SelectBestExpert)(ReExecute,PoliceReport)
+SelectBestExpert,u2r,low,0.9029176000000001,(ReExecute,PoliceReport)(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 175.0 LowestcostPrice 24.8127520285216 LowestcostValue 65.0LowestcostScore6.0819numOFtask 2 ***************************************************************
+small 130 ***************************************************************
+End small 130 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: LowestcostTime 211.0 LowestcostPrice 34.52147239269064 LowestcostValue 95.0LowestcostScore0.0numOFtask 6 ***************************************************************
+small 131 ***************************************************************
+End small 131 numberOfDetectedattacks:1 ***************************************************************
+ObtainClaimService,probe,low,0.15663999999999997,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 160.0 LowestcostPrice 23.823760108325175 LowestcostValue 85.0LowestcostScore0.0numOFtask 5 ***************************************************************
+small 132 ***************************************************************
+End small 132 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,r2l,low,2.671389215610819,(ReExecute,HospitalReport)
+CustomerFeedbackCollection,u2r,low,0.10678701440000009,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 133.0 LowestcostPrice 20.127877060289563 LowestcostValue 60.0LowestcostScore2.32numOFtask 3 ***************************************************************
+small 133 ***************************************************************
+End small 133 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: LowestcostTime 157.0 LowestcostPrice 30.664168288409584 LowestcostValue 70.0LowestcostScore0.0numOFtask 5 ***************************************************************
+small 134 ***************************************************************
+End small 134 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,r2l,low,1.400850505580839,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 182.0 LowestcostPrice 33.62840750977801 LowestcostValue 95.0LowestcostScore2.2894numOFtask 5 ***************************************************************
+small 135 ***************************************************************
+End small 135 numberOfDetectedattacks:1 ***************************************************************
+BankReimbursment,u2r,low,1.9039904000000003,(ReExecute,PoliceReport)(ReExecute,HospitalReport)(ReExecute,SelectBestExpert)(ReExecute,SelectBestExpert)
+
+for this workflow execution: LowestcostTime 202.0 LowestcostPrice 43.95099810182642 LowestcostValue 125.0LowestcostScore4.1915numOFtask 5 ***************************************************************
+small 136 ***************************************************************
+End small 136 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,dos,low,0.9581200835209825,(Late,ObtainClaimService)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+BankReimbursment,dos,low,5.607910578860623,(ReExecute,PoliceReport)(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)(ReExecute,SelectBestExpert)(ReExecute,SelectBestExpert)
+
+for this workflow execution: LowestcostTime 206.0 LowestcostPrice 41.05242871373055 LowestcostValue 120.0LowestcostScore4.3416numOFtask 4 ***************************************************************
+small 137 ***************************************************************
+End small 137 numberOfDetectedattacks:1 ***************************************************************
+PoliceReport,u2r,low,1.47115408,(ReExecute,PoliceReport)
+
+for this workflow execution: LowestcostTime 198.0 LowestcostPrice 25.083425966410736 LowestcostValue 95.0LowestcostScore1.7364numOFtask 5 ***************************************************************
+small 138 ***************************************************************
+End small 138 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,dos,low,0.45124733360000036,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 147.5 LowestcostPrice 28.47827087814116 LowestcostValue 91.66666666666667LowestcostScore1.9823999999999997numOFtask 5 ***************************************************************
+small 139 ***************************************************************
+End small 139 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,probe,low,1.9188399999999997,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+CustomerFeedbackCollection,r2l,low,0.012846899200000006,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 161.0 LowestcostPrice 29.072484756306245 LowestcostValue 85.0LowestcostScore2.2894numOFtask 4 ***************************************************************
+small 140 ***************************************************************
+End small 140 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,u2r,low,1.13680088,(ReExecute,HospitalReport)
+BankReimbursment,dos,low,0.9562609007540886,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 223.0 LowestcostPrice 39.376899162488705 LowestcostValue 115.0LowestcostScore4.0076numOFtask 4 ***************************************************************
+small 141 ***************************************************************
+End small 141 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,0.06945520000000001,(Insert,ObtainClaimService)(ReExecute,HospitalReport)
+SelectBestExpert,probe,low,3.909138777931259,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 194.0 LowestcostPrice 21.703415412732195 LowestcostValue 65.0LowestcostScore1.1968999999999999numOFtask 4 ***************************************************************
+small 142 ***************************************************************
+End small 142 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,u2r,low,0.06687064000000001,(ReExecute,PoliceReport)
+BankReimbursment,dos,low,7.7286638786879704,(ReExecute,SelectBestExpert)(Late,PoliceReport)(Late,BankReimbursment)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 240.0 LowestcostPrice 42.3244197725389 LowestcostValue 126.66666666666666LowestcostScore5.6922numOFtask 4 ***************************************************************
+small 143 ***************************************************************
+End small 143 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,dos,low,0.5319459824630399,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 152.0 LowestcostPrice 24.124137686352345 LowestcostValue 66.66666666666667LowestcostScore1.9823999999999997numOFtask 4 ***************************************************************
+small 144 ***************************************************************
+End small 144 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: LowestcostTime 158.0 LowestcostPrice 25.431664456583697 LowestcostValue 70.0LowestcostScore0.0numOFtask 5 ***************************************************************
+small 145 ***************************************************************
+End small 145 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,r2l,low,0.07619072,(ReExecute,HospitalReport)
+SelectBestExpert,dos,high,115.3569088,(Redundancy,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,BankReimbursment)(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 202.0 LowestcostPrice 39.53287376791268 LowestcostValue 125.0LowestcostScore4.8637999999999995numOFtask 3 ***************************************************************
+small 146 ***************************************************************
+End small 146 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,dos,medium,10.915202931921671,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 189.0 LowestcostPrice 29.24287598631555 LowestcostValue 95.0LowestcostScore2.2656numOFtask 5 ***************************************************************
+small 147 ***************************************************************
+End small 147 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,dos,low,8.758490010444344,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)
+HospitalReport,r2l,low,0.07619072,(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 142.0 LowestcostPrice 23.408082639106276 LowestcostValue 85.0LowestcostScore1.5222numOFtask 4 ***************************************************************
+small 148 ***************************************************************
+End small 148 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,dos,low,4.379245005222172,(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+SelectBestExpert,probe,low,6.19795829968119,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 165.0 LowestcostPrice 25.319018508789114 LowestcostValue 40.0LowestcostScore2.0269numOFtask 3 ***************************************************************
+small 149 ***************************************************************
+End small 149 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,r2l,low,0.45136511840835614,(ReExecute,SelectBestExpert)
+CustomerFeedbackCollection,probe,low,0.3271189400593472,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 89.0 LowestcostPrice 16.854405570157386 LowestcostValue 55.0LowestcostScore1.4802numOFtask 3 ***************************************************************
+small 150 ***************************************************************
+End small 150 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,r2l,low,0.07883497788011874,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 192.0 LowestcostPrice 29.701339526086386 LowestcostValue 95.0LowestcostScore2.2894numOFtask 5 ***************************************************************
+small 151 ***************************************************************
+End small 151 numberOfDetectedattacks:1 ***************************************************************
+SelectBestExpert,dos,medium,33.3732137025641,(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 160.0 LowestcostPrice 22.298825267586068 LowestcostValue 55.0LowestcostScore1.1392numOFtask 4 ***************************************************************
+small 152 ***************************************************************
+End small 152 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: LowestcostTime 212.0 LowestcostPrice 35.24472494983974 LowestcostValue 95.0LowestcostScore0.0numOFtask 6 ***************************************************************
+small 153 ***************************************************************
+End small 153 numberOfDetectedattacks:1 ***************************************************************
+ObtainClaimService,u2r,low,2.083656,(Insert,ObtainClaimService)(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 182.0 LowestcostPrice 27.72689611905003 LowestcostValue 70.0LowestcostScore0.42200000000000004numOFtask 4 ***************************************************************
+small 154 ***************************************************************
+End small 154 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,r2l,low,5.571383454227406,(ReExecute,PoliceReport)(ReExecute,HospitalReport)
+HospitalReport,probe,low,3.4140229442156493,(Skip,CustomerFeedbackCollection)
+SelectBestExpert,dos,low,2.855222805362802,(ReExecute,BankReimbursment)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+CustomerFeedbackCollection,dos,low,0.3107309056000003,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 104.0 LowestcostPrice 16.641870838017752 LowestcostValue 26.666666666666668LowestcostScore3.1216numOFtask 1 ***************************************************************
+small 155 ***************************************************************
+End small 155 numberOfDetectedattacks:1 ***************************************************************
+ObtainClaimService,r2l,low,0.2910082378653113,(ReExecute,PoliceReport)(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 133.0 LowestcostPrice 21.80126173736522 LowestcostValue 60.0LowestcostScore0.0numOFtask 4 ***************************************************************
+small 156 ***************************************************************
+End small 156 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,r2l,low,0.1765568313150967,(ReExecute,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)
+HospitalReport,u2r,low,0.6687064,(ReExecute,HospitalReport)
+CustomerFeedbackCollection,r2l,low,0.35007800320000015,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 191.0 LowestcostPrice 20.55904815972251 LowestcostValue 70.0LowestcostScore5.396800000000001numOFtask 2 ***************************************************************
+small 157 ***************************************************************
+End small 157 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,probe,low,1.070765804577997,(Skip,CustomerFeedbackCollection)
+SelectBestExpert,dos,low,3.1519187345088167,(ReExecute,BankReimbursment)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 147.0 LowestcostPrice 23.48954932053494 LowestcostValue 65.0LowestcostScore1.1392numOFtask 4 ***************************************************************
+small 158 ***************************************************************
+End small 158 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,dos,medium,50.489100923393316,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)
+SelectBestExpert,dos,high,115.3569088,(Redundancy,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 189.0 LowestcostPrice 43.43805912094167 LowestcostValue 125.0LowestcostScore4.7448numOFtask 3 ***************************************************************
+small 159 ***************************************************************
+End small 159 numberOfDetectedattacks:3 ***************************************************************
+HospitalReport,r2l,low,4.529182234052689,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)
+PoliceReport,u2r,low,0.40122384,(ReExecute,PoliceReport)(ReExecute,CustomerFeedbackCollection)
+SelectBestExpert,dos,medium,32.430578133333334,(ReExecute,PoliceReport)(ReExecute,BankReimbursment)(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 202.0 LowestcostPrice 39.12932511698109 LowestcostValue 90.0LowestcostScore5.3202numOFtask 3 ***************************************************************
+small 160 ***************************************************************
+End small 160 numberOfDetectedattacks:2 ***************************************************************
+BankReimbursment,dos,low,0.754415271672249,(ReExecute,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,HospitalReport)
+CustomerFeedbackCollection,u2r,low,0.009707910400000007,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 249.0 LowestcostPrice 39.21696665059169 LowestcostValue 125.0LowestcostScore5.5136numOFtask 4 ***************************************************************
+small 161 ***************************************************************
+End small 161 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,probe,low,8.543561866037393,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+PoliceReport,probe,low,0.714252,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+SelectBestExpert,probe,low,8.58602535117057,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+BankReimbursment,dos,low,5.607910578860623,(ReExecute,SelectBestExpert)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 169.0 LowestcostPrice 16.850079306344618 LowestcostValue 65.0LowestcostScore4.3745numOFtask 2 ***************************************************************
+small 162 ***************************************************************
+End small 162 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,dos,low,2.3435870024254393,(Late,CustomerFeedbackCollection)
+SelectBestExpert,r2l,low,6.507378215384615,(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 131.0 LowestcostPrice 22.640007291139668 LowestcostValue 45.0LowestcostScore1.2582numOFtask 3 ***************************************************************
+small 163 ***************************************************************
+End small 163 numberOfDetectedattacks:4 ***************************************************************
+ObtainClaimService,u2r,low,0.9029176000000001,(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)
+HospitalReport,dos,medium,76.28454703360697,(ReExecute,HospitalReport)
+PoliceReport,dos,low,6.64062106484954,(ReExecute,PoliceReport)(Late,CustomerFeedbackCollection)
+CustomerFeedbackCollection,probe,medium,11.294389344881889,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 167.0 LowestcostPrice 23.280075574027496 LowestcostValue 90.0LowestcostScore5.9636numOFtask 2 ***************************************************************
+small 164 ***************************************************************
+End small 164 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,u2r,low,0.26748256000000004,(ReExecute,SelectBestExpert)
+SelectBestExpert,u2r,low,0.1358841904357067,(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 145.0 LowestcostPrice 18.03953735631454 LowestcostValue 45.0LowestcostScore1.4724numOFtask 3 ***************************************************************
+small 165 ***************************************************************
+End small 165 numberOfDetectedattacks:1 ***************************************************************
+PoliceReport,u2r,low,0.40122384,(ReExecute,SelectBestExpert)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 123.0 LowestcostPrice 22.394781176624853 LowestcostValue 60.0LowestcostScore0.0numOFtask 4 ***************************************************************
+small 166 ***************************************************************
+End small 166 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,dos,low,6.72681065572095,(Late,PoliceReport)(Late,CustomerFeedbackCollection)
+SelectBestExpert,u2r,low,4.942895066666668,(ReExecute,PoliceReport)(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 186.0 LowestcostPrice 39.144119140880846 LowestcostValue 83.33333333333334LowestcostScore3.9172999999999996numOFtask 4 ***************************************************************
+small 167 ***************************************************************
+End small 167 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: LowestcostTime 139.0 LowestcostPrice 25.248750277539123 LowestcostValue 70.0LowestcostScore0.0numOFtask 5 ***************************************************************
+small 168 ***************************************************************
+End small 168 numberOfDetectedattacks:1 ***************************************************************
+PoliceReport,dos,low,6.64062106484954,(ReExecute,SelectBestExpert)(Late,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 122.0 LowestcostPrice 18.630785562370463 LowestcostValue 60.0LowestcostScore0.0numOFtask 4 ***************************************************************
+small 169 ***************************************************************
+End small 169 numberOfDetectedattacks:3 ***************************************************************
+HospitalReport,dos,medium,10.097820184678664,(ReExecute,HospitalReport)
+SelectBestExpert,dos,low,2.855222805362802,(ReExecute,BankReimbursment)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+CustomerFeedbackCollection,dos,low,1.853948118768143,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 156.0 LowestcostPrice 27.910621263313534 LowestcostValue 51.666666666666664LowestcostScore4.524799999999999numOFtask 2 ***************************************************************
+small 170 ***************************************************************
+End small 170 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: LowestcostTime 160.0 LowestcostPrice 19.4230322812474 LowestcostValue 70.0LowestcostScore0.0numOFtask 5 ***************************************************************
+small 171 ***************************************************************
+End small 171 numberOfDetectedattacks:1 ***************************************************************
+HospitalReport,u2r,low,2.9478928291290445,(ReExecute,HospitalReport)(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 131.0 LowestcostPrice 23.30332296644778 LowestcostValue 70.0LowestcostScore1.7364numOFtask 4 ***************************************************************
+small 172 ***************************************************************
+End small 172 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,dos,medium,35.45044309027635,(ReExecute,PoliceReport)(Insert,ObtainClaimService)(ReExecute,HospitalReport)
+HospitalReport,u2r,low,0.5705599024120731,(ReExecute,HospitalReport)
+SelectBestExpert,r2l,low,6.902613838891544,(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 194.0 LowestcostPrice 24.21384428479655 LowestcostValue 55.0LowestcostScore3.3146numOFtask 2 ***************************************************************
+small 173 ***************************************************************
+End small 173 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,probe,low,9.850138536045824,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+BankReimbursment,probe,low,0.15663999999999997,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 161.0 LowestcostPrice 18.231412208121384 LowestcostValue 60.0LowestcostScore1.3284numOFtask 4 ***************************************************************
+small 174 ***************************************************************
+End small 174 numberOfDetectedattacks:1 ***************************************************************
+ObtainClaimService,probe,low,4.819514301420063,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 167.0 LowestcostPrice 22.99055054930294 LowestcostValue 85.0LowestcostScore0.0numOFtask 5 ***************************************************************
+small 175 ***************************************************************
+End small 175 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: LowestcostTime 169.0 LowestcostPrice 31.472211947312477 LowestcostValue 95.0LowestcostScore0.0numOFtask 6 ***************************************************************
+small 176 ***************************************************************
+End small 176 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,r2l,low,3.783107092249047,(ReExecute,HospitalReport)
+SelectBestExpert,r2l,low,0.0752896,(ReExecute,HospitalReport)
+CustomerFeedbackCollection,u2r,low,0.20386611840000018,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 183.0 LowestcostPrice 17.905246175561363 LowestcostValue 70.0LowestcostScore3.5782numOFtask 3 ***************************************************************
+small 177 ***************************************************************
+End small 177 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,1.041828,(ReExecute,ObtainClaimService)(ReExecute,HospitalReport)
+PoliceReport,dos,low,0.7520385581910976,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 128.0 LowestcostPrice 21.44360601317044 LowestcostValue 60.0LowestcostScore1.677numOFtask 3 ***************************************************************
+small 178 ***************************************************************
+End small 178 numberOfDetectedattacks:1 ***************************************************************
+HospitalReport,u2r,low,1.47115408,(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 156.0 LowestcostPrice 17.72337969961525 LowestcostValue 70.0LowestcostScore1.7364numOFtask 4 ***************************************************************
+small 179 ***************************************************************
+End small 179 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,r2l,low,0.07619072,(ReExecute,HospitalReport)
+SelectBestExpert,u2r,low,1.3891040000000003,(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 142.0 LowestcostPrice 24.314335776081485 LowestcostValue 55.0LowestcostScore2.9946numOFtask 3 ***************************************************************
+small 180 ***************************************************************
+End small 180 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: LowestcostTime 182.0 LowestcostPrice 30.88636552826574 LowestcostValue 95.0LowestcostScore0.0numOFtask 6 ***************************************************************
+small 181 ***************************************************************
+End small 181 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,dos,medium,10.176700681977625,(ReExecute,HospitalReport)
+PoliceReport,u2r,low,1.0030595999999998,(ReExecute,PoliceReport)
+
+for this workflow execution: LowestcostTime 196.0 LowestcostPrice 28.461207779017045 LowestcostValue 95.0LowestcostScore3.1395999999999997numOFtask 4 ***************************************************************
+small 182 ***************************************************************
+End small 182 numberOfDetectedattacks:1 ***************************************************************
+HospitalReport,r2l,low,0.07619072,(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 157.0 LowestcostPrice 23.322543262075552 LowestcostValue 70.0LowestcostScore1.5222numOFtask 4 ***************************************************************
+small 183 ***************************************************************
+End small 183 numberOfDetectedattacks:1 ***************************************************************
+SelectBestExpert,probe,low,3.909138777931259,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 129.0 LowestcostPrice 20.52821545392007 LowestcostValue 40.0LowestcostScore0.7748999999999999numOFtask 4 ***************************************************************
+small 184 ***************************************************************
+End small 184 numberOfDetectedattacks:1 ***************************************************************
+PoliceReport,u2r,low,0.73557704,(ReExecute,SelectBestExpert)(ReExecute,BankReimbursment)
+
+for this workflow execution: LowestcostTime 136.0 LowestcostPrice 16.02067644415002 LowestcostValue 60.0LowestcostScore0.0numOFtask 4 ***************************************************************
+small 185 ***************************************************************
+End small 185 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,dos,low,8.24697805768724,(ReExecute,HospitalReport)
+CustomerFeedbackCollection,probe,low,0.9205600995827539,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 125.0 LowestcostPrice 17.492941049457315 LowestcostValue 65.0LowestcostScore2.8834numOFtask 3 ***************************************************************
+small 186 ***************************************************************
+End small 186 numberOfDetectedattacks:1 ***************************************************************
+SelectBestExpert,dos,low,0.9019787487179488,(ReExecute,PoliceReport)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 172.0 LowestcostPrice 25.745694174769483 LowestcostValue 65.0LowestcostScore2.0616numOFtask 4 ***************************************************************
+small 187 ***************************************************************
+End small 187 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: LowestcostTime 174.0 LowestcostPrice 31.76414006442053 LowestcostValue 95.0LowestcostScore0.0numOFtask 6 ***************************************************************
+small 188 ***************************************************************
+End small 188 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: LowestcostTime 181.0 LowestcostPrice 30.397138763573345 LowestcostValue 95.0LowestcostScore0.0numOFtask 6 ***************************************************************
+small 189 ***************************************************************
+End small 189 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: LowestcostTime 185.0 LowestcostPrice 28.51175820565399 LowestcostValue 95.0LowestcostScore0.0numOFtask 6 ***************************************************************
+small 190 ***************************************************************
+End small 190 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: LowestcostTime 178.0 LowestcostPrice 27.66346734488988 LowestcostValue 95.0LowestcostScore0.0numOFtask 6 ***************************************************************
+small 191 ***************************************************************
+End small 191 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,probe,low,9.680905152755903,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 154.0 LowestcostPrice 22.80087569217415 LowestcostValue 90.0LowestcostScore1.4802numOFtask 5 ***************************************************************
+small 192 ***************************************************************
+End small 192 numberOfDetectedattacks:2 ***************************************************************
+ObtainClaimService,u2r,low,0.06945520000000001,(ReExecute,HospitalReport)
+SelectBestExpert,dos,low,0.9019787487179488,(Late,PoliceReport)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 158.0 LowestcostPrice 30.981555989254453 LowestcostValue 73.33333333333333LowestcostScore1.8998numOFtask 4 ***************************************************************
+small 193 ***************************************************************
+End small 193 numberOfDetectedattacks:2 ***************************************************************
+PoliceReport,r2l,low,1.9809587200000003,(ReExecute,PoliceReport)
+CustomerFeedbackCollection,r2l,low,0.012846899200000006,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 169.0 LowestcostPrice 21.4154626867411 LowestcostValue 70.0LowestcostScore3.8116000000000003numOFtask 3 ***************************************************************
+small 194 ***************************************************************
+End small 194 numberOfDetectedattacks:3 ***************************************************************
+PoliceReport,probe,low,0.1448549784712621,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+HospitalReport,dos,medium,56.66703041103561,(ReExecute,HospitalReport)
+BankReimbursment,dos,high,110.86025666117489,(Redundancy,SelectBestExpert)(ReConfiguration,PoliceReport)(ReConfiguration,HospitalReport)
+
+for this workflow execution: LowestcostTime 241.0 LowestcostPrice 43.787346848661414 LowestcostValue 155.0LowestcostScore5.3632numOFtask 3 ***************************************************************
+small 195 ***************************************************************
+End small 195 numberOfDetectedattacks:1 ***************************************************************
+CustomerFeedbackCollection,probe,low,0.71203055,(Skip,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 154.0 LowestcostPrice 22.2667146572011 LowestcostValue 90.0LowestcostScore1.4802numOFtask 5 ***************************************************************
+small 196 ***************************************************************
+End small 196 numberOfDetectedattacks:2 ***************************************************************
+HospitalReport,u2r,low,1.9018663413735772,(ReExecute,HospitalReport)
+SelectBestExpert,dos,high,115.3569088,(Redundancy,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,HospitalReport)
+
+for this workflow execution: LowestcostTime 216.0 LowestcostPrice 45.95558718106007 LowestcostValue 150.0LowestcostScore5.077999999999999numOFtask 4 ***************************************************************
+small 197 ***************************************************************
+End small 197 numberOfDetectedattacks:3 ***************************************************************
+ObtainClaimService,dos,low,7.664222731385006,(Late,PoliceReport)(ReExecute,HospitalReport)(Late,CustomerFeedbackCollection)
+PoliceReport,probe,high,501.64298799999983,(Skip,PoliceReport)(Skip,CustomerFeedbackCollection)
+CustomerFeedbackCollection,u2r,low,0.009707910400000007,(ReExecute,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 165.0 LowestcostPrice 21.527820481635523 LowestcostValue 75.0LowestcostScore3.6483999999999996numOFtask 3 ***************************************************************
+small 198 ***************************************************************
+End small 198 numberOfDetectedattacks:4 ***************************************************************
+HospitalReport,probe,low,2.851438362812065,(Skip,CustomerFeedbackCollection)
+PoliceReport,dos,low,1.6826421362752302,(Late,PoliceReport)(ReExecute,BankReimbursment)(Late,CustomerFeedbackCollection)
+SelectBestExpert,dos,high,115.3569088,(Redundancy,SelectBestExpert)(ReExecute,PoliceReport)(ReExecute,BankReimbursment)(ReConfiguration,HospitalReport)
+CustomerFeedbackCollection,dos,low,0.7810085967043121,(Late,CustomerFeedbackCollection)
+
+for this workflow execution: LowestcostTime 170.5 LowestcostPrice 40.1585878382071 LowestcostValue 129.99999999999997LowestcostScore6.2852numOFtask 2 ***************************************************************
+small 199 ***************************************************************
+End small 199 numberOfDetectedattacks:0 ***************************************************************
+
+for this workflow execution: LowestcostTime 173.0 LowestcostPrice 29.993738041801592 LowestcostValue 95.0LowestcostScore0.0numOFtask 6 ***************************************************************
+Final: averageNormalizedTime 2.9714622641509436 averageNormalizedCost 5.535193954987268 averageNormalizedValue 5.147777777777777 averageNormalizedMitigationScore 6.873936018957348 averageNormalizedFinalCost 2.8430334742820476 ***************************************************************
+Final: averageNormalizedTime 157.4875 averageNormalizedCost 25.84712144801243 averageNormalizedValue 77.21666666666665 averageNormalizedMitigationScore 2.9008010000000013 averageNormalizedFinalCost 31.54530633440374 numOFTasks0 ***************************************************************

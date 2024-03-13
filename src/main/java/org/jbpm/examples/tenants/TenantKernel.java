@@ -69,8 +69,22 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class TenantKernel {
-	double attackThresh=2;
-
+	double attackThresh=0;
+	private String id;
+	ArrayList<User> users = new ArrayList<User>();
+	ArrayList<Attack> AttackTypes = new ArrayList<Attack>();
+	//ArrayList<User> userTasks = new ArrayList<User>();
+	//ArrayList<User> serviceTasks = new ArrayList<User>();
+	ArrayList<Workflow> workflows = new ArrayList<Workflow>();
+	Map<String, String> instances = new HashMap<String, String>();
+	private static RuntimeEngine runtime;
+	ArrayList<String> UserNames;
+	ArrayList<String> IPAdresses;
+	ArrayList<String>  workingdays;
+	static KernelManagment KM;
+	static int currentExecutionNumber=0;
+	
+	
 	//Coopis
 	//double priceWeight=0.1,timeWeight=0.1,valueWeight=0.1,securityWeight=0.7;
 	double priceWeight=0.3,timeWeight=0.3,valueWeight=0.3,securityWeight=0.1;
@@ -87,35 +101,55 @@ public class TenantKernel {
 	int minNumOfHosts;
 	int numOfUsers;
 	int numberOfDetectedattacks=0;
+	
 	//lowest cost parameters in coopis
+	static int completeVersion=0;
+	static ArrayList<Adaptation> upcomingAdaptations = new ArrayList<Adaptation>();//the adaptations that are scheduled to implement because of the prior violations
 	static double coopisTime=0, coopisPrice=0,coopisValue=0, coopisScore=0,coopisTimeMax=0, coopisPriceMax=0,coopisValueMax=0, coopisScoreMax=0;	
 	Map<Integer, ArrayList<Double>> CoopisResults = new HashMap<Integer, ArrayList<Double>>();//Time,Cost,value,MitigationScore
-	static int completeVersion=0;
 	ArrayList<ActionRecord> ActionRecords = new ArrayList<ActionRecord>();
+	
 	//adaptive parameters in coopis
+	static int completeVersionAdaptive=0;
+	static ArrayList<Adaptation> upcomingAdaptationsAdaptive = new ArrayList<Adaptation>();//the adaptations that are scheduled to implement because of the prior violations
 	static double coopisTimeAdaptive=0, coopisPriceAdaptive=0,coopisValueAdaptive=0, coopisScoreAdaptive=0,coopisTimeMaxAdaptive=0, coopisPriceMaxAdaptive=0,coopisValueMaxAdaptive=0, coopisScoreMaxAdaptive=0;	
 	Map<Integer, ArrayList<Double>> CoopisResultsAdaptive100 = new HashMap<Integer, ArrayList<Double>>();//Time,Cost,value,MitigationScore
 	Map<Integer, ArrayList<Double>> CoopisResultsAdaptive = new HashMap<Integer, ArrayList<Double>>();//Time,Cost,value,MitigationScore
-	static int completeVersionAdaptive=0;
 	ArrayList<ActionRecord> ActionRecordsAdaptive = new ArrayList<ActionRecord>();
 	QLearning qlearning;
+
 	
+	
+	//Random cost parameters in ChainAdaptation
+	static double chainTimeRandom=0, chainPriceRandom=0,chainValueRandom=0, chainScoreRandom=0,chainFinalCostRandom=0,chainTimeMaxRandom=0, chainPriceMaxRandom=0,chainValueMaxRandom=0, chainScoreMaxRandom=0,chainFinalCostMaxRandom=0;	
+	ArrayList<ChainRecord> randomChainRecords = new ArrayList<ChainRecord>();
+	Map<Integer, ArrayList<Double>> chainResultsrandom = new HashMap<Integer, ArrayList<Double>>();//Time,Price,value,MitigationScore,totalcost
+
+
+	
+	//lowest cost parameters in ChainAdaptation
+	static double chainTime=0, chainPrice=0,chainValue=0, chainScore=0,chainFinalCost=0,chainTimeMax=0, chainPriceMax=0,chainValueMax=0, chainScoreMax=0,chainFinalCostMax=0;	
+	Map<Integer, ArrayList<Double>> chainResultslowestcost = new HashMap<Integer, ArrayList<Double>>();//Time,Price,value,MitigationScore,totalcost
+	ArrayList<ChainRecord> lowestCostChainRecords = new ArrayList<ChainRecord>();
+
+	
+	//adaptive parameters in ChainAdaptation
+	static double chainTimeAdaptive=0, chainPriceAdaptive=0,chainValueAdaptive=0, chainScoreAdaptive=0,chainFinalCostAdaptive=0,chainTimeMaxAdaptive=0, chainPriceMaxAdaptive=0,chainValueMaxAdaptive=0, chainScoreMaxAdaptive=0,chainFinalCostMaxAdaptive=0;	
+	Map<Integer, ArrayList<Double>> chainResultsAdaptive100 = new HashMap<Integer, ArrayList<Double>>();//Time,Price,value,MitigationScore,totalcost
+	Map<Integer, ArrayList<Double>> chainResultsAdaptive = new HashMap<Integer, ArrayList<Double>>();//Time,Price,value,MitigationScore,totalcost
+	static ArrayList<ChainRecord> currentWorkflowState = new ArrayList<ChainRecord>();
+	static Map<StateChain, Map<AdaptationChain, Double>> qTable  = new HashMap<>();  // Q-table=state->action,qvalue
+	static ArrayList<StateChain> states = new ArrayList<StateChain>();
+	//ArrayList<ChainRecord> RLChainRecords = new ArrayList<ChainRecord>();
+	QLearningChain qlearningchain;
+
+	
+	// parameters in Edoc
 	static double edocTime=0, edoPrice=0, edocScore=0,edocTimeMax=0, edoPriceMax=0, edocScoreMax=0;
 	Map<Integer, ArrayList<Double>> EdocResults = new HashMap<Integer, ArrayList<Double>>();//Time,Cost,MitigationScore
 
 
-	private String id;
-	ArrayList<User> users = new ArrayList<User>();
-	ArrayList<Attack> AttackTypes = new ArrayList<Attack>();
-	//ArrayList<User> userTasks = new ArrayList<User>();
-	//ArrayList<User> serviceTasks = new ArrayList<User>();
-	ArrayList<Workflow> workflows = new ArrayList<Workflow>();
-	Map<String, String> instances = new HashMap<String, String>();
-	private static RuntimeEngine runtime;
-	ArrayList<String> UserNames;
-	ArrayList<String> IPAdresses;
-	ArrayList<String>  workingdays;
-	static KernelManagment KM;
+
 	
 
 	public TenantKernel(String id,RuntimeEngine runtime1,int maxNumOfH,int minNumOfH,int numOfU,ArrayList<Attack> attacks,KernelManagment km) throws IOException{
@@ -131,8 +165,9 @@ public class TenantKernel {
 		//Services s=new Services(createWorkflowModel("InsuranceClaim6.txt"));
 		//Services s=new Services(createWorkflowModel("InsuranceClaim6-withAdaptation.txt"));
 		//2-Services s=new Services(createWorkflowModel("InsuranceClaim6-withAdaptation-withPriceTimeValue.txt"));
-		//Services s=new Services(createWorkflowModel("InsuranceClaim9-withAdaptation-withPriceTimeValue.txt"));
-		Services s=new Services(createWorkflowModel("InsuranceClaim9-withAdaptation-withPriceTimeValue-moreOptions.txt"));
+			//Services s=new Services(createWorkflowModel("InsuranceClaim9-withAdaptation-withPriceTimeValue.txt"));
+		//Services s=new Services(createWorkflowModel("InsuranceClaim9-withAdaptation-withPriceTimeValue-moreOptions.txt"));
+		Services s=new Services(createWorkflowModel("InsuranceClaim9-withAdaptation-withPriceTimeValue-moreOptions-controlDataDependency.txt"));
 
 
 		HelloNafiseService h=new HelloNafiseService(createWorkflowModel("BPMN2-ServiceProcess2.txt"));
@@ -142,60 +177,62 @@ public class TenantKernel {
 		
 		int k=0;
 
-	/*
-		//Coopis experiments
+	
+		//Chain experiments
 		
-		for(int i=0;i<10;i++) {
-			qlearning= new QLearning();
+		for(int i=0;i<200;i++) {
+			qlearningchain= new QLearningChain();
 			ArrayList<Double> values=new ArrayList<Double>();
 			ArrayList<Double> valuesAdaptive=new ArrayList<Double>();
 			s.setTaskNumber(0);
-			addTaskToFile("small "+i+" ***************************************************************","LearningAdaptationLogCoopis.txt");
-			addTaskToFile("small "+i+" ***************************************************************","LearningAdaptationLogCoopisAdaptive.txt");
+			//addTaskToFile("small "+i+" ***************************************************************","LearningAdaptationLogCoopis.txt");
+			//addTaskToFile("small "+i+" ***************************************************************","LearningAdaptationLogCoopisAdaptive.txt");
+			addTaskToFile("small "+i+" ***************************************************************","LearningAdaptationLogchain.txt");
+			addTaskToFile("small "+i+" ***************************************************************","LearningAdaptationLogchainAdaptive.txt");
+			currentExecutionNumber=i;
 
-			//ExecuteWorkflow("insurance6",1,"Elena");
-			//ExecuteWorkflow("insurance6-2",1,"Elena");
-			ExecuteWorkflow("insurance6-3",1,"Elena");
+			ExecuteWorkflow("insurance6",1,"S");
+			//ExecuteWorkflow("insurance6-2",1,"S");
+			//ExecuteWorkflow("insurance6-3",1,"S");//InsuranceClaim9-3.bpmn2
 
 			System.out.println("Number of detected attack for small bpmn: "+numberOfDetectedattacks);
-			addTaskToFile("End small "+i+" numberOfDetectedattacks:"+ numberOfDetectedattacks+" ***************************************************************","LearningAdaptationLogCoopis.txt");
-			addTaskToFile("End small "+i+" numberOfDetectedattacks:"+ numberOfDetectedattacks+" ***************************************************************","LearningAdaptationLogCoopisAdaptive.txt");
+			//addTaskToFile("End small "+i+" numberOfDetectedattacks:"+ numberOfDetectedattacks+" ***************************************************************","LearningAdaptationLogCoopis.txt");
+			//addTaskToFile("End small "+i+" numberOfDetectedattacks:"+ numberOfDetectedattacks+" ***************************************************************","LearningAdaptationLogCoopisAdaptive.txt");
+			addTaskToFile("End small "+i+" numberOfDetectedattacks:"+ numberOfDetectedattacks+" ***************************************************************","LearningAdaptationLogchain.txt");
+			addTaskToFile("End small "+i+" numberOfDetectedattacks:"+ numberOfDetectedattacks+" ***************************************************************","LearningAdaptationLogchainAdaptive.txt");
 
-			//if(completeVersion<4 || completeVersion>7) 
-			//if(completeVersion<5)
-					//addTaskToFile("InComplete Version: numofTasks"+completeVersion,"LearningAdaptationLogCoopis.txt");
-			//else {
-				values.add(coopisTime+(numberOfDetectedattacks*adaptationTimeOverhead));
-				values.add(coopisPrice);
-				values.add(coopisValue);
-				values.add(coopisScore);
-				CoopisResults.put(i,values);
-				System.out.println("COOPIS Time:"+coopisTime+(numberOfDetectedattacks*adaptationTimeOverhead)+" "+coopisPrice+" "+coopisValue);
-				System.out.println(" ActionRecords "+ActionRecords.size());
-				for(ActionRecord Action: ActionRecords) {
-					Action.setWorkflowTime(values.get(0));
-					Action.setWorkflowPrice(values.get(1));
-					Action.setWorkflowValue(values.get(2));
-					Action.setWorkflowMitigationScore(values.get(3));
-			    	addTaskToFile(Action.ToString(),"LearningAdaptationLogCoopis.txt");
-				}
-		    	addTaskToFile("for this workflow execution: coopisTime "+(coopisTime+(numberOfDetectedattacks*adaptationTimeOverhead))+" coopisPrice "+coopisPrice+" coopisValue "+coopisValue+"coopisScore"+coopisScore+ "numOFtask "+completeVersion+" ***************************************************************","LearningAdaptationLogCoopis.txt");
+			//values.add(chainTime+(numberOfDetectedattacks*adaptationTimeOverhead));
+			values.add(chainTime);
+			values.add(chainPrice);
+			values.add(chainValue);
+			values.add(chainScore);
+			double cost1=(priceWeight*chainPrice)+(timeWeight*chainTime)-(valueWeight*chainValue)-(securityWeight*chainScore);
+			values.add(cost1);
+			chainResultslowestcost.put(i,values);
+			System.out.println("Lowest cost Time:"+chainTime+(numberOfDetectedattacks*adaptationTimeOverhead)+" "+chainPrice+" "+chainValue);
+			System.out.println(" lowestCostChainRecords  "+lowestCostChainRecords.size());
+			String state1="";
+			for(ChainRecord Action: lowestCostChainRecords) {
+				 state1+=Action.ToString();
+			}
+			addTaskToFile(state1,"LearningAdaptationLogchain.txt");
+		    addTaskToFile("for this workflow execution: LowestcostTime "+(chainTime+(numberOfDetectedattacks*adaptationTimeOverhead))+" LowestcostPrice "+chainPrice+" LowestcostValue "+chainValue+"LowestcostScore"+chainScore+ "numOFtask "+completeVersion+" ***************************************************************","LearningAdaptationLogchain.txt");
 		    	
-		    	valuesAdaptive.add(coopisTimeAdaptive+(numberOfDetectedattacks*adaptationTimeOverhead));
-				valuesAdaptive.add(coopisPriceAdaptive);
-				valuesAdaptive.add(coopisValueAdaptive);
-				valuesAdaptive.add(coopisScoreAdaptive);
-				CoopisResultsAdaptive.put(i,valuesAdaptive);
-				CoopisResultsAdaptive100.put(i,valuesAdaptive);
-				
-				for(ActionRecord Action: ActionRecordsAdaptive) {
-					Action.setWorkflowTime(values.get(0));
-					Action.setWorkflowPrice(values.get(1));
-					Action.setWorkflowValue(values.get(2));
-					Action.setWorkflowMitigationScore(values.get(3));
-			    	addTaskToFile(Action.ToString(),"LearningAdaptationLogCoopisAdaptive.txt");
+		    	//valuesAdaptive.add(chainTimeAdaptive+(numberOfDetectedattacks*adaptationTimeOverhead));
+		    	valuesAdaptive.add(chainTimeAdaptive);
+				valuesAdaptive.add(chainPriceAdaptive);
+				valuesAdaptive.add(chainValueAdaptive);
+				valuesAdaptive.add(chainScoreAdaptive);
+				double cost2=(priceWeight*chainPriceAdaptive)+(timeWeight*chainTimeAdaptive)-(valueWeight*chainValueAdaptive)-(securityWeight*chainScoreAdaptive);
+				valuesAdaptive.add(cost2);
+				chainResultsAdaptive.put(i,valuesAdaptive);
+				chainResultsAdaptive100.put(i,valuesAdaptive);
+				String state2="";
+				for(ChainRecord Action: currentWorkflowState) {
+					 state2+=Action.ToString();
 				}
-		    	addTaskToFile("for this workflow execution: coopisTime "+(coopisTimeAdaptive+(numberOfDetectedattacks*adaptationTimeOverhead))+" coopisPrice "+coopisPriceAdaptive+" coopisValue "+coopisValueAdaptive+"coopisScore"+coopisScoreAdaptive+ "numOFtask "+completeVersion+" ***************************************************************","LearningAdaptationLogCoopisAdaptive.txt");
+				addTaskToFile(state2,"LearningAdaptationLogchainAdaptive.txt");
+		    	addTaskToFile("for this workflow execution: RLTime "+(chainTimeAdaptive+(numberOfDetectedattacks*adaptationTimeOverhead))+" RLPrice "+chainPriceAdaptive+" RLValue "+chainValueAdaptive+"chainScore"+chainScoreAdaptive+ "numOFtask "+completeVersion+" ***************************************************************","LearningAdaptationLogchainAdaptive.txt");
 			//}
 		    	k++;
 			numberOfDetectedattacks=0;
@@ -206,14 +243,18 @@ public class TenantKernel {
 				    double totalCost = 0.0,minCost=Double.MAX_VALUE;
 				    double totalValue=0.0,minValue=Double.MAX_VALUE;
 				    double totalMitigationScore = 0.0,minMS=Double.MAX_VALUE;
+				    double totalFinalCost = 0.0,minFS=Double.MAX_VALUE;
+
 				    
 				
 				    // Calculate the sum of Time, Cost, and MitigationScore
-				    for (ArrayList<Double> result : CoopisResultsAdaptive100.values()) {
+				    for (ArrayList<Double> result : chainResultsAdaptive100.values()) {
 				        totalTime += result.get(0);
 				        totalCost += result.get(1);
 				        totalValue+=result.get(2);
 				        totalMitigationScore += result.get(3);
+				        totalFinalCost += result.get(4);
+				        
 				        System.out.println("total "+totalTime+" "+totalCost+" "+totalMitigationScore);
 				        if(result.get(0)<minTime && result.get(0)!=0)
 				        	minTime=result.get(0);
@@ -223,6 +264,8 @@ public class TenantKernel {
 				        	minValue=result.get(2);
 				        if(result.get(3)<minMS && result.get(3)!=0)
 				        	minMS=result.get(3);
+				        if(result.get(4)<minFS && result.get(4)!=0)
+				        	minFS=result.get(4);
 				        
 				    }
 					//addTaskToFile("Final: totalTime "+totalTime+" totalCost "+totalCost+" totalValue "+totalValue+"totalMitigationScore"+totalMitigationScore+" ***************************************************************","LearningAdaptationLogCoopis.txt");
@@ -237,44 +280,291 @@ public class TenantKernel {
 				    	minValue=1;
 				    if(minMS==Double.MAX_VALUE)
 				    	minMS=1;
+				    if(minFS==Double.MAX_VALUE)
+				    	minFS=1;
 				    
 				    
 				    double averageTime = totalTime / 100;
 				    double averageCost = totalCost / 100;
 				    double averageValue=totalValue/100;
 				    double averageMitigationScore = totalMitigationScore / 100;
-				
-		    	addTaskToFile("for 100s workflow execution: coopisTime "+averageTime+" coopisPrice "+averageCost+" coopisValue "+coopisValueAdaptive+"coopisScore"+averageValue+ "numOFtask "+completeVersion+" ***************************************************************","LearningAdaptationLogCoopisAdaptive.txt");
-				CoopisResultsAdaptive100 = new HashMap<Integer, ArrayList<Double>>();//Time,Cost,value,MitigationScore
+				    double averageFinalCost = totalFinalCost / 100;
+				    
+				    double NaverageTime = totalTime / 100/minTime;
+				    double NaverageCost = totalCost / 100/minCost;
+				    double NaverageValue=totalValue/100/minValue;
+				    double NaverageMitigationScore = totalMitigationScore / 100/minMS;
+				    double NaverageFinalCost = totalFinalCost / 100/minFS;
+
+			    addTaskToFile("for 100s workflow execution average: RLTime "+averageTime+" RLPrice "+averageCost+" RLValue "+averageValue+"RLScore"+averageMitigationScore+"RLFinalCost"+averageFinalCost+ "numOFtask "+completeVersion+" ***************************************************************","LearningAdaptationLogchainAdaptive.txt");
+		    	addTaskToFile("for 100s workflow execution Normalized: RLTime "+averageTime+" RLPrice "+averageCost+" RLValue "+averageValue+"RLScore"+averageMitigationScore+"RLFinalCost"+averageFinalCost+ "numOFtask "+completeVersion+" ***************************************************************","LearningAdaptationLogchainAdaptive.txt");
+		    	chainResultsAdaptive100 = new HashMap<Integer, ArrayList<Double>>();//Time,Cost,value,MitigationScore
 
 				}
 			}
-		averageOfCoopisResults("small");
-		averageOfCoopisResultsAdaptive("small");
-		resetCoopisResults(); 
-*/	
-/*
-		k=0;
-		for(int i=0;i<1000;i++) {
-			qlearning= new QLearning();
+		averageOfChainResults("small");
+		averageOfChainResultsAdaptive("small");
+		resetChainResults(); 
+		
+		
+	/*	
+		
+		for(int i=0;i<100;i++) {
+			qlearningchain= new QLearningChain();
 			ArrayList<Double> values=new ArrayList<Double>();
 			ArrayList<Double> valuesAdaptive=new ArrayList<Double>();
 			s.setTaskNumber(0);
 			addTaskToFile("meduim "+i+" ***************************************************************","LearningAdaptationLogCoopis.txt");
 			addTaskToFile("meduim "+i+" ***************************************************************","LearningAdaptationLogCoopisAdaptive.txt");
 
-			//ExecuteWorkflow("insurance21",1,"E");
-			ExecuteWorkflow("insurance21-2",1,"E");
-			//ExecuteWorkflow("insurance21-3",1,"E");
+			//ExecuteWorkflow("insurance21",1,"M");
+			ExecuteWorkflow("insurance21-2",1,"M");
+			//ExecuteWorkflow("insurance21-3",1,"M");
 
 			System.out.println("Number of detected attack for meduim bpmn: "+numberOfDetectedattacks);
 			addTaskToFile("End meduim "+i+" numberOfDetectedattacks:"+ numberOfDetectedattacks+" ***************************************************************","LearningAdaptationLogCoopis.txt");
 			addTaskToFile("End meduim "+i+" numberOfDetectedattacks:"+ numberOfDetectedattacks+" ***************************************************************","LearningAdaptationLogCoopisAdaptive.txt");
 
-			//if(completeVersion<30 || completeVersion>50) 
-			//if(completeVersion<40)
-				//addTaskToFile("InComplete Version: numofTasks"+completeVersion,"LearningAdaptationLogCoopis.txt");
-			//else {
+			//values.add(chainTime+(numberOfDetectedattacks*adaptationTimeOverhead));
+			values.add(chainTime);
+			values.add(chainPrice);
+			values.add(chainValue);
+			values.add(chainScore);
+			double cost1=(priceWeight*chainPrice)+(timeWeight*chainTime)-(valueWeight*chainValue)-(securityWeight*chainScore);
+			values.add(cost1);
+			chainResultslowestcost.put(i,values);
+			System.out.println("Lowest cost Time:"+chainTime+(numberOfDetectedattacks*adaptationTimeOverhead)+" "+chainPrice+" "+chainValue);
+			System.out.println(" lowestCostChainRecords  "+lowestCostChainRecords.size());
+			String state1="";
+			for(ChainRecord Action: lowestCostChainRecords) {
+				 state1+=Action.ToString();
+			}
+			addTaskToFile(state1,"LearningAdaptationLogchain.txt");
+		    addTaskToFile("for this workflow execution: LowestcostTime "+(chainTime+(numberOfDetectedattacks*adaptationTimeOverhead))+" LowestcostPrice "+chainPrice+" LowestcostValue "+chainValue+"LowestcostScore"+chainScore+ "numOFtask "+completeVersion+" ***************************************************************","LearningAdaptationLogchain.txt");
+		    	
+		    	//valuesAdaptive.add(chainTimeAdaptive+(numberOfDetectedattacks*adaptationTimeOverhead));
+		    	valuesAdaptive.add(chainTimeAdaptive);
+				valuesAdaptive.add(chainPriceAdaptive);
+				valuesAdaptive.add(chainValueAdaptive);
+				valuesAdaptive.add(chainScoreAdaptive);
+				double cost2=(priceWeight*chainPriceAdaptive)+(timeWeight*chainTimeAdaptive)-(valueWeight*chainValueAdaptive)-(securityWeight*chainScoreAdaptive);
+				valuesAdaptive.add(cost2);
+				chainResultsAdaptive.put(i,valuesAdaptive);
+				chainResultsAdaptive100.put(i,valuesAdaptive);
+				String state2="";
+				for(ChainRecord Action: currentWorkflowState) {
+					 state2+=Action.ToString();
+				}
+				addTaskToFile(state2,"LearningAdaptationLogchainAdaptive.txt");
+		    	addTaskToFile("for this workflow execution: RLTime "+(chainTimeAdaptive+(numberOfDetectedattacks*adaptationTimeOverhead))+" RLPrice "+chainPriceAdaptive+" RLValue "+chainValueAdaptive+"chainScore"+chainScoreAdaptive+ "numOFtask "+completeVersion+" ***************************************************************","LearningAdaptationLogchainAdaptive.txt");
+			//}
+		    	k++;
+			numberOfDetectedattacks=0;
+			resetTimePriceScore();
+			if(k==100) {
+				k=0;
+				    double totalTime = 0.0,minTime=Double.MAX_VALUE;
+				    double totalCost = 0.0,minCost=Double.MAX_VALUE;
+				    double totalValue=0.0,minValue=Double.MAX_VALUE;
+				    double totalMitigationScore = 0.0,minMS=Double.MAX_VALUE;
+				    double totalFinalCost = 0.0,minFS=Double.MAX_VALUE;
+
+				    
+				
+				    // Calculate the sum of Time, Cost, and MitigationScore
+				    for (ArrayList<Double> result : chainResultsAdaptive100.values()) {
+				        totalTime += result.get(0);
+				        totalCost += result.get(1);
+				        totalValue+=result.get(2);
+				        totalMitigationScore += result.get(3);
+				        totalFinalCost += result.get(4);
+				        
+				        System.out.println("total "+totalTime+" "+totalCost+" "+totalMitigationScore);
+				        if(result.get(0)<minTime && result.get(0)!=0)
+				        	minTime=result.get(0);
+				        if(result.get(1)<minCost && result.get(1)!=0)
+				        	minCost=result.get(1);
+				        if(result.get(2)<minValue && result.get(2)!=0)
+				        	minValue=result.get(2);
+				        if(result.get(3)<minMS && result.get(3)!=0)
+				        	minMS=result.get(3);
+				        if(result.get(4)<minFS && result.get(4)!=0)
+				        	minFS=result.get(4);
+				        
+				    }
+					//addTaskToFile("Final: totalTime "+totalTime+" totalCost "+totalCost+" totalValue "+totalValue+"totalMitigationScore"+totalMitigationScore+" ***************************************************************","LearningAdaptationLogCoopis.txt");
+
+				    // Calculate the average
+				    
+				    if(minTime==Double.MAX_VALUE)
+				    	minTime=1;
+				    if(minCost==Double.MAX_VALUE)
+				    	minCost=1;
+				    if(minValue==Double.MAX_VALUE)
+				    	minValue=1;
+				    if(minMS==Double.MAX_VALUE)
+				    	minMS=1;
+				    if(minFS==Double.MAX_VALUE)
+				    	minFS=1;
+				    
+				    
+				    double averageTime = totalTime / 100;
+				    double averageCost = totalCost / 100;
+				    double averageValue=totalValue/100;
+				    double averageMitigationScore = totalMitigationScore / 100;
+				    double averageFinalCost = totalFinalCost / 100;
+
+				
+		    	addTaskToFile("for 100s workflow execution: RLTime "+averageTime+" RLPrice "+averageCost+" RLValue "+averageValue+"RLScore"+averageMitigationScore+"RLFinalCost"+averageFinalCost+ "numOFtask "+completeVersion+" ***************************************************************","LearningAdaptationLogchainAdaptive.txt");
+		    	chainResultsAdaptive100 = new HashMap<Integer, ArrayList<Double>>();//Time,Cost,value,MitigationScore
+
+				}
+			}
+		averageOfChainResults("meduim");
+		averageOfChainResultsAdaptive("meduim");
+		resetChainResults(); 
+*/
+		
+		
+/*		
+		for(int i=0;i<100;i++) {
+			qlearningchain= new QLearningChain();
+			ArrayList<Double> values=new ArrayList<Double>();
+			ArrayList<Double> valuesAdaptive=new ArrayList<Double>();
+			s.setTaskNumber(0);
+			addTaskToFile("large "+i+" ***************************************************************","LearningAdaptationLogCoopis.txt");
+			addTaskToFile("large "+i+" ***************************************************************","LearningAdaptationLogCoopisAdaptive.txt");
+
+			ExecuteWorkflow("insurance22",1,"L");
+			//ExecuteWorkflow("insurance22-2",1,"L");
+			//ExecuteWorkflow("insurance22-3",1,"L");
+
+			System.out.println("Number of detected attack for large bpmn: "+numberOfDetectedattacks);
+			addTaskToFile("End large "+i+" numberOfDetectedattacks:"+ numberOfDetectedattacks+" ***************************************************************","LearningAdaptationLogCoopis.txt");
+			addTaskToFile("End large "+i+" numberOfDetectedattacks:"+ numberOfDetectedattacks+" ***************************************************************","LearningAdaptationLogCoopisAdaptive.txt");
+
+			//values.add(chainTime+(numberOfDetectedattacks*adaptationTimeOverhead));
+			values.add(chainTime);
+			values.add(chainPrice);
+			values.add(chainValue);
+			values.add(chainScore);
+			double cost1=(priceWeight*chainPrice)+(timeWeight*chainTime)-(valueWeight*chainValue)-(securityWeight*chainScore);
+			values.add(cost1);
+			chainResultslowestcost.put(i,values);
+			System.out.println("Lowest cost Time:"+chainTime+(numberOfDetectedattacks*adaptationTimeOverhead)+" "+chainPrice+" "+chainValue);
+			System.out.println(" lowestCostChainRecords  "+lowestCostChainRecords.size());
+			String state1="";
+			for(ChainRecord Action: lowestCostChainRecords) {
+				 state1+=Action.ToString();
+			}
+			addTaskToFile(state1,"LearningAdaptationLogchain.txt");
+		    addTaskToFile("for this workflow execution: LowestcostTime "+(chainTime+(numberOfDetectedattacks*adaptationTimeOverhead))+" LowestcostPrice "+chainPrice+" LowestcostValue "+chainValue+"LowestcostScore"+chainScore+ "numOFtask "+completeVersion+" ***************************************************************","LearningAdaptationLogchain.txt");
+		    	
+		    	//valuesAdaptive.add(chainTimeAdaptive+(numberOfDetectedattacks*adaptationTimeOverhead));
+		    	valuesAdaptive.add(chainTimeAdaptive);
+				valuesAdaptive.add(chainPriceAdaptive);
+				valuesAdaptive.add(chainValueAdaptive);
+				valuesAdaptive.add(chainScoreAdaptive);
+				double cost2=(priceWeight*chainPriceAdaptive)+(timeWeight*chainTimeAdaptive)-(valueWeight*chainValueAdaptive)-(securityWeight*chainScoreAdaptive);
+				valuesAdaptive.add(cost2);
+				chainResultsAdaptive.put(i,valuesAdaptive);
+				chainResultsAdaptive100.put(i,valuesAdaptive);
+				String state2="";
+				for(ChainRecord Action: currentWorkflowState) {
+					 state2+=Action.ToString();
+				}
+				addTaskToFile(state2,"LearningAdaptationLogchainAdaptive.txt");
+		    	addTaskToFile("for this workflow execution: RLTime "+(chainTimeAdaptive+(numberOfDetectedattacks*adaptationTimeOverhead))+" RLPrice "+chainPriceAdaptive+" RLValue "+chainValueAdaptive+"chainScore"+chainScoreAdaptive+ "numOFtask "+completeVersion+" ***************************************************************","LearningAdaptationLogchainAdaptive.txt");
+			//}
+		    	k++;
+			numberOfDetectedattacks=0;
+			resetTimePriceScore();
+			if(k==100) {
+				k=0;
+				    double totalTime = 0.0,minTime=Double.MAX_VALUE;
+				    double totalCost = 0.0,minCost=Double.MAX_VALUE;
+				    double totalValue=0.0,minValue=Double.MAX_VALUE;
+				    double totalMitigationScore = 0.0,minMS=Double.MAX_VALUE;
+				    double totalFinalCost = 0.0,minFS=Double.MAX_VALUE;
+
+				    
+				
+				    // Calculate the sum of Time, Cost, and MitigationScore
+				    for (ArrayList<Double> result : chainResultsAdaptive100.values()) {
+				        totalTime += result.get(0);
+				        totalCost += result.get(1);
+				        totalValue+=result.get(2);
+				        totalMitigationScore += result.get(3);
+				        totalFinalCost += result.get(4);
+				        
+				        System.out.println("total "+totalTime+" "+totalCost+" "+totalMitigationScore);
+				        if(result.get(0)<minTime && result.get(0)!=0)
+				        	minTime=result.get(0);
+				        if(result.get(1)<minCost && result.get(1)!=0)
+				        	minCost=result.get(1);
+				        if(result.get(2)<minValue && result.get(2)!=0)
+				        	minValue=result.get(2);
+				        if(result.get(3)<minMS && result.get(3)!=0)
+				        	minMS=result.get(3);
+				        if(result.get(4)<minFS && result.get(4)!=0)
+				        	minFS=result.get(4);
+				        
+				    }
+					//addTaskToFile("Final: totalTime "+totalTime+" totalCost "+totalCost+" totalValue "+totalValue+"totalMitigationScore"+totalMitigationScore+" ***************************************************************","LearningAdaptationLogCoopis.txt");
+
+				    // Calculate the average
+				    
+				    if(minTime==Double.MAX_VALUE)
+				    	minTime=1;
+				    if(minCost==Double.MAX_VALUE)
+				    	minCost=1;
+				    if(minValue==Double.MAX_VALUE)
+				    	minValue=1;
+				    if(minMS==Double.MAX_VALUE)
+				    	minMS=1;
+				    if(minFS==Double.MAX_VALUE)
+				    	minFS=1;
+				    
+				    
+				    double averageTime = totalTime / 100;
+				    double averageCost = totalCost / 100;
+				    double averageValue=totalValue/100;
+				    double averageMitigationScore = totalMitigationScore / 100;
+				    double averageFinalCost = totalFinalCost / 100;
+
+				
+		    	addTaskToFile("for 100s workflow execution: RLTime "+averageTime+" RLPrice "+averageCost+" RLValue "+averageValue+"RLScore"+averageMitigationScore+"RLFinalCost"+averageFinalCost+ "numOFtask "+completeVersion+" ***************************************************************","LearningAdaptationLogchainAdaptive.txt");
+		    	chainResultsAdaptive100 = new HashMap<Integer, ArrayList<Double>>();//Time,Cost,value,MitigationScore
+
+				}
+			}
+		averageOfChainResults("large");
+		averageOfChainResultsAdaptive("large");
+		resetChainResults(); 
+
+*/		
+		
+
+/*
+		k=0;
+		for(int i=0;i<1000;i++) {
+			qlearning= new QLearning();
+			qlearningchain= new QLearningChain();
+			ArrayList<Double> values=new ArrayList<Double>();
+			ArrayList<Double> valuesAdaptive=new ArrayList<Double>();
+			s.setTaskNumber(0);
+			addTaskToFile("meduim "+i+" ***************************************************************","LearningAdaptationLogCoopis.txt");
+			addTaskToFile("meduim "+i+" ***************************************************************","LearningAdaptationLogCoopisAdaptive.txt");
+
+			//ExecuteWorkflow("insurance21",1,"M");
+			ExecuteWorkflow("insurance21-2",1,"M");
+			//ExecuteWorkflow("insurance21-3",1,"M");
+
+			System.out.println("Number of detected attack for meduim bpmn: "+numberOfDetectedattacks);
+			addTaskToFile("End meduim "+i+" numberOfDetectedattacks:"+ numberOfDetectedattacks+" ***************************************************************","LearningAdaptationLogCoopis.txt");
+			addTaskToFile("End meduim "+i+" numberOfDetectedattacks:"+ numberOfDetectedattacks+" ***************************************************************","LearningAdaptationLogCoopisAdaptive.txt");
+
+
 			values.add(coopisTime+(numberOfDetectedattacks*adaptationTimeOverhead));
 			values.add(coopisPrice);
 			values.add(coopisValue);
@@ -359,33 +649,30 @@ public class TenantKernel {
 
 			}
 		}
-	averageOfCoopisResults("meduim");
-	averageOfCoopisResultsAdaptive("meduim");
-	resetCoopisResults(); 
-*/	
+	averageOfChainResults("meduim");
+	averageOfChainResultsAdaptive("meduim");
+	resetChainResults(); 
+
 
 		
 		k=0;
 		for(int i=0;i<1000;i++) {
 			qlearning= new QLearning();
+			qlearningchain= new QLearningChain();
 			ArrayList<Double> values=new ArrayList<Double>();
 			ArrayList<Double> valuesAdaptive=new ArrayList<Double>();
 			s.setTaskNumber(0);
 			addTaskToFile("large "+i+" ***************************************************************","LearningAdaptationLogCoopis.txt");
 			addTaskToFile("large "+i+" ***************************************************************","LearningAdaptationLogCoopisAdaptive.txt");
 
-			ExecuteWorkflow("insurance22",1,"E");
-			//ExecuteWorkflow("insurance22-2",1,"E");
-			//ExecuteWorkflow("insurance22-3",1,"E");
+			ExecuteWorkflow("insurance22",1,"L");
+			//ExecuteWorkflow("insurance22-2",1,"L");
+			//ExecuteWorkflow("insurance22-3",1,"L");
 
 			System.out.println("Number of detected attack for large bpmn: "+numberOfDetectedattacks);
 			addTaskToFile("End large "+i+" numberOfDetectedattacks:"+ numberOfDetectedattacks+" ***************************************************************","LearningAdaptationLogCoopis.txt");
 			addTaskToFile("End large "+i+" numberOfDetectedattacks:"+ numberOfDetectedattacks+" ***************************************************************","LearningAdaptationLogCoopisAdaptive.txt");
 
-			//if(completeVersion<60 || completeVersion>100)
-			//if(completeVersion<85)
-				//addTaskToFile("InComplete Version: numofTasks"+completeVersion,"LearningAdaptationLogCoopis.txt");
-			//else {
 				values.add(coopisTime+(numberOfDetectedattacks*adaptationTimeOverhead));
 				values.add(coopisPrice);
 				values.add(coopisValue);
@@ -485,13 +772,13 @@ public class TenantKernel {
 
 				}
 			}
-		averageOfCoopisResults("large");
-		averageOfCoopisResultsAdaptive("large");
-		resetCoopisResults(); 
+		averageOfChainResults("large");
+		averageOfChainResultsAdaptive("large");
+		resetChainResults(); 
 		
 		
 
-		
+	*/	
 		
 		//Edoc experiments
 		/*
@@ -558,8 +845,11 @@ public class TenantKernel {
 
 	}
 	
+	public int getCurrentExecutionNumber() {
+		return currentExecutionNumber;
+	}
 	
-
+	
 	public void averageOfEdocResults()  throws IOException{
 	    int totalEntries = EdocResults.size();
 	    double totalTime = 0.0;
@@ -583,20 +873,25 @@ public class TenantKernel {
 
 	}
 	
-	public void averageOfCoopisResults(String size)  throws IOException{
-	    int totalEntries = CoopisResults.size();
+	public void averageOfChainResults(String size)  throws IOException{
+	    int totalEntries = chainResultslowestcost.size();
 	    double totalTime = 0.0,minTime=Double.MAX_VALUE;;
 	    double totalCost = 0.0,minCost=Double.MAX_VALUE;;
 	    double totalValue=0.0,minValue=Double.MAX_VALUE;;
 	    double totalMitigationScore = 0.0,minMS=Double.MAX_VALUE;
+	    double totalFinalCost = 0.0,minFS=Double.MAX_VALUE;
+
 	    
 	
 	    // Calculate the sum of Time, Cost, and MitigationScore
-	    for (ArrayList<Double> result : CoopisResults.values()) {
+	    for (ArrayList<Double> result : chainResultslowestcost.values()) {
 	        totalTime += result.get(0);
 	        totalCost += result.get(1);
 	        totalValue+=result.get(2);
 	        totalMitigationScore += result.get(3);
+	        totalFinalCost += result.get(4);
+
+	        
 	        System.out.println("total "+totalTime+" "+totalCost+" "+totalMitigationScore);
 	        if(result.get(0)<minTime && result.get(0)!=0)
 	        	minTime=result.get(0);
@@ -606,6 +901,8 @@ public class TenantKernel {
 	        	minValue=result.get(2);
 	        if(result.get(3)<minMS && result.get(3)!=0)
 	        	minMS=result.get(3);
+	        if(result.get(4)<minFS && result.get(4)!=0)
+	        	minFS=result.get(4);
 	        
 	    }
 		//addTaskToFile("Final: totalTime "+totalTime+" totalCost "+totalCost+" totalValue "+totalValue+"totalMitigationScore"+totalMitigationScore+" ***************************************************************","LearningAdaptationLogCoopis.txt");
@@ -620,32 +917,40 @@ public class TenantKernel {
 	    	minValue=1;
 	    if(minMS==Double.MAX_VALUE)
 	    	minMS=1;
+	    if(minFS==Double.MAX_VALUE)
+	    	minFS=1;
 	    
 	    
 	    double averageTime = totalTime / totalEntries;
 	    double averageCost = totalCost / totalEntries;
 	    double averageValue=totalValue/totalEntries;
 	    double averageMitigationScore = totalMitigationScore / totalEntries;
-		addTaskToFile("Final: averageNormalizedTime "+(averageTime/minTime)+" averageNormalizedCost "+(averageCost/minCost)+" averageNormalizedValue "+(averageValue/minValue)+" averageNormalizedMitigationScore "+(averageMitigationScore/minMS)+" ***************************************************************","LearningAdaptationLogCoopis.txt");
-		addTaskToFile("Final: averageNormalizedTime "+averageTime+" averageNormalizedCost "+averageCost+" averageNormalizedValue "+averageValue+" averageNormalizedMitigationScore "+averageMitigationScore+" numOFTasks"+completeVersion+" ***************************************************************","LearningAdaptationLogCoopis.txt");
+	    double averageFinalCost = totalFinalCost / totalEntries;
+
+		addTaskToFile("Final: averageNormalizedTime "+(averageTime/minTime)+" averageNormalizedCost "+(averageCost/minCost)+" averageNormalizedValue "+(averageValue/minValue)+" averageNormalizedMitigationScore "+(averageMitigationScore/minMS)+" averageNormalizedFinalCost "+(averageFinalCost/minFS)+" ***************************************************************","LearningAdaptationLogchain.txt");
+		addTaskToFile("Final: averageNormalizedTime "+averageTime+" averageNormalizedCost "+averageCost+" averageNormalizedValue "+averageValue+" averageNormalizedMitigationScore "+averageMitigationScore+" averageNormalizedFinalCost "+averageFinalCost+" numOFTasks"+completeVersion+" ***************************************************************","LearningAdaptationLogchain.txt");
 
 	}
 	
 	
-	public void averageOfCoopisResultsAdaptive(String size)  throws IOException{
-	    int totalEntries = CoopisResultsAdaptive.size();
+	public void averageOfChainResultsAdaptive(String size)  throws IOException{
+	    int totalEntries = chainResultsAdaptive .size();
 	    double totalTime = 0.0,minTime=Double.MAX_VALUE;;
 	    double totalCost = 0.0,minCost=Double.MAX_VALUE;;
 	    double totalValue=0.0,minValue=Double.MAX_VALUE;;
 	    double totalMitigationScore = 0.0,minMS=Double.MAX_VALUE;
-	    
+	    double totalFinalCost = 0.0,minFS=Double.MAX_VALUE;
+
 	
 	    // Calculate the sum of Time, Cost, and MitigationScore
-	    for (ArrayList<Double> result : CoopisResultsAdaptive.values()) {
+	    for (ArrayList<Double> result : chainResultsAdaptive.values()) {
 	        totalTime += result.get(0);
 	        totalCost += result.get(1);
 	        totalValue+=result.get(2);
 	        totalMitigationScore += result.get(3);
+	        totalFinalCost += result.get(4);
+
+	        
 	        System.out.println("total "+totalTime+" "+totalCost+" "+totalMitigationScore);
 	        if(result.get(0)<minTime && result.get(0)!=0)
 	        	minTime=result.get(0);
@@ -655,6 +960,8 @@ public class TenantKernel {
 	        	minValue=result.get(2);
 	        if(result.get(3)<minMS && result.get(3)!=0)
 	        	minMS=result.get(3);
+	        if(result.get(4)<minFS && result.get(4)!=0)
+	        	minFS=result.get(4);
 	        
 	    }
 		//addTaskToFile("Final: totalTime "+totalTime+" totalCost "+totalCost+" totalValue "+totalValue+"totalMitigationScore"+totalMitigationScore+" ***************************************************************","LearningAdaptationLogCoopis.txt");
@@ -669,15 +976,19 @@ public class TenantKernel {
 	    	minValue=1;
 	    if(minMS==Double.MAX_VALUE)
 	    	minMS=1;
+	    if(minFS==Double.MAX_VALUE)
+	    	minFS=1;
 	    
 	    
 	    double averageTime = totalTime / totalEntries;
 	    double averageCost = totalCost / totalEntries;
 	    double averageValue=totalValue/totalEntries;
 	    double averageMitigationScore = totalMitigationScore / totalEntries;
-		addTaskToFile("Final: averageNormalizedTime "+(averageTime/minTime)+" averageNormalizedCost "+(averageCost/minCost)+" averageNormalizedValue "+(averageValue/minValue)+" averageNormalizedMitigationScore "+(averageMitigationScore/minMS)+" ***************************************************************","LearningAdaptationLogCoopisAdaptive.txt");
-		addTaskToFile("Final: averageNormalizedTime "+averageTime+" averageNormalizedCost "+averageCost+" averageNormalizedValue "+averageValue+" averageNormalizedMitigationScore "+averageMitigationScore+" numOFTasks"+completeVersion+" ***************************************************************","LearningAdaptationLogCoopisAdaptive.txt");
+	    double averageFinalCost = totalFinalCost / totalEntries;
 
+		addTaskToFile("Final: averageNormalizedTime "+(averageTime/minTime)+" averageNormalizedCost "+(averageCost/minCost)+" averageNormalizedValue "+(averageValue/minValue)+" averageNormalizedMitigationScore "+(averageMitigationScore/minMS)+" averageNormalizedFinalCost "+(averageFinalCost/minFS)+" ***************************************************************","LearningAdaptationLogchainAdaptive.txt");
+		addTaskToFile("Final: averageNormalizedTime "+averageTime+" averageNormalizedCost "+averageCost+" averageNormalizedValue "+averageValue+" averageNormalizedMitigationScore "+averageMitigationScore+" averageNormalizedFinalCost "+averageFinalCost+" numOFTasks"+completeVersion+" ***************************************************************","LearningAdaptationLogchainAdaptive.txt");
+		
 	}
 	
 	
@@ -761,6 +1072,7 @@ public class TenantKernel {
 		coopisValue=0;
 		coopisScore=0;
 		completeVersion=0;
+		upcomingAdaptations=new ArrayList<Adaptation>();
 		ActionRecords = new ArrayList<ActionRecord>();
 		
 		
@@ -772,12 +1084,55 @@ public class TenantKernel {
 			coopisValueMaxAdaptive=coopisValueAdaptive;
 		if(coopisScoreAdaptive>coopisScoreMaxAdaptive)
 			coopisScoreMaxAdaptive=coopisScoreAdaptive;
-		coopisTimeAdaptive=0;
+		chainTimeAdaptive=0;
 		coopisPriceAdaptive=0;
 		coopisValueAdaptive=0;
 		coopisScoreAdaptive=0;
 		completeVersionAdaptive=0;
+		upcomingAdaptationsAdaptive=new ArrayList<Adaptation>();
 		ActionRecordsAdaptive = new ArrayList<ActionRecord>();
+		//******
+		if(chainTime>chainTimeMax)
+			chainTimeMax=chainTime;
+		if(chainPrice>chainPriceMax)
+			chainPriceMax=chainPrice;
+		if(chainValue>chainValueMax)
+			chainValueMax=chainValue;
+		if(chainScore>chainScoreMax)
+			chainScoreMax=chainScore;
+		if(chainFinalCost>chainFinalCostMax)
+			chainFinalCostMax=chainFinalCost;
+		
+		chainTime=0;
+		chainPrice=0;
+		chainValue=0;
+		chainScore=0;
+		chainFinalCost=0;
+		completeVersion=0;
+		//upcomingAdaptations=new ArrayList<Adaptation>();
+		lowestCostChainRecords = new ArrayList<ChainRecord>();
+		
+		
+		if(chainTimeAdaptive>chainTimeMaxAdaptive)
+			chainTimeMaxAdaptive=chainTimeAdaptive;
+		if(chainPriceAdaptive>chainPriceMaxAdaptive)
+			chainPriceMaxAdaptive=chainPriceAdaptive;
+		if(chainValueAdaptive>chainValueMaxAdaptive)
+			chainValueMaxAdaptive=chainValueAdaptive;
+		if(chainScoreAdaptive>chainScoreMaxAdaptive)
+			chainScoreMaxAdaptive=chainScoreAdaptive;
+		if(chainFinalCostAdaptive>chainFinalCostMaxAdaptive)
+			chainFinalCostMaxAdaptive=chainFinalCostAdaptive;
+		chainTimeAdaptive=0;
+		chainPriceAdaptive=0;
+		chainValueAdaptive=0;
+		chainScoreAdaptive=0;
+		chainFinalCostAdaptive=0;
+		completeVersionAdaptive=0;
+		//upcomingAdaptationsAdaptive=new ArrayList<Adaptation>();
+		currentWorkflowState = new ArrayList<ChainRecord>();
+		
+		
 
 	}
 	
@@ -788,18 +1143,22 @@ public class TenantKernel {
 		edocScoreMax=0;
 	}
 	
-	public void resetCoopisResults() {
-		 CoopisResults = new HashMap<Integer, ArrayList<Double>>();
-		coopisTimeMax=0;
-		coopisPriceMax=0;
-		coopisScoreMax=0;
+	public void resetChainResults() {
+		 chainResultslowestcost = new HashMap<Integer, ArrayList<Double>>();
+		chainTimeMax=0;
+		chainPriceMax=0;
+		chainScoreMax=0;
+		chainFinalCostMax=0;
 		completeVersion=0;
+		upcomingAdaptations=new ArrayList<Adaptation>();
 		
-		 CoopisResultsAdaptive = new HashMap<Integer, ArrayList<Double>>();
-			coopisTimeMaxAdaptive=0;
-			coopisPriceMaxAdaptive=0;
-			coopisScoreMaxAdaptive=0;
+		 chainResultsAdaptive  = new HashMap<Integer, ArrayList<Double>>();
+			chainTimeMaxAdaptive=0;
+			chainPriceMaxAdaptive=0;
+			chainScoreMaxAdaptive=0;
+			chainFinalCostMaxAdaptive=0;
 			completeVersionAdaptive=0;
+			upcomingAdaptationsAdaptive=new ArrayList<Adaptation>();
 	}
 
 	public void ExecuteWorkflow(String ProcessName,int instanceNum, String input) {
@@ -920,7 +1279,11 @@ public class TenantKernel {
 		Map<String, ArrayList<Double>> serviceCost = new HashMap<String, ArrayList<Double>>();
 		Map<String, ArrayList<Double>> userCost = new HashMap<String, ArrayList<Double>>();
 		ArrayList<ArrayList<String>> parallelTasksList = new ArrayList<ArrayList<String>>();
-
+		Map<String, ArrayList<String>> DataFlowClosureSet = new HashMap<String, ArrayList<String>>();
+		Map<String, ArrayList<String>> ControlFlowClosureSet = new HashMap<String, ArrayList<String>>();
+		ArrayList<String> serviceTasksOrder=new ArrayList<String>();
+		Map<String, ArrayList<String>> Successors = new HashMap<String, ArrayList<String>>();
+		Map<String, ArrayList<String>> Predecessors = new HashMap<String, ArrayList<String>>();
 
 		String delimsComma = "[,]+";
 		for(String line:ReadLinebyLine(bpmn)) {
@@ -934,6 +1297,7 @@ public class TenantKernel {
 					else {
 						String[] arr2  = obj.split(delimsComma);
 						String serviceName=arr2[0];
+						serviceTasksOrder.add(serviceName);
 						ArrayList<String> legalAdaptation = new ArrayList<String>();
 						Map<String, ArrayList<String>> adaptationCosts = new HashMap<String, ArrayList<String>>();//time,price,value
 						ArrayList<Double> securityRequirementsForServices = new ArrayList<Double>();
@@ -989,7 +1353,6 @@ public class TenantKernel {
 						}
 					}
 				}//end if userTask
-			
 			if(line.contains("parallelTasks")) {
 				String[] arr1  = line.split(";");
 				int i=0;
@@ -1009,10 +1372,99 @@ public class TenantKernel {
 					}
 				
 			}//end if parallelTasks
+			if(line.contains("DataFlowClosureSet")) {
+				String[] arr1  = line.split(";");
+				int i=0;
+				for (String obj : arr1) {
+					//System.out.println(obj);
+					if(i==0) 
+						i=1;
+					else {
+						String[] arr2  = obj.split(delimsComma);
+						String serviceName=arr2[0];
+						//System.out.println("ElenaN "+serviceName);	
+						ArrayList<String> DataFlow = new ArrayList<String>();
+						for(int j=1;j<arr2.length;j++) {
+							DataFlow.add(arr2[j]);
+							//System.out.println("ElenaH "+arr2[j]);	
+						}
+						DataFlowClosureSet.put(serviceName,DataFlow);
+					}
+				}
+			}//end if DataFlowClosureSet
+			if(line.contains("ControlFlowClosureSet")) {
+				String[] arr1  = line.split(";");
+				int i=0;
+				for (String obj : arr1) {
+					//System.out.println(obj);
+					if(i==0) 
+						i=1;
+					else {
+						String[] arr2  = obj.split(delimsComma);
+						String serviceName=arr2[0];
+						//System.out.println("ElenaN "+serviceName);	
+						ArrayList<String> ControlFlow = new ArrayList<String>();
+						for(int j=1;j<arr2.length;j++) {
+							ControlFlow.add(arr2[j]);
+							//System.out.println("ElenaH "+arr2[j]);	
+						}
+						ControlFlowClosureSet.put(serviceName,ControlFlow);
+					}
+				}
+			}//end if ControlFlowClosureSet
+			
+			if(line.contains("Successors")) {
+				String[] arr1  = line.split(";");
+				int i=0;
+				for (String obj : arr1) {
+					//System.out.println(obj);
+					if(i==0) 
+						i=1;
+					else {
+						String[] arr2  = obj.split(delimsComma);
+						String serviceName=arr2[0];
+						//System.out.println("ElenaN "+serviceName);	
+						ArrayList<String> successor = new ArrayList<String>();
+						for(int j=1;j<arr2.length;j++) {
+							successor.add(arr2[j]);
+							//System.out.println("ElenaH "+arr2[j]);	
+						}
+						Successors.put(serviceName,successor);
+					}
+				}
+			}//end if Successors
+			
+			if(line.contains("Predecessors")) {
+				String[] arr1  = line.split(";");
+				int i=0;
+				for (String obj : arr1) {
+					//System.out.println(obj);
+					if(i==0) 
+						i=1;
+					else {
+						String[] arr2  = obj.split(delimsComma);
+						String serviceName=arr2[0];
+						//System.out.println("ElenaN "+serviceName);	
+						ArrayList<String> predecessor = new ArrayList<String>();
+						for(int j=1;j<arr2.length;j++) {
+							predecessor.add(arr2[j]);
+							//System.out.println("ElenaH "+arr2[j]);	
+						}
+						Predecessors.put(serviceName,predecessor);
+					}
+				}
+			}//end if Predecessors
+			
+			
 			
 		}//for
+
 		
-		Workflow w=new Workflow(bpmn,userTasks,serviceTasks,this.users,this,this.KM,serviceTasksLegalAdaptation,serviceTasksLegalAdaptationCost,serviceCost,userCost,parallelTasksList);
+		
+		
+		
+		Workflow w=new Workflow(bpmn,userTasks,serviceTasksOrder,serviceTasks,this.users,this,this.KM,serviceTasksLegalAdaptation,serviceTasksLegalAdaptationCost,serviceCost,userCost,parallelTasksList,DataFlowClosureSet,ControlFlowClosureSet,Successors,Predecessors,this.priceWeight,this.timeWeight,this.valueWeight,this.securityWeight);
+		this.KM.getMultiCloudEnvironment().setWorkflow(w);
 		workflows.add(w);
 		w.print();
 		System.out.println("***********end of Create workflow "+bpmn);
@@ -1148,7 +1600,10 @@ public class TenantKernel {
 				//localAdaptation(s,payload,attackScore,workflow,taskNumber);
 				//localAdaptationEdoc(s,payload,attackScore,workflow,taskNumber);
 				//localAdaptationCoopis(s,payload,attackScore,workflow,taskNumber);
-				localAdaptationCoopisPredictive(s,payload,attackScore,workflow,taskNumber);
+				//localAdaptationCoopisPredictive(s,payload,attackScore,workflow,taskNumber);
+				//localChainAdaptationPredictive(s,payload,attackScore,workflow,taskNumber);
+				localChainAdaptationPredictive2(s,payload,attackScore,workflow,taskNumber);
+
 
 			}
 			else {
@@ -1175,23 +1630,80 @@ public class TenantKernel {
 			System.out.println("No malicious behaviour detected !!");
 			//String timestamp = new SimpleDateFormat("HH:mm:ss.SSS").format(new Date());
 			//addTaskToFile(timestamp+"\t"+this.getId()+"\t"+workflow.getId()+"\t"+ s.getInstanceId()+"\t"+taskNumber+"\t ServiceTask "+"\t Normal","adaptationLogEdoc.txt");//add this adaptation to file 
-			ArrayList<Double> costs=workflow.getCostsforServiceTask(s.getTaskId());
-			double cost=0,price=s.getService(). getCost(),time=s.getService(). getART(),value=costs.get(2);
-			coopisTime+=time;
-			coopisPrice+=price;
-			coopisValue+=value;
 			
-			coopisTimeAdaptive+=time;
-			coopisPriceAdaptive+=price;
-			coopisValueAdaptive+=value;
-			//addTaskToFile(s.getTaskId()+"\t"+"normal"+"\t"+0+"\t"+"nothing"+"\t"+0+"\t"+time+"\t"+price+"\t"+value+"\t"+0,"LearningAdaptationLogCoopis.txt");//add this adaptation to file 
-			//addTaskToFile(s.getTaskId()+"\t"+"normal"+"\t"+0+"\t"+"nothing"+"\t"+0+"\t"+time+"\t"+price+"\t"+value+"\t"+0,"LearningAdaptationLogCoopisAdaptive.txt");//add this adaptation to file 
+			//if it is part of upcomingAdaptationsAdaptive(RL strategy) in previous tasks
+			boolean plannedAdaptationAdaptive=false;
+			Adaptation currentAdaptationAdaptive=null;
+			for(Adaptation aa:upcomingAdaptationsAdaptive) {
+				if(aa.getTask().equals(s.getTaskId())) {
+					plannedAdaptationAdaptive=true;
+					currentAdaptationAdaptive=aa;
+				}
+			}
+			//if it's not part of the previous adaptation chains
+			if(plannedAdaptationAdaptive) {
+				System.out.println("it's a planned adaptation (part of the previous adaptation chains (RL strategy))");
+				
+				chainTimeAdaptive+=currentAdaptationAdaptive.getTime();
+				chainPriceAdaptive+=currentAdaptationAdaptive.getPrice();
+				chainValueAdaptive+=currentAdaptationAdaptive.getValue();
+				chainScoreAdaptive+=currentAdaptationAdaptive.getMitigationScore();
+				currentAdaptationAdaptive.print();
+				
+			}
+			else {
+				System.out.println("it's not a planned adaptation");
+				ArrayList<Double> costs=workflow.getCostsforServiceTask(s.getTaskId());
+				double cost=0,price=s.getService(). getCost(),time=s.getService(). getART(),value=costs.get(2);			
+				chainTimeAdaptive+=time;
+				chainPriceAdaptive+=price;
+				chainScoreAdaptive+=value;
+				//addTaskToFile(s.getTaskId()+"\t"+"normal"+"\t"+0+"\t"+"nothing"+"\t"+0+"\t"+time+"\t"+price+"\t"+value+"\t"+0,"LearningAdaptationLochains.txt");//add this adaptation to file 
+				//addTaskToFile(s.getTaskId()+"\t"+"normal"+"\t"+0+"\t"+"nothing"+"\t"+0+"\t"+time+"\t"+price+"\t"+value+"\t"+0,"LearningAdaptationLogCoopisAdaptive.txt");//add this adaptation to file 
+			}
+			
+			
+			//if it is part of upcomingAdaptationsAdaptive(Lowest cost strategy) in previous tasks
+			boolean plannedAdaptation=false;
+			Adaptation currentAdaptation=null;
+			for(Adaptation aa:upcomingAdaptations) {
+				if(aa.getTask().equals(s.getTaskId())) {
+					plannedAdaptation=true;
+					currentAdaptation=aa;
+				}
+				
+			}
+			//if it's not part of the previous adaptation chains
+			if(plannedAdaptation) {
+				System.out.println("it's a planned adaptation (part of the previous adaptation chains (Lowest cost strategy))");
+				chainTime+=currentAdaptation.getTime();
+				chainPrice+=currentAdaptation.getPrice();
+				chainValue+=currentAdaptation.getValue();
+				chainScore+=currentAdaptation.getMitigationScore();
+				currentAdaptation.print();
 
+				
+			}
+			else {
+				System.out.println("it's not a planned adaptation");
+				ArrayList<Double> costs=workflow.getCostsforServiceTask(s.getTaskId());
+				double cost=0,price=s.getService(). getCost(),time=s.getService(). getART(),value=costs.get(2);
+				chainTime+=time;
+				chainPrice+=price;
+				chainValue+=value;
+				
+				//addTaskToFile(s.getTaskId()+"\t"+"normal"+"\t"+0+"\t"+"nothing"+"\t"+0+"\t"+time+"\t"+price+"\t"+value+"\t"+0,"LearningAdaptationLogCoopis.txt");//add this adaptation to file 
+				//addTaskToFile(s.getTaskId()+"\t"+"normal"+"\t"+0+"\t"+"nothing"+"\t"+0+"\t"+time+"\t"+price+"\t"+value+"\t"+0,"LearningAdaptationLogCoopisAdaptive.txt");//add this adaptation to file 
+			}
+			
+			
 			completeVersion++;
 
 			}
 
 	}
+	
+	
 	
 	public boolean IsAnomaly(String payload) {
 		boolean result=false;
@@ -1514,6 +2026,629 @@ public class TenantKernel {
 	}
 	
 	
+	
+	public ArrayList<ArrayList<Adaptation>> ComputeAdaptationSecurityChainSet(ServiceTask s,Workflow workflow,ArrayList<String> attackAdaptations){
+		System.out.println("ComputeAdaptationSecurityChainSet");
+		 ArrayList<ArrayList<Adaptation>>  AdaptationSecurityChainSet=new ArrayList<>();
+		Map<String, ArrayList<String>> AdaptationChains=new HashMap<String, ArrayList<String>>();
+		
+		int indexOfS=0;
+		//System.out.println("here taskID "+s.getTaskId());
+		 System.out.println("suitable adaptations for the detected attack:");
+		for (String adaptation : attackAdaptations) {
+            System.out.println("	-"+adaptation);
+        }
+		
+		
+		for(int i=0;i<workflow.getServiceTasks().size();i++) {
+			if(s.getTaskId().equals(workflow.getServiceTasks().get(i)))
+				indexOfS=i;
+		}
+		//System.out.println("indexOfS: "+indexOfS);
+		//add the current task's adaptations
+		//AdaptationChains.put(s.getTaskId(),workflow.getLegalAdaptationforServiceTask(s.getTaskId()));
+		ArrayList<String> LegalAdaptationforTask_Attack0 = new ArrayList<String>();
+		for(String a:workflow.getLegalAdaptationforServiceTask(s.getTaskId())) {
+			if(attackAdaptations.contains(a))
+				LegalAdaptationforTask_Attack0.add(a);
+		}
+		AdaptationChains.put(s.getTaskId(),LegalAdaptationforTask_Attack0);
+		
+		
+		
+		//add the security dependent tasks' adaptations
+		for(int j=0;j<workflow.getServiceTasks().size();j++) {
+			String task=workflow.getServiceTasks().get(j);
+			//System.out.println("ServiceTask: "+task+"  "+j);
+			if(workflow.CheckSecurityDependency(indexOfS,j)) {
+				ArrayList<String> LegalAdaptationforTask_Attack = new ArrayList<String>();
+				for(String a:workflow.getLegalAdaptationforServiceTask(task)) {
+					if(attackAdaptations.contains(a))
+						LegalAdaptationforTask_Attack.add(a);
+				}
+				AdaptationChains.put(task,LegalAdaptationforTask_Attack);
+				System.out.println("SecurityDependency["+indexOfS+"]["+j+"]=true");
+			}
+			else
+				System.out.println("SecurityDependency["+indexOfS+"]["+j+"]=false");
+		}
+		
+		// Remove the entry if the list of actions is empty
+		 Iterator<Map.Entry<String, ArrayList<String>>> iterator = AdaptationChains.entrySet().iterator();
+
+	        while (iterator.hasNext()) {
+	            Map.Entry<String, ArrayList<String>> entry = iterator.next();
+	            String task = entry.getKey();
+	            ArrayList<String> actions = entry.getValue();
+
+	            System.out.print(task + "-> ");
+
+	            if (actions.isEmpty()) {
+	                // Remove the entry if the list of actions is empty
+	                iterator.remove();
+	                System.out.println("Removed");
+	            } else {
+	                // Print actions
+	                for (String action : actions) {
+	                    System.out.print(action + ", ");
+	                }
+	                System.out.println();
+	            }
+	        }
+		
+            System.out.println("remove tasks with empty actions*************************************");
+
+			 for (Map.Entry<String, ArrayList<String>> entry : AdaptationChains.entrySet()) {
+		            String task = entry.getKey();
+		            ArrayList<String> actions = entry.getValue();
+
+		            System.out.print(task + "-> ");
+
+		            for (String action : actions) {
+		                System.out.print(action + ", ");
+		            }
+		            System.out.println();
+		        }
+			 
+		
+		
+		
+		 //AdaptationSecurityChainSet=GenerateCombinations(AdaptationChains);
+		 AdaptationSecurityChainSet=FinalGenerateCombinations(AdaptationChains);
+
+		return AdaptationSecurityChainSet;
+	}
+	
+	public  boolean hasCommonElements(ArrayList<String> list1,ArrayList<String> list2) {
+		boolean hasCommon = false;
+	    for (String element : list1) {
+	        if (list2.contains(element)) {
+	            return true;
+	        }
+	    }
+	    return false;
+    }
+	
+	public ArrayList<ArrayList<Adaptation>> ComputeAdaptationSecurityChainLoops(ServiceTask s,Workflow workflow,ArrayList<ArrayList<Adaptation>> AdaptationChains){
+		System.out.println("ComputeAdaptationSecurityChainLoops");
+		ArrayList<ArrayList<Adaptation>> AdaptationChainsLoops=new ArrayList<>();
+		for(ArrayList<Adaptation> ac: AdaptationChains) {
+			//System.out.println("ac: ");
+			ArrayList<Adaptation> newac=ac;
+			ArrayList<String> adaptTasks=new ArrayList<String>();
+			ArrayList<String> SPs=new ArrayList<String>();
+			for(Adaptation adapt:ac) {
+				adaptTasks.add(adapt.getTask());
+				//System.out.println("	task: "+adapt.getTask());		
+			}
+			for(String task: adaptTasks) {
+				if(workflow.getPredecessors(task)!=null && !hasCommonElements(workflow.getPredecessors(task),adaptTasks)) {
+					SPs.add(task);
+					//System.out.println("	starting point: "+task);		
+				}
+			}
+			for(String sp:SPs) {
+				for(int j=0;j<workflow.getServiceTasks().size();j++) {
+					String task=workflow.getServiceTasks().get(j);
+					//if(workflow.getPredecessors(s.getTaskId()).contains(task))
+						//System.out.println("	add unintentional adaptation1 ");
+					//if(workflow.getSuccessors(sp).contains(task))
+						//System.out.println("	add unintentional adaptation2 ");
+					//if(!adaptTasks.contains(task)) 
+						//System.out.println("	add unintentional adaptation3 ");
+
+					if(workflow.getPredecessors(s.getTaskId()).contains(task) && workflow.getSuccessors(sp).contains(task) && !adaptTasks.contains(task)) {
+						System.out.println("In Adaptation Chain: ");
+						for(Adaptation adapt:ac) {
+							System.out.println("	task: "+adapt.getTask());		
+						}
+						System.out.println("add unintentional adaptation: ");
+						Adaptation newadapt=new Adaptation("ReExecute",task);
+						newadapt.smallPrint();
+						newac.add(newadapt);
+					}
+				}
+			}
+			AdaptationChainsLoops.add(newac);
+			
+		}
+		return AdaptationChainsLoops;
+	}
+	
+	
+	
+	public  ArrayList<ArrayList<Adaptation>> FinalGenerateCombinations(Map<String, ArrayList<String>> AdaptationChains){
+		System.out.println("GenerateCombinations");		
+		ArrayList<ArrayList<Adaptation>> AdaptationSecurityChainSet = new ArrayList<>();
+        ArrayList<String> traces = new ArrayList<>();
+        
+		int sizeOfCombination=AdaptationChains.size();
+		
+		System.out.println("sizeOfCombination: "+sizeOfCombination);
+		
+		 for (Map.Entry<String, ArrayList<String>> entry : AdaptationChains.entrySet()) {
+	            String task = entry.getKey();
+	            ArrayList<String> actions = entry.getValue();
+
+	            if (!traces.contains(task)) {
+	                traces.add(task);
+	                //System.out.println("task: " + task);
+	                for (String action : actions) {
+	                    //System.out.println("    action: " + action);
+	                    ArrayList<Adaptation> currentChain = new ArrayList<>();
+	                    Adaptation a=new Adaptation(action, task);
+	                    generateCombinationsRecursive(a,AdaptationSecurityChainSet);
+	                 }
+	            }
+        }
+		/*
+		 int i=0;
+		 for (ArrayList<Adaptation> innerList : AdaptationSecurityChainSet) {
+			 System.out.println("chain "+i);
+			 i++;
+	            for (Adaptation adaptation : innerList) {
+	            	adaptation.smallPrint();
+	            }
+	        }
+	     */
+		 return AdaptationSecurityChainSet;
+	}
+	
+	
+	private void generateCombinationsRecursive(Adaptation a,ArrayList<ArrayList<Adaptation>> AdaptationSecurityChainSet) {
+		//System.out.println("step");
+		//System.out.println("AdaptationSecurityChainSet "+AdaptationSecurityChainSet.size());
+        ArrayList<ArrayList<Adaptation>> newChains = new ArrayList<>();
+        
+        //we need to add three sets {(all previous +new),(new),(all previous)}
+      //all previous +new
+		for(ArrayList<Adaptation> chain: AdaptationSecurityChainSet) {
+			boolean check=false;
+			ArrayList<Adaptation> previousChain=new ArrayList<Adaptation>();
+			for(Adaptation adapt:chain) {
+				previousChain.add(adapt);
+				if(a.getTask().equals(adapt.getTask()))
+					check=true;
+			}
+			if(check==false) {
+				newChains.add(previousChain);
+				chain.add(a);
+			}
+		}
+		
+		//new
+		ArrayList<Adaptation> currentChain=new ArrayList<Adaptation>();
+		currentChain.add(a);
+		AdaptationSecurityChainSet.add(currentChain);
+		
+		//all previous 
+		for(ArrayList<Adaptation> chain: newChains) {
+			AdaptationSecurityChainSet.add(chain);
+		}
+ 
+    }
+	
+	
+	
+	public  ArrayList<ArrayList<Adaptation>> generateCombinationsFixedSize2(Map<String, ArrayList<String>> AdaptationChains){
+		System.out.println("generateCombinationsFixedSize2");
+		ArrayList<ArrayList<Adaptation>>  AdaptationSecurityChainSet=new ArrayList<>();		
+    	ArrayList<String> traces = new ArrayList<String>();
+
+		 for (Map.Entry<String, ArrayList<String>> entry1 : AdaptationChains.entrySet()) {
+	            String task1 = entry1.getKey();
+	            traces.add(task1);
+	            ArrayList<String> actions1 = entry1.getValue();
+
+	            System.out.println("task1: "+task1);
+
+	            for (String action1 : actions1) {
+	                System.out.println("	action1: "+action1);
+	                ArrayList<Adaptation> ac1 = new ArrayList<Adaptation>();
+	            	Adaptation a1=new Adaptation(action1,task1);
+	            	ac1.add(a1);
+	            	AdaptationSecurityChainSet.add(ac1);
+	                for (Map.Entry<String, ArrayList<String>> entry2 : AdaptationChains.entrySet()) {
+	                	String task2 = entry2.getKey();
+	    	            ArrayList<String> actions2 = entry2.getValue();
+	    	            //if(!task1.equals(task2)) {
+	    	            if(!traces.contains(task2)) {
+	    	            System.out.println("		task2: "+task2);
+	    	            for (String action2 : actions2) {
+	    	            	ArrayList<Adaptation> ac2 = new ArrayList<Adaptation>();
+	    	            	ArrayList<Adaptation> ac3 = new ArrayList<Adaptation>();
+	    	                System.out.println("			action2: "+action2);    	                	
+    	                	Adaptation a2=new Adaptation(action2,task2);
+    	                	ac2.add(a1);
+    	                	ac2.add(a2);
+    	                	ac3.add(a2);
+	    	            	AdaptationSecurityChainSet.add(ac2);
+	    	            	AdaptationSecurityChainSet.add(ac3);
+    	                }
+    	             }
+	             }
+	                
+	        }
+	        System.out.println();
+	     }
+		 
+		return AdaptationSecurityChainSet;
+	}
+
+	
+	
+	
+	
+	
+	//Chain Adaptation with precice qlearning
+		public void localChainAdaptationPredictive2(ServiceTask s,String payload,double attackScore,Workflow workflow,int taskNumber) throws IOException{
+			System.out.println("localAdaptation Chain Adaptation2");
+			Attack attack=null;
+			for(Attack a:AttackTypes) {
+				//System.out.println(attack.getName()+" "+payload);
+				if(payload.contains(a.getName()))
+					attack=a;
+			}
+			
+			System.out.println("$For serviceTask "+s.getTaskId()+" in instance "+s.getInstanceId()+" from ProcessId "+s.getProcessId()+" from workflow "+workflow.getName()+"  attack:"+attack.getName()+" with attackScore "+attackScore+"("+getSeverity(attackScore)+") will be adapted");
+			
+			ArrayList<String> attackAdaptations=attack.getAttackAdaptationPattern(getSeverity(attackScore));
+			//compute Adaptation Security Chain Set
+			ArrayList<ArrayList<Adaptation>> AdaptationChains=ComputeAdaptationSecurityChainSet(s,workflow,attackAdaptations);
+			ArrayList<ArrayList<Adaptation>> AdaptationChainsLoops=ComputeAdaptationSecurityChainLoops(s,workflow,AdaptationChains);
+
+			
+			ArrayList<AdaptationChain> AdaptationChainSet=new ArrayList<AdaptationChain>();
+			int i=0;
+			for(ArrayList<Adaptation> ac: AdaptationChainsLoops) {
+				AdaptationChainSet.add(new AdaptationChain(i,s.getTaskId(),ac));
+				i++;
+			}
+			
+			//for(AdaptationChain chain: AdaptationChainSet) 
+			//	chain.print();
+			
+			//compute cost of each chain in Adaptation Security Chain Set
+			System.out.println("******** Chains after compute all parameters");
+			for(AdaptationChain chain: AdaptationChainSet) {
+				//System.out.println("			-Calculate cost of "+chain.getID());
+				for(Adaptation currentAdaptation: chain.getAdaptations()) {
+					predictCostOfAdaptation2(s,currentAdaptation.getTask(),currentAdaptation,workflow,attack);
+				}
+				chain.ComputeCost(workflow,priceWeight,timeWeight,valueWeight,securityWeight);
+				chain.ComputeCostSofar(workflow,priceWeight,timeWeight,valueWeight,securityWeight);
+				chain.ComputeCostForEntireWorkflow(workflow,priceWeight,timeWeight,valueWeight,securityWeight);
+				chain.print();
+			}
+			
+			
+
+			//adaptation chain calculation
+			ChainRecord random=new ChainRecord(s.getTaskId(),attack.getName(),getSeverity(attackScore),attackScore);
+			ChainRecord lowestCost=new ChainRecord(s.getTaskId(),attack.getName(),getSeverity(attackScore),attackScore);
+			ChainRecord currentTaskState=new ChainRecord(s.getTaskId(),attack.getName(),getSeverity(attackScore),attackScore);
+			
+			
+			//select random adaptation chain for creating logfile for ML
+			AdaptationChain randomAdaptationChain=selectRandomAdaptationChainStrategy(AdaptationChainSet,s,workflow);
+			System.out.println("******Random Adaptation Chain******");
+			//randomAdaptationChain.print();
+			random.setAdaptationChain(randomAdaptationChain);
+			StateChain currentStateRandom=new StateChain(random,randomChainRecords);
+			ArrayList<Double> randomParameters=ComputeFinalParameters(currentStateRandom,randomAdaptationChain,workflow);
+			chainTimeRandom+=randomParameters.get(0);
+			chainPriceRandom+=randomParameters.get(1);
+			chainValueRandom+=randomParameters.get(2);
+			chainScoreRandom+=randomParameters.get(3);
+			chainFinalCostRandom+=randomParameters.get(4);
+
+			//add for the nex rand
+			randomChainRecords.add(random);
+			random.print(" Random Adaptation Chain ");
+			
+
+
+			
+			
+			//select best adaptation chain based on lowest cost strategy
+			AdaptationChain selectedAdaptationChain=selectBestAdaptationChainStrategy(AdaptationChainSet,s,workflow);
+			System.out.println("******Lowest cost Adaptation Chain******");
+			//selectedAdaptationChain.print();
+			lowestCost.setAdaptationChain(selectedAdaptationChain);
+			StateChain currentStateLowestCost=new StateChain(lowestCost,lowestCostChainRecords);
+			ArrayList<Double> lowestCostParameters=ComputeFinalParameters(currentStateLowestCost,selectedAdaptationChain,workflow);
+			chainTime+=lowestCostParameters.get(0);
+			chainPrice+=lowestCostParameters.get(1);
+			chainValue+=lowestCostParameters.get(2);
+			chainScore+=lowestCostParameters.get(3);
+			chainFinalCost+=lowestCostParameters.get(4);
+			//add for the nex rand
+			lowestCostChainRecords.add(lowestCost);
+			lowestCost.print(" Lowest cost Adaptation Chain ");
+			
+			//select best adaptation chain based on RL strategy
+			System.out.println("******Start Selecting Best Adaptation Chain basd on RL strategy******");	
+			//1-check the state 
+			StateChain currentState=null;
+			//currentTaskState: current state of the task(s.getTaskId(),attack.getName(),getSeverity(attackScore),attackScore)
+			//currentWorkflowState: current state of the workflow		
+			for(StateChain st:states) {
+				if(st.isSameState(currentTaskState,currentWorkflowState))
+					currentState=st;
+			}
+			
+			if(currentState==null) {
+				currentState=new StateChain(currentTaskState,currentWorkflowState);
+				this.states.add(currentState);
+			}
+			//2-upgate the qtable
+			AdaptationChain finalSelectedAdaptationChain=qlearningchain.learnChain(currentState,states,qTable,AdaptationChainSet,currentTaskState,randomAdaptationChain,currentWorkflowState,workflow,priceWeight,timeWeight,valueWeight,securityWeight);
+			
+			System.out.println("******Best Adaptation Chain(RL)******");
+			//finalSelectedAdaptationChain.print();
+			currentTaskState.setAdaptationChain(finalSelectedAdaptationChain);
+			ArrayList<Double> RLParameters=ComputeFinalParameters(currentState,finalSelectedAdaptationChain,workflow);
+			chainTimeAdaptive+=RLParameters.get(0);
+			chainPriceAdaptive+=RLParameters.get(1);
+			chainValueAdaptive+=RLParameters.get(2);
+			chainScoreAdaptive+=RLParameters.get(3);
+			chainFinalCostAdaptive+=RLParameters.get(4);
+
+			//add for the nex rand
+			currentWorkflowState.add(currentTaskState);
+			currentTaskState.print(" Best Adaptation Chain(RL) ");
+			numberOfDetectedattacks++;
+		}
+		
+		public  List<String> findCommonElements(ArrayList<String> list1, ArrayList<String> list2) {
+			//System.out.println("findCommonElements is started!");
+			
+			/*
+			System.out.println("List 1:");
+			 for (String element : list1) {
+		            System.out.println(element);
+		        }
+		        System.out.println("\nList 2:");
+		        for (String element : list2) {
+		            System.out.println(element);
+		        }
+		      */
+			
+	        // Use a HashSet to efficiently store unique elements of list1
+	        Set<String> set = new HashSet<>(list1);
+
+	        // Create a list to store common elements
+	        List<String> commonElements = new ArrayList<>();
+
+	        // Iterate through list2 and check if each element exists in the set
+	        for (String element : list2) {
+	            if (set.contains(element)) {
+	                commonElements.add(element);
+	        		//System.out.println("	-commonElements "+element);
+
+	            }
+	        }
+			 //System.out.println("findCommonElements is completed!");
+
+
+	        return commonElements;
+	    }
+		
+		public Adaptation getLastHistoryAdaptation(ArrayList<ChainRecord> ChainRecords,String task) {
+			Adaptation aa=null;
+			for (int i = ChainRecords.size() - 1; i >= 0; i--) {
+	            ChainRecord record = ChainRecords.get(i);
+	            for(Adaptation aah:record.getSelectedChain().getAdaptations()) {
+	            	if(aah.getTask().equals(task)) {
+	            		aa= aah;
+	            		break;
+	            	}
+	            }
+	        }
+			return aa;
+		}
+		
+		
+		public Adaptation isAdaptedtaskBasedOnCurrentChain(String task, AdaptationChain adaptationChain) {
+			for(Adaptation aa: adaptationChain.getAdaptations()) {
+	        	if(task.equals(aa.getTask())) {
+	        		return aa;
+	        	}
+	        }
+			//for the tasks that are not invoulved in the adaptation consier a fix default time, price and value(mitigation score for these tasks is 0)
+			return null;
+		}
+		
+		public ArrayList<Double> ComputeFinalParameters(StateChain currentState, AdaptationChain adaptationChain,Workflow w) {
+			//System.out.println("@@@@@Compute Reward Sofar@@@@@");
+		    ArrayList<String> coveredParallelTasks=new ArrayList<String>();
+		    
+		    String violatedTask=currentState.getCurrentChain().getTaskName();
+		    String previousViolatedTask=currentState.getPreviousViolatedTask();
+			//System.out.println("	-violatedTask "+violatedTask);
+			//System.out.println("	-previousViolatedTask "+previousViolatedTask); 
+		    
+		    
+			//System.out.println("@Compute the cost of completing workflow until the violated task (part one algorithm5)");   
+		    //compute the cost of completing workflow until the violated task (part one algorithm5)
+			List<String> commonElements;
+		    if(previousViolatedTask==null)
+		    	commonElements = findCommonElements(w.getServiceTasks(), w.getPredecessors(violatedTask));
+		    else
+		    	commonElements = findCommonElements(w.getSuccessors(previousViolatedTask), w.getPredecessors(violatedTask));
+		    
+		    double p=0,t=0,v=0,ms=0;
+		    if(commonElements.size()==0)
+	    		//System.out.println("	-There is no pending adaptations until the current violated task ");   
+		    for(String commonTask: commonElements) {
+	    		//System.out.println("commonTask: "+commonTask);   
+		    	Adaptation aaHistory=currentState.getLastHistoryAdaptation(commonTask);
+		    	if(aaHistory!=null) {
+		    		//System.out.println("	-aaHistory is not null for the task "+commonTask+" so the cost of this adaptation will be add");   
+		    		//aaHistory.smallPrint(); 
+		    		
+		    		p+=aaHistory.getPrice();
+					v+=aaHistory.getValue();
+					ms+=aaHistory.getMitigationScore();
+					if(w.getParallelTasks(aaHistory.getTask()).size()!=0) {
+						if(!coveredParallelTasks.contains(aaHistory.getTask())) {
+							//System.out.println("	-this task is parallel with some tasks!!   max: "+MAXDefaulttimeForParallelTasks(aa.getTask(),w.getParallelTasks(aa.getTask()),w)+"  task: "+aa.getTime());
+							t=+adaptationChain.MAXDefaulttimeForParallelTasks(aaHistory.getTask(),w.getParallelTasks(aaHistory.getTask()),w);
+							coveredParallelTasks.add(commonTask);
+							coveredParallelTasks.addAll(w.getParallelTasks(aaHistory.getTask()));
+						}
+					}
+					else {
+						//System.out.println("	-this task is not parallel with any task!!:"+aa.getTime());
+						t+=aaHistory.getTime();
+						}  		
+		    	}
+		    	else {
+		    		//System.out.println("	-aaHistory is null for the task "+commonTask+" so the default cost will be add");   
+					//System.out.println("	-this task is not involved in adaptation chain!!:");
+					p+=w.getDefaultPrice(commonTask);
+					v+=w.getDefaultValue(commonTask);
+					if(w.getParallelTasks(commonTask).size()!=0) {
+						if(!coveredParallelTasks.contains(commonTask)) {
+							//System.out.println("	-this task is parallel with some tasks!!  max: "+MAXDefaulttimeForParallelTasks(task,w.getParallelTasks(task),w)+" task: "+w.getDefaultTime(task));
+							t+=adaptationChain.MAXDefaulttimeForParallelTasks(commonTask,w.getParallelTasks(commonTask),w);
+							coveredParallelTasks.add(commonTask);
+							coveredParallelTasks.addAll(w.getParallelTasks(commonTask));
+						}
+					}
+					else {
+						//System.out.println("	-this task is not parallel with any task!!:"+w.getDefaultTime(task));
+						t+=w.getDefaultTime(commonTask);
+					}
+				}
+		    	//System.out.println("t: "+t+" p: "+p+" v: "+v 	);
+		    }
+		    
+			
+		    double pNextMin=0,tNextMin=0,vNextMin=0,msNextMin=0;
+
+			//System.out.println("@Compute the cost of adaptation chain until the current violated task");   
+			boolean sofar=false;
+			for (int i = 0; i < w.getServiceTasks().size(); i++) {
+	            String task=w.getServiceTasks().get(i);
+	            if(!sofar) {
+	    			//System.out.println("task:"+task);
+					if(isAdaptedtaskBasedOnCurrentChain(task,adaptationChain)!=null) {
+						//System.out.println("	-this task is adapted Based On Current Chain!!");
+						Adaptation aa=isAdaptedtaskBasedOnCurrentChain(task,adaptationChain);
+						p+=aa.getPrice();
+						v+=aa.getValue();
+						ms+=aa.getMitigationScore();
+						if(w.getParallelTasks(aa.getTask()).size()!=0) {
+							if(!coveredParallelTasks.contains(aa.getTask())) {
+								//System.out.println("	-this task is parallel with some tasks!!   max: "+MAXDefaulttimeForParallelTasks(aa.getTask(),w.getParallelTasks(aa.getTask()),w)+"  task: "+aa.getTime());
+								t=+adaptationChain.MAXDefaulttimeForParallelTasks(aa.getTask(),w.getParallelTasks(aa.getTask()),w);
+								coveredParallelTasks.add(task);
+								coveredParallelTasks.addAll(w.getParallelTasks(aa.getTask()));
+							}
+						}
+						else {
+							//System.out.println("	-this task is not parallel with any task!!:"+aa.getTime());
+							t+=aa.getTime();
+							}
+		            }
+					
+				   if(task.equals(violatedTask)) {
+		            	sofar=true;
+		            }
+				   
+				   if(w.getLastTask().equals(violatedTask)) {
+					   adaptationChain.setFinalRLParameters(p, t, v, ms);
+					   System.out.println("	Final parameters :"+p+ t+ v+ ms);
+
+				   }
+					
+		          }
+	            else {//compute the rest as minNextValue(The minimum cost for the state occurs when the workflow is completed without any violations, thereby requiring no further adaptations.)
+	            	if(isAdaptedtaskBasedOnCurrentChain(task,adaptationChain)!=null) {
+						//System.out.println("	-this task is adapted Based On Current Chain!!");
+						Adaptation aa=isAdaptedtaskBasedOnCurrentChain(task,adaptationChain);
+						pNextMin+=aa.getPrice();
+						vNextMin+=aa.getValue();
+						msNextMin+=aa.getMitigationScore();
+						if(w.getParallelTasks(aa.getTask()).size()!=0) {
+							if(!coveredParallelTasks.contains(aa.getTask())) {
+								//System.out.println("	-this task is parallel with some tasks!!   max: "+MAXDefaulttimeForParallelTasks(aa.getTask(),w.getParallelTasks(aa.getTask()),w)+"  task: "+aa.getTime());
+								tNextMin=+adaptationChain.MAXDefaulttimeForParallelTasks(aa.getTask(),w.getParallelTasks(aa.getTask()),w);
+								coveredParallelTasks.add(task);
+								coveredParallelTasks.addAll(w.getParallelTasks(aa.getTask()));
+							}
+						}
+						else {
+							//System.out.println("	-this task is not parallel with any task!!:"+aa.getTime());
+							tNextMin+=aa.getTime();
+							}
+		            }
+					
+				   if(task.equals(violatedTask)) {
+		            	sofar=true;
+		            }
+	            	
+	            	}
+	          //System.out.println("t: "+t+" p: "+p+" v: "+v 	);
+			}
+			
+			ArrayList<Double> parameters = new ArrayList<>();
+			double sofarPrice=p;
+			double sofarTime=t;
+			double sofarValue=v;
+			double sofarMitigationScore=ms;
+			
+			parameters.add(sofarTime);
+			parameters.add(sofarPrice);
+			parameters.add(sofarValue);
+			parameters.add(sofarMitigationScore);
+
+			double sofarTotalCost=(priceWeight*sofarPrice)+(timeWeight*sofarTime)-(valueWeight*sofarValue)-(securityWeight*sofarMitigationScore);
+			parameters.add(sofarTotalCost);
+
+			//System.out.println("@@@@@Compute Reward Completed@@@@@");
+			return parameters;
+
+	}
+
+		
+		
+		
+		
+
+	  public StateChain getState(ChainRecord Chain,ArrayList<ChainRecord> ChainRecords) {
+		   StateChain currentState=null;
+		   for(StateChain st:states) {
+				if(st.isSameState(Chain,ChainRecords)) {
+					System.out.println("isSameState: true ");
+					currentState=st;
+					}
+			}
+		   return currentState;
+	   }
+		
+	
 	public void localAdaptationCoopisPredictive(ServiceTask s,String payload,double attackScore,Workflow workflow,int taskNumber) throws IOException{
 		System.out.println("localAdaptation Coopis");
 		Attack attack=null;
@@ -1727,7 +2862,7 @@ public class TenantKernel {
 				currentAction.setUncertainprice(1);
 			}
 			else if(ActionRecords.size()==2) {
-				currentAction.setUncertainprice(1);
+				currentAction.setUncertainprice(2);
 			}
 			else if(ActionRecords.size()>2 && ActionRecords.size()<=5) {
 				currentAction.setUncertainprice(1);
@@ -1880,6 +3015,30 @@ public class TenantKernel {
 		return selectedAdaptation;
 	}
 	
+	
+	
+	public AdaptationChain selectBestAdaptationChainStrategy(ArrayList<AdaptationChain> AdaptationChainSet,ServiceTask s,Workflow workflow)throws IOException{
+		double minCost = Double.MAX_VALUE;
+		AdaptationChain bestSelectedAdaptationChain=null;
+		for(AdaptationChain chain: AdaptationChainSet) {
+			if(chain.getEntireTotalCost()<minCost) {
+				minCost=chain.getEntireTotalCost();
+				bestSelectedAdaptationChain=chain;
+			}
+		}
+		
+		
+		/*
+		System.out.println("			-selectedAdaptation : "+selectedAdaptation+" with Cost "+minCost+" which is the minimum cost between all possible adaptation actions");
+		if(selectedAdaptation.equals("ReExecute") || selectedAdaptation.equals("ReConfiguration"))
+			KM.GlobalAdaptation_ServiceAdaptation(selectedAdaptation,s,workflow);
+		else
+			 performTaskAdaptation(selectedAdaptation,s);
+		*/
+		return bestSelectedAdaptationChain;
+	}
+	
+	
 	public String selectRandomAdaptationsStrategy2(Map<String, Double> adaptationCost,ServiceTask s,Workflow workflow)throws IOException{
 		Random rand = new Random();
 		String selectedAdaptation="";
@@ -1895,6 +3054,22 @@ public class TenantKernel {
 			 performTaskAdaptation(selectedAdaptation,s);
 		}
 		return selectedAdaptation;
+	}
+	
+	public AdaptationChain selectRandomAdaptationChainStrategy(ArrayList<AdaptationChain> AdaptationChainSet,ServiceTask s,Workflow workflow)throws IOException{
+		Random rand = new Random();
+		int randadapt=rand.nextInt(AdaptationChainSet.size());
+		AdaptationChain selectedAdaptationChain=AdaptationChainSet.get(randadapt);
+		
+		
+		/*
+		if(selectedAdaptation.equals("ReExecute") || selectedAdaptation.equals("ReConfiguration"))
+			KM.GlobalAdaptation_ServiceAdaptation(selectedAdaptation,s,workflow);
+		else
+			 performTaskAdaptation(selectedAdaptation,s);
+		*/
+	
+		return selectedAdaptationChain;
 	}
 	
 	public void selectBestAdaptationsStrategy(Map<String, Double> adaptationCost,ServiceTask s){
@@ -2101,6 +3276,159 @@ public class TenantKernel {
 		Adaptation adaptationAction=new Adaptation(adaptation,time,price,value);
 		return adaptationAction;
 	}
+	
+	
+	//chain version
+	public void predictCostOfAdaptation2(ServiceTask task,String serviceTask,Adaptation adapt,Workflow workflow,Attack attack) {
+
+		//Scheduling the Service
+		ArrayList<Service> services = workflow.getLegalServiceforTasks().get(serviceTask);
+		Random rand = new Random();
+		Service service=services.get(rand.nextInt(services.size()));
+		//service.print();
+		Service backupService = services.get(rand.nextInt(services.size()));
+		//backupService.print();
+ 
+		ServiceTask s=new ServiceTask(task.getInstanceId(),task.getProcessId(), serviceTask,service,backupService);
+		//s.print();
+		
+		adapt.calculateMitigationScoreInChain(s,attack,task,workflow);
+
+		
+		String adaptation=adapt.getName();
+		//System.out.println(" cost vector "+workflow.getCostsforServiceTask(s.getTaskId()));
+		ArrayList<Double> costs=workflow.getCostsforServiceTask(s.getTaskId());
+		double cost=0,price=s.getService(). getCost(),time=s.getService(). getART(),value=costs.get(2);
+		//System.out.println(" cost vector "+price+" "+time+" "+value);
+		
+		double oldtotalCost=this.priceWeight*price+this.timeWeight*time-this.valueWeight*value;// time and cost have positive and value has negetive relationship with final cost 
+		//System.out.println("					-OldCost  "+oldtotalCost+" time "+time +" price "+price+" value "+value);
+		
+		
+		ArrayList<String> costVector=workflow.getAdaptationCostForService_Action(s.getTaskId(),adaptation);
+		//System.out.println(" adaptation cost vector "+costVector.get(0)+" "+costVector.get(1)+" "+costVector.get(2));
+
+		//Tenant-level adaptation
+		//a:Task-level adaptations: 
+			
+		if(adaptation.equals("ReExecute")) {
+			//System.out.println("s.getBackupService(). getCost()  "+s.getBackupService(). getCost()+" s.getBackupService(). getART() "+s.getBackupService(). getART());
+			time=s.getBackupService(). getART();
+			price=s.getBackupService(). getCost();
+		}
+		
+		else if(adaptation.equals("Redundancy")) {
+			//System.out.println("s.getBackupService(). getCost()  "+s.getBackupService(). getCost()+" s.getBackupService(). getART() "+s.getBackupService(). getART());
+			time=s.getBackupService(). getART();
+			price=price+s.getBackupService(). getCost();
+			value=value*2;
+		}
+		
+		else if(adaptation.equals("Late") || adaptation.equals("Insert")) {
+			if (costVector.get(0).length() > 1) {
+				if(costVector.get(0).charAt(1)== '/') 
+					time=time/Character.getNumericValue(costVector.get(0).charAt(2));
+				if(costVector.get(0).charAt(1)== '*') 
+					time=time*Character.getNumericValue(costVector.get(0).charAt(2));
+			}
+			//else time=time
+			if (costVector.get(1).length() > 1) {
+				if(costVector.get(1).charAt(1)== '/') 
+					price=price/Character.getNumericValue(costVector.get(1).charAt(2));
+				if(costVector.get(1).charAt(1)== '*') 
+					price=price*Character.getNumericValue(costVector.get(1).charAt(2));
+			}
+			//else price=price
+			if (costVector.get(2).length() > 1) {
+				if(costVector.get(2).charAt(1)== '/') 
+					value=value/Character.getNumericValue(costVector.get(2).charAt(2));
+				if(costVector.get(2).charAt(1)== '*') 
+					value=value*Character.getNumericValue(costVector.get(2).charAt(2));
+			}
+			//else value=value
+			//System.out.println("here cost  "+time+" "+price+" "+value);
+		}
+		
+		else if(adaptation.equals("Switch")) {
+			value=value/2;
+		}
+		else if(adaptation.equals("Skip")) {
+			value=0;
+			time=0;
+			price=0;
+		}
+		else if(adaptation.equals("Recovery")) {
+			time=2*time-time/2;
+			price=2*price-price/2;
+		}
+		else if(adaptation.equals("Containment")) {
+			time=3*time;
+			price=3*price;
+		}
+		
+		//b:Process-level adaptations:
+		else if(adaptation.equals("Rerouting")) {
+			time=2*time;
+			price=2*price;
+		}
+		
+		else if(adaptation.equals("ReSequencing")) {
+			time=2*time;
+			price=2*price;
+		}
+		
+		else if(adaptation.equals("ProcessSuspension")) {
+			value=0;
+		}
+		
+		//Middleware-level adaptations: 
+		else if(adaptation.equals("ReConfiguration")) {
+			time+=this.timeOfReconfigration;
+			cost+=this.costOfReconfigration;
+			value+=this.valueOfReconfigration;
+			
+		}
+		
+		else if(adaptation.equals("IncreaseMonitoring")) {
+			time+=this.timeOfIncreaseMonitoring;
+			cost+=this.costOfIncreaseMonitoring;
+			value=value+1;
+
+		}
+		
+		else if(adaptation.equals("EnhancingSecurityMeasures")) {
+			time+=this.timeOfEnhancingSecurityMeasures;
+			cost+=this.costOfEnhancingSecurityMeasures;
+			value=value+1;
+		}
+		
+		else if(adaptation.equals("RestrictingAccess")) {
+			time+=this.timeOfRestrictingAccess;
+			cost+=this.costOfRestrictingAccess;
+			value=value+1;
+		}
+		
+	
+		//double newTotalCost=this.priceWeight*price+this.timeWeight*time-this.valueWeight*value;// time and cost have positive and value has negetive relationship with final cost 
+		//System.out.println("					-NewCost: "+newTotalCost+" time "+time +" price "+price+" value "+value);
+
+		
+		
+		/*  for normalizing the final cost of the workflow based on number of tasks that were under attack.
+		//after applying new costs
+		ArrayList<Double> newcosts=workflow.NormalizedCost(s,price,time,value);
+		//System.out.println("new price,time,value  "+price+" "+time+" "+value);
+		ArrayList<Double> totalcosts=workflow.TotalCost(s.getTaskId(),price,time,value);
+		//cost=this.priceWeight*newcosts.get(0)+this.timeWeight*newcosts.get(1)-this.valueWeight*newcosts.get(2);// time and cost have positive and value has negetive relationship with final cost 
+		double newTotalCost=this.priceWeight*totalcosts.get(0)+this.timeWeight*totalcosts.get(1)-this.valueWeight*totalcosts.get(2);// time and cost have positive and value has negetive relationship with final cost 
+		System.out.println("				-newTotalCost  "+newTotalCost);
+		double costRate=(double)newTotalCost/oldTotalCost;
+		return costRate;
+		*/
+
+		adapt.setPriceTimeValue(time,price,value);
+	}
+	
 	public void addTaskToFile(String task,String file) throws IOException {
 		 try {
 			 //file=workflow.getTenantAddress()+file;

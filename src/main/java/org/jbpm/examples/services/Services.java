@@ -51,6 +51,7 @@ public class Services {
 	static boolean HospitalResult=false; 
 	static Workflow workflow;
 	static boolean createKDDs=false;
+
 	TenantKernel currentTenant;
 	static int taskNumber=0;
 
@@ -466,7 +467,8 @@ public class Services {
 		System.out.println("OnExitParametersObtainClaimService ");
 		//MC.ExecuteServiceTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,"ObtainClaimService");
 		currentTenant=workflow.getTenant();
-		this.currentTenant.getKernelManagment().getMultiCloudEnvironment().AssigningServiceToTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,this.workflow,"ObtainClaimService",this.taskNumber);
+		int count=currentTenant.getCurrentExecutionNumber();
+		this.currentTenant.getKernelManagment().getMultiCloudEnvironment().AssigningServiceToTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,this.workflow,"ObtainClaimService",this.taskNumber,count);
 		//CreateServiceTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,"ObtainClaimService");
 		System.out.println("****************end ObtainClaimService****************");
 
@@ -477,7 +479,9 @@ public class Services {
 		System.out.println("OnExitParametersObtainHospitalReport ");
 		//CreateUserTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,"ObtainHospitalReport");
 		currentTenant=workflow.getTenant();
-		this.currentTenant.getKernelManagment().getMultiCloudEnvironment().AssigningServiceToTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,this.workflow,"HospitalReport",this.taskNumber);
+		System.out.println("CurrentExecutionNumber "+currentTenant.getCurrentExecutionNumber());
+		int count=currentTenant.getCurrentExecutionNumber();
+		this.currentTenant.getKernelManagment().getMultiCloudEnvironment().AssigningServiceToTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,this.workflow,"HospitalReport",this.taskNumber,count);
 		//CreateServiceTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,"HospitalReport");
 		System.out.println("****************end HospitalReport****************");
 	}
@@ -486,7 +490,8 @@ public class Services {
 		System.out.println("OnExitParametersObtainPoliceReport ");
 		//CreateUserTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,"ObtainPoliceReport");
 		currentTenant=workflow.getTenant();
-		this.currentTenant.getKernelManagment().getMultiCloudEnvironment().AssigningServiceToTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,this.workflow,"PoliceReport",this.taskNumber);
+		int count=currentTenant.getCurrentExecutionNumber();
+		this.currentTenant.getKernelManagment().getMultiCloudEnvironment().AssigningServiceToTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,this.workflow,"PoliceReport",this.taskNumber,count);
 		//CreateServiceTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,"PoliceReport");
 		System.out.println("****************end PoliceReport ****************");
 	}
@@ -495,7 +500,8 @@ public class Services {
 		System.out.println("OnExitSetParametersSelectBestExpert ");
 		//MC.ExecuteServiceTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,"SelectBestExpert");
 		currentTenant=workflow.getTenant();
-		this.currentTenant.getKernelManagment().getMultiCloudEnvironment().AssigningServiceToTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,this.workflow,"SelectBestExpert",this.taskNumber);
+		int count=currentTenant.getCurrentExecutionNumber();
+		this.currentTenant.getKernelManagment().getMultiCloudEnvironment().AssigningServiceToTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,this.workflow,"SelectBestExpert",this.taskNumber,count);
 		//CreateServiceTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,"SelectBestExpert");
 		System.out.println("****************end SelectBestExpert****************");
 	}
@@ -504,7 +510,8 @@ public class Services {
 		System.out.println("OnExitSetParametersReimbursementDecision ");
 		//CreateUserTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,"ReimbursementDecision");
 		currentTenant=workflow.getTenant();
-		this.currentTenant.getKernelManagment().getMultiCloudEnvironment().AssigningServiceToTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,this.workflow,"BankReimbursment",this.taskNumber);
+		int count=currentTenant.getCurrentExecutionNumber();
+		this.currentTenant.getKernelManagment().getMultiCloudEnvironment().AssigningServiceToTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,this.workflow,"BankReimbursment",this.taskNumber,count);
 		//CreateServiceTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,"BankReimbursment");
 		System.out.println("****************end BankReimbursment****************");
 	}
@@ -512,7 +519,8 @@ public class Services {
 	public void SetOnExitParametersCustomerFeedbackCollection(long ProcessInstance_Id,String ProcessInstance_ProcessName,String ProcessInstance_ProcessId) throws IOException{
 		System.out.println("OnExitSetParametersCustomerFeedbackCollection ");
 		currentTenant=workflow.getTenant();
-		this.currentTenant.getKernelManagment().getMultiCloudEnvironment().AssigningServiceToTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,this.workflow,"CustomerFeedbackCollection",this.taskNumber);
+		int count=currentTenant.getCurrentExecutionNumber();
+		this.currentTenant.getKernelManagment().getMultiCloudEnvironment().AssigningServiceToTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,this.workflow,"CustomerFeedbackCollection",this.taskNumber,count);
 		//CreateServiceTask(ProcessInstance_Id,ProcessInstance_ProcessName,ProcessInstance_ProcessId,"CustomerFeedbackCollection");
 		System.out.println("****************end CustomerFeedbackCollection****************");
 	}
